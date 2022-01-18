@@ -21,7 +21,9 @@ public class TableAssigner : MonoBehaviour
     {
         if (tableSeater.CurrentCustomer != null && Input.GetKeyDown(KeyCode.Space) && closeToTable)
         {
-            Vector3 chairPos = curTable.GetEmptyChairPosition();
+            //Pass in who the customer who will sit in a specific chair so we can keep track when they leave
+            Vector3 chairPos = curTable.GetEmptyChairPosition(tableSeater.CurrentCustomer);
+            
             tableSeater.CurrentCustomer.MoveToTable(chairPos);
             tableSeater.CurrentCustomer = null;
         }

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class CustomerSpawner : MonoBehaviour
 {
+    [SerializeField] private int amountOfCustomersToSpawn = 3;
+    
+    
     [SerializeField] private Transform doorPos;
     [SerializeField] private GameObject customer;
     [SerializeField] private GameObject player; //Just out of lazyness atm..
@@ -16,7 +19,7 @@ public class CustomerSpawner : MonoBehaviour
 
     IEnumerator SpawnCustomers()
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < amountOfCustomersToSpawn; i++)
         {
             SpawnCustomer(i);
             yield return new WaitForSeconds(7f);

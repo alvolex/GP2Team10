@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public class Customer : MonoBehaviour
 {
@@ -22,6 +23,8 @@ public class Customer : MonoBehaviour
 
     private bool isMovingToTable;
     private bool hasFinishedEating = false;
+
+    public event Action<Customer> OnFinishedEating;
 
     private void Start()
     {
@@ -84,7 +87,7 @@ public class Customer : MonoBehaviour
 
                 if (hit.transform.parent.TryGetComponent(out Table table))
                 {
-                    Vector3 chairPos = table.GetEmptyChairPosition();
+                    Vector3 chairPos = table.GetEmptyChairPosition(tableSeater.CurrentCustomer);
                     if (chairPos != Vector3.positiveInfinity)
                     {
                         nmagent.destination = chairPos;
@@ -116,9 +119,11 @@ public class Customer : MonoBehaviour
 
     IEnumerator EatFood()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(Random.Range(5f,10f));
 
         hasFinishedEating = true;
+        
+        OnFinishedEating?.Invoke(this);
         nmagent.destination = restaurantExit.transform.position;
     }
     

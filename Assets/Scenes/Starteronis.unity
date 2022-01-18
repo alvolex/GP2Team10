@@ -725,6 +725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1f978b4db324f44bdf117653934720, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amountOfCustomersToSpawn: 10
   doorPos: {fileID: 2073223}
   customer: {fileID: 3037402073341605548, guid: 440de0b56ed897b4b88efb54ab9d80d7, type: 3}
   player: {fileID: 1639460134}
@@ -1580,6 +1581,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1236374637, guid: b101415c86ef5124e97c5a64c193666e, type: 3}
+      propertyPath: m_Extents.x
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 1236374637, guid: b101415c86ef5124e97c5a64c193666e, type: 3}
+      propertyPath: m_Extents.y
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 1236374637, guid: b101415c86ef5124e97c5a64c193666e, type: 3}
+      propertyPath: m_Extents.z
+      value: 0.55
+      objectReference: {fileID: 0}
     - target: {fileID: 437307200005666302, guid: b101415c86ef5124e97c5a64c193666e, type: 3}
       propertyPath: m_RootOrder
       value: 4
