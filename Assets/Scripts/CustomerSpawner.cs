@@ -19,7 +19,7 @@ public class CustomerSpawner : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             SpawnCustomer();
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(7f);
         }
     }
 

@@ -37,20 +37,23 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetAxisRaw("Horizontal") != 0 && Input.GetAxisRaw("Vertical") != 0)        
         {
             movementVector = (Vector3.right * movementSpeed * Time.deltaTime * Input.GetAxisRaw("Horizontal") * ISOMETRIC_MOVEMENT_MULTIPLIER) + (Vector3.forward * movementSpeed * Time.deltaTime * Input.GetAxisRaw("Vertical")* ISOMETRIC_MOVEMENT_MULTIPLIER);
-            transform.position += IsoVectorConvert(movementVector);
+            rigidbody.MovePosition( transform.position += IsoVectorConvert(movementVector));
+            //transform.position += IsoVectorConvert(movementVector);
             return;
         }
         
         if (Input.GetAxisRaw("Horizontal") != 0)
         {
             movementVector = Vector3.right * movementSpeed * Time.deltaTime * Input.GetAxisRaw("Horizontal");
-            transform.position += IsoVectorConvert(movementVector);
+            //transform.position += IsoVectorConvert(movementVector);
+            rigidbody.MovePosition( transform.position += IsoVectorConvert(movementVector));
         }
         
         if (Input.GetAxisRaw("Vertical") != 0)
         {
             movementVector = Vector3.forward * movementSpeed * Time.deltaTime * Input.GetAxisRaw("Vertical");
-            transform.position += IsoVectorConvert(movementVector);
+            //transform.position += IsoVectorConvert(movementVector);
+            rigidbody.MovePosition( transform.position += IsoVectorConvert(movementVector));
         }
         
         /*if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
