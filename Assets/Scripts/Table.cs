@@ -11,7 +11,6 @@ public class Table : MonoBehaviour
     [SerializeField] private Material defaultMat;
     [SerializeField] private Material selectedMat;
 
-
     private int emptyChairs = 0;
     private int currentChairIndex = 0;
 

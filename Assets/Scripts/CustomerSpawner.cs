@@ -18,14 +18,18 @@ public class CustomerSpawner : MonoBehaviour
     {
         for (int i = 0; i < 4; i++)
         {
-            SpawnCustomer();
+            SpawnCustomer(i);
             yield return new WaitForSeconds(7f);
         }
     }
 
-    void SpawnCustomer()
+    void SpawnCustomer(int i)
     {
         GameObject customerInstance = Instantiate(customer, doorPos.position, Quaternion.identity);
         customerInstance.transform.LookAt(player.transform.position);
+        customerInstance.name = $"Customer_{i}";
+        
+        //todo This makes me a bit uncomfortable
+        customerInstance.GetComponent<Customer>().restaurantExit = doorPos;
     }
 }

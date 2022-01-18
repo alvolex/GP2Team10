@@ -9,35 +9,71 @@ public class Customer : MonoBehaviour
 {
     [SerializeField] private ScriptableTableSeater tableSeater;
 
+    //Debug stuff that needs to be moved to a better location later..
+    public Transform restaurantExit;
+    //End debug shenanigans
+
     private Camera cam;
     private NavMeshAgent nmagent;
     private SphereCollider sCollider;
-
+    
     private bool closeToHost = false;
+    private Rigidbody rb;
+
+    private bool isMovingToTable;
+    private bool hasFinishedEating = false;
 
     private void Start()
     {
+        isMovingToTable = false;
         cam = Camera.main;
         nmagent = gameObject.GetComponent<NavMeshAgent>();
         sCollider = GetComponent<SphereCollider>();
+        rb = GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
-        //If close and mouse is pressed.. (this should be separated into another script..)
+        HandleCustomerSelection();
+        HandleMovingToTable();
+    }
+
+    private void HandleMovingToTable()
+    {
+        if (!isMovingToTable) return;
+
+        //Check if customer has reached the table or not
+        if (nmagent.pathPending ||
+            nmagent.pathStatus == NavMeshPathStatus.PathInvalid ||
+            nmagent.path.corners.Length == 0 || nmagent.remainingDistance >= 0.1f) return;
+
+        //Not moving if we have reached table
+        isMovingToTable = false;
+
+        StartCoroutine(EatFood());
+    }
+
+    private void HandleCustomerSelection()
+    {
         if (Input.GetKeyDown(KeyCode.Space) && closeToHost)
         {
-            tableSeater.currentCustomer = this;
+            //Set the current customer to be this customer when selected in our scriptable object
+            tableSeater.CurrentCustomer = this;
         }
-        //ClickToAssignTable();
     }
 
     public void MoveToTable(Vector3 pos)
     {
+        isMovingToTable = true;
+        
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
         nmagent.destination = pos;
         sCollider.radius = 0.5f; //So we can keep assigning to the table
     }
 
+    //If we ever want to be able to assign a customer to a table without going to it
+    //Should work without any changes, just call it when a customer is selected and then click a table
     private void ClickToAssignTable()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0) && closeToHost)
@@ -59,12 +95,17 @@ public class Customer : MonoBehaviour
         }
     }
 
-    
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if (other.TryGetComponent(out PlayerMovement pmovMovement))
+        if (other.TryGetComponent(out PlayerMovement _))
         {
             closeToHost = true;
+        }
+
+        //Just testin'
+        if (other.CompareTag("Finish") && hasFinishedEating)
+        {
+            Destroy(gameObject);
         }
     }
 
@@ -72,4 +113,13 @@ public class Customer : MonoBehaviour
     {
         closeToHost = false;
     }
+
+    IEnumerator EatFood()
+    {
+        yield return new WaitForSeconds(5f);
+
+        hasFinishedEating = true;
+        nmagent.destination = restaurantExit.transform.position;
+    }
+    
 }

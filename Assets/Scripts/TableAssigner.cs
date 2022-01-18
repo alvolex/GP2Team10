@@ -13,17 +13,17 @@ public class TableAssigner : MonoBehaviour
 
     private void Start()
     {
-        tableSeater.currentCustomer = null;
+        tableSeater.CurrentCustomer = null;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (tableSeater.currentCustomer != null && Input.GetKeyDown(KeyCode.Space) && closeToTable)
+        if (tableSeater.CurrentCustomer != null && Input.GetKeyDown(KeyCode.Space) && closeToTable)
         {
             Vector3 chairPos = curTable.GetEmptyChairPosition();
-            tableSeater.currentCustomer.MoveToTable(chairPos);
-            tableSeater.currentCustomer = null;
+            tableSeater.CurrentCustomer.MoveToTable(chairPos);
+            tableSeater.CurrentCustomer = null;
         }
     }
 
