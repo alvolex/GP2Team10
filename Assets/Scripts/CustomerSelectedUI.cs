@@ -16,6 +16,6 @@ public class CustomerSelectedUI : MonoBehaviour
 
     void UpdateCurrentCustomerUI()
     {
-        text.text = $"Customer selected: {tableSeater?.CurrentCustomer}";
+        text.text = $"Current Action:  {tableSeater?.CurrentCustomer}";
     }
 }

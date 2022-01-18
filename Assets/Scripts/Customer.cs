@@ -16,21 +16,28 @@ public class Customer : MonoBehaviour
 
     private Camera cam;
     private NavMeshAgent nmagent;
+    private NavMeshObstacle nmObstacle;
     private SphereCollider sCollider;
+    private OrderFood orderFood;
     
     private bool closeToHost = false;
     private Rigidbody rb;
 
     private bool isMovingToTable;
     private bool hasFinishedEating = false;
+    private bool isSeated = false;
 
     public event Action<Customer> OnFinishedEating;
 
     private void Start()
     {
+        isSeated = false;
         isMovingToTable = false;
+        //Get components
         cam = Camera.main;
-        nmagent = gameObject.GetComponent<NavMeshAgent>();
+        orderFood = GetComponent<OrderFood>();
+        nmagent = GetComponent<NavMeshAgent>();
+        nmObstacle = GetComponent<NavMeshObstacle>();
         sCollider = GetComponent<SphereCollider>();
         rb = GetComponent<Rigidbody>();
     }
@@ -42,23 +49,29 @@ public class Customer : MonoBehaviour
     }
 
     private void HandleMovingToTable()
-    {
+    {   //Check if customer has reached the table or not
         if (!isMovingToTable) return;
 
-        //Check if customer has reached the table or not
         if (nmagent.pathPending ||
             nmagent.pathStatus == NavMeshPathStatus.PathInvalid ||
             nmagent.path.corners.Length == 0 || nmagent.remainingDistance >= 0.1f) return;
 
-        //Not moving if we have reached table
-        isMovingToTable = false;
+        isMovingToTable = false; //Not moving if we have reached table
+        isSeated = true;
 
-        StartCoroutine(EatFood());
+        //Start the food ordering process
+        orderFood.Order();
+        orderFood.SCollider = sCollider;
+        rb.constraints = RigidbodyConstraints.FreezeAll;
+        nmagent.ResetPath();
+        nmagent.enabled = false;
+        nmObstacle.enabled = true;
     }
-
+    
+    //todo maybe the player should handle this(?)
     private void HandleCustomerSelection()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && closeToHost)
+        if (Input.GetKeyDown(KeyCode.Space) && closeToHost && !isSeated)
         {
             //Set the current customer to be this customer when selected in our scriptable object
             tableSeater.CurrentCustomer = this;
@@ -117,14 +130,35 @@ public class Customer : MonoBehaviour
         closeToHost = false;
     }
 
+    private void ExitRestaurant()
+    {
+        rb.constraints = RigidbodyConstraints.None;
+        nmObstacle.enabled = false;
+        nmagent.enabled = true;
+        sCollider.radius = 0.5f;
+
+        nmagent.destination = restaurantExit.transform.position;
+    }
+
+    
+    //todo Debugging, should be split into it's own class later
+    public void StartEatingFood()
+    {
+        StartCoroutine(EatFood());
+    }
+    
+    //todo Maybe this should be in it's own class(?)
     IEnumerator EatFood()
     {
         yield return new WaitForSeconds(Random.Range(5f,10f));
-
-        hasFinishedEating = true;
         
+        //Have to do this otherwise we get pushed when we re-activate the navmesh agent..
+        nmObstacle.size = Vector3.zero; 
+        yield return null;
+        
+        hasFinishedEating = true;
         OnFinishedEating?.Invoke(this);
-        nmagent.destination = restaurantExit.transform.position;
+        
+        ExitRestaurant();
     }
-    
 }
