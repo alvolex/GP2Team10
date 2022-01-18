@@ -852,6 +852,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tableSeater: {fileID: 11400000, guid: 5655adfd73483864888cd7e96c476a00, type: 2}
+  curTable: {fileID: 0}
 --- !u!1 &1678531687
 GameObject:
   m_ObjectHideFlags: 0

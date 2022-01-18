@@ -6,12 +6,28 @@ using UnityEngine;
 public class Table : MonoBehaviour
 {
     [SerializeField] private List<GameObject> chairPositions;
+    [SerializeField] private MeshRenderer tableMeshRenderer;
+
+    [SerializeField] private Material defaultMat;
+    [SerializeField] private Material selectedMat;
+
+
     private int emptyChairs = 0;
     private int currentChairIndex = 0;
-    
+
     private void Start()
     {
         emptyChairs = chairPositions.Count;
+    }
+
+    public void HighlightTable()
+    {
+        tableMeshRenderer.material = selectedMat;
+    }
+    
+    public void UnhighlightTable()
+    {
+        tableMeshRenderer.material = defaultMat;
     }
 
     public Vector3 GetEmptyChairPosition()

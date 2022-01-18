@@ -546,6 +546,9 @@ MonoBehaviour:
   - {fileID: 2544814710097392192}
   - {fileID: 5303192795509609997}
   - {fileID: 5167327267148032237}
+  tableMeshRenderer: {fileID: 4093652244581215230}
+  defaultMat: {fileID: 2100000, guid: 91d917152462d514a897dfcd0b3cc5a0, type: 2}
+  selectedMat: {fileID: 2100000, guid: 0095f11c94b61d34182b8f9cb57ae586, type: 2}
 --- !u!1 &7626114540869391287
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,7 +9,7 @@ public class TableAssigner : MonoBehaviour
     [SerializeField] private ScriptableTableSeater tableSeater;
     private bool closeToTable = false;
 
-    private Table curTable;
+     [SerializeField]private Table curTable;
 
     private void Start()
     {
@@ -33,6 +33,8 @@ public class TableAssigner : MonoBehaviour
 
         if (other.transform.parent.TryGetComponent<Table>(out Table table))
         {
+            table.HighlightTable();
+            
             closeToTable = true;
             curTable = table;
         }
@@ -40,7 +42,12 @@ public class TableAssigner : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        if (curTable != null)
+        {
+            curTable.UnhighlightTable();
+        }
         closeToTable = false;
         curTable = null;
     }
+
 }
