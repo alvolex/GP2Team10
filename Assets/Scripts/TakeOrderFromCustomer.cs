@@ -10,30 +10,54 @@ public class TakeOrderFromCustomer : MonoBehaviour
 
     private Queue<Food> allCurrentOrders = new Queue<Food>();
 
-    private Customer customer;
     private OrderFood of;
     private Kitchen kitchen;
-    
-    private bool canTakeOrder;
+
+    [SerializeField] private bool canTakeOrder;
     private bool canLeaveOrdersToKitchen;
-    
+
     private void Start()
     {
         canTakeOrder = false;
         canLeaveOrdersToKitchen = false;
-        customer = GetComponent<Customer>();
     }
 
     private void Update()
     {
-        if (of != null)
+        //todo This is one ugly if statement
+        if (of != null && canTakeOrder && (currentAction.CurrentAction == CurrentAction.None ||
+            currentAction.CurrentAction == CurrentAction.HandlingOrder))
         {
-            HandleTakeOrderFromCustomer();
-        };
+            //Do dist check instead of "OnTriggerExit" as it kinda borked when using multiple triggers
+            //todo sqrMag or throttle how often this is checked
+            if (Vector3.Distance(transform.position, of.transform.position) <= 4f)
+            {
+                HandleTakeOrderFromCustomer();
+            }
+            else
+            {
+                canTakeOrder = false;
+            }
+        }
 
         if (canLeaveOrdersToKitchen)
         {
             HandleLeaveOrdersToKitchen();
+        }
+    }
+
+    private void HandleTakeOrderFromCustomer()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && of.ReadyToOrder /*&& canTakeOrder*/)
+        {
+            of.OrderUIImage.SetActive(false); //Disable the order food pop-up since we've now taken the order
+            currentAction.CurrentAction = CurrentAction.HandlingOrder;
+
+            //Add food to all our current orders
+            allCurrentOrders.Enqueue(of.MyOrder);
+
+            Debug.Log(of.MyOrder.GetFood());
+            of.GetComponent<Customer>().StartEatingFood();
         }
     }
 
@@ -45,21 +69,7 @@ public class TakeOrderFromCustomer : MonoBehaviour
 
             kitchen.OrdersToCook = allCurrentOrders;
             allCurrentOrders = new Queue<Food>(); //Empty queue
-        }
-    }
-
-    private void HandleTakeOrderFromCustomer()
-    {
-        if (Input.GetKeyDown(KeyCode.Space) && of.ReadyToOrder && canTakeOrder)
-        {
-            of.OrderUIImage.SetActive(false); //Disable the order food pop-up since we've now taken the order
-            currentAction.CurrentAction = CurrentAction.HandlingOrder;
-
-            //Add food to all our current orders
-            allCurrentOrders.Enqueue(of.MyOrder);
-
-            Debug.Log(of.MyOrder.GetFood());
-            of.GetComponent<Customer>().StartEatingFood();
+            currentAction.CurrentAction = CurrentAction.None;
         }
     }
 
@@ -75,10 +85,10 @@ public class TakeOrderFromCustomer : MonoBehaviour
             canLeaveOrdersToKitchen = true;
         }
     }
-    
+
     private void OnTriggerExit(Collider other)
     {
-        canTakeOrder = false;
+        //canTakeOrder = false;
         canLeaveOrdersToKitchen = false;
     }
 }

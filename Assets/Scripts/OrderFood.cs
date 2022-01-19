@@ -17,7 +17,10 @@ public enum FoodType
 public class OrderFood : MonoBehaviour
 {
     [SerializeField] private GameObject orderUIImage;
-    
+
+    [Header("Food Ordering")] 
+    [SerializeField, Range(1f,3f)] private float foodOrderingRadius = 2f;
+
     //todo TESTING, THIS STUFFNEEDS TO BE MOVED INTO ITS OWN FOOD CLASS WITH ATTRIBUTES AND ALLERGIES AND WHATNOT
     [Header("This will all be moved later..")] 
     [SerializeField] private Image spriteRenderer;
@@ -82,7 +85,8 @@ public class OrderFood : MonoBehaviour
             spriteRenderer.sprite = dessertSprite;
         }
         //End move to other class shtuff
-        myOrder = new Food(foodToOrder, GetComponent<Customer>(), spriteRenderer.sprite);
+        
+        myOrder = new Food(foodToOrder, GetComponent<Customer>(), spriteRenderer.sprite); //Create the new food and assign the correct data to it
 
         //Uncomment these two if we want to go back to how it was before we showed food sprite
         //yield return new WaitForSeconds(Random.Range(5f,8f));
@@ -90,6 +94,6 @@ public class OrderFood : MonoBehaviour
         
         readyToOrder = true;
         //Make the collider bigger again when the alien is seated so that we can handle orders
-        sCollider.radius = 1.55f; //todo this needs tweaking
+        sCollider.radius = foodOrderingRadius; //todo this needs tweaking
     }
 }
