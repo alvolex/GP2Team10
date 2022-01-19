@@ -328,6 +328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tableSeater: {fileID: 11400000, guid: 5655adfd73483864888cd7e96c476a00, type: 2}
+  currentAction: {fileID: 11400000, guid: add060246eb07f24e9273627e0cd9bce, type: 2}
   restaurantExit: {fileID: 0}
 --- !u!114 &4031241071056332896
 MonoBehaviour:

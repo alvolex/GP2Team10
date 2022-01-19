@@ -1,10 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 
 public class TakeOrderFromCustomer : MonoBehaviour
 {
+    [SerializeField] private ScriptablePlayerCurrentAction currentAction;
+    
     private Customer customer;
     private OrderFood of;
     
@@ -26,6 +29,8 @@ public class TakeOrderFromCustomer : MonoBehaviour
 
             //todo fix this placeholder to just eat the food and leave
             //Next step should be to give the order to the chef, then recieve the food and deliver it 
+            currentAction.CurrentAction = CurrentAction.HandlingOrder;
+            
             of.GetComponent<Customer>().StartEatingFood();
         }
     }

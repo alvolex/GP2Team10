@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -30,7 +31,7 @@ public class OrderFood : MonoBehaviour
 
     private void Start()
     {
-        EnumToArray();
+        EnumToArray(); //Convert our FoodTypes into an array
     }
 
     private void EnumToArray()
@@ -59,7 +60,7 @@ public class OrderFood : MonoBehaviour
     IEnumerator TimeToOrder()
     {
         //Move to other class..
-        FoodType foodToOrder = (FoodType) enumArr.GetValue(Random.Range(0, enumArr.Length));
+        FoodType foodToOrder = (FoodType) enumArr.GetValue(Random.Range(0, enumArr.Length)); //Get a random food
 
         yield return new WaitForSeconds(Random.Range(5f,8f));
         
@@ -77,7 +78,6 @@ public class OrderFood : MonoBehaviour
         {
             spriteRenderer.sprite = dessertSprite;
         }
-
         //End move to other class shtuff
 
         //Uncomment these two if we want to go back to how it was before we showed food sprite
@@ -86,6 +86,6 @@ public class OrderFood : MonoBehaviour
         
         readyToOrder = true;
         //Make the collider bigger again when the alien is seated so that we can handle orders
-        sCollider.radius = 1.85f; //todo this needs tweaking
+        sCollider.radius = 1.55f; //todo this needs tweaking
     }
 }

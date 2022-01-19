@@ -7,6 +7,8 @@ using UnityEngine;
 public class TableAssigner : MonoBehaviour
 {
     [SerializeField] private ScriptableTableSeater tableSeater;
+    [SerializeField] private ScriptablePlayerCurrentAction currentAction;
+    
     private bool closeToTable = false;
 
      [SerializeField]private Table curTable;
@@ -23,6 +25,7 @@ public class TableAssigner : MonoBehaviour
         {
             //Pass in who the customer who will sit in a specific chair so we can keep track when they leave
             Vector3 chairPos = curTable.GetEmptyChairPosition(tableSeater.CurrentCustomer);
+            currentAction.CurrentAction = CurrentAction.None;
             
             tableSeater.CurrentCustomer.MoveToTable(chairPos);
             tableSeater.CurrentCustomer = null;

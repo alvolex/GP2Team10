@@ -8,8 +8,13 @@ using Random = UnityEngine.Random;
 
 public class Customer : MonoBehaviour
 {
+    [Header("Scriptable Objects")]
     [SerializeField] private ScriptableTableSeater tableSeater;
+    
+    //todo should we just change this to reside in a static class so we dont have to pull it into every script that needs it
+    [SerializeField] private ScriptablePlayerCurrentAction currentAction; 
 
+    [Header("Debug stuff")]
     //Debug stuff that needs to be moved to a better location later..
     public Transform restaurantExit;
     //End debug shenanigans
@@ -74,6 +79,7 @@ public class Customer : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && closeToHost && !isSeated)
         {
             //Set the current customer to be this customer when selected in our scriptable object
+            currentAction.CurrentAction = CurrentAction.SeatingCustomer;
             tableSeater.CurrentCustomer = this;
         }
     }
