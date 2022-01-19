@@ -31,7 +31,7 @@ public class TableAssigner : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.parent == null) return;
+        if (other.transform.parent == null || tableSeater.CurrentCustomer == null) return;
 
         if (other.transform.parent.TryGetComponent<Table>(out Table table))
         {
@@ -44,7 +44,7 @@ public class TableAssigner : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (curTable != null)
+        if (curTable != null && closeToTable)
         {
             curTable.UnhighlightTable();
         }
