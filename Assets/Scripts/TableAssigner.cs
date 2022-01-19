@@ -23,10 +23,9 @@ public class TableAssigner : MonoBehaviour
     {
         if (!closeToTable || curTable == null) return;
 
-        if (CheckIfTableIsInRange())
-        {
-            AssignCustomerToTable();
-        }
+        if (!CheckIfTableIsInRange()) return;
+
+        AssignCustomerToTable();
     }
 
     private bool CheckIfTableIsInRange()
@@ -58,6 +57,7 @@ public class TableAssigner : MonoBehaviour
             Vector3 chairPos = curTable.GetEmptyChairPosition(tableSeater.CurrentCustomer);
             currentAction.CurrentAction = CurrentAction.None;
 
+            //Move customer to the assigned chair
             tableSeater.CurrentCustomer.MoveToTable(chairPos);
             tableSeater.CurrentCustomer = null;
             

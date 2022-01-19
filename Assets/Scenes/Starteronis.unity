@@ -693,14 +693,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5425788184635612398, guid: b101415c86ef5124e97c5a64c193666e, type: 3}
-      propertyPath: m_Size.x
-      value: 3.59
-      objectReference: {fileID: 0}
-    - target: {fileID: 5425788184635612398, guid: b101415c86ef5124e97c5a64c193666e, type: 3}
-      propertyPath: m_Size.z
-      value: 6.74
-      objectReference: {fileID: 0}
     - target: {fileID: 6606800585313277404, guid: b101415c86ef5124e97c5a64c193666e, type: 3}
       propertyPath: m_Name
       value: Table
@@ -718,14 +710,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6414541750804244568, guid: 66552416112903f40a7c0e80ac451ca8, type: 3}
-      propertyPath: currentAction
-      value: 
-      objectReference: {fileID: 11400000, guid: add060246eb07f24e9273627e0cd9bce, type: 2}
-    - target: {fileID: 6414541750804244570, guid: 66552416112903f40a7c0e80ac451ca8, type: 3}
-      propertyPath: currentAction
-      value: 
-      objectReference: {fileID: 11400000, guid: add060246eb07f24e9273627e0cd9bce, type: 2}
     - target: {fileID: 6414541750804244575, guid: 66552416112903f40a7c0e80ac451ca8, type: 3}
       propertyPath: m_RootOrder
       value: 9

@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tableSeater: {fileID: 11400000, guid: 5655adfd73483864888cd7e96c476a00, type: 2}
+  currentAction: {fileID: 11400000, guid: add060246eb07f24e9273627e0cd9bce, type: 2}
   curTable: {fileID: 0}
 --- !u!208 &6414541750804244571
 NavMeshObstacle:
@@ -177,6 +178,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7143471cace9a1c4d81f222f7c4d567c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentAction: {fileID: 11400000, guid: add060246eb07f24e9273627e0cd9bce, type: 2}
+  canTakeOrder: 0
 --- !u!1 &6414541750860809125
 GameObject:
   m_ObjectHideFlags: 0
