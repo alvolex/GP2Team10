@@ -12,7 +12,7 @@ public class Customer : MonoBehaviour
     [SerializeField] private ScriptableTableSeater tableSeater;
     
     //todo should we just change this to reside in a static class so we dont have to pull it into every script that needs it
-    [SerializeField] private ScriptablePlayerCurrentAction currentAction; 
+    [SerializeField] private ScriptablePlayerCurrentAction currentAction;
 
     [Header("Debug stuff")]
     //Debug stuff that needs to be moved to a better location later..
@@ -146,7 +146,6 @@ public class Customer : MonoBehaviour
         nmagent.destination = restaurantExit.transform.position;
     }
 
-    
     //todo Debugging, should be split into it's own class later
     public void StartEatingFood()
     {

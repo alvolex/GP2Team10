@@ -10,7 +10,8 @@ public enum FoodType
 {
     Starter,
     MainCourse,
-    Dessert
+    Dessert,
+    NotOrdered
 }
 
 public class OrderFood : MonoBehaviour
@@ -23,11 +24,13 @@ public class OrderFood : MonoBehaviour
     [SerializeField] private Sprite starterSprite;
     [SerializeField] private Sprite maincourseSprite;
     [SerializeField] private Sprite dessertSprite;
-    
 
     private SphereCollider sCollider;
     private bool readyToOrder;
     private Array enumArr;
+
+    private Food myOrder;
+    public Food MyOrder => myOrder;
 
     private void Start()
     {
@@ -60,7 +63,7 @@ public class OrderFood : MonoBehaviour
     IEnumerator TimeToOrder()
     {
         //Move to other class..
-        FoodType foodToOrder = (FoodType) enumArr.GetValue(Random.Range(0, enumArr.Length)); //Get a random food
+        FoodType foodToOrder = (FoodType) enumArr.GetValue(Random.Range(0, enumArr.Length - 1)); //Get a random food (remove last since that is "Not ordered"..)
 
         yield return new WaitForSeconds(Random.Range(5f,8f));
         
@@ -79,6 +82,7 @@ public class OrderFood : MonoBehaviour
             spriteRenderer.sprite = dessertSprite;
         }
         //End move to other class shtuff
+        myOrder = new Food(foodToOrder, GetComponent<Customer>(), spriteRenderer.sprite);
 
         //Uncomment these two if we want to go back to how it was before we showed food sprite
         //yield return new WaitForSeconds(Random.Range(5f,8f));
