@@ -58,7 +58,7 @@ public class TakeOrderFromCustomer : MonoBehaviour
             //Add food to all our current orders
             allCurrentOrders.Enqueue(of.MyOrder);
 
-            of.GetComponent<Customer>().StartEatingFood();
+            //of.GetComponent<Customer>().StartEatingFood();
         }
     }
 

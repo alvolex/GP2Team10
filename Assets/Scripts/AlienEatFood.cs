@@ -11,7 +11,14 @@ public class AlienEatFood : MonoBehaviour
     public void DeliverFood(Order order)
     {
         Debug.Log( "Order has been recieved by alien: " + order.GetFood());
-        
         testeronis = order.GetFood().ToString();
+        
+        //Debug shiet
+        StartEatingFood();
+    }
+
+    private void StartEatingFood()
+    {
+        GetComponent<Customer>().StartEatingFood();
     }
 }

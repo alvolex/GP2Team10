@@ -23,7 +23,7 @@ public class DeliverFood : MonoBehaviour
         canDeliverFood = false;
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         if (!canDeliverFood || customer == null || curOrder == null) return;
 
@@ -54,5 +54,10 @@ public class DeliverFood : MonoBehaviour
 
         customer = curCustomer;
         canDeliverFood = true;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        canDeliverFood = false;
     }
 }
