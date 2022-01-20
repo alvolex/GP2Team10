@@ -6,9 +6,12 @@ public class Ingredients : MonoBehaviour
 {
     public enum Allergy
     {
-        Gluten,
-        Potato,
-        Protein
+        Sauce,
+        Veggies,
+        Protein,
+        MilkProduct,
+        Chocolate,
+        Fruits
     }
 
     public Allergy alienAllergies;
