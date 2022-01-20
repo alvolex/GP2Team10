@@ -599,6 +599,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c59fd0224c10642459d77b9bb1e0c5eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _points: {fileID: 11400000, guid: 28cdcbf3b26c52241a280a5a45ab8b5e, type: 2}
+  _scoreText: {fileID: 1778054233}
+  OnPointsChangedEvent: {fileID: 11400000, guid: 96341294a5dd31c43a1587c7d63d3e27, type: 2}
 --- !u!114 &1778054233
 MonoBehaviour:
   m_ObjectHideFlags: 0
