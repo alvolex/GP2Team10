@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e46227073fbf40b387ccffbde332c791, type: 3}
   m_Name: PlayerCurrentAction
   m_EditorClassIdentifier: 
-  currentAction: 3
+  currentAction: 2

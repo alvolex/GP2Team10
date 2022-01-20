@@ -11,14 +11,14 @@ public class FoodPickupStation : MonoBehaviour
     [SerializeField] private Canvas canvas;
     [SerializeField] private ScriptablePlayerCurrentAction curAction;
 
-    private Queue<Food> foodDisplayQueue = new Queue<Food>();
+    private Queue<Order> foodDisplayQueue = new Queue<Order>();
     private List<Image> spriteRenderers = new List<Image>();
 
     //testing
     private Sprite emptyPlateSprite;
     private bool canPickupFood;
 
-    private CarryFood playerCarry;
+    private DeliverFood playerCarry;
 
     private void Start()
     {
@@ -35,7 +35,7 @@ public class FoodPickupStation : MonoBehaviour
         }
     }
 
-    public void FoodIsReady(Food food)
+    public void FoodIsReady(Order food)
     {
         foodDisplayQueue.Enqueue(food);
         UpdateFoodPlatesOnCounter();
@@ -64,8 +64,6 @@ public class FoodPickupStation : MonoBehaviour
 
         Debug.Log("Food has been picked up: " + foodToPickup.GetFood());
 
-        Debug.Log(playerCarry);
-
         if (playerCarry != null)
         {
             playerCarry.PickupFood(foodToPickup); //Send the food over to the player
@@ -75,7 +73,7 @@ public class FoodPickupStation : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (curAction.CurrentAction != CurrentAction.None || !other.TryGetComponent(out CarryFood pc)) return;
+        if (curAction.CurrentAction != CurrentAction.None || !other.TryGetComponent(out DeliverFood pc)) return;
 
         playerCarry = pc;
         canPickupFood = true;

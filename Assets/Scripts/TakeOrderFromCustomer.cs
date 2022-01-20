@@ -10,7 +10,7 @@ public class TakeOrderFromCustomer : MonoBehaviour
 
     [SerializeField] private ScriptablePlayerCurrentAction currentAction;
 
-    private Queue<Food> allCurrentOrders = new Queue<Food>();
+    private Queue<Order> allCurrentOrders = new Queue<Order>();
 
     private OrderFood of;
     private Kitchen kitchen;
@@ -58,7 +58,6 @@ public class TakeOrderFromCustomer : MonoBehaviour
             //Add food to all our current orders
             allCurrentOrders.Enqueue(of.MyOrder);
 
-            Debug.Log(of.MyOrder.GetFood());
             of.GetComponent<Customer>().StartEatingFood();
         }
     }
@@ -70,7 +69,7 @@ public class TakeOrderFromCustomer : MonoBehaviour
             if (allCurrentOrders.Count == 0) return;
 
             kitchen.OrdersToCook = allCurrentOrders;
-            allCurrentOrders = new Queue<Food>(); //Empty queue
+            allCurrentOrders = new Queue<Order>(); //Empty queue
             currentAction.CurrentAction = CurrentAction.None;
         }
     }

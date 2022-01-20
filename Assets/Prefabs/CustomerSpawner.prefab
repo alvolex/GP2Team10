@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1f978b4db324f44bdf117653934720, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountOfCustomersToSpawn: 10
+  amountOfCustomersToSpawn: 6
   doorPos: {fileID: 8966542451947613955}
   customer: {fileID: 3037402073341605548, guid: 440de0b56ed897b4b88efb54ab9d80d7, type: 3}
   player: {fileID: 0}

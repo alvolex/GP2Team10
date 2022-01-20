@@ -14,9 +14,9 @@ public class Kitchen : MonoBehaviour
     //todo should create a scriptable event for this instead of directly referencing the other script
     [SerializeField] private FoodPickupStation foodPickupStation;
 
-    private Queue<Food> ordersToCook = new Queue<Food>();
+    private Queue<Order> ordersToCook = new Queue<Order>();
     private bool isCooking;
-    private Food currentlyCooking;
+    private Order currentlyCooking;
 
     private void Start()
     {
@@ -24,13 +24,13 @@ public class Kitchen : MonoBehaviour
     }
 
     //Getters & setters
-    public Queue<Food> OrdersToCook
+    public Queue<Order> OrdersToCook
     {
         get => ordersToCook;
         set => UpdateOrdersToCook(value);
     }
 
-    private void UpdateOrdersToCook(Queue<Food> newOrders)
+    private void UpdateOrdersToCook(Queue<Order> newOrders)
     {
         //Add new orders to the end of the queue if the queue isn't empty
         if (ordersToCook.Count != 0)

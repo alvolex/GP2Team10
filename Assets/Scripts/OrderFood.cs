@@ -33,8 +33,8 @@ public class OrderFood : MonoBehaviour
     private Array enumArr;
 
     //Can be used to check if the ordered food matches what they received
-    private Food myOrder;
-    public Food MyOrder => myOrder;
+    private Order myOrder;
+    public Order MyOrder => myOrder;
 
     private void Start()
     {
@@ -87,7 +87,7 @@ public class OrderFood : MonoBehaviour
         }
         //End move to other class shtuff
         
-        myOrder = new Food(foodToOrder, GetComponent<Customer>(), spriteRenderer.sprite); //Create the new food and assign the correct data to it
+        myOrder = new Order(foodToOrder, GetComponent<Customer>(), spriteRenderer.sprite); //Create the new food and assign the correct data to it
 
         //Uncomment these two if we want to go back to how it was before we showed food sprite
         //yield return new WaitForSeconds(Random.Range(5f,8f));
