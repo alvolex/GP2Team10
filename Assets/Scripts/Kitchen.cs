@@ -72,7 +72,7 @@ public class Kitchen : MonoBehaviour
             UpdateKitchenUI();
                 
             yield return new WaitForSeconds(5f);
-            foodPickupStation.UpdateFoodPlatesOnCounter(currentlyCooking.GetFoodSprite());
+            foodPickupStation.FoodIsReady(currentlyCooking);
         }
 
         foodThatIsCurrentlyCooked.sprite = imgWhenNoFoodIsBeingCooked;

@@ -5,9 +5,9 @@ namespace DefaultNamespace
 {
     public class Food
     {
-        private FoodType foodType = FoodType.NotOrdered;
-        private Customer customerWhoOrderedTheFood;
-        private Sprite foodSprite; 
+        private readonly FoodType foodType = FoodType.NotOrdered;
+        private readonly Customer customerWhoOrderedTheFood;
+        private readonly Sprite foodSprite; 
 
         public Food(FoodType orderedFood, Customer customer, Sprite foodImg)
         {

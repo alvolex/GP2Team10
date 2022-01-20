@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class TakeOrderFromCustomer : MonoBehaviour
 {
+    //todo rename script to be "HandleCustomerOrders"
+
     [SerializeField] private ScriptablePlayerCurrentAction currentAction;
 
     private Queue<Food> allCurrentOrders = new Queue<Food>();

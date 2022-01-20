@@ -17,6 +17,7 @@ public class TableAssigner : MonoBehaviour
     private void Start()
     {
         tableSeater.CurrentCustomer = null;
+        currentAction.CurrentAction = CurrentAction.None; //todo this is a pretty dirty place to put this...
     }
     
     void Update()

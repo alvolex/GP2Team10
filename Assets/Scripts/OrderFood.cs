@@ -32,6 +32,7 @@ public class OrderFood : MonoBehaviour
     private bool readyToOrder;
     private Array enumArr;
 
+    //Can be used to check if the ordered food matches what they received
     private Food myOrder;
     public Food MyOrder => myOrder;
 
