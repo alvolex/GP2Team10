@@ -12,6 +12,10 @@ public class AlienAttributes : MonoBehaviour
     [SerializeField] private IntReference reputationReference;
     [SerializeField] private ScriptableEventIntReference onReputationChanged;
 
+    [SerializeField] private IntVariable tips;
+    [SerializeField] private IntReference tipsReference;
+    [SerializeField] private ScriptableEventIntReference onTipsChanged;
+
     public Ingredients.Allergy[] allergy;
     [SerializeField] private int maxRep;
     [SerializeField] private int maxTip;
@@ -36,6 +40,8 @@ public class AlienAttributes : MonoBehaviour
             reputationReference.ApplyChange(+maxRep);
             onReputationChanged.Raise(reputation.Value);
             
+            tipsReference.ApplyChange(+maxTip);
+            onTipsChanged.Raise(tips.Value);
             
         }
     }
