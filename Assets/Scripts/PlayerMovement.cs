@@ -38,7 +38,9 @@ public class PlayerMovement : MonoBehaviour
         {
             movementVector = (Vector3.right * movementSpeed * Time.deltaTime * Input.GetAxisRaw("Horizontal") * ISOMETRIC_MOVEMENT_MULTIPLIER) + (Vector3.forward * movementSpeed * Time.deltaTime * Input.GetAxisRaw("Vertical")* ISOMETRIC_MOVEMENT_MULTIPLIER);
             rigidbody.MovePosition( transform.position += IsoVectorConvert(movementVector));
-            //transform.position += IsoVectorConvert(movementVector);
+            
+            //Leaving this for now because I don't know if RB movement will cause any problems
+            //transform.position += IsoVectorConvert(movementVector); 
             return;
         }
         

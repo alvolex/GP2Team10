@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Table : MonoBehaviour
@@ -11,13 +12,24 @@ public class Table : MonoBehaviour
     [SerializeField] private Material defaultMat;
     [SerializeField] private Material selectedMat;
 
+    [SerializeField]private int emptyChairs = 0;
 
-    private int emptyChairs = 0;
-    private int currentChairIndex = 0;
-
+    private Dictionary<Customer, int> customerChairDictionary = new Dictionary<Customer, int>();
+    private Dictionary<int, bool> availableSeats = new Dictionary<int, bool>();
+    
     private void Start()
     {
         emptyChairs = chairPositions.Count;
+
+        SetupAvailableChairs();
+    }
+
+    private void SetupAvailableChairs()
+    {
+        for (int i = 0; i < chairPositions.Count; i++)
+        {
+            availableSeats.Add(i, true);
+        }
     }
 
     public void HighlightTable()
@@ -30,16 +42,38 @@ public class Table : MonoBehaviour
         tableMeshRenderer.material = defaultMat;
     }
 
-    public Vector3 GetEmptyChairPosition()
+    public Vector3 GetEmptyChairPosition(Customer customer)
     {
         if (emptyChairs != 0)
         {
-            Vector3 posToReturn = chairPositions[currentChairIndex].transform.position;
-            currentChairIndex++;
+            customer.OnFinishedEating += HandleCustomerFinishedEating;
+            Vector3 posToReturn = Vector3.zero;
 
+            if (availableSeats.ContainsValue(true))
+            {
+                var myKey = availableSeats.FirstOrDefault(x => x.Value == true).Key;
+
+                posToReturn = chairPositions[myKey].transform.position;
+                    
+                customerChairDictionary.Add(customer,myKey);
+                availableSeats[myKey] = false;
+            }
+
+            emptyChairs--;
             return posToReturn;
         }
         
         return Vector3.positiveInfinity;
+    }
+
+    private void HandleCustomerFinishedEating(Customer customer)
+    {
+        emptyChairs++;
+
+        if (customerChairDictionary.ContainsKey(customer))
+        {
+            availableSeats[customerChairDictionary[customer]] = true;
+            customerChairDictionary.Remove(customer);
+        }
     }
 }

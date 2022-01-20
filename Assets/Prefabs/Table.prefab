@@ -106,7 +106,7 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_Extents: {x: 0.55, y: 0.55, z: 0.55}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
@@ -234,7 +234,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5167327267148032237}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.9300003, y: 0.6099999, z: 4.434005}
+  m_LocalPosition: {x: 7.14, y: 0.6099999, z: 4.434005}
   m_LocalScale: {x: 1, y: 0.28069, z: 1}
   m_Children: []
   m_Father: {fileID: 437307200005666302}
@@ -329,7 +329,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5303192795509609997}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.9300003, y: 0.6099999, z: 2.434005}
+  m_LocalPosition: {x: 7.14, y: 0.6099999, z: 2.434005}
   m_LocalScale: {x: 1, y: 0.28069, z: 1}
   m_Children: []
   m_Father: {fileID: 437307200005666302}
@@ -549,6 +549,7 @@ MonoBehaviour:
   tableMeshRenderer: {fileID: 4093652244581215230}
   defaultMat: {fileID: 2100000, guid: 91d917152462d514a897dfcd0b3cc5a0, type: 2}
   selectedMat: {fileID: 2100000, guid: 0095f11c94b61d34182b8f9cb57ae586, type: 2}
+  emptyChairs: 0
 --- !u!1 &7626114540869391287
 GameObject:
   m_ObjectHideFlags: 0
@@ -591,5 +592,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.33, y: 1, z: 7.26}
+  m_Size: {x: 3.59, y: 1, z: 6.74}
   m_Center: {x: 0, y: 0, z: 0}
