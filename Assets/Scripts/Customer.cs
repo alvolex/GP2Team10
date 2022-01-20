@@ -119,7 +119,7 @@ public class Customer : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.TryGetComponent(out PlayerMovement _))
+        if (currentAction.CurrentAction == CurrentAction.None && other.TryGetComponent(out PlayerMovement _))
         {
             closeToHost = true;
         }

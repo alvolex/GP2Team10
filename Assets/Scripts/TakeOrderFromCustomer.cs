@@ -75,11 +75,12 @@ public class TakeOrderFromCustomer : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //Take order from customer
         if (other.TryGetComponent(out of))
         {
             canTakeOrder = true;
         }
-
+        //Leave orders at the kitchen
         if (currentAction.CurrentAction == CurrentAction.HandlingOrder && other.TryGetComponent(out kitchen))
         {
             canLeaveOrdersToKitchen = true;
