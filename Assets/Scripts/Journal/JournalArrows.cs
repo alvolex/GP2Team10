@@ -12,9 +12,11 @@ public class JournalArrows : MonoBehaviour
     [SerializeField] private Button arrowLeft;
 
     private int currentPage = 0;
-    
 
-    // Update is called once per frame
+    [SerializeField] private GameObject journal;
+    private bool journalState;
+    
+    
     void Start()
     {
         arrowRight.onClick.AddListener(NextPage);
@@ -53,15 +55,5 @@ public class JournalArrows : MonoBehaviour
             arrowRight.gameObject.SetActive(true);
         }
         
-    }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            arrowRight.gameObject.SetActive(false);
-            arrowLeft.gameObject.SetActive(false);
-            
-        }
-        Debug.Log(currentPage+1 !>= journalPages.Length);
     }
 }
