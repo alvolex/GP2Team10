@@ -44,32 +44,6 @@ public class AlienAttributes : MonoBehaviour
             onTipsChanged.Raise(tips.Value);
         }
     }
-    
-    
-    /*private void OnCollisionEnter(Collision other)
-    {
-        Debug.Log("in food");
-
-        foreach (var VARIABLE in other.gameObject.GetComponent<TestMeal>().allergy)
-        {
-            foreach (var VARIABLE2 in allergy)
-            {
-                if (VARIABLE == VARIABLE2)
-                {
-                    Debug.Log("Allergy spotted, killed customer");
-                    return;
-                }
-            }
-            Debug.Log(VARIABLE);
-            
-            reputationReference.ApplyChange(+maxRep);
-            onReputationChanged.Raise(reputation.Value);
-            
-            tipsReference.ApplyChange(+maxTip);
-            onTipsChanged.Raise(tips.Value);
-            
-        }
-    }*/
 }
 
 

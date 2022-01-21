@@ -714,34 +714,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2333990106242624951, guid: d23aec3fb4a62304a97e9e88a8cd86ee, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2333990106242624951, guid: d23aec3fb4a62304a97e9e88a8cd86ee, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2333990106242624951, guid: d23aec3fb4a62304a97e9e88a8cd86ee, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -10.16
-      objectReference: {fileID: 0}
-    - target: {fileID: 2333990106242624951, guid: d23aec3fb4a62304a97e9e88a8cd86ee, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 1.274
-      objectReference: {fileID: 0}
-    - target: {fileID: 2333990106242624951, guid: d23aec3fb4a62304a97e9e88a8cd86ee, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.78
-      objectReference: {fileID: 0}
-    - target: {fileID: 7351048170854166180, guid: d23aec3fb4a62304a97e9e88a8cd86ee, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 132
-      objectReference: {fileID: 0}
-    - target: {fileID: 7351048170854166180, guid: d23aec3fb4a62304a97e9e88a8cd86ee, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 123.3
-      objectReference: {fileID: 0}
     - target: {fileID: 7351048171016993988, guid: d23aec3fb4a62304a97e9e88a8cd86ee, type: 3}
       propertyPath: m_Name
       value: Kitchen
@@ -789,10 +761,6 @@ PrefabInstance:
     - target: {fileID: 7351048171016994009, guid: d23aec3fb4a62304a97e9e88a8cd86ee, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7351048171032696657, guid: d23aec3fb4a62304a97e9e88a8cd86ee, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d23aec3fb4a62304a97e9e88a8cd86ee, type: 3}

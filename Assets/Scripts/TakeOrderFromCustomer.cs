@@ -59,10 +59,9 @@ public class TakeOrderFromCustomer : MonoBehaviour
             of.ToggleSelectableFoodItems(); //Shows the different items we can choose from
 
             of.HasOrdered = true;
+            
             //Add food to all our current orders
             allCurrentOrders.Enqueue(of.MyOrder);
-
-            //of.GetComponent<Customer>().StartEatingFood();
         }
     }
 
@@ -95,7 +94,6 @@ public class TakeOrderFromCustomer : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        //canTakeOrder = false;
         canLeaveOrdersToKitchen = false;
     }
 }

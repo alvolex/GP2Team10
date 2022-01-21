@@ -6,15 +6,35 @@ using UnityEngine;
 
 public class AlienEatFood : MonoBehaviour
 {
-    [SerializeField] private string testeronis;
+    private AlienAttributes attributes;
+    private Order myOrder;
+    private OrderFood of;
+
+    private void Start()
+    {
+        attributes = GetComponent<AlienAttributes>();
+        of = GetComponent<OrderFood>();
+    }
 
     public void DeliverFood(Order order)
     {
-        Debug.Log( "Order has been recieved by alien: " + order.GetFood());
-        testeronis = order.GetFood().ToString();
+        GetMyOrder();
         
-        //Debug shiet
+        Debug.Log( "Order has been recieved by alien: " + order.GetFood());
+
+        attributes.CheckAllergies(order.SelectedFoodItem);
+
+        if (order == myOrder)
+        {
+            Debug.Log("I received my order!");
+        }
+        
         StartEatingFood();
+    }
+
+    private void GetMyOrder()
+    {
+        myOrder = of.MyOrder;
     }
 
     private void StartEatingFood()
