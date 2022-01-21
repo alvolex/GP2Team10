@@ -17,20 +17,18 @@ public class TakeOrderFromCustomer : MonoBehaviour
 
     [SerializeField] private bool canTakeOrder;
     private bool canLeaveOrdersToKitchen;
-    private bool hasOrdered;
 
     private void Start()
     {
         canTakeOrder = false;
         canLeaveOrdersToKitchen = false;
-        hasOrdered = false;
     }
 
     private void Update()
     {
         //todo This is one ugly if statement
-        if (!hasOrdered && of != null && canTakeOrder && (currentAction.CurrentAction == CurrentAction.None ||
-            currentAction.CurrentAction == CurrentAction.HandlingOrder))
+        if (of != null && !of.HasOrdered && canTakeOrder && (currentAction.CurrentAction == CurrentAction.None ||
+                                                             currentAction.CurrentAction == CurrentAction.HandlingOrder))
         {
             //Do dist check instead of "OnTriggerExit" as it kinda borked when using multiple triggers
             //todo sqrMag or throttle how often this is checked
@@ -60,7 +58,7 @@ public class TakeOrderFromCustomer : MonoBehaviour
             //Test stuff for chosing which menu item that we should prepare for the customer
             of.ToggleSelectableFoodItems(); //Shows the different items we can choose from
 
-            hasOrdered = true;
+            of.HasOrdered = true;
             //Add food to all our current orders
             allCurrentOrders.Enqueue(of.MyOrder);
 

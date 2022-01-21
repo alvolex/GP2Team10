@@ -25,10 +25,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5eee474ec20c3ae4baefa98444a7c0e9, type: 2}
   todaysStarters:
   - {fileID: 11400000, guid: f83e6921e6468344991270e9c21c063c, type: 2}
-  - {fileID: 11400000, guid: 5eee474ec20c3ae4baefa98444a7c0e9, type: 2}
+  - {fileID: 11400000, guid: 3467ab6f0b6e0f04da29788924aafae8, type: 2}
   todaysMains:
-  - {fileID: 11400000, guid: 199304c942697dc4a9bf64ce1dbe5467, type: 2}
   - {fileID: 11400000, guid: 2f4229ece314fd3438a5613cf588649f, type: 2}
+  - {fileID: 11400000, guid: 199304c942697dc4a9bf64ce1dbe5467, type: 2}
   todaysDesserts:
-  - {fileID: 11400000, guid: 8302a6a43fc07e34c98e7935ae4d834a, type: 2}
   - {fileID: 11400000, guid: 0f8ed837bf716fc499266591c5b2ca3b, type: 2}
+  - {fileID: 11400000, guid: 39e6f52753654df4fadd8293f649f558, type: 2}

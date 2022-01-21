@@ -35,6 +35,7 @@ public class OrderFood : MonoBehaviour
 
     private SphereCollider sCollider;
     private bool readyToOrder;
+    private bool hasOrdered;
     private Array enumArr;
 
     private List<TMP_Text> menuItemTextList = new List<TMP_Text>();
@@ -43,10 +44,17 @@ public class OrderFood : MonoBehaviour
     private Order myOrder;
     public Order MyOrder => myOrder;
 
+    public bool HasOrdered
+    {
+        get => hasOrdered;
+        set => hasOrdered = value;
+    }
+
     private void Start()
     {
         EnumToArray(); //Convert our FoodTypes into an array
         menuItemTextList = chooseMenuItemImage.GetComponentsInChildren<TMP_Text>().ToList();
+        hasOrdered = false;
     }
 
     private void EnumToArray()
@@ -129,9 +137,10 @@ public class OrderFood : MonoBehaviour
         
         //Update the menu items UI over the customers head with the name of the meals for today
         int textIndex = 0;
+
         foreach (var food in foodToChooseFrom)
         {
-            if (menuItemTextList[textIndex] != null)
+            if (textIndex < menuItemTextList.Count)
             {
                 menuItemTextList[textIndex].text = food.FoodName;
             }
