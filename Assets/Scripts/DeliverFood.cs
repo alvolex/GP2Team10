@@ -30,6 +30,7 @@ public class DeliverFood : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             customer.DeliverFood(curOrder);
+            customer.GetComponent<AlienAttributes>().CheckAllergies(curOrder.SelectedFoodItem);
             FoodDelivered();
         }
     }

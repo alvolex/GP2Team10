@@ -15,7 +15,7 @@ public class TakeOrderFromCustomer : MonoBehaviour
     private OrderFood of;
     private Kitchen kitchen;
 
-    [SerializeField] private bool canTakeOrder;
+    private bool canTakeOrder;
     private bool canLeaveOrdersToKitchen;
 
     private void Start()

@@ -543,6 +543,7 @@ GameObject:
   - component: {fileID: -5069513153333754676}
   - component: {fileID: -8874055392831045068}
   - component: {fileID: 4830062779991668353}
+  - component: {fileID: 4862916305574732806}
   m_Layer: 0
   m_Name: Customer
   m_TagString: Untagged
@@ -746,6 +747,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   testeronis: 
+--- !u!114 &4862916305574732806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3037402073341605548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f49e8b8f22d656b4d9b4780118aead7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reputation: {fileID: 11400000, guid: 28cdcbf3b26c52241a280a5a45ab8b5e, type: 2}
+  reputationReference:
+    _intVariable: {fileID: 11400000, guid: 28cdcbf3b26c52241a280a5a45ab8b5e, type: 2}
+    _simpleValue: 0
+    _useSimple: 0
+  onReputationChanged: {fileID: 11400000, guid: 8cd1ac879b790bb4cb2332cabd694f0f, type: 2}
+  tips: {fileID: 11400000, guid: f3a9f27de7b4c1e42aabd428a1c9fd29, type: 2}
+  tipsReference:
+    _intVariable: {fileID: 11400000, guid: f3a9f27de7b4c1e42aabd428a1c9fd29, type: 2}
+    _simpleValue: 0
+    _useSimple: 0
+  onTipsChanged: {fileID: 11400000, guid: 11f6bda5cd30cdf44a0980a6d6dfd5c2, type: 2}
+  allergy: 0400000005000000
+  maxRep: 0
+  maxTip: 0
+  maxTime: 0
 --- !u!1 &3740698670557141897
 GameObject:
   m_ObjectHideFlags: 0

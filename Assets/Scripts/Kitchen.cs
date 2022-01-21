@@ -70,8 +70,8 @@ public class Kitchen : MonoBehaviour
         {
             currentlyCooking = ordersToCook.Dequeue();
             UpdateKitchenUI();
-                
-            yield return new WaitForSeconds(5f);
+
+            yield return new WaitForSeconds(currentlyCooking.SelectedFoodItem.TimeToCookFood);
             foodPickupStation.FoodIsReady(currentlyCooking);
         }
 

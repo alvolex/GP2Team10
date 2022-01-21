@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodName: Dessert3
   foodType: 2
-  allergies: 04000000
+  allergies: 0400000005000000
   timeToCookFood: 5
   foodPrefab: {fileID: 0}
   foodDescription: 

@@ -17,11 +17,12 @@ namespace DefaultNamespace
             set => selectedFoodItem = value;
         }
 
-        public Order(FoodType orderedFood, Customer customer, Sprite foodImg)
+        public Order(FoodType orderedFood, Customer customer, Sprite foodImg, ScriptableFood scriptableFood)
         {
             foodType = orderedFood;
             customerWhoOrderedTheFood = customer;
             foodSprite = foodImg;
+            selectedFoodItem = scriptableFood;
         }
 
         public FoodType GetFood()

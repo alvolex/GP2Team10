@@ -37,6 +37,7 @@ public class OrderFood : MonoBehaviour
     private bool readyToOrder;
     private bool hasOrdered;
     private Array enumArr;
+    private ScriptableFood selectedDish;
 
     private List<TMP_Text> menuItemTextList = new List<TMP_Text>();
 
@@ -110,7 +111,7 @@ public class OrderFood : MonoBehaviour
         }
         //End move to other class shtuff
         
-        myOrder = new Order(foodToOrder, GetComponent<Customer>(), spriteRenderer.sprite); //Create the new food and assign the correct data to it
+        myOrder = new Order(foodToOrder, GetComponent<Customer>(), spriteRenderer.sprite, selectedDish); //Create the new food and assign the correct data to it
         readyToOrder = true;
         
         //Make the collider bigger again when the alien is seated so that we can handle orders
@@ -147,5 +148,9 @@ public class OrderFood : MonoBehaviour
 
             textIndex++;
         }
+        
+        //todo handle player input when choosing which dish we think the alien can eat
+        //Currently the first dish is always selected
+        selectedDish = foodToChooseFrom[0];
     }
 }
