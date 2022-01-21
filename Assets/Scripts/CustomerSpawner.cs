@@ -9,6 +9,7 @@ public class CustomerSpawner : MonoBehaviour
     
     [SerializeField] private Transform doorPos;
     [SerializeField] private GameObject customer;
+    
     [SerializeField] private GameObject player; //Just out of lazyness atm..
 
     // Start is called before the first frame update
