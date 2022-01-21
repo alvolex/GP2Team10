@@ -1,12 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using SOs;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class TodaysMeals : MonoBehaviour
 {
+    [SerializeField] private ScriptableTodaysMeals todaysMeals;
+    
+    
     [SerializeField, Tooltip("How many different options should be available to choose every day")]
     private int amountOfEachFoodEachDay = 2;
 
@@ -58,6 +62,8 @@ public class TodaysMeals : MonoBehaviour
 
     private void SetTodaysMeals()
     {
+        ClearYesterdaysMeals();
+
         //Set todays starters
         for (int i = 0; i < Mathf.Clamp(amountOfEachFoodEachDay, 0, allStarters.Count) ; i++)
         {
@@ -105,5 +111,12 @@ public class TodaysMeals : MonoBehaviour
                 break;
             }
         }
+    }
+
+    private void ClearYesterdaysMeals()
+    {
+        todaysStarters = new List<ScriptableFood>();
+        todaysMains = new List<ScriptableFood>();
+        todaysDesserts = new List<ScriptableFood>();
     }
 }

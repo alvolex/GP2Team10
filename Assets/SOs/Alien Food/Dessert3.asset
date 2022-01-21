@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 055a0a7656254f63b1118f394b34c881, type: 3}
-  m_Name: MainCourse2
+  m_Name: Dessert3
   m_EditorClassIdentifier: 
-  foodName: Main2
-  foodType: 1
-  allergies: 01000000
+  foodName: Dessert3
+  foodType: 2
+  allergies: 04000000
   timeToCookFood: 5
   foodPrefab: {fileID: 0}
   foodDescription: 

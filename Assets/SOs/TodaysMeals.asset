@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aae17909cb014d90bf40910ed8f26230, type: 3}
+  m_Name: TodaysMeals
+  m_EditorClassIdentifier: 
+  amountOfEachFoodEachDay: 2
+  allFood:
+  - {fileID: 11400000, guid: 0f8ed837bf716fc499266591c5b2ca3b, type: 2}
+  - {fileID: 11400000, guid: 8302a6a43fc07e34c98e7935ae4d834a, type: 2}
+  - {fileID: 11400000, guid: 39e6f52753654df4fadd8293f649f558, type: 2}
+  - {fileID: 11400000, guid: c85456eb657c8f940943d03f19e352c4, type: 2}
+  - {fileID: 11400000, guid: 2f4229ece314fd3438a5613cf588649f, type: 2}
+  - {fileID: 11400000, guid: 199304c942697dc4a9bf64ce1dbe5467, type: 2}
+  - {fileID: 11400000, guid: 3467ab6f0b6e0f04da29788924aafae8, type: 2}
+  - {fileID: 11400000, guid: f83e6921e6468344991270e9c21c063c, type: 2}
+  - {fileID: 11400000, guid: 5eee474ec20c3ae4baefa98444a7c0e9, type: 2}
+  todaysStarters:
+  - {fileID: 11400000, guid: f83e6921e6468344991270e9c21c063c, type: 2}
+  - {fileID: 11400000, guid: 5eee474ec20c3ae4baefa98444a7c0e9, type: 2}
+  todaysMains:
+  - {fileID: 11400000, guid: 199304c942697dc4a9bf64ce1dbe5467, type: 2}
+  - {fileID: 11400000, guid: 2f4229ece314fd3438a5613cf588649f, type: 2}
+  todaysDesserts:
+  - {fileID: 11400000, guid: 8302a6a43fc07e34c98e7935ae4d834a, type: 2}
+  - {fileID: 11400000, guid: 0f8ed837bf716fc499266591c5b2ca3b, type: 2}

@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 055a0a7656254f63b1118f394b34c881, type: 3}
   m_Name: Dessert2
   m_EditorClassIdentifier: 
-  foodName: Alien Grub
+  foodName: Dessert2
   foodType: 2
   allergies: 04000000
   timeToCookFood: 5
   foodPrefab: {fileID: 0}
+  foodDescription: 
