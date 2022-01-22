@@ -13,6 +13,7 @@ namespace DefaultNamespace
     public enum CurrentAction
     {
         SeatingCustomer,
+        TakingOrder,
         HandlingOrder,
         DeliveringFood,
         None

@@ -24,18 +24,18 @@ public class AlienAttributes : MonoBehaviour
 
     public void CheckAllergies(ScriptableFood foodToCheck)
     {
-        foreach (var VARIABLE in foodToCheck.Allergies)
+        foreach (var allergyInFood in foodToCheck.Allergies)
         {
-            foreach (var VARIABLE2 in allergy)
+            foreach (var alienAllergy in allergy)
             {
-                if (VARIABLE == VARIABLE2)
+                if (allergyInFood == alienAllergy)
                 {
                     Debug.Log("Allergy spotted, killed customer");
                     Destroy(gameObject);
                     return;
                 }
             }
-            Debug.Log(VARIABLE);
+            Debug.Log(allergyInFood);
             
             reputationReference.ApplyChange(+maxRep);
             onReputationChanged.Raise(reputation.Value);

@@ -53,16 +53,18 @@ public class TakeOrderFromCustomer : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && of.ReadyToOrder /*&& canTakeOrder*/)
         {
             of.OrderUIImage.SetActive(false); //Disable the order food pop-up since we've now taken the order
-            currentAction.CurrentAction = CurrentAction.HandlingOrder;
 
             //Test stuff for chosing which menu item that we should prepare for the customer
             of.ToggleSelectableFoodItems(); //Shows the different items we can choose from
-
-            of.HasOrdered = true;
             
-            //Add food to all our current orders
-            allCurrentOrders.Enqueue(of.MyOrder);
+            of.StartPickFoodCoroutine();
         }
+    }
+
+    public void QueueUpOrder(Order order)
+    {
+        //Add food to all our current orders
+        allCurrentOrders.Enqueue(order);
     }
 
     private void HandleLeaveOrdersToKitchen()
@@ -83,6 +85,7 @@ public class TakeOrderFromCustomer : MonoBehaviour
         if (other.TryGetComponent(out of) && (currentAction.CurrentAction == CurrentAction.None || currentAction.CurrentAction == CurrentAction.HandlingOrder))
         {
             canTakeOrder = true;
+            of.PlayerRef = this;
         }
         
         //Leave orders at the kitchen

@@ -597,6 +597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06f0f579410a4a74c96d6fe98f0daa1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  curAction: {fileID: 11400000, guid: add060246eb07f24e9273627e0cd9bce, type: 2}
   orderUIImage: {fileID: 3918593502057357455}
   chooseMenuItemImage: {fileID: 2533291114206641201}
   todaysMeals: {fileID: 11400000, guid: 0142063cd1617a7498cbe34d6338a123, type: 2}
@@ -746,7 +747,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80a8eb377cf2abb45908826665f9fbb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testeronis: 
 --- !u!114 &4862916305574732806
 MonoBehaviour:
   m_ObjectHideFlags: 0
