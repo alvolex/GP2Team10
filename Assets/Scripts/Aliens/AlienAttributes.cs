@@ -16,6 +16,8 @@ public class AlienAttributes : MonoBehaviour
     [SerializeField] private IntReference tipsReference;
     [SerializeField] private ScriptableEventIntReference onTipsChanged;
 
+
+    [Header("Actual Attribues:")]
     public Ingredients.Allergy[] allergy;
     [SerializeField] private int maxRep;
     [SerializeField] private int maxTip;
