@@ -66,7 +66,7 @@ public class TakeOrderFromCustomer : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (allCurrentOrders.Count == 0) return;
+            if (allCurrentOrders.Count == 0 || kitchen == null) return;
 
             kitchen.OrdersToCook = allCurrentOrders;
             allCurrentOrders = new Queue<Order>(); //Empty queue
