@@ -75,13 +75,13 @@ public class TableAssigner : MonoBehaviour
         if (other.transform.parent == null || tableSeater.CurrentCustomer == null) return;
         tableCollider = other;
 
-        if (other.transform.parent.TryGetComponent<Table>(out Table table))
-        {
-            table.HighlightTable();
+        if (!other.transform.parent.TryGetComponent<Table>(out Table table)) return;
+        if (!table.HasEmptySeat()) return; //If we get a table but it has no seats, the returneronis
             
-            closeToTable = true;
-            curTable = table;
-        }
+        table.HighlightTable();
+        
+        closeToTable = true;
+        curTable = table;
     }
 
     /*private void OnTriggerExit(Collider other)

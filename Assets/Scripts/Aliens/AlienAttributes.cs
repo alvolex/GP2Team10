@@ -38,8 +38,7 @@ public class AlienAttributes : MonoBehaviour
                     return;
                 }
             }
-            Debug.Log(allergyInFood);
-            
+
             reputationReference.ApplyChange(+maxRep);
             onReputationChanged.Raise(reputation.Value);
             

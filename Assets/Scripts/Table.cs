@@ -41,6 +41,11 @@ public class Table : MonoBehaviour
         tableMeshRenderer.material = defaultMat;
     }
 
+    public bool HasEmptySeat()
+    {
+        return emptyChairs != 0;
+    }
+
     public Vector3 GetEmptyChairPosition(Customer customer)
     {
         if (emptyChairs != 0)
