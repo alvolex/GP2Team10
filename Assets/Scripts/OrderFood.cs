@@ -97,6 +97,13 @@ public class OrderFood : MonoBehaviour
         StartCoroutine(TimeToOrder());
     }
 
+    public void StartOrderProcess()
+    {
+        OrderUIImage.SetActive(false); //Disable the order food pop-up since we've now taken the order
+        ToggleSelectableFoodItems(); //Shows the different items we can choose from
+        StartPickFoodCoroutine();
+    }
+
     IEnumerator TimeToOrder()
     {
         foodToOrder = (FoodType) enumArr.GetValue(Random.Range(0, enumArr.Length - 1)); //Get a random food type that the customer wants to order
@@ -169,7 +176,6 @@ public class OrderFood : MonoBehaviour
     IEnumerator PickDishFromTodaysMenu(List<ScriptableFood> foodToChooseFrom)
     {
         CurrentAction prevAction = curAction.CurrentAction;
-        
         curAction.CurrentAction = CurrentAction.TakingOrder;
         
         while (true)
@@ -190,7 +196,6 @@ public class OrderFood : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.Alpha3) && menuItemTextList.Count >= 3)
                 {
-                    
                     selectedDish = foodToChooseFrom[2];
                     break;
                 }

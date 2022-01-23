@@ -52,12 +52,7 @@ public class TakeOrderFromCustomer : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && of.ReadyToOrder /*&& canTakeOrder*/)
         {
-            of.OrderUIImage.SetActive(false); //Disable the order food pop-up since we've now taken the order
-
-            //Test stuff for chosing which menu item that we should prepare for the customer
-            of.ToggleSelectableFoodItems(); //Shows the different items we can choose from
-            
-            of.StartPickFoodCoroutine();
+            of.StartOrderProcess();
         }
     }
 

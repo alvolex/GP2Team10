@@ -22,6 +22,8 @@ public class AlienAttributes : MonoBehaviour
     [SerializeField] private int maxTip;
     [SerializeField] private int maxTime;
 
+    public event Action<Customer> customerHasDied;
+
     public void CheckAllergies(ScriptableFood foodToCheck)
     {
         foreach (var allergyInFood in foodToCheck.Allergies)
@@ -32,6 +34,7 @@ public class AlienAttributes : MonoBehaviour
                 {
                     Debug.Log("Allergy spotted, killed customer");
                     Destroy(gameObject);
+                    customerHasDied?.Invoke(gameObject.GetComponent<Customer>());
                     return;
                 }
             }

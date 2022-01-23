@@ -20,7 +20,6 @@ public class Table : MonoBehaviour
     private void Start()
     {
         emptyChairs = chairPositions.Count;
-
         SetupAvailableChairs();
     }
 
@@ -46,12 +45,15 @@ public class Table : MonoBehaviour
     {
         if (emptyChairs != 0)
         {
+            //Empty the chair 
             customer.OnFinishedEating += HandleCustomerFinishedEating;
+            customer.GetComponent<AlienAttributes>().customerHasDied += HandleCustomerFinishedEating;
+            
             Vector3 posToReturn = Vector3.zero;
 
-            if (availableSeats.ContainsValue(true))
+            if (availableSeats.ContainsValue(true)) //If true then there is an available seat
             {
-                var myKey = availableSeats.FirstOrDefault(x => x.Value == true).Key;
+                var myKey = availableSeats.FirstOrDefault(x => x.Value == true).Key; //Get key of first available seat
 
                 posToReturn = chairPositions[myKey].transform.position;
                     
