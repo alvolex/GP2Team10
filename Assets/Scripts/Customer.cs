@@ -84,18 +84,7 @@ public class Customer : MonoBehaviour
             {
                 sgc.SelectCustomersInGroup(); 
             }
-
-            //tableSeater.CurrentCustomer = this;
         }
-        
-        
-        //Old code for single selection
-        /*if (Input.GetKeyDown(KeyCode.Space) && closeToHost && !isSeated)
-        {
-            //Set the current customer to be this customer when selected in our scriptable object
-            currentAction.CurrentAction = CurrentAction.SeatingCustomer;
-            tableSeater.CurrentCustomer = this;
-        }*/
     }
 
     public void MoveToTable(Vector3 pos)

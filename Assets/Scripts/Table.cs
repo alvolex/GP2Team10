@@ -6,6 +6,10 @@ using UnityEngine;
 
 public class Table : MonoBehaviour
 {
+    [Header("Table settings")] 
+    [SerializeField] private bool canSeatManyGroups;
+
+    [Header("References")]
     [SerializeField] private List<GameObject> chairPositions;
     [SerializeField] private MeshRenderer tableMeshRenderer;
 
@@ -16,6 +20,13 @@ public class Table : MonoBehaviour
 
     private Dictionary<Customer, int> customerChairDictionary = new Dictionary<Customer, int>();
     private Dictionary<int, bool> availableSeats = new Dictionary<int, bool>();
+
+    public bool IsEmpty()
+    {
+        if (canSeatManyGroups) return true;
+
+        return emptyChairs == chairPositions.Count;
+    }
     
     private void Start()
     {

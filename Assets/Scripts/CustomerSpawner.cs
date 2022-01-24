@@ -46,12 +46,14 @@ public class CustomerSpawner : MonoBehaviour
 
     IEnumerator SpawnCustomers()
     {
+        int index = 0;
         for (int i = 0; i < numberOfCustomersToSpawn; i++)
         {
             int amountOfCustomers = CustomersInParty();
-            SpawnCustomer(i, amountOfCustomers);
+            SpawnCustomer(index, amountOfCustomers);
 
             i = i + amountOfCustomers - 1;
+            index++;
             yield return new WaitForSeconds(timeBetweenCustomers);
         }
     }
@@ -61,7 +63,6 @@ public class CustomerSpawner : MonoBehaviour
         //Create parent obj
         GameObject parent = Instantiate(groupParentPrefab);
         parent.name = $"Customer_Group{i}";
-        //SelectGroupOfCustomers group =  parent.AddComponent<SelectGroupOfCustomers>();
 
         //Create the customer group
         for (int j = 0; j < customersInGroup; j++)
@@ -75,15 +76,4 @@ public class CustomerSpawner : MonoBehaviour
             customerInstance.GetComponent<Customer>().restaurantExit = doorPos; //Inject reference to where the exit is located
         }
     }
-    
- 
-    //Old code that supports a single customer
-    /*void SpawnCustomer(int i)
-    {
-        GameObject customerInstance = Instantiate(customer, doorPos.position, Quaternion.identity);
-        customerInstance.transform.LookAt(player.transform.position);
-        customerInstance.name = $"Customer_{i}";
-        
-        customerInstance.GetComponent<Customer>().restaurantExit = doorPos;
-    }*/
 }
