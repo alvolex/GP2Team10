@@ -31,6 +31,11 @@ public class Table : MonoBehaviour
         }
     }
 
+    public int NumberOfEmptyChairs()
+    {
+        return emptyChairs;
+    }
+
     public void HighlightTable()
     {
         tableMeshRenderer.material = selectedMat;

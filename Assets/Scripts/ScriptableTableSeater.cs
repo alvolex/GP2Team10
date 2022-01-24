@@ -10,6 +10,8 @@ namespace DefaultNamespace
         [SerializeField] private Customer currentCustomer;
         [SerializeField] private List<Customer> selectedCustomerList;
 
+        public List<Customer> SelectedCustomerList => selectedCustomerList;
+
         public Customer CurrentCustomer
         {
             get => currentCustomer;
@@ -20,9 +22,14 @@ namespace DefaultNamespace
             } 
         }
 
-        public void AddCustomerToList(Customer customerToAdd)
+        public void AssignToList(List<Customer> customerList)
         {
-            selectedCustomerList.Add(customerToAdd);
+            selectedCustomerList = customerList;
+        }
+
+        public void ClearCustomerList()
+        {
+            selectedCustomerList = new List<Customer>();
         }
 
         //Action that gets invoked whenever the current customer is changed. 

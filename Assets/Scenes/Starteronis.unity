@@ -912,6 +912,10 @@ PrefabInstance:
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8966542451436005877, guid: 223df456e5e9a6c49a39f4088f47e1b4, type: 3}
+      propertyPath: groupParentPrefab
+      value: 
+      objectReference: {fileID: 3473076432964725747, guid: 5fefdcda45847ab40ad10989344b6b99, type: 3}
+    - target: {fileID: 8966542451436005877, guid: 223df456e5e9a6c49a39f4088f47e1b4, type: 3}
       propertyPath: chanceOf2Customers
       value: 30
       objectReference: {fileID: 0}

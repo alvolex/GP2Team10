@@ -18,6 +18,8 @@ public class CustomerSpawner : MonoBehaviour
     [SerializeField] private Transform doorPos;
     [SerializeField] private GameObject customer;
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject groupParentPrefab;
+    
     
     void Start()
     {
@@ -57,22 +59,25 @@ public class CustomerSpawner : MonoBehaviour
     void SpawnCustomer(int i, int customersInGroup)
     {
         //Create parent obj
-        GameObject parent = new GameObject();
+        GameObject parent = Instantiate(groupParentPrefab);
         parent.name = $"Customer_Group{i}";
+        //SelectGroupOfCustomers group =  parent.AddComponent<SelectGroupOfCustomers>();
 
         //Create the customer group
         for (int j = 0; j < customersInGroup; j++)
         {
+            //todo can this be made prettier?
+            //Create customer instance
             GameObject customerInstance = Instantiate(customer, doorPos.position, Quaternion.identity);
             customerInstance.transform.LookAt(player.transform.position);
-            customerInstance.name = $"Customer{i}";
-
+            customerInstance.name = $"Customer{j}";
             customerInstance.transform.parent = parent.transform; //Assign to parent
             customerInstance.GetComponent<Customer>().restaurantExit = doorPos; //Inject reference to where the exit is located
         }
     }
     
-
+ 
+    //Old code that supports a single customer
     /*void SpawnCustomer(int i)
     {
         GameObject customerInstance = Instantiate(customer, doorPos.position, Quaternion.identity);

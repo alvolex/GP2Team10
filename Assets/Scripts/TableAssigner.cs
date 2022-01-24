@@ -23,7 +23,6 @@ public class TableAssigner : MonoBehaviour
     void Update()
     {
         if (!closeToTable || curTable == null) return;
-
         if (!CheckIfTableIsInRange()) return;
 
         AssignCustomerToTable();
@@ -52,7 +51,31 @@ public class TableAssigner : MonoBehaviour
 
     private void AssignCustomerToTable()
     {
-        if (tableSeater.CurrentCustomer != null && Input.GetKeyDown(KeyCode.Space) && closeToTable)
+        Debug.Log(tableSeater.SelectedCustomerList.Count);
+        
+        if (tableSeater.SelectedCustomerList.Count != 0 && Input.GetKeyDown(KeyCode.Space) && closeToTable)
+        {
+            foreach (var customer in tableSeater.SelectedCustomerList)
+            {
+                //Pass in who the customer who will sit in a specific chair so we can keep track when they leave
+                Vector3 chairPos = curTable.GetEmptyChairPosition(customer);
+
+                //Move customer to the assigned chair
+                customer.MoveToTable(chairPos);
+            }
+            
+            currentAction.CurrentAction = CurrentAction.None;
+            tableSeater.ClearCustomerList();
+
+            //Unhighlight and reset table info when a customer has been assigned
+            curTable.UnhighlightTable();
+            closeToTable = false;
+            curTable = null;
+            tableCollider = null;
+        }
+
+        //old code for single customer
+        /*if (tableSeater.CurrentCustomer != null && Input.GetKeyDown(KeyCode.Space) && closeToTable)
         {
             //Pass in who the customer who will sit in a specific chair so we can keep track when they leave
             Vector3 chairPos = curTable.GetEmptyChairPosition(tableSeater.CurrentCustomer);
@@ -67,10 +90,26 @@ public class TableAssigner : MonoBehaviour
             closeToTable = false;
             curTable = null;
             tableCollider = null;
-        }
+        }*/
     }
 
     private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.parent == null || tableSeater.SelectedCustomerList.Count == 0) return;
+        tableCollider = other;
+
+        if (!other.transform.parent.TryGetComponent<Table>(out Table table)) return;
+        if (!table.HasEmptySeat() || table.NumberOfEmptyChairs() < tableSeater.SelectedCustomerList.Count) return; //If we get a table but it has no seats, the returneronis
+            
+        table.HighlightTable();
+        
+        closeToTable = true;
+        curTable = table;
+    }
+    
+    
+    //old code for single customer..
+    /*private void OnTriggerEnter(Collider other)
     {
         if (other.transform.parent == null || tableSeater.CurrentCustomer == null) return;
         tableCollider = other;
@@ -82,7 +121,8 @@ public class TableAssigner : MonoBehaviour
         
         closeToTable = true;
         curTable = table;
-    }
+    }*/
+
 
     /*private void OnTriggerExit(Collider other)
     {
