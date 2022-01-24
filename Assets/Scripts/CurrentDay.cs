@@ -40,6 +40,9 @@ public class CurrentDay : MonoBehaviour
 
     IEnumerator StartDay()
     {
+        yield return new WaitForSeconds(0.5f);
+        StartCoroutine(FadeSun(0,1, 0.3f));
+        
         int i = 0;
         sun.transform.rotation = sunStartRotation;
         while (i < dayLength)
@@ -51,10 +54,29 @@ public class CurrentDay : MonoBehaviour
             string uiText = $"Day: {currentDay} | {timeLeft.ToString()}";
             dayText.text = uiText;
         }
-
         currentDay++;
         
         OnDayEnded?.Invoke(); //Event that will be triggered when a day has ended
         Debug.Log("Day ended!");
+
+        StartCoroutine(FadeSun(1,0, 0.4f));
+    }
+
+    IEnumerator FadeSun(int start, int end, float time)
+    {
+        int startVal = start;  
+        int endVal = end;
+
+        float timeToFade = time;  
+        
+        float intensity = 0;
+        
+        for(float f = 0; f <= timeToFade; f += Time.deltaTime) {
+            intensity = Mathf.Lerp(startVal, endVal, f / timeToFade); // passing in the start + end values, and using our elapsed time 'f' as a portion of the total time 'x'
+
+            sun.intensity = intensity;
+            
+            yield return null;
+        }
     }
 }
