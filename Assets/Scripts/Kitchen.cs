@@ -69,9 +69,10 @@ public class Kitchen : MonoBehaviour
         while (ordersToCook.Count != 0)
         {
             currentlyCooking = ordersToCook.Dequeue();
+            Debug.Log("Now cooking: " + currentlyCooking.SelectedFoodItem.FoodName);
             UpdateKitchenUI();
-                
-            yield return new WaitForSeconds(5f);
+
+            yield return new WaitForSeconds(currentlyCooking.SelectedFoodItem.TimeToCookFood);
             foodPickupStation.FoodIsReady(currentlyCooking);
         }
 

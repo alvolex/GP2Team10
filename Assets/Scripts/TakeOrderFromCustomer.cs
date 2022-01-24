@@ -15,7 +15,7 @@ public class TakeOrderFromCustomer : MonoBehaviour
     private OrderFood of;
     private Kitchen kitchen;
 
-    [SerializeField] private bool canTakeOrder;
+    private bool canTakeOrder;
     private bool canLeaveOrdersToKitchen;
 
     private void Start()
@@ -27,8 +27,8 @@ public class TakeOrderFromCustomer : MonoBehaviour
     private void Update()
     {
         //todo This is one ugly if statement
-        if (of != null && canTakeOrder && (currentAction.CurrentAction == CurrentAction.None ||
-            currentAction.CurrentAction == CurrentAction.HandlingOrder))
+        if (of != null && !of.HasOrdered && canTakeOrder && (currentAction.CurrentAction == CurrentAction.None ||
+                                                             currentAction.CurrentAction == CurrentAction.HandlingOrder))
         {
             //Do dist check instead of "OnTriggerExit" as it kinda borked when using multiple triggers
             //todo sqrMag or throttle how often this is checked
@@ -52,21 +52,21 @@ public class TakeOrderFromCustomer : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && of.ReadyToOrder /*&& canTakeOrder*/)
         {
-            of.OrderUIImage.SetActive(false); //Disable the order food pop-up since we've now taken the order
-            currentAction.CurrentAction = CurrentAction.HandlingOrder;
-
-            //Add food to all our current orders
-            allCurrentOrders.Enqueue(of.MyOrder);
-
-            //of.GetComponent<Customer>().StartEatingFood();
+            of.StartOrderProcess();
         }
+    }
+
+    public void QueueUpOrder(Order order)
+    {
+        //Add food to all our current orders
+        allCurrentOrders.Enqueue(order);
     }
 
     private void HandleLeaveOrdersToKitchen()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (allCurrentOrders.Count == 0) return;
+            if (allCurrentOrders.Count == 0 || kitchen == null) return;
 
             kitchen.OrdersToCook = allCurrentOrders;
             allCurrentOrders = new Queue<Order>(); //Empty queue
@@ -77,10 +77,12 @@ public class TakeOrderFromCustomer : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //Take order from customer
-        if (other.TryGetComponent(out of))
+        if (other.TryGetComponent(out of) && (currentAction.CurrentAction == CurrentAction.None || currentAction.CurrentAction == CurrentAction.HandlingOrder))
         {
             canTakeOrder = true;
+            of.PlayerRef = this;
         }
+        
         //Leave orders at the kitchen
         if (currentAction.CurrentAction == CurrentAction.HandlingOrder && other.TryGetComponent(out kitchen))
         {
@@ -90,7 +92,6 @@ public class TakeOrderFromCustomer : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        //canTakeOrder = false;
         canLeaveOrdersToKitchen = false;
     }
 }

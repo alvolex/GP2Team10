@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using ScriptableEvents;
+using SOs;
 using UnityEngine;
 using Variables;
 
@@ -20,29 +21,29 @@ public class AlienAttributes : MonoBehaviour
     [SerializeField] private int maxRep;
     [SerializeField] private int maxTip;
     [SerializeField] private int maxTime;
-    
-    private void OnCollisionEnter(Collision other)
-    {
-        Debug.Log("in food");
 
-        foreach (var VARIABLE in other.gameObject.GetComponent<TestMeal>().allergy)
+    public event Action<Customer> customerHasDied;
+
+    public void CheckAllergies(ScriptableFood foodToCheck)
+    {
+        foreach (var allergyInFood in foodToCheck.Allergies)
         {
-            foreach (var VARIABLE2 in allergy)
+            foreach (var alienAllergy in allergy)
             {
-                if (VARIABLE == VARIABLE2)
+                if (allergyInFood == alienAllergy)
                 {
                     Debug.Log("Allergy spotted, killed customer");
+                    Destroy(gameObject);
+                    customerHasDied?.Invoke(gameObject.GetComponent<Customer>());
                     return;
                 }
             }
-            Debug.Log(VARIABLE);
-            
+
             reputationReference.ApplyChange(+maxRep);
             onReputationChanged.Raise(reputation.Value);
             
             tipsReference.ApplyChange(+maxTip);
             onTipsChanged.Raise(tips.Value);
-            
         }
     }
 }
