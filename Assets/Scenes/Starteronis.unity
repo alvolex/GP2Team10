@@ -757,6 +757,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6414541750804244562, guid: 66552416112903f40a7c0e80ac451ca8, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 0e0e0a421dfab6340abcadc6cda77eed, type: 2}
     - target: {fileID: 6414541750804244563, guid: 66552416112903f40a7c0e80ac451ca8, type: 3}
       propertyPath: m_Name
       value: Player
@@ -764,6 +768,26 @@ PrefabInstance:
     - target: {fileID: 6414541750804244563, guid: 66552416112903f40a7c0e80ac451ca8, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6414541750804244569, guid: 66552416112903f40a7c0e80ac451ca8, type: 3}
+      propertyPath: m_Drag
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6414541750804244569, guid: 66552416112903f40a7c0e80ac451ca8, type: 3}
+      propertyPath: m_Mass
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 6414541750804244569, guid: 66552416112903f40a7c0e80ac451ca8, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6414541750804244574, guid: 66552416112903f40a7c0e80ac451ca8, type: 3}
+      propertyPath: movementSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6414541750804244574, guid: 66552416112903f40a7c0e80ac451ca8, type: 3}
+      propertyPath: rotationSpeed
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 6414541750804244575, guid: 66552416112903f40a7c0e80ac451ca8, type: 3}
       propertyPath: m_RootOrder
@@ -883,6 +907,30 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1639460134}
+    - target: {fileID: 8966542451436005877, guid: 223df456e5e9a6c49a39f4088f47e1b4, type: 3}
+      propertyPath: chanceOf1Customer
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8966542451436005877, guid: 223df456e5e9a6c49a39f4088f47e1b4, type: 3}
+      propertyPath: chanceOf2Customers
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8966542451436005877, guid: 223df456e5e9a6c49a39f4088f47e1b4, type: 3}
+      propertyPath: chanceOf3Customers
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8966542451436005877, guid: 223df456e5e9a6c49a39f4088f47e1b4, type: 3}
+      propertyPath: chanceOf4Customers
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8966542451436005877, guid: 223df456e5e9a6c49a39f4088f47e1b4, type: 3}
+      propertyPath: timeBetweenCustomers
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8966542451436005877, guid: 223df456e5e9a6c49a39f4088f47e1b4, type: 3}
+      propertyPath: numberOfCustomersToSpawn
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8966542451436005878, guid: 223df456e5e9a6c49a39f4088f47e1b4, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -1172,7 +1220,7 @@ PrefabInstance:
       objectReference: {fileID: 1163694845}
     - target: {fileID: 9142106679105981078, guid: b282e9b361fab644d86965d0f72be003, type: 3}
       propertyPath: dayLength
-      value: 5
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 9142106679105981079, guid: b282e9b361fab644d86965d0f72be003, type: 3}
       propertyPath: m_Name
