@@ -10,6 +10,13 @@ namespace DefaultNamespace
         [SerializeField] private Customer currentCustomer;
         [SerializeField] private List<Customer> selectedCustomerList;
 
+        private bool isHighlighting = false;
+
+        public bool IsHighlighting
+        {
+            get => isHighlighting;
+            set => isHighlighting = value;
+        }
         public List<Customer> SelectedCustomerList => selectedCustomerList;
 
         public Customer CurrentCustomer

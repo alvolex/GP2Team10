@@ -20,11 +20,11 @@ public class TableAssigner : MonoBehaviour
         currentAction.CurrentAction = CurrentAction.None;
     }
     
-    void Update()
+    private void Update()
     {
         if (!closeToTable || curTable == null || !CheckIfTableIsInRange())
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && currentAction.CurrentAction == CurrentAction.SeatingCustomer)
             {
                 currentAction.CurrentAction = CurrentAction.None;
                 tableSeater.ClearCustomerList();
@@ -58,8 +58,6 @@ public class TableAssigner : MonoBehaviour
 
     private void AssignCustomerToTable()
     {
-        Debug.Log(tableSeater.SelectedCustomerList.Count);
-        
         if (tableSeater.SelectedCustomerList.Count != 0 && Input.GetKeyDown(KeyCode.Space) && closeToTable)
         {
             foreach (var customer in tableSeater.SelectedCustomerList)
@@ -88,7 +86,7 @@ public class TableAssigner : MonoBehaviour
         tableCollider = other;
 
         if (!other.transform.parent.TryGetComponent<Table>(out Table table)) return;
-        if (!table.HasEmptySeat() || table.NumberOfEmptyChairs() < tableSeater.SelectedCustomerList.Count || !table.IsEmpty()) return; //If we get a table but it has no seats, the returneronis
+        if (!table.HasEmptySeat() || table.NumberOfEmptyChairs() < tableSeater.SelectedCustomerList.Count || !table.IsEmpty()) return; //If we get a table but it has no seats, then returneronis
             
         table.HighlightTable();
         

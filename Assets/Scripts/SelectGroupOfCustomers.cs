@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +9,39 @@ public class SelectGroupOfCustomers : MonoBehaviour
 {
     [SerializeField] private ScriptableTableSeater scriptableTableSeater;
 
+    private List<Customer> customersInGroup = new List<Customer>();
+
+    private void Start()
+    {
+        customersInGroup = GetComponentsInChildren<Customer>().ToList();
+    }
+
+    public void HighlightGroup()
+    {
+        if (scriptableTableSeater.IsHighlighting) return;
+
+        foreach (var customer in customersInGroup)
+        {
+            if (customer == null) continue; //If the poor fella has died from being poisoned :(
+            customer.HighlightCustomer();
+        }
+
+        scriptableTableSeater.IsHighlighting = true;
+    }
+    
+    public void UnhighlightGroup()
+    {
+        foreach (var customer in customersInGroup)
+        {
+            if (customer == null) continue; //If the poor fella has died from being poisoned :(
+            customer.UnhighlightCustomer();
+        }
+
+        scriptableTableSeater.IsHighlighting = false;
+    }
+    
     public void SelectCustomersInGroup()
     {
-        List<Customer> customersInGroup = GetComponentsInChildren<Customer>().ToList();
         AddCustomerToList(customersInGroup);
     }
     

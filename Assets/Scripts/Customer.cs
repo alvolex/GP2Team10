@@ -14,16 +14,19 @@ public class Customer : MonoBehaviour
     //todo should we just change this to reside in a static class so we dont have to pull it into every script that needs it
     [SerializeField] private ScriptablePlayerCurrentAction currentAction;
 
+    [Header("Highlight Alien")] 
+    [SerializeField] private Material defaultMat;
+    [SerializeField] private Material selectedMat;
+
     [Header("Debug stuff")]
-    //Debug stuff that needs to be moved to a better location later..
     public Transform restaurantExit;
-    //End debug shenanigans
 
     private Camera cam;
     private NavMeshAgent nmagent;
     private NavMeshObstacle nmObstacle;
     private SphereCollider sCollider;
     private OrderFood orderFood;
+    private MeshRenderer meshRenderer;
     
     private bool closeToHost = false;
     private Rigidbody rb;
@@ -45,6 +48,7 @@ public class Customer : MonoBehaviour
         nmObstacle = GetComponent<NavMeshObstacle>();
         sCollider = GetComponent<SphereCollider>();
         rb = GetComponent<Rigidbody>();
+        meshRenderer = GetComponent<MeshRenderer>();
     }
 
     private void Update()
@@ -122,9 +126,10 @@ public class Customer : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (currentAction.CurrentAction == CurrentAction.None && other.TryGetComponent(out PlayerMovement _))
+        if (currentAction.CurrentAction == CurrentAction.None && other.TryGetComponent(out PlayerMovement _) && !isSeated && !hasFinishedEating)
         {
             closeToHost = true;
+            GetComponentInParent<SelectGroupOfCustomers>().HighlightGroup();
         }
 
         //Just testin'
@@ -137,6 +142,7 @@ public class Customer : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         closeToHost = false;
+        GetComponentInParent<SelectGroupOfCustomers>().UnhighlightGroup();
     }
 
     private void ExitRestaurant()
@@ -153,6 +159,16 @@ public class Customer : MonoBehaviour
     public void StartEatingFood()
     {
         StartCoroutine(EatFood());
+    }
+    
+    public void HighlightCustomer()
+    {
+        meshRenderer.material = selectedMat;
+    }
+    
+    public void UnhighlightCustomer()
+    {
+        meshRenderer.material = defaultMat;
     }
     
     //todo Maybe this should be in it's own class(?)

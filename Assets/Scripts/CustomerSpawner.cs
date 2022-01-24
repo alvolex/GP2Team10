@@ -29,7 +29,7 @@ public class CustomerSpawner : MonoBehaviour
     private int CustomersInParty()
     {
         int getRandNumber = Random.Range(0, 100);
-        int customersToSpawn = 0;
+        int customersToSpawn = 0; //How many customers to spawn in the group
 
         if (getRandNumber <= chanceOf1Customer)
             customersToSpawn = 1;
