@@ -33,6 +33,7 @@ public class AlienAttributes : MonoBehaviour
                 if (allergyInFood == alienAllergy)
                 {
                     Debug.Log("Allergy spotted, killed customer");
+                    AudioManager.Instance.AlienExplodeSFX();
                     Destroy(gameObject);
                     customerHasDied?.Invoke(gameObject.GetComponent<Customer>());
                     return;

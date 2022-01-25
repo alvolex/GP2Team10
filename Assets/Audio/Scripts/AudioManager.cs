@@ -16,6 +16,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private  AudioSource getMoneySource;
     [SerializeField] private  AudioSource reputationUpSource;
     [SerializeField] private  AudioSource reputationDownSource;
+    [SerializeField] private AudioSource alienExplodeSource;
 
     private void Awake()
     {
@@ -76,6 +77,10 @@ public class AudioManager : MonoBehaviour
     public void PlayReputationDownSFX()
     {
         PlaySound(reputationDownSource, reputationDownSource.clip);
+    }
+    public void AlienExplodeSFX()
+    {
+        PlaySound(alienExplodeSource, alienExplodeSource.clip);
     }
 
     public void PlaySound(AudioSource source, AudioClip clip)

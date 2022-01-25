@@ -670,6 +670,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 87863205, guid: a2b21efbcc6cf434bbf603b1ca649d4c, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 312146345, guid: a2b21efbcc6cf434bbf603b1ca649d4c, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 423722248, guid: a2b21efbcc6cf434bbf603b1ca649d4c, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 697512718, guid: a2b21efbcc6cf434bbf603b1ca649d4c, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085202356, guid: a2b21efbcc6cf434bbf603b1ca649d4c, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1123238918, guid: a2b21efbcc6cf434bbf603b1ca649d4c, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1240243098, guid: a2b21efbcc6cf434bbf603b1ca649d4c, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486398785, guid: a2b21efbcc6cf434bbf603b1ca649d4c, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1609493093, guid: a2b21efbcc6cf434bbf603b1ca649d4c, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871574474, guid: a2b21efbcc6cf434bbf603b1ca649d4c, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6486302234236483353, guid: a2b21efbcc6cf434bbf603b1ca649d4c, type: 3}
       propertyPath: m_RootOrder
       value: 18
@@ -717,6 +757,10 @@ PrefabInstance:
     - target: {fileID: 6486302234236483354, guid: a2b21efbcc6cf434bbf603b1ca649d4c, type: 3}
       propertyPath: m_Name
       value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6486302234705865278, guid: a2b21efbcc6cf434bbf603b1ca649d4c, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2b21efbcc6cf434bbf603b1ca649d4c, type: 3}
