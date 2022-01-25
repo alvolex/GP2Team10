@@ -8,21 +8,28 @@ using Variables;
 
 public class AlienAttributes : MonoBehaviour
 {
-
-    [SerializeField] private IntVariable reputation;
+    [Header("Reputation: ")]
     [SerializeField] private IntReference reputationReference;
     [SerializeField] private ScriptableEventIntReference onReputationChanged;
-
-    [SerializeField] private IntVariable tips;
+    
+    [Header("Tips: ")]
     [SerializeField] private IntReference tipsReference;
     [SerializeField] private ScriptableEventIntReference onTipsChanged;
+    
+    [Header("AliensFed: ")]
+    [SerializeField] private IntReference aliensFedReference;
+    [SerializeField] private ScriptableEventIntReference onAlienFed;
+    
+    
 
     public Ingredients.Allergy[] allergy;
     [SerializeField] private int maxRep;
     [SerializeField] private int maxTip;
-    [SerializeField] private int maxTime;
-
+    [SerializeField] private int maxWaitTime;
+    
+    
     public event Action<Customer> customerHasDied;
+    
 
     public void CheckAllergies(ScriptableFood foodToCheck)
     {
@@ -38,13 +45,23 @@ public class AlienAttributes : MonoBehaviour
                     return;
                 }
             }
-
-            reputationReference.ApplyChange(+maxRep);
-            onReputationChanged.Raise(reputation.Value);
+            FoodIsEdible();
             
-            tipsReference.ApplyChange(+maxTip);
-            onTipsChanged.Raise(tips.Value);
+            
         }
+    }
+    void FoodIsEdible()
+    {
+        aliensFedReference.ApplyChange(+1);
+        onAlienFed.Raise(aliensFedReference.GetValue());
+        
+        reputationReference.ApplyChange(+maxRep);
+        onReputationChanged.Raise(aliensFedReference.GetValue());
+        
+        
+        tipsReference.ApplyChange(+maxTip);
+        onTipsChanged.Raise(aliensFedReference.GetValue());
+        
     }
 }
 
