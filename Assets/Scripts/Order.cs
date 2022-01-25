@@ -1,19 +1,28 @@
 ﻿using System;
+using SOs;
 using UnityEngine;
 
 namespace DefaultNamespace
 {
-    public class Food
+    public class Order
     {
         private readonly FoodType foodType = FoodType.NotOrdered;
         private readonly Customer customerWhoOrderedTheFood;
-        private readonly Sprite foodSprite; 
+        private readonly Sprite foodSprite;
 
-        public Food(FoodType orderedFood, Customer customer, Sprite foodImg)
+        private ScriptableFood selectedFoodItem;
+        public ScriptableFood SelectedFoodItem
+        {
+            get => selectedFoodItem;
+            set => selectedFoodItem = value;
+        }
+
+        public Order(FoodType orderedFood, Customer customer, Sprite foodImg, ScriptableFood scriptableFood)
         {
             foodType = orderedFood;
             customerWhoOrderedTheFood = customer;
             foodSprite = foodImg;
+            selectedFoodItem = scriptableFood;
         }
 
         public FoodType GetFood()
