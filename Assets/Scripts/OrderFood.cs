@@ -25,8 +25,8 @@ public class OrderFood : MonoBehaviour
     [SerializeField] private GameObject chooseMenuItemImage;
     [SerializeField] private ScriptableTodaysMeals todaysMeals;
 
-    [Header("Food Ordering")] [SerializeField, Range(1f, 3f)]
-    private float foodOrderingRadius = 2f;
+    [Header("Food Ordering")] 
+    [SerializeField, Range(1f, 3f)] private float foodOrderingRadius = 2f;
 
     [Header("Sprites for the different food types")] [SerializeField]
     private Image spriteRenderer;
@@ -34,9 +34,14 @@ public class OrderFood : MonoBehaviour
     [SerializeField] private Sprite starterSprite;
     [SerializeField] private Sprite maincourseSprite;
     [SerializeField] private Sprite dessertSprite;
-    
+
     [Header("Allergy sprites")] 
+    [SerializeField] private List<Image> allergySpriteRenderer = new List<Image>();
     [SerializeField] private ScriptableAllergySpriteHandler getSprite;
+
+    //All private vars and getters
+    #region Private vars and getters
+    private List<Ingredients.Allergy> myAllergies;
 
     private SphereCollider sCollider;
     private bool readyToOrder;
@@ -63,12 +68,14 @@ public class OrderFood : MonoBehaviour
         get => hasOrdered;
         set => hasOrdered = value;
     }
+    #endregion
 
     private void Start()
     {
         EnumToArray(); //Convert our FoodTypes into an array
         menuItemTextList = chooseMenuItemImage.GetComponentsInChildren<TMP_Text>().ToList();
         hasOrdered = false;
+        myAllergies = GetComponent<AlienAttributes>().allergy.ToList();
     }
 
     private void EnumToArray()
@@ -186,8 +193,15 @@ public class OrderFood : MonoBehaviour
             textIndex++;
         }
         
-        //Update 
-        
+        //Update current aliens allergy sprites
+        int spriteIndex = 0;
+        foreach (var allergy in myAllergies)
+        {
+            Sprite allergySprite = getSprite.GetSprite(allergy);
+
+            allergySpriteRenderer[spriteIndex].sprite = allergySprite;
+            allergySpriteRenderer[spriteIndex].gameObject.SetActive(true);
+        }
         
 
         selectedDish = foodToChooseFrom[0]; //Just a failsafe

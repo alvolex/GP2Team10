@@ -732,8 +732,8 @@ MonoBehaviour:
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 1
-  m_ChildControlHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
@@ -1144,7 +1144,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5840463581878077006
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1404,6 +1404,10 @@ MonoBehaviour:
   starterSprite: {fileID: 21300000, guid: 512c569b32d85cc4a94188b9318407a2, type: 3}
   maincourseSprite: {fileID: 21300000, guid: 72cce87efcba67f4b8286cdd678e6381, type: 3}
   dessertSprite: {fileID: 21300000, guid: 4579cecf20b293849b11185bd7fe328c, type: 3}
+  allergySpriteRenderer:
+  - {fileID: 6935969698993730736}
+  - {fileID: 7844477255312307549}
+  - {fileID: 477051653615855064}
   getSprite: {fileID: 11400000, guid: 19578c246d9a2664b889185b22d62f9c, type: 2}
 --- !u!33 &505479031458704922
 MeshFilter:
@@ -1558,22 +1562,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f49e8b8f22d656b4d9b4780118aead7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reputation: {fileID: 11400000, guid: 28cdcbf3b26c52241a280a5a45ab8b5e, type: 2}
   reputationReference:
     _intVariable: {fileID: 11400000, guid: 28cdcbf3b26c52241a280a5a45ab8b5e, type: 2}
     _simpleValue: 0
     _useSimple: 0
   onReputationChanged: {fileID: 11400000, guid: 8cd1ac879b790bb4cb2332cabd694f0f, type: 2}
-  tips: {fileID: 11400000, guid: f3a9f27de7b4c1e42aabd428a1c9fd29, type: 2}
   tipsReference:
     _intVariable: {fileID: 11400000, guid: f3a9f27de7b4c1e42aabd428a1c9fd29, type: 2}
     _simpleValue: 0
     _useSimple: 0
   onTipsChanged: {fileID: 11400000, guid: 11f6bda5cd30cdf44a0980a6d6dfd5c2, type: 2}
+  aliensFedReference:
+    _intVariable: {fileID: 0}
+    _simpleValue: 0
+    _useSimple: 0
+  onAlienFed: {fileID: 0}
   allergy: 0400000005000000
   maxRep: 0
   maxTip: 0
-  maxTime: 0
+  maxWaitTime: 0
 --- !u!114 &-1793767745350656034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1991,7 +1998,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3639785496715915094
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2635,7 +2642,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &9133963338525827423
 RectTransform:
   m_ObjectHideFlags: 0
