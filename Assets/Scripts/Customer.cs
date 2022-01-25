@@ -35,6 +35,7 @@ public class Customer : MonoBehaviour
     private bool hasFinishedEating = false;
     private bool isSeated = false;
 
+    public bool IsSeated => isSeated;
     public event Action<Customer> OnFinishedEating;
 
     private void Start()
@@ -63,7 +64,7 @@ public class Customer : MonoBehaviour
 
         if (nmagent.pathPending ||
             nmagent.pathStatus == NavMeshPathStatus.PathInvalid ||
-            nmagent.path.corners.Length == 0 || nmagent.remainingDistance >= 0.1f) return;
+            nmagent.path.corners.Length == 0 || nmagent.remainingDistance >= 0.2f) return;
 
         isMovingToTable = false; //Not moving if we have reached table
         isSeated = true;
