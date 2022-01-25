@@ -10,15 +10,22 @@ public class AlienEatFood : MonoBehaviour
     private Order myOrder;
     private OrderFood of;
 
+    private bool hasRecievedFood;
+
+    public bool HasRecievedFood => hasRecievedFood;
+    public OrderFood Of => of;
+
     private void Start()
     {
         attributes = GetComponent<AlienAttributes>();
         of = GetComponent<OrderFood>();
+        hasRecievedFood = false;
     }
 
     public void DeliverFood(Order order)
     {
         GetMyOrder();
+        hasRecievedFood = true;
         
         Debug.Log( "Order has been recieved by alien: " + order.GetFood());
 

@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 64119bca0bde73e4089d8fd8eaf7915d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - scriptableTableSeater: {fileID: 11400000, guid: 5655adfd73483864888cd7e96c476a00, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

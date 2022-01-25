@@ -18,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
 
     private int remainingJumps;
 
+    private Rigidbody otherRb;
+
     void Start()
     {
         cam = Camera.main;
@@ -85,5 +87,26 @@ public class PlayerMovement : MonoBehaviour
         Vector3 result = isoMatrix.MultiplyPoint3x4(vector);
         return result;
     }
-    
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (!collision.gameObject.TryGetComponent(out Customer cust)) return;
+        
+        if (otherRb == null)
+        {
+            otherRb = cust.GetComponent<Rigidbody>();
+        }
+            
+        rigidbody.velocity = Vector3.zero;
+        rigidbody.angularVelocity = Vector3.zero;
+
+        otherRb = cust.GetComponent<Rigidbody>();
+        otherRb.velocity = Vector3.zero;
+        otherRb.angularVelocity = Vector3.zero;
+    }
+
+    private void OnCollisionExit(Collision other)
+    {
+        otherRb = null;
+    }
 }
