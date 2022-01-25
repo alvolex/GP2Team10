@@ -5,21 +5,18 @@ using Variables;
 
 public class UpgradeSystem : MonoBehaviour
 {
-    [Header("References")] [SerializeField]
-    private GameObject playerReference;
-
+    [Header("References")] 
+    [SerializeField] private GameObject playerReference;
     [SerializeField] private IntReference aliensReference;
     [SerializeField] private Button upgradeButton;
 
-    [Header("Movement Speed")] [SerializeField]
-    private int upgrade1GoalMS;
-
+    [Header("Movement Speed")] 
+    [SerializeField] private int upgrade1GoalMS;
     [SerializeField] private int upgrade2GoalMS;
     [SerializeField] private int upgrade3GoalMS;
 
-    [Header("Customer Movement Speed")] [SerializeField]
-    private int upgrade1GoalCMS;
-
+    [Header("Customer Movement Speed")] 
+    [SerializeField] private int upgrade1GoalCMS;
     [SerializeField] private int upgrade2GoalCMS;
     [SerializeField] private int upgrade3GoalCMS;
 
