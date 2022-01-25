@@ -44,10 +44,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1f978b4db324f44bdf117653934720, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountOfCustomersToSpawn: 6
+  numberOfCustomersToSpawn: 10
+  timeBetweenCustomers: 10
+  chanceOf1Customer: 30
+  chanceOf2Customers: 30
+  chanceOf3Customers: 25
+  chanceOf4Customers: 15
   doorPos: {fileID: 8966542451947613955}
   customer: {fileID: 3037402073341605548, guid: 440de0b56ed897b4b88efb54ab9d80d7, type: 3}
   player: {fileID: 0}
+  groupParentPrefab: {fileID: 3473076432964725747, guid: 5fefdcda45847ab40ad10989344b6b99, type: 3}
 --- !u!1 &8966542451947613954
 GameObject:
   m_ObjectHideFlags: 0

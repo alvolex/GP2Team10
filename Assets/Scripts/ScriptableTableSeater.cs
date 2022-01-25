@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace DefaultNamespace
@@ -7,6 +8,16 @@ namespace DefaultNamespace
     public class ScriptableTableSeater : ScriptableObject
     {
         [SerializeField] private Customer currentCustomer;
+        [SerializeField] private List<Customer> selectedCustomerList;
+
+        private bool isHighlighting = false;
+
+        public bool IsHighlighting
+        {
+            get => isHighlighting;
+            set => isHighlighting = value;
+        }
+        public List<Customer> SelectedCustomerList => selectedCustomerList;
 
         public Customer CurrentCustomer
         {
@@ -16,6 +27,16 @@ namespace DefaultNamespace
                 currentCustomer = value;
                 OnCurrentCustomerChanged?.Invoke();
             } 
+        }
+
+        public void AssignToList(List<Customer> customerList)
+        {
+            selectedCustomerList = customerList;
+        }
+
+        public void ClearCustomerList()
+        {
+            selectedCustomerList = new List<Customer>();
         }
 
         //Action that gets invoked whenever the current customer is changed. 

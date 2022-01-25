@@ -13,7 +13,7 @@ public class DeliverFood : MonoBehaviour
     [SerializeField] private ScriptablePlayerCurrentAction currentAction;
     
 
-    private AlienEatFood customer;
+    private AlienEatFood customerEatFood;
     private bool canDeliverFood;
 
     private Order curOrder;
@@ -25,11 +25,11 @@ public class DeliverFood : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (!canDeliverFood || customer == null || curOrder == null) return;
+        if (!canDeliverFood || customerEatFood == null || curOrder == null || customerEatFood.Of.MyOrder == null || customerEatFood.HasRecievedFood) return;
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            customer.DeliverFood(curOrder);
+            customerEatFood.DeliverFood(curOrder);
             FoodDelivered();
         }
     }
@@ -51,8 +51,7 @@ public class DeliverFood : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (!other.TryGetComponent(out AlienEatFood curCustomer)) return;
-
-        customer = curCustomer;
+        customerEatFood = curCustomer;
         canDeliverFood = true;
     }
 

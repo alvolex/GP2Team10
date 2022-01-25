@@ -678,6 +678,7 @@ GameObject:
   - component: {fileID: -8874055392831045068}
   - component: {fileID: 4830062779991668353}
   - component: {fileID: 4862916305574732806}
+  - component: {fileID: -1793767745350656034}
   m_Layer: 0
   m_Name: Customer
   m_TagString: Untagged
@@ -718,6 +719,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tableSeater: {fileID: 11400000, guid: 5655adfd73483864888cd7e96c476a00, type: 2}
   currentAction: {fileID: 11400000, guid: add060246eb07f24e9273627e0cd9bce, type: 2}
+  defaultMat: {fileID: 2100000, guid: f346b81069692d14ebc6e21235d88e9b, type: 2}
+  selectedMat: {fileID: 2100000, guid: 0095f11c94b61d34182b8f9cb57ae586, type: 2}
   restaurantExit: {fileID: 0}
 --- !u!114 &4031241071056332896
 MonoBehaviour:
@@ -796,7 +799,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3037402073341605548}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c4d1be917b1bee94eb028c3f9196d94b, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -827,7 +830,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 3037402073341605548}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 1.12
+  m_Radius: 1
   m_Speed: 5
   m_Acceleration: 15
   avoidancePriority: 50
@@ -851,7 +854,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 4
+  m_Radius: 3
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!208 &-8874055392831045068
 NavMeshObstacle:
@@ -909,6 +912,18 @@ MonoBehaviour:
   maxRep: 0
   maxTip: 0
   maxTime: 0
+--- !u!114 &-1793767745350656034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3037402073341605548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 123bc031a2399fa4590339744c6bdaa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3918593502057357455
 GameObject:
   m_ObjectHideFlags: 0
