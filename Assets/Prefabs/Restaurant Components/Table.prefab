@@ -541,6 +541,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 629f54df392e3554c85648ab96495a0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canSeatManyGroups: 0
+  isUnlocked: 0
   chairPositions:
   - {fileID: 5393593925251040807}
   - {fileID: 2544814710097392192}
@@ -549,6 +551,7 @@ MonoBehaviour:
   tableMeshRenderer: {fileID: 4093652244581215230}
   defaultMat: {fileID: 2100000, guid: 91d917152462d514a897dfcd0b3cc5a0, type: 2}
   selectedMat: {fileID: 2100000, guid: 0095f11c94b61d34182b8f9cb57ae586, type: 2}
+  lockedMaterial: {fileID: 2100000, guid: 3735c1cbe8686bf4ba38ce18d61953a0, type: 2}
   emptyChairs: 0
 --- !u!1 &7626114540869391287
 GameObject:

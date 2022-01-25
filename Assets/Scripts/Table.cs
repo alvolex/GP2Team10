@@ -8,18 +8,35 @@ public class Table : MonoBehaviour
 {
     [Header("Table settings")] 
     [SerializeField] private bool canSeatManyGroups;
+    [SerializeField]private bool isUnlocked;
 
     [Header("References")]
     [SerializeField] private List<GameObject> chairPositions;
     [SerializeField] private MeshRenderer tableMeshRenderer;
-
+    
+    [Header("Materials")]
     [SerializeField] private Material defaultMat;
     [SerializeField] private Material selectedMat;
-
+    [SerializeField] private Material lockedMaterial;
+    [Header("Debug")]
     [SerializeField]private int emptyChairs = 0;
 
     private Dictionary<Customer, int> customerChairDictionary = new Dictionary<Customer, int>();
     private Dictionary<int, bool> availableSeats = new Dictionary<int, bool>();
+
+    public bool IsUnlocked => isUnlocked;
+
+    private void Start()
+    {
+        emptyChairs = chairPositions.Count;
+        SetupAvailableChairs();
+        SetCorrectMaterial();
+    }
+
+    private void SetCorrectMaterial()
+    {
+        tableMeshRenderer.material = isUnlocked ? defaultMat : lockedMaterial;
+    }
 
     public bool IsEmpty()
     {
@@ -27,11 +44,10 @@ public class Table : MonoBehaviour
 
         return emptyChairs == chairPositions.Count;
     }
-    
-    private void Start()
+
+    public void UnlockTable()
     {
-        emptyChairs = chairPositions.Count;
-        SetupAvailableChairs();
+        isUnlocked = true;
     }
 
     private void SetupAvailableChairs()
