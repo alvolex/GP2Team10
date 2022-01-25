@@ -198,9 +198,9 @@ public class OrderFood : MonoBehaviour
         foreach (var allergy in myAllergies)
         {
             Sprite allergySprite = getSprite.GetSprite(allergy);
-
             allergySpriteRenderer[spriteIndex].sprite = allergySprite;
             allergySpriteRenderer[spriteIndex].gameObject.SetActive(true);
+            spriteIndex++;
         }
         
 
