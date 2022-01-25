@@ -45,11 +45,11 @@ public class AlienAttributes : MonoBehaviour
                     return;
                 }
             }
+            
             FoodIsEdible();
-            
-            
         }
     }
+    
     void FoodIsEdible()
     {
         aliensFedReference.ApplyChange(+1);
