@@ -34,6 +34,9 @@ public class OrderFood : MonoBehaviour
     [SerializeField] private Sprite starterSprite;
     [SerializeField] private Sprite maincourseSprite;
     [SerializeField] private Sprite dessertSprite;
+    
+    [Header("Allergy sprites")] 
+    [SerializeField] private ScriptableAllergySpriteHandler getSprite;
 
     private SphereCollider sCollider;
     private bool readyToOrder;
@@ -154,15 +157,38 @@ public class OrderFood : MonoBehaviour
 
         //Update the menu items UI over the customers head with the name of the meals for today
         int textIndex = 0;
+        List<Image> allergyItemList = new List<Image>();
         foreach (var food in foodToChooseFrom)
         {
             if (textIndex < menuItemTextList.Count)
             {
+                //Set the food names (Eg. Dessert 1, Dessert 2, Starter 1..)
                 menuItemTextList[textIndex].text = food.FoodName;
+                allergyItemList = menuItemTextList[textIndex].GetComponentsInChildren<Image>().ToList();
+                
+                //Update the allergy sprites for the current food
+                int allergyIndex = 0;
+                foreach (var img in allergyItemList)
+                {
+                    //Inactivate the allergy image box if there are fewer allergies
+                    if (allergyIndex >= food.Allergies.Count)
+                    {
+                        allergyItemList[allergyIndex].gameObject.SetActive(false);
+                        allergyIndex++;
+                        continue;
+                    }
+                    
+                    //Set allergy picture
+                    img.sprite = getSprite.GetSprite(food.Allergies[allergyIndex]);
+                    allergyIndex++;
+                }
             }
-
             textIndex++;
         }
+        
+        //Update 
+        
+        
 
         selectedDish = foodToChooseFrom[0]; //Just a failsafe
     }
