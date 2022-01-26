@@ -58,17 +58,6 @@ public class AlienAttributes : MonoBehaviour
                 }
             }
         }
-        
-        reputationReference.ApplyChange(+maxRep);
-        onReputationChanged.Raise(reputation.Value);
-        //SaveData.current.profile.reputation = reputation.Value;
-        //AudioManager.Instance.PlayReputationUpSFX();
-            
-        tipsReference.ApplyChange(+maxTip);
-        onTipsChanged.Raise(tips.Value);
-        //SaveData.current.profile.tips = tips.Value;
-        AudioManager.Instance.PlayGetMoneySFX();
-        
         FoodIsEdible();
     }
 
@@ -88,6 +77,9 @@ public class AlienAttributes : MonoBehaviour
 
         tipsReference.ApplyChange(+maxTip);
         onTipsChanged.Raise(aliensFedReference.GetValue());  
+        
+        AudioManager.Instance.PlayGetMoneySFX();
+
     } 
 }
             

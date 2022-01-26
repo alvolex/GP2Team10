@@ -20,6 +20,7 @@ public class HandleDisplayUpgradeMenu : MonoBehaviour
     void ToggleUI()
     {
         upgradeUI.SetActive(!upgradeUI.activeSelf);
+        
         Time.timeScale = 0;
     }
 

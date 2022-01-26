@@ -20,6 +20,14 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody otherRb;
 
+
+    public float MovementSpeed
+    {
+        get => movementSpeed;
+        set => movementSpeed = value;
+    }
+
+
     void Start()
     {
         cam = Camera.main;

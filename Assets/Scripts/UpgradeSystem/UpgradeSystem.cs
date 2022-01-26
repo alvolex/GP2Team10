@@ -1,21 +1,41 @@
 using System;
+using Scriptables;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 using Variables;
 
 public class UpgradeSystem : MonoBehaviour
 {
     [Header("References")] 
+    
+    
     [SerializeField] private GameObject playerReference;
+    [SerializeField] private GameObject customerReference;
+    
+    
     [SerializeField] private IntReference aliensReference;
     [SerializeField] private IntReference allergensReference;
     [SerializeField] private IntReference tipsReference;
     [SerializeField] private Button upgradeButton;
+    [SerializeField] private Button MovementSpeedUpgradeButton;
+    [SerializeField] private Button CustomerMovementSpeedUpgradeButton;
+    [SerializeField] private Button TableUpgradeButton;
+    [SerializeField] private Button CookingStationUpgradeButton;
+    [SerializeField] private Button StorageUpgradeButton;
 
+    
+    
+    
     [Header("Movement Speed")] 
+    [SerializeField] private int movementSpeedUpgradeAmount;
+    [SerializeField] private int AlienMovementSpeedUpgradeAmount;
+
+    
     [SerializeField] private int upgrade1GoalMS;
     [SerializeField] private int upgrade2GoalMS;
     [SerializeField] private int upgrade3GoalMS;
+    
     
     [Header("Allergens Served limits")] 
     [SerializeField] private int allergensServedLimit1;
@@ -47,7 +67,7 @@ public class UpgradeSystem : MonoBehaviour
     private int alienMovementSpeedUpgradesAvailable;
     private int extraCookingStationUpgradesAvailable;
     private int extraStorageSlot;
-    private int extraSeatingTable;
+    private int tableUpgradesAvailable;
 
     int currentMSUpgrade = 0;
     int currentCMSUpgrade = 0;
@@ -56,11 +76,35 @@ public class UpgradeSystem : MonoBehaviour
     int currentStorageUpgrade = 0;
     int currentSeatingUpgrade = 0;
     
-    
+    [SerializeField] private ScriptableSimpleEvent dayEnd;
+
 
     private void Start()
     {
-        upgradeButton.interactable = false;
+        dayEnd.ScriptableEvent += CheckMoney;
+    }
+
+    public void CheckMoney()
+    {
+        
+        Debug.Log(tipsReference.GetValue());
+        if (currentMSUpgrade+1<movementSpeedUpgradeCost.Length && 
+            tipsReference.GetValue() <= movementSpeedUpgradeCost[currentMSUpgrade])
+        {
+            MovementSpeedUpgradeButton.interactable = false;
+        }
+        if (tipsReference.GetValue() <= alienMovementSpeedUpgradeCost[currentCMSUpgrade])
+        {
+            CustomerMovementSpeedUpgradeButton.interactable = false;
+        }
+        if (tipsReference.GetValue() <= cookingStationUpgradeSlot[currentCookingStationUpgrade])
+        {
+            TableUpgradeButton.interactable = false;
+        }
+        if (tipsReference.GetValue() <= extraSeatingUpgradeCost[currentSeatingUpgrade])
+        {
+            CookingStationUpgradeButton.interactable = false;
+        }
     }
     public void CheckAliensFed()
     {
@@ -99,7 +143,7 @@ public class UpgradeSystem : MonoBehaviour
         {
             //Enable UpgradeButtonHere for 
         }
-        if (extraSeatingTable > 0)
+        if (tableUpgradesAvailable > 0)
         {
             //Enable UpgradeButtonHere for 
         }
@@ -107,16 +151,20 @@ public class UpgradeSystem : MonoBehaviour
     }
     public void UpgradeMS()
     {
+        
         if (tipsReference.GetValue() > movementSpeedUpgradeCost[currentMSUpgrade])
         {
             tipsReference.ApplyChange(-movementSpeedUpgradeCost[currentMSUpgrade]);
             Debug.Log("Upgraded something");
             //Adjust movement depenign on how to adjust it i guess
-            movementSpeedUpgradesAvailable--;
+            playerReference.GetComponent<PlayerMovement>().MovementSpeed += movementSpeedUpgradeAmount;
             currentMSUpgrade++;
-            if (movementSpeedUpgradesAvailable == 0)
+            //movementSpeedUpgradesAvailable--;
+            
+            
+            if (currentMSUpgrade+1>movementSpeedUpgradeCost.Length || movementSpeedUpgradeCost[currentMSUpgrade] > tipsReference.GetValue())
             {
-                upgradeButton.interactable = false;
+                MovementSpeedUpgradeButton.interactable = false;
             }
         }
     }
@@ -125,12 +173,12 @@ public class UpgradeSystem : MonoBehaviour
         if (tipsReference.GetValue() > alienMovementSpeedUpgradeCost[currentCMSUpgrade])
         {
             tipsReference.ApplyChange(-alienMovementSpeedUpgradeCost[currentCMSUpgrade]);
-            //Adjust movement depenign on how to adjust it i guess
+            customerReference.GetComponent<NavMeshAgent>().speed += AlienMovementSpeedUpgradeAmount;
             alienMovementSpeedUpgradesAvailable--;
             currentCMSUpgrade++;
-            if (alienMovementSpeedUpgradesAvailable == 0)
+            if (currentCMSUpgrade+1>alienMovementSpeedUpgradeCost.Length || alienMovementSpeedUpgradeCost[currentCMSUpgrade] > tipsReference.GetValue())
             {
-                upgradeButton.interactable = false;
+                CustomerMovementSpeedUpgradeButton.interactable = false;
             }
         }
     }
@@ -153,37 +201,31 @@ public class UpgradeSystem : MonoBehaviour
             }
         }
     }
+
     public void UpgradeTable()
     {
-        tables[table].SetActive(false);
-        table++;
-        tables[table].SetActive(true);
-        
-        if (tipsReference.GetValue() > extraSeatingUpgradeCost[currentSeatingUpgrade])
-        {
-            tipsReference.ApplyChange(-extraSeatingUpgradeCost[currentSeatingUpgrade]);
-            //Adjust movement depenign on how to adjust it i guess
-            
-            //SPAWN TABLES IN DESIGNATED WAY
-            
-            alienMovementSpeedUpgradesAvailable--;
-            currentCMSUpgrade++;
-            if (alienMovementSpeedUpgradesAvailable == 0)
+        Debug.Log("activating table");
+            tables[table].GetComponent<Table>().UnlockTable();
+            table++;
+            if (tipsReference.GetValue() > extraSeatingUpgradeCost[currentSeatingUpgrade])
             {
-                upgradeButton.interactable = false;
+                tipsReference.ApplyChange(-extraSeatingUpgradeCost[currentSeatingUpgrade]);
+                tableUpgradesAvailable--;
+                currentSeatingUpgrade++;
+                if (currentSeatingUpgrade == 0 ||
+                    extraSeatingUpgradeCost[currentSeatingUpgrade] > tipsReference.GetValue()
+                    ||table+1>tables.Length)
+                {
+                    upgradeButton.interactable = false;
+                }
             }
-        }
     }
+
     public void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.P))
         {
-            tipsReference.ApplyChange(+400);
-        }
-        
-        if(Input.GetKeyDown(KeyCode.W))
-        {
-            movementSpeedUpgradesAvailable++;
+            tipsReference.ApplyChange(+500);
         }
         Debug.Log(tipsReference.GetValue());
     }
