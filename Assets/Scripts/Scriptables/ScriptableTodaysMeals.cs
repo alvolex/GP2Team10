@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Scriptables;
 using SOs;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -22,6 +23,9 @@ namespace DefaultNamespace
         [SerializeField] private List<ScriptableFood> todaysMains = new List<ScriptableFood>();
         [SerializeField] private List<ScriptableFood> todaysDesserts = new List<ScriptableFood>();
 
+        [Header("Events")] [SerializeField]
+        private ScriptableSimpleEvent newDay;
+
         //Getters
         public List<ScriptableFood> TodaysStarters => todaysStarters;
         public List<ScriptableFood> TodaysMains => todaysMains;
@@ -32,6 +36,7 @@ namespace DefaultNamespace
             ClearLists();
             PrepareFoodLists();
             SetTodaysMeals();
+            newDay.ScriptableEvent += SetTodaysMeals;
         }
 
         private void ClearLists()

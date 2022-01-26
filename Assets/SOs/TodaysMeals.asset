@@ -29,9 +29,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5eee474ec20c3ae4baefa98444a7c0e9, type: 2}
   todaysMains:
   - {fileID: 11400000, guid: 199304c942697dc4a9bf64ce1dbe5467, type: 2}
-  - {fileID: 11400000, guid: c85456eb657c8f940943d03f19e352c4, type: 2}
   - {fileID: 11400000, guid: 2f4229ece314fd3438a5613cf588649f, type: 2}
+  - {fileID: 11400000, guid: c85456eb657c8f940943d03f19e352c4, type: 2}
   todaysDesserts:
-  - {fileID: 11400000, guid: 8302a6a43fc07e34c98e7935ae4d834a, type: 2}
   - {fileID: 11400000, guid: 39e6f52753654df4fadd8293f649f558, type: 2}
+  - {fileID: 11400000, guid: 8302a6a43fc07e34c98e7935ae4d834a, type: 2}
   - {fileID: 11400000, guid: 0f8ed837bf716fc499266591c5b2ca3b, type: 2}
+  newDay: {fileID: 11400000, guid: 83a4ef0c60d1b2f48a198c9cbccb486e, type: 2}
