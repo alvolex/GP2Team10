@@ -9,18 +9,22 @@ using Variables;
 public class PlayerStats : MonoBehaviour
 {
     [Header("Reputation: ")] 
-    [SerializeField] private IntVariable reputation;
-    [SerializeField] private IntReference reputationReference;
-    [SerializeField] private TextMeshProUGUI reputationText;
-    [SerializeField] private ScriptableEventInt OnRepChangedEvent;
+    [SerializeField] public IntVariable reputation;
+    [SerializeField] public TextMeshProUGUI reputationText;
+    [SerializeField] public ScriptableEventInt OnRepChangedEvent;
     
     [Header("Tips: ")] 
-    [SerializeField] private IntVariable tips;
-    [SerializeField] private IntReference tipsReference;
-    [SerializeField] private TextMeshProUGUI tipsText;
-    [SerializeField] private ScriptableEventInt OnTipChangedEvent;
-
-
+    [SerializeField] public IntVariable tips;
+    [SerializeField] public TextMeshProUGUI tipsText;
+    [SerializeField] public ScriptableEventInt OnTipChangedEvent;
+    
+    [HideInInspector]public int currentMSUpgrade;
+    [HideInInspector]public int currentCMSUpgrade;
+    [HideInInspector]public int currentAllergenUpgrade;
+    [HideInInspector]public int currentCookingStationUpgrade;
+    [HideInInspector]public int currentStorageUpgrade;
+    [HideInInspector]public int currentSeatingUpgrade;
+    
     private void Start()
     {
         SetReputation($"Current Reputation: {reputation.Value}");
@@ -29,12 +33,10 @@ public class PlayerStats : MonoBehaviour
 
     public void OnReputationChanged(int newValue)
     {
-        
         SetReputation($"Current Reputation: {reputation.Value}");
     }
     public void OnTipsChanged(int newValue)
     {
-        
         SetTip($"Current Tips: {tips.Value}");
     }
 
@@ -43,9 +45,10 @@ public class PlayerStats : MonoBehaviour
         tipsText.text = text;
     }
 
-
     private void SetReputation(string text)
     {
         reputationText.text = text;
     }
+    
+    
 }

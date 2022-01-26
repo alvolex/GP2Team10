@@ -16,7 +16,7 @@ public class CustomerHandler : MonoBehaviour
         if (string.IsNullOrEmpty(alienData.alienID))
         {
             alienData.alienID = System.DateTime.Now.ToLongDateString() + System.DateTime.Now.ToLongTimeString()+ Random.Range(0,int.MaxValue).ToString();
-            SaveData.current.aliens.Add(alienData);
+            //SaveData.current.aliens.Add(alienData);
         }
         
         

@@ -8,10 +8,10 @@ public class PlayerProfile : MonoBehaviour
 {
     //SAVED INFORMATION GOES HERE, WHAT DO WE ACTUALLY WANT TO SAVE IN THE GAME?
     
-    
     //Reputation, Tips, How hectic the game is at the current state, upgrade state, current day(?)
 
-    public string playerName;
+    public PlayerStatsScriptableObject savedStats;
+    
     public int reputation;
     public int tips;
 }
