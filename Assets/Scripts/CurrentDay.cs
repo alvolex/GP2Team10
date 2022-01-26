@@ -15,8 +15,9 @@ public class CurrentDay : MonoBehaviour
     [Header("Daylight")] 
     [SerializeField] private Light sun;
     
-    [Header("Event")] [SerializeField]
-    private ScriptableSimpleEvent dayEndEvent;
+    [Header("Event")] 
+    [SerializeField] private ScriptableSimpleEvent dayEndEvent;
+    [SerializeField] private ScriptableSimpleEvent startNextDay;
 
     private Quaternion sunStartRotation;
     private int currentDay = 1;
@@ -26,7 +27,7 @@ public class CurrentDay : MonoBehaviour
         sunStartRotation = sun.transform.rotation;
         StartCoroutine(StartDay());
 
-        dayEndEvent.ScriptableEvent += delegate { StartCoroutine(StartDay()); };
+        startNextDay.ScriptableEvent += delegate { StartCoroutine(StartDay()); };
     }
 
     private void Update()
