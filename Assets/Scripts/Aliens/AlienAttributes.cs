@@ -51,17 +51,18 @@ public class AlienAttributes : MonoBehaviour
                     return;
                 }
             }
+            
             FoodIsEdible();
-            
-            
         }
     }
-
     private void CustomerIsAllergic()
     {
         allergensFedReference.ApplyChange(+1);
         onAllergenFed.Raise(allergensFedReference.GetValue());
     }
+
+
+    
 
     void FoodIsEdible()
     {
