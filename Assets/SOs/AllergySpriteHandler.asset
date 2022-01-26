@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e633c0beb9394f59a8bee763d1cff486, type: 3}
+  m_Name: AllergySpriteHandler
+  m_EditorClassIdentifier: 
+  getSprites:
+    chocolateImage: {fileID: 21300000, guid: a54892f5c9a22c941967e1c583556bf6, type: 3}
+    fruitImage: {fileID: 21300000, guid: 72cce87efcba67f4b8286cdd678e6381, type: 3}
+    proteinImage: {fileID: 21300000, guid: 512c569b32d85cc4a94188b9318407a2, type: 3}
+    sauceImage: {fileID: 21300000, guid: 4579cecf20b293849b11185bd7fe328c, type: 3}
+    veggiesImage: {fileID: 21300000, guid: 1540caff807941141b9c53f8b988571d, type: 3}
+    milkproductsImage: {fileID: 21300000, guid: b0e5f72d44fbe6a4d86ae62010ac7ddd, type: 3}

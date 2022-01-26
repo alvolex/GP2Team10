@@ -86,7 +86,7 @@ public class TableAssigner : MonoBehaviour
         tableCollider = other;
 
         if (!other.transform.parent.TryGetComponent<Table>(out Table table)) return;
-        if (!table.HasEmptySeat() || table.NumberOfEmptyChairs() < tableSeater.SelectedCustomerList.Count || !table.IsEmpty()) return; //If we get a table but it has no seats, then returneronis
+        if (!table.HasEmptySeat() || table.NumberOfEmptyChairs() < tableSeater.SelectedCustomerList.Count || !table.IsEmpty() || !table.IsUnlocked) return; //If we get a table but it has no seats, then returneronis
             
         table.HighlightTable();
         

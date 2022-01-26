@@ -15,6 +15,6 @@ MonoBehaviour:
   foodName: Dessert2
   foodType: 2
   allergies: 05000000
-  timeToCookFood: 5
+  timeToCookFood: 7
   foodPrefab: {fileID: 0}
   foodDescription: 

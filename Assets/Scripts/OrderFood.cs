@@ -25,8 +25,8 @@ public class OrderFood : MonoBehaviour
     [SerializeField] private GameObject chooseMenuItemImage;
     [SerializeField] private ScriptableTodaysMeals todaysMeals;
 
-    [Header("Food Ordering")] [SerializeField, Range(1f, 3f)]
-    private float foodOrderingRadius = 2f;
+    [Header("Food Ordering")] 
+    [SerializeField, Range(1f, 3f)] private float foodOrderingRadius = 2f;
 
     [Header("Sprites for the different food types")] [SerializeField]
     private Image spriteRenderer;
@@ -34,6 +34,14 @@ public class OrderFood : MonoBehaviour
     [SerializeField] private Sprite starterSprite;
     [SerializeField] private Sprite maincourseSprite;
     [SerializeField] private Sprite dessertSprite;
+
+    [Header("Allergy sprites")] 
+    [SerializeField] private List<Image> allergySpriteRenderer = new List<Image>();
+    [SerializeField] private ScriptableAllergySpriteHandler getSprite;
+
+    //All private vars and getters
+    #region Private vars and getters
+    private List<Ingredients.Allergy> myAllergies;
 
     private SphereCollider sCollider;
     private bool readyToOrder;
@@ -60,12 +68,14 @@ public class OrderFood : MonoBehaviour
         get => hasOrdered;
         set => hasOrdered = value;
     }
+    #endregion
 
     private void Start()
     {
         EnumToArray(); //Convert our FoodTypes into an array
         menuItemTextList = chooseMenuItemImage.GetComponentsInChildren<TMP_Text>().ToList();
         hasOrdered = false;
+        myAllergies = GetComponent<AlienAttributes>().allergy.ToList();
     }
 
     private void EnumToArray()
@@ -154,15 +164,45 @@ public class OrderFood : MonoBehaviour
 
         //Update the menu items UI over the customers head with the name of the meals for today
         int textIndex = 0;
+        List<Image> allergyItemList = new List<Image>();
         foreach (var food in foodToChooseFrom)
         {
             if (textIndex < menuItemTextList.Count)
             {
+                //Set the food names (Eg. Dessert 1, Dessert 2, Starter 1..)
                 menuItemTextList[textIndex].text = food.FoodName;
+                allergyItemList = menuItemTextList[textIndex].GetComponentsInChildren<Image>().ToList();
+                
+                //Update the allergy sprites for the current food
+                int allergyIndex = 0;
+                foreach (var img in allergyItemList)
+                {
+                    //Inactivate the allergy image box if there are fewer allergies
+                    if (allergyIndex >= food.Allergies.Count)
+                    {
+                        allergyItemList[allergyIndex].gameObject.SetActive(false);
+                        allergyIndex++;
+                        continue;
+                    }
+                    
+                    //Set allergy picture
+                    img.sprite = getSprite.GetSprite(food.Allergies[allergyIndex]);
+                    allergyIndex++;
+                }
             }
-
             textIndex++;
         }
+        
+        //Update current aliens allergy sprites
+        int spriteIndex = 0;
+        foreach (var allergy in myAllergies)
+        {
+            Sprite allergySprite = getSprite.GetSprite(allergy);
+            allergySpriteRenderer[spriteIndex].sprite = allergySprite;
+            allergySpriteRenderer[spriteIndex].gameObject.SetActive(true);
+            spriteIndex++;
+        }
+        
 
         selectedDish = foodToChooseFrom[0]; //Just a failsafe
     }
