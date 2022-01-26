@@ -13,14 +13,11 @@ public class AlienAntiBounce : MonoBehaviour
         rigidbody = GetComponent<Rigidbody>();
     }
 
-    private void OnCollisionStay(Collision collision)
+    /*private void OnCollisionStay(Collision collision)
     {
         if (!collision.gameObject.TryGetComponent(out Customer cust)) return;
         
-        if (otherRb == null)
-        {
-            otherRb = cust.GetComponent<Rigidbody>();
-        }
+        otherRb = cust.GetComponent<Rigidbody>();
             
         rigidbody.velocity = Vector3.zero;
         rigidbody.angularVelocity = Vector3.zero;
@@ -28,10 +25,15 @@ public class AlienAntiBounce : MonoBehaviour
         otherRb = cust.GetComponent<Rigidbody>();
         otherRb.velocity = Vector3.zero;
         otherRb.angularVelocity = Vector3.zero;
-    }
+    }*/
 
     private void OnCollisionExit(Collision other)
     {
         otherRb = null;
+        
+        if (!other.gameObject.TryGetComponent(out Customer cust)) return;
+
+        rigidbody.velocity = Vector3.zero;
+        rigidbody.angularVelocity = Vector3.zero;
     }
 }
