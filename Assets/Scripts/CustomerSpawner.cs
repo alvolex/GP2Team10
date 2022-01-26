@@ -1,15 +1,12 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using Scriptables;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class CustomerSpawner : MonoBehaviour
 {
     [Header("Setup")] 
-    [SerializeField, Tooltip("This is per day")] private int maxNumberOfCustomersToSpawn = 3;
-    [SerializeField, Tooltip("Seconds between customers spawning")] private float timeBetweenCustomers = 7f;
+    [SerializeField] private int numberOfCustomersToSpawn = 3;
+    [SerializeField] private float timeBetweenCustomers = 7f;
 
     [Header("Spawn probabilities (should add up to 100)(%)")]
     [SerializeField] private int chanceOf1Customer = 25;
@@ -19,41 +16,14 @@ public class CustomerSpawner : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private Transform doorPos;
-    [SerializeField] private List<GameObject> customers = new List<GameObject>();
+    [SerializeField] private GameObject customer;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject groupParentPrefab;
     
-    [Header("Event")] 
-    [SerializeField] private ScriptableSimpleEvent handleStopSpawningCustomers; //Event invoked from DayManager
-    [SerializeField] private ScriptableSimpleEvent onNewDaySpawnCustomers; //Event invoked from DayManager
-
-    private bool stopCoroutine;
     
-    //todo use this to check if the restaurant is empty or not
-    private int totalSpawnedCustomersToday = 0;
-    //private int customersWhoLeftOrDied = 0;
-
     void Start()
     {
         StartCoroutine(SpawnCustomers());
-        handleStopSpawningCustomers.ScriptableEvent += StopSpawningCustomers;
-        onNewDaySpawnCustomers.ScriptableEvent += StartSpawningCustomers;
-        stopCoroutine = false;
-    }
-
-    private void StartSpawningCustomers()
-    {
-        //Starting to spawn customers because an event told me to
-        stopCoroutine = false;
-        StartCoroutine(SpawnCustomers());
-    }
-
-    private void StopSpawningCustomers()
-    {
-        //Stopped spawning customers because an event told me to
-        Debug.Log("Total customers today: " + totalSpawnedCustomersToday);
-        stopCoroutine = true;
-        StopCoroutine(SpawnCustomers());
     }
 
     private int CustomersInParty()
@@ -77,13 +47,8 @@ public class CustomerSpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         int index = 0;
-        for (int i = 0; i < maxNumberOfCustomersToSpawn; i++)
+        for (int i = 0; i < numberOfCustomersToSpawn; i++)
         {
-            if (stopCoroutine)
-            {
-                yield break;
-            }
-            
             int amountOfCustomers = CustomersInParty();
             SpawnCustomer(index, amountOfCustomers);
 
@@ -99,16 +64,12 @@ public class CustomerSpawner : MonoBehaviour
         GameObject parent = Instantiate(groupParentPrefab);
         parent.name = $"Customer_Group{i}";
 
-        totalSpawnedCustomersToday += customersInGroup;
-
         //Create the customer group
         for (int j = 0; j < customersInGroup; j++)
         {
             //todo can this be made prettier?
             //Create customer instance
-            int randomCustomerIndex = Random.Range(0, customers.Count);
-            
-            GameObject customerInstance = Instantiate(customers[randomCustomerIndex], doorPos.position, Quaternion.identity);
+            GameObject customerInstance = Instantiate(customer, doorPos.position, Quaternion.identity);
             customerInstance.transform.LookAt(player.transform.position);
             customerInstance.name = $"Customer{j}";
             customerInstance.transform.parent = parent.transform; //Assign to parent

@@ -8,23 +8,16 @@ using UnityEngine;
 
 public class CurrentDay : MonoBehaviour
 {
-    [Header("Settings")]
-    [SerializeField] private float dayLength = 120f;
-
-    [SerializeField, Tooltip("When the time left of the day is below this value we will stop spawning more customers")] 
-    private int timeLeftToStopSpawning;
-    
-
     [Header("UI")]
     [SerializeField] private TMP_Text dayText;
-
+    [SerializeField] private float dayLength = 120f;
+    
     [Header("Daylight")] 
     [SerializeField] private Light sun;
     
     [Header("Event")] 
     [SerializeField] private ScriptableSimpleEvent dayEndEvent;
     [SerializeField] private ScriptableSimpleEvent startNextDay;
-    [SerializeField] private ScriptableSimpleEvent stopSpawningCustomers;
 
     private Quaternion sunStartRotation;
     private int currentDay = 1;
@@ -64,12 +57,6 @@ public class CurrentDay : MonoBehaviour
             int timeLeft = (int)dayLength - i;
             string uiText = $"Day: {currentDay} | {timeLeft.ToString()}";
             dayText.text = uiText;
-
-            if (timeLeft == timeLeftToStopSpawning)
-            {
-                Debug.Log("Invoking stop spawning");
-                stopSpawningCustomers.InvokeEvent();
-            }
 
             if (timeLeft == 5)
             {
