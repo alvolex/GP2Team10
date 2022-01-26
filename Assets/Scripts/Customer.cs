@@ -81,13 +81,14 @@ public class Customer : MonoBehaviour
     //todo maybe the player should handle this(?)
     private void HandleCustomerSelection()
     {
-        if (!Input.GetKeyDown(KeyCode.Space) || !closeToHost || isSeated) return;
-        //Set the current customer to be this customer when selected in our scriptable object
-        
-        currentAction.CurrentAction = CurrentAction.SeatingCustomer;
-        if (transform.parent.TryGetComponent(out SelectGroupOfCustomers sgc))
+        if (Input.GetKeyDown(KeyCode.Space) && closeToHost && !isSeated)
         {
-            sgc.SelectCustomersInGroup(); 
+            //Set the current customer to be this customer when selected in our scriptable object
+            currentAction.CurrentAction = CurrentAction.SeatingCustomer;
+            if (transform.parent.TryGetComponent(out SelectGroupOfCustomers sgc))
+            {
+                sgc.SelectCustomersInGroup(); 
+            }
         }
     }
 
