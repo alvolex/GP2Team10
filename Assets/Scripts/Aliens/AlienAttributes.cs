@@ -8,23 +8,19 @@ using Variables;
 [Serializable]
 public class AlienAttributes : MonoBehaviour
 {
-    
     //If we are having a type of alien, we can register it here for the saveData
 
     [SerializeField] private IntVariable reputation;
     [SerializeField] private IntVariable tips;
 
-
-
     [Header("Reputation: ")]
-
     [SerializeField] private IntReference reputationReference;
     [SerializeField] private ScriptableEventIntReference onReputationChanged;
     
     [Header("Tips: ")]
     [SerializeField] private IntReference tipsReference;
     [SerializeField] private ScriptableEventIntReference onTipsChanged;
-    
+
     [Header("AliensFed: ")]
     [SerializeField] private IntReference aliensFedReference;
     [SerializeField] private ScriptableEventIntReference onAlienFed;
@@ -42,7 +38,7 @@ public class AlienAttributes : MonoBehaviour
     
     
     public event Action<Customer> customerHasDied;
-
+    
 
     public void CheckAllergies(ScriptableFood foodToCheck)
     {
@@ -60,49 +56,24 @@ public class AlienAttributes : MonoBehaviour
                     return;
                 }
             }
-
-            reputationReference.ApplyChange(+maxRep);
-            onReputationChanged.Raise(reputation.Value);
-            SaveData.current.profile.reputation = reputation.Value;
+        }
+        
+        reputationReference.ApplyChange(+maxRep);
+        onReputationChanged.Raise(reputation.Value);
+        SaveData.current.profile.reputation = reputation.Value;
             
-            tipsReference.ApplyChange(+maxTip);
-            onTipsChanged.Raise(tips.Value);
-            SaveData.current.profile.tips = tips.Value;
-
-        }
-    }
-}
-
-            
-            FoodIsEdible();
-        }
-    }
-
-
-            reputationReference.ApplyChange(+maxRep);
-            onReputationChanged.Raise(reputation.Value);
-            SaveData.current.profile.reputation = reputation.Value;
-
-            tipsReference.ApplyChange(+maxTip);
-            onTipsChanged.Raise(tips.Value);
-            SaveData.current.profile.tips = tips.Value;
-
-        }
-
-
-
+        tipsReference.ApplyChange(+maxTip);
+        onTipsChanged.Raise(tips.Value);
+        SaveData.current.profile.tips = tips.Value;
+        
         FoodIsEdible();
     }
-
 
     private void CustomerIsAllergic()
     {
         allergensFedReference.ApplyChange(+1);
         onAllergenFed.Raise(allergensFedReference.GetValue());
     }
-
-
-    
 
     void FoodIsEdible()
     {
@@ -111,9 +82,11 @@ public class AlienAttributes : MonoBehaviour
         
         reputationReference.ApplyChange(+maxRep);
         onReputationChanged.Raise(aliensFedReference.GetValue());
-        
-        
+
         tipsReference.ApplyChange(+maxTip);
         onTipsChanged.Raise(aliensFedReference.GetValue());  
     } 
 }
+            
+            
+
