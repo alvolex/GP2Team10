@@ -8,11 +8,13 @@ using Variables;
 [Serializable]
 public class AlienAttributes : MonoBehaviour
 {
-
     
     //If we are having a type of alien, we can register it here for the saveData
 
     [SerializeField] private IntVariable reputation;
+    [SerializeField] private IntVariable tips;
+
+
 
     [Header("Reputation: ")]
 
@@ -40,7 +42,7 @@ public class AlienAttributes : MonoBehaviour
     
     
     public event Action<Customer> customerHasDied;
-    
+
 
     public void CheckAllergies(ScriptableFood foodToCheck)
     {
@@ -70,10 +72,29 @@ public class AlienAttributes : MonoBehaviour
         }
     }
 }
+
             
             FoodIsEdible();
         }
     }
+
+
+            reputationReference.ApplyChange(+maxRep);
+            onReputationChanged.Raise(reputation.Value);
+            SaveData.current.profile.reputation = reputation.Value;
+
+            tipsReference.ApplyChange(+maxTip);
+            onTipsChanged.Raise(tips.Value);
+            SaveData.current.profile.tips = tips.Value;
+
+        }
+
+
+
+        FoodIsEdible();
+    }
+
+
     private void CustomerIsAllergic()
     {
         allergensFedReference.ApplyChange(+1);
