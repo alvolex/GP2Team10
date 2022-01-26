@@ -17,6 +17,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private  AudioSource reputationUpSource;
     [SerializeField] private  AudioSource reputationDownSource;
     [SerializeField] private AudioSource alienExplodeSource;
+    [SerializeField] private AudioSource pickupPlateSource;
+    [SerializeField] private AudioSource dayEnd5SecSource;
 
     private void Awake()
     {
@@ -78,9 +80,18 @@ public class AudioManager : MonoBehaviour
     {
         PlaySound(reputationDownSource, reputationDownSource.clip);
     }
-    public void AlienExplodeSFX()
+    public void PlayAlienExplodeSFX()
     {
         PlaySound(alienExplodeSource, alienExplodeSource.clip);
+    }
+    public void PlayPickupPlateSFX()
+    {
+        PlaySound(pickupPlateSource, pickupPlateSource.clip);
+    }
+    public void PlayDayEnd5SecSFX()
+    {
+        PlaySound(dayEnd5SecSource, dayEnd5SecSource.clip);
+
     }
 
     public void PlaySound(AudioSource source, AudioClip clip)

@@ -46,6 +46,7 @@ public class DeliverFood : MonoBehaviour
         curOrder = order;
         plate.SetActive(true);
         foodSpriteRenderer.sprite = order.GetFoodSprite();
+        AudioManager.Instance.PlayPickupPlateSFX();
     }
 
     private void OnTriggerEnter(Collider other)
