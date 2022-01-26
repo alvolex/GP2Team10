@@ -76,15 +76,7 @@ public class AlienAttributes : MonoBehaviour
         onTipsChanged.Raise(aliensFedReference.GetValue());
         
     }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            aliensFedReference.ApplyChange(+1);
-            onAlienFed.Raise(aliensFedReference.GetValue());
-        }
-    }
+    
 }
 
 
