@@ -6,6 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Starteronis.unity
-    guid: 2a0954b11391c7849a2820e4a6069d40
+
+    path: Assets/Scenes/MainMenu.unity
+    guid: 7547145dc7fbfe940b9f2282c4f673d3
+
+
+
   m_configObjects: {}

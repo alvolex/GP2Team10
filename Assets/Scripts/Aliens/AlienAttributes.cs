@@ -1,24 +1,23 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using ScriptableEvents;
 using SOs;
 using UnityEngine;
 using Variables;
 
+
+[Serializable]
 public class AlienAttributes : MonoBehaviour
 {
-<<<<<<< Updated upstream
-=======
-
     
     //If we are having a type of alien, we can register it here for the saveData
 
     [SerializeField] private IntVariable reputation;
     [SerializeField] private IntVariable tips;
 
->>>>>>> Stashed changes
+
+
     [Header("Reputation: ")]
+
     [SerializeField] private IntReference reputationReference;
     [SerializeField] private ScriptableEventIntReference onReputationChanged;
     
@@ -61,12 +60,24 @@ public class AlienAttributes : MonoBehaviour
                     return;
                 }
             }
-<<<<<<< Updated upstream
+
+            reputationReference.ApplyChange(+maxRep);
+            onReputationChanged.Raise(reputation.Value);
+            SaveData.current.profile.reputation = reputation.Value;
+            
+            tipsReference.ApplyChange(+maxTip);
+            onTipsChanged.Raise(tips.Value);
+            SaveData.current.profile.tips = tips.Value;
+
+        }
+    }
+}
+
             
             FoodIsEdible();
         }
     }
-=======
+
 
             reputationReference.ApplyChange(+maxRep);
             onReputationChanged.Raise(reputation.Value);
@@ -84,7 +95,6 @@ public class AlienAttributes : MonoBehaviour
     }
 
 
->>>>>>> Stashed changes
     private void CustomerIsAllergic()
     {
         allergensFedReference.ApplyChange(+1);
@@ -104,10 +114,6 @@ public class AlienAttributes : MonoBehaviour
         
         
         tipsReference.ApplyChange(+maxTip);
-        onTipsChanged.Raise(aliensFedReference.GetValue());
-        
-    }
-    
+        onTipsChanged.Raise(aliensFedReference.GetValue());  
+    } 
 }
-
-

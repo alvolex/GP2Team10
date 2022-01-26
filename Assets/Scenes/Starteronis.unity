@@ -1212,10 +1212,6 @@ PrefabInstance:
       propertyPath: dayText
       value: 
       objectReference: {fileID: 1163694845}
-    - target: {fileID: 9142106679105981078, guid: b282e9b361fab644d86965d0f72be003, type: 3}
-      propertyPath: dayLength
-      value: 60
-      objectReference: {fileID: 0}
     - target: {fileID: 9142106679105981079, guid: b282e9b361fab644d86965d0f72be003, type: 3}
       propertyPath: m_Name
       value: DayManager

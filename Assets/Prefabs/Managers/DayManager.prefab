@@ -44,5 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dayText: {fileID: 0}
-  dayLength: 60
+  dayLength: 5
   sun: {fileID: 0}
+  dayEndEvent: {fileID: 11400000, guid: 83a4ef0c60d1b2f48a198c9cbccb486e, type: 2}

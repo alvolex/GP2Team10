@@ -27,7 +27,7 @@ public class AlienEatFood : MonoBehaviour
         GetMyOrder();
         hasRecievedFood = true;
         
-        Debug.Log( "Order has been recieved by alien: " + order.GetFood());
+        //Debug.Log( "Order has been recieved by alien: " + order.GetFood());
 
         attributes.CheckAllergies(order.SelectedFoodItem);
 
