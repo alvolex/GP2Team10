@@ -9,8 +9,7 @@ public class RespawnPlayer : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Triggered");
-        
+        Debug.Log("Respawning Player");
         if (other.gameObject.TryGetComponent(out PlayerMovement player))
         {
             player.transform.position = spawnPoint.transform.position;
