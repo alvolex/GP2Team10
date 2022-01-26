@@ -8,6 +8,16 @@ using Variables;
 
 public class AlienAttributes : MonoBehaviour
 {
+<<<<<<< Updated upstream
+=======
+
+    
+    //If we are having a type of alien, we can register it here for the saveData
+
+    [SerializeField] private IntVariable reputation;
+    [SerializeField] private IntVariable tips;
+
+>>>>>>> Stashed changes
     [Header("Reputation: ")]
     [SerializeField] private IntReference reputationReference;
     [SerializeField] private ScriptableEventIntReference onReputationChanged;
@@ -33,7 +43,7 @@ public class AlienAttributes : MonoBehaviour
     
     
     public event Action<Customer> customerHasDied;
-    
+
 
     public void CheckAllergies(ScriptableFood foodToCheck)
     {
@@ -51,10 +61,30 @@ public class AlienAttributes : MonoBehaviour
                     return;
                 }
             }
+<<<<<<< Updated upstream
             
             FoodIsEdible();
         }
     }
+=======
+
+            reputationReference.ApplyChange(+maxRep);
+            onReputationChanged.Raise(reputation.Value);
+            SaveData.current.profile.reputation = reputation.Value;
+
+            tipsReference.ApplyChange(+maxTip);
+            onTipsChanged.Raise(tips.Value);
+            SaveData.current.profile.tips = tips.Value;
+
+        }
+
+
+
+        FoodIsEdible();
+    }
+
+
+>>>>>>> Stashed changes
     private void CustomerIsAllergic()
     {
         allergensFedReference.ApplyChange(+1);
