@@ -62,7 +62,7 @@ public class FoodPickupStation : MonoBehaviour
         var foodToPickup = foodDisplayQueue.Dequeue();
         UpdateFoodPlatesOnCounter();
 
-        Debug.Log("Food has been picked up: " + foodToPickup.GetFood());
+        //Debug.Log("Food has been picked up: " + foodToPickup.GetFood());
 
         if (playerCarry != null)
         {

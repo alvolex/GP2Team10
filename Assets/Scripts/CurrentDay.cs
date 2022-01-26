@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
+using Scriptables;
 using TMPro;
 using UnityEngine;
 
@@ -13,19 +14,19 @@ public class CurrentDay : MonoBehaviour
     
     [Header("Daylight")] 
     [SerializeField] private Light sun;
+    
+    [Header("Event")] [SerializeField]
+    private ScriptableSimpleEvent dayEndEvent;
 
     private Quaternion sunStartRotation;
     private int currentDay = 1;
-    
-    public event Action OnDayEnded;
 
     private void Start()
     {
-        dayText.text = $"Day: {currentDay} | {dayLength.ToString()}";
         sunStartRotation = sun.transform.rotation;
         StartCoroutine(StartDay());
 
-        OnDayEnded += delegate { StartCoroutine(StartDay()); }; //Test
+        dayEndEvent.ScriptableEvent += delegate { StartCoroutine(StartDay()); };
     }
 
     private void Update()
@@ -40,9 +41,11 @@ public class CurrentDay : MonoBehaviour
 
     IEnumerator StartDay()
     {
+        dayText.text = $"Day: {currentDay} | {dayLength.ToString()}";
+        
         yield return new WaitForSeconds(0.5f);
         StartCoroutine(FadeSun(0,1, 0.3f));
-        
+
         int i = 0;
         sun.transform.rotation = sunStartRotation;
         while (i < dayLength)
@@ -56,7 +59,7 @@ public class CurrentDay : MonoBehaviour
         }
         currentDay++;
         
-        OnDayEnded?.Invoke(); //Event that will be triggered when a day has ended
+        dayEndEvent.InvokeEvent();
         Debug.Log("Day ended!");
 
         StartCoroutine(FadeSun(1,0, 0.4f));

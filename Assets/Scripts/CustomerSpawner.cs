@@ -39,8 +39,7 @@ public class CustomerSpawner : MonoBehaviour
             customersToSpawn = 3;
         else if (getRandNumber <= chanceOf1Customer + chanceOf2Customers + chanceOf3Customers + chanceOf4Customers)
             customersToSpawn = 4;
-
-        Debug.Log(getRandNumber + " Cust: " + customersToSpawn);
+            
         return customersToSpawn;
     }
 
