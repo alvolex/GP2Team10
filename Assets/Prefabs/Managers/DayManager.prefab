@@ -43,8 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68fa98f428e51234080c7cf96803f4c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dayLength: 45
+  timeLeftToStopSpawning: 10
   dayText: {fileID: 0}
-  dayLength: 5
   sun: {fileID: 0}
   dayEndEvent: {fileID: 11400000, guid: 83a4ef0c60d1b2f48a198c9cbccb486e, type: 2}
   startNextDay: {fileID: 11400000, guid: 71a4df6f45fa69d4ba8378163d846057, type: 2}
+  stopSpawningCustomers: {fileID: 11400000, guid: 2a13d75055a79b64d89a7fc48faa69ad, type: 2}
