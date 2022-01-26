@@ -73,7 +73,7 @@ public class FoodPickupStation : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (curAction.CurrentAction != CurrentAction.None || !other.TryGetComponent(out DeliverFood pc)) return;
 
