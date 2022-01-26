@@ -48,6 +48,7 @@ public class Table : MonoBehaviour
     public void UnlockTable()
     {
         isUnlocked = true;
+        tableMeshRenderer.material = defaultMat;
     }
 
     private void SetupAvailableChairs()

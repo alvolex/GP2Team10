@@ -60,11 +60,11 @@ public class AlienAttributes : MonoBehaviour
         
         reputationReference.ApplyChange(+maxRep);
         onReputationChanged.Raise(reputation.Value);
-        SaveData.current.profile.reputation = reputation.Value;
+        //SaveData.current.profile.reputation = reputation.Value;
             
         tipsReference.ApplyChange(+maxTip);
         onTipsChanged.Raise(tips.Value);
-        SaveData.current.profile.tips = tips.Value;
+        //SaveData.current.profile.tips = tips.Value;
         
         FoodIsEdible();
     }
