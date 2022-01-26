@@ -15,6 +15,6 @@ MonoBehaviour:
   foodName: Starter3
   foodType: 0
   allergies: 00000000
-  timeToCookFood: 5
+  timeToCookFood: 12
   foodPrefab: {fileID: 0}
   foodDescription: 

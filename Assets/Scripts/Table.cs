@@ -6,21 +6,48 @@ using UnityEngine;
 
 public class Table : MonoBehaviour
 {
+    [Header("Table settings")] 
+    [SerializeField] private bool canSeatManyGroups;
+    [SerializeField]private bool isUnlocked;
+
+    [Header("References")]
     [SerializeField] private List<GameObject> chairPositions;
     [SerializeField] private MeshRenderer tableMeshRenderer;
-
+    
+    [Header("Materials")]
     [SerializeField] private Material defaultMat;
     [SerializeField] private Material selectedMat;
-
+    [SerializeField] private Material lockedMaterial;
+    [Header("Debug")]
     [SerializeField]private int emptyChairs = 0;
 
     private Dictionary<Customer, int> customerChairDictionary = new Dictionary<Customer, int>();
     private Dictionary<int, bool> availableSeats = new Dictionary<int, bool>();
-    
+
+    public bool IsUnlocked => isUnlocked;
+
     private void Start()
     {
         emptyChairs = chairPositions.Count;
         SetupAvailableChairs();
+        SetCorrectMaterial();
+    }
+
+    private void SetCorrectMaterial()
+    {
+        tableMeshRenderer.material = isUnlocked ? defaultMat : lockedMaterial;
+    }
+
+    public bool IsEmpty()
+    {
+        if (canSeatManyGroups) return true;
+
+        return emptyChairs == chairPositions.Count;
+    }
+
+    public void UnlockTable()
+    {
+        isUnlocked = true;
     }
 
     private void SetupAvailableChairs()
@@ -29,6 +56,11 @@ public class Table : MonoBehaviour
         {
             availableSeats.Add(i, true);
         }
+    }
+
+    public int NumberOfEmptyChairs()
+    {
+        return emptyChairs;
     }
 
     public void HighlightTable()

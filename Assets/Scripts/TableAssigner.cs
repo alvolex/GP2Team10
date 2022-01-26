@@ -17,14 +17,20 @@ public class TableAssigner : MonoBehaviour
     private void Start()
     {
         tableSeater.CurrentCustomer = null;
-        currentAction.CurrentAction = CurrentAction.None; //todo this is a pretty dirty place to put this...
+        currentAction.CurrentAction = CurrentAction.None;
     }
     
-    void Update()
+    private void Update()
     {
-        if (!closeToTable || curTable == null) return;
-
-        if (!CheckIfTableIsInRange()) return;
+        if (!closeToTable || curTable == null || !CheckIfTableIsInRange())
+        {
+            if (Input.GetKeyDown(KeyCode.Space) && currentAction.CurrentAction == CurrentAction.SeatingCustomer)
+            {
+                currentAction.CurrentAction = CurrentAction.None;
+                tableSeater.ClearCustomerList();
+            }
+            return;
+        }
 
         AssignCustomerToTable();
     }
@@ -52,16 +58,20 @@ public class TableAssigner : MonoBehaviour
 
     private void AssignCustomerToTable()
     {
-        if (tableSeater.CurrentCustomer != null && Input.GetKeyDown(KeyCode.Space) && closeToTable)
+        if (tableSeater.SelectedCustomerList.Count != 0 && Input.GetKeyDown(KeyCode.Space) && closeToTable)
         {
-            //Pass in who the customer who will sit in a specific chair so we can keep track when they leave
-            Vector3 chairPos = curTable.GetEmptyChairPosition(tableSeater.CurrentCustomer);
-            currentAction.CurrentAction = CurrentAction.None;
+            foreach (var customer in tableSeater.SelectedCustomerList)
+            {
+                //Pass in who the customer who will sit in a specific chair so we can keep track when they leave
+                Vector3 chairPos = curTable.GetEmptyChairPosition(customer);
 
-            //Move customer to the assigned chair
-            tableSeater.CurrentCustomer.MoveToTable(chairPos);
-            tableSeater.CurrentCustomer = null;
+                //Move customer to the assigned chair
+                customer.MoveToTable(chairPos);
+            }
             
+            currentAction.CurrentAction = CurrentAction.None;
+            tableSeater.ClearCustomerList();
+
             //Unhighlight and reset table info when a customer has been assigned
             curTable.UnhighlightTable();
             closeToTable = false;
@@ -72,26 +82,16 @@ public class TableAssigner : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.parent == null || tableSeater.CurrentCustomer == null) return;
+        if (other.transform.parent == null || tableSeater.SelectedCustomerList.Count == 0) return;
         tableCollider = other;
 
         if (!other.transform.parent.TryGetComponent<Table>(out Table table)) return;
-        if (!table.HasEmptySeat()) return; //If we get a table but it has no seats, the returneronis
+        if (!table.HasEmptySeat() || table.NumberOfEmptyChairs() < tableSeater.SelectedCustomerList.Count || !table.IsEmpty() || !table.IsUnlocked) return; //If we get a table but it has no seats, then returneronis
             
         table.HighlightTable();
         
         closeToTable = true;
         curTable = table;
     }
-
-    /*private void OnTriggerExit(Collider other)
-    {
-        if (curTable != null && closeToTable)
-        {
-            curTable.UnhighlightTable();
-        }
-        closeToTable = false;
-        curTable = null;
-    }*/
 
 }

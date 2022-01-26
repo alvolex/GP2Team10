@@ -890,6 +890,12 @@ MonoBehaviour:
     _simpleValue: 0
     _useSimple: 0
   onTipsChanged: {fileID: 11400000, guid: 11f6bda5cd30cdf44a0980a6d6dfd5c2, type: 2}
+  aliensFed: {fileID: 0}
+  aliensFedReference:
+    _intVariable: {fileID: 0}
+    _simpleValue: 0
+    _useSimple: 0
+  onAlienFed: {fileID: 0}
   allergy: 00000000
   maxRep: 6
   maxTip: 2
