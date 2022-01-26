@@ -57,6 +57,11 @@ public class CurrentDay : MonoBehaviour
             int timeLeft = (int)dayLength - i;
             string uiText = $"Day: {currentDay} | {timeLeft.ToString()}";
             dayText.text = uiText;
+
+            if (timeLeft == 5)
+            {
+                AudioManager.Instance.PlayDayEnd5SecSFX();
+            }
         }
         currentDay++;
         

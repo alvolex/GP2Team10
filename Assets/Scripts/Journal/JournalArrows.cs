@@ -38,6 +38,8 @@ public class JournalArrows : MonoBehaviour
         {
             arrowLeft.gameObject.SetActive(true);
         }
+
+        AudioManager.Instance.PlayJournalPageTurnSFX();
     }
     void PreviousPage()
     {
@@ -55,5 +57,6 @@ public class JournalArrows : MonoBehaviour
             arrowRight.gameObject.SetActive(true);
         }
         
+        AudioManager.Instance.PlayJournalPageTurn1SFX();
     }
 }

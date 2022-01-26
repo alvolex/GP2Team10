@@ -16,6 +16,15 @@ public class JournalToggle : MonoBehaviour
             journalState = !journalState;
             
             journal.SetActive(journalState);
+
+            if (!journal.activeSelf)
+            {
+                AudioManager.Instance.PlayJournalCloseSFX();
+            }
+            else if (journal.activeSelf)
+            {
+                AudioManager.Instance.PlayJournalOpenSFX();
+            }
         }
     }
 }

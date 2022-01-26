@@ -31,12 +31,14 @@ public class FoodPickupStation : MonoBehaviour
     {
         if (canPickupFood && foodDisplayQueue.Count != 0 && Input.GetKeyDown(KeyCode.Space))
         {
+            AudioManager.Instance.PlayPickupPlateSFX();
             PickupFood();
         }
     }
 
     public void FoodIsReady(Order food)
     {
+        AudioManager.Instance.PlayOrderCompleteSFX();
         foodDisplayQueue.Enqueue(food);
         UpdateFoodPlatesOnCounter();
     }

@@ -52,6 +52,7 @@ public class AlienAttributes : MonoBehaviour
                     Debug.Log("Allergy spotted, killed customer");
                     CustomerIsAllergic();
                     Destroy(gameObject);
+                    AudioManager.Instance.PlayAlienExplodeSFX();
                     customerHasDied?.Invoke(gameObject.GetComponent<Customer>());
                     return;
                 }
@@ -61,10 +62,12 @@ public class AlienAttributes : MonoBehaviour
         reputationReference.ApplyChange(+maxRep);
         onReputationChanged.Raise(reputation.Value);
         //SaveData.current.profile.reputation = reputation.Value;
+        //AudioManager.Instance.PlayReputationUpSFX();
             
         tipsReference.ApplyChange(+maxTip);
         onTipsChanged.Raise(tips.Value);
         //SaveData.current.profile.tips = tips.Value;
+        AudioManager.Instance.PlayGetMoneySFX();
         
         FoodIsEdible();
     }

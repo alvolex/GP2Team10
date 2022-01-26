@@ -51,6 +51,7 @@ public class Kitchen : MonoBehaviour
     
     private void StartCooking()
     {
+        AudioManager.Instance.PlayOrderStartSFX();
         StartCoroutine(CookFood());
     }
 
