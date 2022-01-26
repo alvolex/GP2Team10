@@ -20,6 +20,10 @@ public class AlienAttributes : MonoBehaviour
     [SerializeField] private IntReference aliensFedReference;
     [SerializeField] private ScriptableEventIntReference onAlienFed;
     
+    [Header("Allergens fed: ")]
+    [SerializeField] private IntReference allergensFedReference;
+    [SerializeField] private ScriptableEventIntReference onAllergenFed;
+    
     
 
     public Ingredients.Allergy[] allergy;
@@ -39,7 +43,9 @@ public class AlienAttributes : MonoBehaviour
             {
                 if (allergyInFood == alienAllergy)
                 {
+                    //TODO separate the allergy killing from the allergy just making them sick
                     Debug.Log("Allergy spotted, killed customer");
+                    CustomerIsAllergic();
                     Destroy(gameObject);
                     customerHasDied?.Invoke(gameObject.GetComponent<Customer>());
                     return;
@@ -49,7 +55,15 @@ public class AlienAttributes : MonoBehaviour
             FoodIsEdible();
         }
     }
+    private void CustomerIsAllergic()
+    {
+        allergensFedReference.ApplyChange(+1);
+        onAllergenFed.Raise(allergensFedReference.GetValue());
+    }
+
+
     
+
     void FoodIsEdible()
     {
         aliensFedReference.ApplyChange(+1);
@@ -63,6 +77,7 @@ public class AlienAttributes : MonoBehaviour
         onTipsChanged.Raise(aliensFedReference.GetValue());
         
     }
+    
 }
 
 
