@@ -22,8 +22,9 @@ public class Customer : MonoBehaviour
     [Header("Debug stuff")]
     public Transform restaurantExit;
     
-    [Header("Event")] [SerializeField]
-    private ScriptableSimpleEvent leaveWhenDayEnds;
+    [Header("Event")] 
+    [SerializeField] private ScriptableSimpleEvent leaveWhenCustomersStopSpawning;
+    [SerializeField, Tooltip("Tied to the above event. When the event is called we will start leaving after this many seconds ->")] private float timeOffsetBeforeLeaving = 5;
 
     private Camera cam;
     private NavMeshAgent nmagent;
@@ -54,12 +55,12 @@ public class Customer : MonoBehaviour
         sCollider = GetComponent<SphereCollider>();
         rb = GetComponent<Rigidbody>();
         meshRenderer = GetComponent<MeshRenderer>();
-        leaveWhenDayEnds.ScriptableEvent += HandleExitWhenRestaurantCloses;
+        leaveWhenCustomersStopSpawning.ScriptableEvent += HandleExitWhenRestaurantCloses;
     }
 
     private void OnDestroy()
     {
-        leaveWhenDayEnds.ScriptableEvent -= HandleExitWhenRestaurantCloses;
+        leaveWhenCustomersStopSpawning.ScriptableEvent -= HandleExitWhenRestaurantCloses;
     }
 
     private void Update()
@@ -70,7 +71,7 @@ public class Customer : MonoBehaviour
 
     void HandleExitWhenRestaurantCloses()
     {
-        Invoke(nameof(ExitRestaurant), 5f);
+        Invoke(nameof(ExitRestaurant), timeOffsetBeforeLeaving);
     }
 
     private void HandleMovingToTable()

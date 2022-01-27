@@ -74,8 +74,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89b4ed2b89c7390479a6fa6a604eb319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slowDownPuddle: {fileID: 7585658793369092196, guid: 3e52b68cab56bfb478a4f100c1645845, type: 3}
-  minTimeBetween: 5
-  maxTimeBetween: 7
+  slowDownPuddle: {fileID: 8365596987415630729, guid: 3e52b68cab56bfb478a4f100c1645845, type: 3}
+  minTimeBetween: 15
+  maxTimeBetween: 30
   hazardSpawnRadius: 11.15
   hazardOrigin: {fileID: 2790421924949534274}
