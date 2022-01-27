@@ -1212,7 +1212,7 @@ MonoBehaviour:
     _simpleValue: 0
     _useSimple: 0
   onAllergenFed: {fileID: 11400000, guid: afbba6d1c27580044be5bea9ed2f23fc, type: 2}
-  allergy: 040000000500000002000000
+  allergy: 0400000002000000
   maxRep: 300
   maxTip: 265
   maxWaitTime: 0
