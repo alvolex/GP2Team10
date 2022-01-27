@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DefaultNamespace;
+using Scriptables;
 using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
@@ -20,6 +21,9 @@ public class Customer : MonoBehaviour
 
     [Header("Debug stuff")]
     public Transform restaurantExit;
+    
+    [Header("Event")] [SerializeField]
+    private ScriptableSimpleEvent leaveWhenDayEnds;
 
     private Camera cam;
     private NavMeshAgent nmagent;
@@ -50,12 +54,23 @@ public class Customer : MonoBehaviour
         sCollider = GetComponent<SphereCollider>();
         rb = GetComponent<Rigidbody>();
         meshRenderer = GetComponent<MeshRenderer>();
+        leaveWhenDayEnds.ScriptableEvent += HandleExitWhenRestaurantCloses;
+    }
+
+    private void OnDestroy()
+    {
+        leaveWhenDayEnds.ScriptableEvent -= HandleExitWhenRestaurantCloses;
     }
 
     private void Update()
     {
         HandleCustomerSelection();
         HandleMovingToTable();
+    }
+
+    void HandleExitWhenRestaurantCloses()
+    {
+        Invoke(nameof(ExitRestaurant), 5f);
     }
 
     private void HandleMovingToTable()
@@ -147,6 +162,8 @@ public class Customer : MonoBehaviour
 
     private void ExitRestaurant()
     {
+        hasFinishedEating = true;
+        
         rb.constraints = RigidbodyConstraints.None;
         nmObstacle.enabled = false;
         nmagent.enabled = true;
