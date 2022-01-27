@@ -20,7 +20,8 @@ public class CurrentDay : MonoBehaviour
 
     [Header("Daylight")] 
     [SerializeField] private Light sun;
-    
+    [SerializeField] private float skyboxRotSpeed;
+
     [Header("Event")] 
     [SerializeField] private ScriptableSimpleEvent dayEndEvent;
     [SerializeField] private ScriptableSimpleEvent startNextDay;
@@ -40,6 +41,12 @@ public class CurrentDay : MonoBehaviour
     private void Update()
     {
         RotateSun();
+        RotateSkybox();
+    }
+
+    private void RotateSkybox()
+    {
+        RenderSettings.skybox.SetFloat("_Rotation", Time.time * skyboxRotSpeed);
     }
 
     private void RotateSun()
