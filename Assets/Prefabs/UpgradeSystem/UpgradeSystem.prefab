@@ -89,6 +89,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerReference: {fileID: 0}
+  customerReference: {fileID: 3037402073341605548, guid: 440de0b56ed897b4b88efb54ab9d80d7, type: 3}
   aliensReference:
     _intVariable: {fileID: 11400000, guid: a58f48f7bf8cfc848a57a4a2899ea483, type: 2}
     _simpleValue: 0
@@ -102,6 +103,13 @@ MonoBehaviour:
     _simpleValue: 0
     _useSimple: 0
   upgradeButton: {fileID: 0}
+  MovementSpeedUpgradeButton: {fileID: 0}
+  CustomerMovementSpeedUpgradeButton: {fileID: 0}
+  TableUpgradeButton: {fileID: 0}
+  CookingStationUpgradeButton: {fileID: 0}
+  StorageUpgradeButton: {fileID: 0}
+  movementSpeedUpgradeAmount: 5
+  AlienMovementSpeedUpgradeAmount: 20
   upgrade1GoalMS: 3
   upgrade2GoalMS: 5
   upgrade3GoalMS: 8
@@ -112,9 +120,9 @@ MonoBehaviour:
   upgrade2GoalCMS: 0
   upgrade3GoalCMS: 0
   movementSpeedUpgradeCost: 1e0000001e0000001e000000
-  alienMovementSpeedUpgradeCost: 
+  alienMovementSpeedUpgradeCost: 050000000500000005000000
   cookingStationUpgradeSlot: 000000000000000000000000
-  storageSlotUpgradeCost: 
+  storageSlotUpgradeCost: 000000000000000000000000
   extraSeatingUpgradeCost: 000000000000000000000000
   cookingStations:
   - {fileID: 0}
@@ -123,4 +131,4 @@ MonoBehaviour:
   tables:
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
+  dayEnd: {fileID: 11400000, guid: 83a4ef0c60d1b2f48a198c9cbccb486e, type: 2}
