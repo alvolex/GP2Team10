@@ -34,11 +34,50 @@ public class AlienAttributes : MonoBehaviour
     public Ingredients.Allergy[] allergy;
     [SerializeField] private int maxRep;
     [SerializeField] private int maxTip;
-    [SerializeField] private int maxWaitTime;
+    
+    [Header("Waiting Times")]
+    [SerializeField] private float maxWaitingToBeSeatedTime;
+    [SerializeField] private float maxWaitingToOrderTime;
+    [SerializeField] private float maxWaitingForOrderTime;
+
+
+
+    enum customerState
+    {
+        WaitingToBeSeated,
+        WaitingToOrder,
+        WaitingForFood,
+    }
+
+    private customerState currentCustomerState;
     
     
     public event Action<Customer> customerHasDied;
-    
+
+
+    private void Start()
+    {
+        currentCustomerState = customerState.WaitingToBeSeated;
+    }
+
+    private void Update()
+    {
+        
+        if (currentCustomerState  == customerState.WaitingToBeSeated)
+        {
+            maxWaitingToBeSeatedTime -= Time.deltaTime;
+        }
+        if (currentCustomerState  == customerState.WaitingToOrder)
+        {
+            maxWaitingToOrderTime -= Time.deltaTime;
+        }
+        if (currentCustomerState  == customerState.WaitingForFood)
+        {
+            maxWaitingForOrderTime -= Time.deltaTime;
+        }
+
+    }
+
 
     public void CheckAllergies(ScriptableFood foodToCheck)
     {
@@ -69,6 +108,7 @@ public class AlienAttributes : MonoBehaviour
 
     void FoodIsEdible()
     {
+        
         aliensFedReference.ApplyChange(+1);
         onAlienFed.Raise(aliensFedReference.GetValue());
         
