@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2275923877478073484}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.58, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5125478648943907153}
@@ -74,5 +74,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89b4ed2b89c7390479a6fa6a604eb319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slowDownPuddle: {fileID: 7585658793369092196, guid: 3e52b68cab56bfb478a4f100c1645845, type: 3}
+  minTimeBetween: 5
+  maxTimeBetween: 7
   hazardSpawnRadius: 11.15
   hazardOrigin: {fileID: 2790421924949534274}

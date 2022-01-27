@@ -1384,6 +1384,7 @@ MonoBehaviour:
   defaultMat: {fileID: 2100000, guid: f346b81069692d14ebc6e21235d88e9b, type: 2}
   selectedMat: {fileID: 2100000, guid: 0095f11c94b61d34182b8f9cb57ae586, type: 2}
   restaurantExit: {fileID: 0}
+  leaveWhenDayEnds: {fileID: 11400000, guid: 2a13d75055a79b64d89a7fc48faa69ad, type: 2}
 --- !u!114 &4031241071056332896
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -106,7 +106,7 @@ public class CustomerSpawner : MonoBehaviour
         {
             //todo can this be made prettier?
             //Create customer instance
-            int randomCustomerIndex = Random.Range(0, customers.Count);
+            int randomCustomerIndex = Random.Range(0, customers.Count -1);
             
             GameObject customerInstance = Instantiate(customers[randomCustomerIndex], doorPos.position, Quaternion.identity);
             customerInstance.transform.LookAt(player.transform.position);

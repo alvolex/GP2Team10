@@ -5,6 +5,7 @@ using System.Globalization;
 using Scriptables;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CurrentDay : MonoBehaviour
 {
@@ -13,7 +14,6 @@ public class CurrentDay : MonoBehaviour
 
     [SerializeField, Tooltip("When the time left of the day is below this value we will stop spawning more customers")] 
     private int timeLeftToStopSpawning;
-    
 
     [Header("UI")]
     [SerializeField] private TMP_Text dayText;
@@ -42,6 +42,11 @@ public class CurrentDay : MonoBehaviour
     {
         RotateSun();
         RotateSkybox();
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
+        }
     }
 
     private void RotateSkybox()
