@@ -1609,7 +1609,7 @@ MonoBehaviour:
   orderUIImage: {fileID: 4887501450396885364}
   chooseMenuItemImage: {fileID: 6240386491342929354}
   todaysMeals: {fileID: 11400000, guid: 0142063cd1617a7498cbe34d6338a123, type: 2}
-  foodOrderingRadius: 1.5
+  foodOrderingRadius: 2.2
   spriteRenderer: {fileID: 7306654673736076632}
   starterSprite: {fileID: 21300000, guid: 512c569b32d85cc4a94188b9318407a2, type: 3}
   maincourseSprite: {fileID: 21300000, guid: 72cce87efcba67f4b8286cdd678e6381, type: 3}
@@ -1730,7 +1730,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 3
+  m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!208 &8172701852987425743
 NavMeshObstacle:

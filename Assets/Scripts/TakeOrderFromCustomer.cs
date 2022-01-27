@@ -18,6 +18,9 @@ public class TakeOrderFromCustomer : MonoBehaviour
     private bool canTakeOrder;
     private bool canLeaveOrdersToKitchen;
 
+    //Makes the trigger more reliable when there are multiple stacked triggers.
+    private List<OrderFood> ofList = new List<OrderFood>();
+
     private void Start()
     {
         canTakeOrder = false;
@@ -64,12 +67,20 @@ public class TakeOrderFromCustomer : MonoBehaviour
             currentAction.CurrentAction = CurrentAction.None;
         }
     }
-
-    private void OnTriggerStay(Collider other)
+    
+    //Todo experiment with overlapspheres, might be more performant, currently it's not a noticeable performance hit, maybe range-checking like in "TableAssigner" is a better option
+    //Using list makes the trigger more reliable when there are multiple stacked triggers. 
+    private void OnTriggerEnter(Collider other)
     {
         //Take order from customer
-        if ((currentAction.CurrentAction == CurrentAction.None || currentAction.CurrentAction == CurrentAction.HandlingOrder) && other.TryGetComponent(out of))
+        if ((currentAction.CurrentAction == CurrentAction.None || currentAction.CurrentAction == CurrentAction.HandlingOrder) && other.TryGetComponent(out OrderFood orderFood))
         {
+            if (!ofList.Contains(orderFood))
+            {
+                ofList.Add(orderFood);
+            }
+
+            of = orderFood;
             canTakeOrder = true;
             of.PlayerRef = this;
         }
@@ -80,11 +91,24 @@ public class TakeOrderFromCustomer : MonoBehaviour
             canLeaveOrdersToKitchen = true;
         }
     }
-
+    
+    //Using list makes the trigger more reliable when there are multiple stacked triggers. 
     private void OnTriggerExit(Collider other)
     {
+        if (!canTakeOrder && !canLeaveOrdersToKitchen) return;
         canLeaveOrdersToKitchen = false;
-        canTakeOrder = false;
-        of = null;
+
+        var removeFood = other.GetComponent<OrderFood>();
+        if (removeFood == null) return;
+        
+        ofList.Remove(removeFood);
+        if (ofList.Count == 0)
+        {
+            canTakeOrder = false;
+        }
+        else if (ofList.Count == 1)
+        {
+            of = ofList[0];
+        }
     }
 }

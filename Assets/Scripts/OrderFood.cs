@@ -222,7 +222,7 @@ public class OrderFood : MonoBehaviour
 
         while (true)
         {
-            if (chooseMenuItemImage.activeSelf == true && Vector3.Distance(transform.position, playerRef.transform.position) < 3f)
+            if (chooseMenuItemImage.activeSelf == true && Vector3.Distance(transform.position, playerRef.transform.position) < 3.5f)
             {
                 if (Input.GetKeyDown(KeyCode.Alpha1) && menuItemTextList.Count >= 1)
                 {

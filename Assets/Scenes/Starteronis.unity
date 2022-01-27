@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.043806598, g: 0.038770225, b: 0.04635384, a: 1}
+  m_IndirectSpecularColor: {r: 0.04368016, g: 0.038686313, b: 0.046231396, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -343,57 +343,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
-      propertyPath: upgradeButton
+      propertyPath: onAlienFed
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
-      propertyPath: upgrade1GoalMS
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
-      propertyPath: upgrade2GoalMS
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
-      propertyPath: upgrade3GoalMS
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
-      propertyPath: tables.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
-      propertyPath: cookingStations.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
-      propertyPath: tipsReference._intVariable
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
-      propertyPath: aliensReference._intVariable
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
-      propertyPath: allergensReference._intVariable
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
-      propertyPath: extraSeatingUpgradeCost.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
-      propertyPath: movementSpeedUpgradeCost.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
-      propertyPath: cookingStationUpgradeSlot.Array.size
-      value: 0
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: b31f42dbba0ae5e4d88a7a1464980fbf, type: 2}
     - target: {fileID: 2780002728581216194, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
       propertyPath: m_Name
       value: UpgradeSystem
@@ -692,7 +644,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 706764348}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e78dfa2438b4b97448649d3cece54f20, type: 3}
   m_Name: 
@@ -1261,7 +1213,7 @@ PrefabInstance:
       objectReference: {fileID: 1639460134}
     - target: {fileID: 8966542451436005877, guid: 223df456e5e9a6c49a39f4088f47e1b4, type: 3}
       propertyPath: timeBetweenCustomers
-      value: 1
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8966542451436005878, guid: 223df456e5e9a6c49a39f4088f47e1b4, type: 3}
       propertyPath: m_RootOrder
@@ -1540,6 +1492,10 @@ PrefabInstance:
       objectReference: {fileID: 1163694845}
     - target: {fileID: 9142106679105981078, guid: b282e9b361fab644d86965d0f72be003, type: 3}
       propertyPath: dayLength
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 9142106679105981078, guid: b282e9b361fab644d86965d0f72be003, type: 3}
+      propertyPath: timeLeftToStopSpawning
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9142106679105981079, guid: b282e9b361fab644d86965d0f72be003, type: 3}
