@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodName: Galactic greens
   foodType: 0
-  allergies: 000000000100000002000000
+  allergies: 0200000001000000
   timeToCookFood: 12
   foodPrefab: {fileID: 0}
   foodDescription: 
