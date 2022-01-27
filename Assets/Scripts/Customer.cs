@@ -163,6 +163,8 @@ public class Customer : MonoBehaviour
 
     private void ExitRestaurant()
     {
+        if (!nmagent.isActiveAndEnabled) return;
+
         OnFinishedEating?.Invoke(this);
         hasFinishedEating = true;
         
