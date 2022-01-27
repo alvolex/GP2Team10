@@ -30,16 +30,7 @@ public class TakeOrderFromCustomer : MonoBehaviour
         if (of != null && !of.HasOrdered && canTakeOrder && (currentAction.CurrentAction == CurrentAction.None ||
                                                              currentAction.CurrentAction == CurrentAction.HandlingOrder))
         {
-            //Do dist check instead of "OnTriggerExit" as it kinda borked when using multiple triggers
-            //todo sqrMag or throttle how often this is checked
-            if (Vector3.Distance(transform.position, of.transform.position) <= 4f)
-            {
-                HandleTakeOrderFromCustomer();
-            }
-            else
-            {
-                canTakeOrder = false;
-            }
+            HandleTakeOrderFromCustomer();
         }
 
         if (canLeaveOrdersToKitchen)
@@ -74,10 +65,10 @@ public class TakeOrderFromCustomer : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         //Take order from customer
-        if (other.TryGetComponent(out of) && (currentAction.CurrentAction == CurrentAction.None || currentAction.CurrentAction == CurrentAction.HandlingOrder))
+        if ((currentAction.CurrentAction == CurrentAction.None || currentAction.CurrentAction == CurrentAction.HandlingOrder) && other.TryGetComponent(out of))
         {
             canTakeOrder = true;
             of.PlayerRef = this;
@@ -93,5 +84,7 @@ public class TakeOrderFromCustomer : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         canLeaveOrdersToKitchen = false;
+        canTakeOrder = false;
+        of = null;
     }
 }

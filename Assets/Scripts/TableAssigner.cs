@@ -82,6 +82,8 @@ public class TableAssigner : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (currentAction.CurrentAction != CurrentAction.SeatingCustomer) return;
+
         if (other.transform.parent == null || tableSeater.SelectedCustomerList.Count == 0) return;
         tableCollider = other;
 

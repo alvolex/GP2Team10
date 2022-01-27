@@ -579,6 +579,7 @@ MonoBehaviour:
   - {fileID: 9087715962800623430}
   - {fileID: 9087715961445964875}
   tableMeshRenderer: {fileID: 7286527281431281232}
+  triggerCollider: {fileID: 0}
   defaultMat: {fileID: 2100000, guid: 91d917152462d514a897dfcd0b3cc5a0, type: 2}
   selectedMat: {fileID: 2100000, guid: 0095f11c94b61d34182b8f9cb57ae586, type: 2}
   lockedMaterial: {fileID: 2100000, guid: 3735c1cbe8686bf4ba38ce18d61953a0, type: 2}
@@ -593,6 +594,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4374710851815845184}
   - component: {fileID: 5304148605049620611}
+  - component: {fileID: 593778913035341485}
   m_Layer: 0
   m_Name: TableTrigger
   m_TagString: Untagged
@@ -608,8 +610,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7711636267420370906}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.10662, z: 0}
-  m_LocalScale: {x: 0.51224715, y: 1.137181, z: 1.1333901}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 342829934200529299}
   m_RootOrder: 0
@@ -623,10 +625,23 @@ BoxCollider:
   m_GameObject: {fileID: 7711636267420370906}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 3, y: 1, z: 3}
   m_Center: {x: 0, y: 0.51, z: 0}
+--- !u!135 &593778913035341485
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7711636267420370906}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0.65, z: 0}
 --- !u!1001 &4642109139398076844
 PrefabInstance:
   m_ObjectHideFlags: 0

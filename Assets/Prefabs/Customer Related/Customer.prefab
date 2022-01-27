@@ -1402,7 +1402,7 @@ MonoBehaviour:
   orderUIImage: {fileID: 3918593502057357455}
   chooseMenuItemImage: {fileID: 2533291114206641201}
   todaysMeals: {fileID: 11400000, guid: 0142063cd1617a7498cbe34d6338a123, type: 2}
-  foodOrderingRadius: 1.5
+  foodOrderingRadius: 2.2
   spriteRenderer: {fileID: 1212650401047252131}
   starterSprite: {fileID: 21300000, guid: 512c569b32d85cc4a94188b9318407a2, type: 3}
   maincourseSprite: {fileID: 21300000, guid: 72cce87efcba67f4b8286cdd678e6381, type: 3}

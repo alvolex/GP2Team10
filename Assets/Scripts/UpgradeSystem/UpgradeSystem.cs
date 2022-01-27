@@ -227,6 +227,6 @@ public class UpgradeSystem : MonoBehaviour
         {
             tipsReference.ApplyChange(+500);
         }
-        Debug.Log(tipsReference.GetValue());
+        //Debug.Log(tipsReference.GetValue());
     }
 }

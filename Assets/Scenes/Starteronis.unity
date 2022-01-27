@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.04361677, g: 0.038567446, b: 0.046097584, a: 1}
+  m_IndirectSpecularColor: {r: 0.043806598, g: 0.038770225, b: 0.04635384, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -734,10 +734,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3443211113645603459, guid: e13dbc32cba55d34191e2efe0f71a19d, type: 3}
-      propertyPath: slowDownPuddle
-      value: 
-      objectReference: {fileID: 8365596987415630729, guid: 3e52b68cab56bfb478a4f100c1645845, type: 3}
     - target: {fileID: 5125478648943907153, guid: e13dbc32cba55d34191e2efe0f71a19d, type: 3}
       propertyPath: m_RootOrder
       value: 15

@@ -13,6 +13,8 @@ public class Table : MonoBehaviour
     [Header("References")]
     [SerializeField] private List<GameObject> chairPositions;
     [SerializeField] private MeshRenderer tableMeshRenderer;
+    [SerializeField] private Collider triggerCollider;
+    
     
     [Header("Materials")]
     [SerializeField] private Material defaultMat;
@@ -49,6 +51,11 @@ public class Table : MonoBehaviour
     {
         isUnlocked = true;
         tableMeshRenderer.material = defaultMat;
+    }
+
+    public void ToggleSeatingTrigger()
+    {
+        triggerCollider.gameObject.SetActive(!triggerCollider.gameObject.activeSelf);
     }
 
     private void SetupAvailableChairs()
