@@ -19,6 +19,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource alienExplodeSource;
     [SerializeField] private AudioSource pickupPlateSource;
     [SerializeField] private AudioSource dayEnd5SecSource;
+    [SerializeField] private AudioSource orderScreenOnSource;
+    [SerializeField] private AudioSource orderScreenOffSource;
 
     private void Awake()
     {
@@ -91,7 +93,14 @@ public class AudioManager : MonoBehaviour
     public void PlayDayEnd5SecSFX()
     {
         PlaySound(dayEnd5SecSource, dayEnd5SecSource.clip);
-
+    }
+    public void PlayOrderScreenOnSFX()
+    {
+        PlaySound(orderScreenOffSource, orderScreenOffSource.clip);
+    }
+    public void PlayOrderScreenOffSFX()
+    {
+        PlaySound(orderScreenOnSource, orderScreenOnSource.clip);
     }
 
     public void PlaySound(AudioSource source, AudioClip clip)

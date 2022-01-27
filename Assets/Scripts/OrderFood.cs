@@ -217,7 +217,9 @@ public class OrderFood : MonoBehaviour
     {
         CurrentAction prevAction = curAction.CurrentAction;
         curAction.CurrentAction = CurrentAction.TakingOrder;
-        
+
+        AudioManager.Instance.PlayOrderScreenOnSFX();
+
         while (true)
         {
             if (chooseMenuItemImage.activeSelf == true && Vector3.Distance(transform.position, playerRef.transform.position) < 3f)
@@ -246,6 +248,7 @@ public class OrderFood : MonoBehaviour
                 Debug.Log("Too far from customer");
                 orderUIImage.SetActive(true); //Re-activate the image that shows that they want to order a meal
                 ToggleSelectableFoodItems();
+                AudioManager.Instance.PlayOrderScreenOffSFX();
                 yield break;
             }
             
@@ -259,6 +262,8 @@ public class OrderFood : MonoBehaviour
 
         curAction.CurrentAction = CurrentAction.HandlingOrder;
         HasOrdered = true;
+
+        AudioManager.Instance.PlayOrderScreenOffSFX();
 
         //Call QueueUpOrder
         playerRef.QueueUpOrder(myOrder); //Hand the order to the player
