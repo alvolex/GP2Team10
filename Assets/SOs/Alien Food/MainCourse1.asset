@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodName: Space meatloaf
   foodType: 1
-  allergies: 0200000003000000
+  allergies: 0200000005000000
   timeToCookFood: 5
   foodPrefab: {fileID: 0}
   foodDescription: 
