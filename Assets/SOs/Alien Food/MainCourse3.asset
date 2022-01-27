@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 055a0a7656254f63b1118f394b34c881, type: 3}
   m_Name: MainCourse3
   m_EditorClassIdentifier: 
-  foodName: Main3
+  foodName: Blablameal
   foodType: 1
-  allergies: 01000000
+  allergies: 020000000100000000000000
   timeToCookFood: 12
   foodPrefab: {fileID: 0}
   foodDescription: 

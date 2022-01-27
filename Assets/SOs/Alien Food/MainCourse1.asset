@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 055a0a7656254f63b1118f394b34c881, type: 3}
   m_Name: MainCourse1
   m_EditorClassIdentifier: 
-  foodName: Main 1
+  foodName: Space meatloaf
   foodType: 1
-  allergies: 01000000
+  allergies: 0200000003000000
   timeToCookFood: 5
   foodPrefab: {fileID: 0}
   foodDescription: 
