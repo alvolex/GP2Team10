@@ -1,5 +1,6 @@
 using System;
 using ScriptableEvents;
+using Scriptables;
 using SOs;
 using UnityEngine;
 using Variables;
@@ -40,7 +41,9 @@ public class AlienAttributes : MonoBehaviour
     [SerializeField] private float maxWaitingToOrderTime;
     [SerializeField] private float maxWaitingForOrderTime;
 
-
+    [Header("Alex's Stupid Over head pop-up Event :^)")] 
+    [SerializeField] private ScriptableMoneyPopupEvent moneyPopupEvent;
+    
 
     enum customerState
     {
@@ -119,6 +122,8 @@ public class AlienAttributes : MonoBehaviour
         onTipsChanged.Raise(aliensFedReference.GetValue());  
         
         AudioManager.Instance.PlayGetMoneySFX();
+        
+        moneyPopupEvent.InvokeEvent(maxTip, GetComponent<Customer>());
 
     } 
 }
