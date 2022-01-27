@@ -163,6 +163,7 @@ public class Customer : MonoBehaviour
 
     private void ExitRestaurant()
     {
+        OnFinishedEating?.Invoke(this);
         hasFinishedEating = true;
         
         rb.constraints = RigidbodyConstraints.None;
@@ -199,8 +200,7 @@ public class Customer : MonoBehaviour
         yield return null;
         
         hasFinishedEating = true;
-        OnFinishedEating?.Invoke(this);
-        
+
         ExitRestaurant();
     }
 }
