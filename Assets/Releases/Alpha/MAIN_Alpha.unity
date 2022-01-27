@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.043770842, g: 0.03875626, b: 0.046341285, a: 1}
+  m_IndirectSpecularColor: {r: 0.043581642, g: 0.038552467, b: 0.046123467, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2369,9 +2369,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1639460134}
     - target: {fileID: 8966542451436005877, guid: 223df456e5e9a6c49a39f4088f47e1b4, type: 3}
+      propertyPath: customers.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8966542451436005877, guid: 223df456e5e9a6c49a39f4088f47e1b4, type: 3}
       propertyPath: timeBetweenCustomers
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 8966542451436005877, guid: 223df456e5e9a6c49a39f4088f47e1b4, type: 3}
+      propertyPath: customers.Array.data[1]
+      value: 
+      objectReference: {fileID: 5842909907366234409, guid: 1640b7a12a984974d899e6f8fe7af7fe, type: 3}
+    - target: {fileID: 8966542451436005877, guid: 223df456e5e9a6c49a39f4088f47e1b4, type: 3}
+      propertyPath: customers.Array.data[2]
+      value: 
+      objectReference: {fileID: 7775759058206014743, guid: bbf6b3d80a33d87489f6d5242a93a27f, type: 3}
+    - target: {fileID: 8966542451436005877, guid: 223df456e5e9a6c49a39f4088f47e1b4, type: 3}
+      propertyPath: customers.Array.data[3]
+      value: 
+      objectReference: {fileID: 5721178817199500120, guid: 030d2fd019386d444b39344465899a34, type: 3}
+    - target: {fileID: 8966542451436005877, guid: 223df456e5e9a6c49a39f4088f47e1b4, type: 3}
+      propertyPath: customers.Array.data[4]
+      value: 
+      objectReference: {fileID: 5129633071899741061, guid: 8895a071a973b1b4987d9113ae042773, type: 3}
+    - target: {fileID: 8966542451436005877, guid: 223df456e5e9a6c49a39f4088f47e1b4, type: 3}
+      propertyPath: customers.Array.data[5]
+      value: 
+      objectReference: {fileID: 6887487879004239703, guid: 645a77832c72dc249a69876b284e002f, type: 3}
     - target: {fileID: 8966542451436005877, guid: 223df456e5e9a6c49a39f4088f47e1b4, type: 3}
       propertyPath: maxNumberOfCustomersToSpawn
       value: 20
