@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public class AlienLauncher : MonoBehaviour
 {
@@ -40,6 +41,7 @@ public class AlienLauncher : MonoBehaviour
         foreach (var rb in customersToLaunch)
         {
             rb.GetComponent<NavMeshAgent>().enabled = false;
+            rb.GetComponent<AlienAntiBounce>().enabled = false;
             yield return null;
 
             rb.useGravity = false;
@@ -49,9 +51,13 @@ public class AlienLauncher : MonoBehaviour
             rb.angularDrag = 0f;
 
             yield return null;
+
+            var transformPosition = shootDirection.transform.position;
+            var forceVec = new Vector3( transformPosition.x * Random.Range(30f, 100f), transformPosition.y * 100f , transformPosition.z * Random.Range(30f, 100f) );
+            rb.AddForce(forceVec, ForceMode.Impulse);
             
-            rb.AddForce(shootDirection.forward * 700f, ForceMode.Impulse);
-            rb.AddTorque(Vector3.forward * 100000f, ForceMode.Impulse);
+            var torqueVec = new Vector3(Random.Range(1000f, 50000f), 100000f ,Random.Range(1000f, 50000f));
+            rb.AddTorque(torqueVec, ForceMode.Impulse);
 
             Destroy(rb.gameObject, 3f);
         }

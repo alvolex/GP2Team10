@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.04383816, g: 0.038802136, b: 0.046372995, a: 1}
+  m_IndirectSpecularColor: {r: 0.04392758, g: 0.03886887, b: 0.046423525, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -690,6 +690,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3443211113645603459, guid: e13dbc32cba55d34191e2efe0f71a19d, type: 3}
+      propertyPath: maxTimeBetween
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3443211113645603459, guid: e13dbc32cba55d34191e2efe0f71a19d, type: 3}
+      propertyPath: minTimeBetween
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5125478648943907153, guid: e13dbc32cba55d34191e2efe0f71a19d, type: 3}
       propertyPath: m_RootOrder
       value: 16
@@ -1280,13 +1288,17 @@ PrefabInstance:
       propertyPath: timeBetweenCustomers
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 8966542451436005877, guid: 223df456e5e9a6c49a39f4088f47e1b4, type: 3}
+      propertyPath: customerMovementSpeedChange
+      value: 
+      objectReference: {fileID: 11400000, guid: 4d96d5ace1c365145945ffb5e6221ab6, type: 2}
     - target: {fileID: 8966542451436005878, guid: 223df456e5e9a6c49a39f4088f47e1b4, type: 3}
       propertyPath: m_RootOrder
       value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8966542451436005878, guid: 223df456e5e9a6c49a39f4088f47e1b4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.04
+      value: 23.16
       objectReference: {fileID: 0}
     - target: {fileID: 8966542451436005878, guid: 223df456e5e9a6c49a39f4088f47e1b4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1557,7 +1569,7 @@ PrefabInstance:
       objectReference: {fileID: 1163694845}
     - target: {fileID: 9142106679105981078, guid: b282e9b361fab644d86965d0f72be003, type: 3}
       propertyPath: dayLength
-      value: 20
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 9142106679105981078, guid: b282e9b361fab644d86965d0f72be003, type: 3}
       propertyPath: skyboxRotSpeed

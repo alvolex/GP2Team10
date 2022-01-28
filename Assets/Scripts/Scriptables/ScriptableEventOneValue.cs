@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Scriptables
 {
-    [CreateAssetMenu(fileName = "ScriptableValueEvent", menuName = "SO/Scriptable Value Event", order = 0)]
+    [CreateAssetMenu(fileName = "ScriptableValueEvent", menuName = "SO/Events/Scriptable Value Event", order = 0)]
     public class ScriptableEventOneValue : ScriptableObject
     {
         public event Action<int> ScriptableEvent;
