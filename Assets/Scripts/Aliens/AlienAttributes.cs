@@ -43,6 +43,12 @@ public class AlienAttributes : MonoBehaviour
 
     [Header("Alex's Stupid Over head pop-up Event :^)")] 
     [SerializeField] private ScriptableMoneyPopupEvent moneyPopupEvent;
+
+    [SerializeField] private ScriptableSimpleEvent customerStateChange;
+    
+    
+    
+    
     
 
     enum customerState
@@ -60,12 +66,22 @@ public class AlienAttributes : MonoBehaviour
 
     private void Start()
     {
+        customerStateChange.ScriptableEvent += ChangeCustomerState;
         currentCustomerState = customerState.WaitingToBeSeated;
+    }
+
+    private void ChangeCustomerState()
+    {
+        Debug.Log("customer is seated");
+        
+        if (GetComponent<Customer>().IsSeated)
+        {
+            currentCustomerState = customerState.WaitingToOrder;
+        }
     }
 
     private void Update()
     {
-        
         if (currentCustomerState  == customerState.WaitingToBeSeated)
         {
             maxWaitingToBeSeatedTime -= Time.deltaTime;

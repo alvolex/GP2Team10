@@ -14,6 +14,9 @@ public class Customer : MonoBehaviour
     
     //todo should we just change this to reside in a static class so we dont have to pull it into every script that needs it
     [SerializeField] private ScriptablePlayerCurrentAction currentAction;
+    
+    [SerializeField] private ScriptableSimpleEvent customerStateChange;
+
 
     [Header("Highlight Alien")] 
     [SerializeField] private Material defaultMat;
@@ -56,6 +59,8 @@ public class Customer : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         meshRenderer = GetComponent<MeshRenderer>();
         leaveWhenCustomersStopSpawning.ScriptableEvent += HandleExitWhenRestaurantCloses;
+        
+
     }
 
     private void OnDestroy()
@@ -89,6 +94,8 @@ public class Customer : MonoBehaviour
 
         isMovingToTable = false; //Not moving if we have reached table
         isSeated = true;
+        
+        customerStateChange.InvokeEvent();
 
         //Start the food ordering process
         orderFood.Order();

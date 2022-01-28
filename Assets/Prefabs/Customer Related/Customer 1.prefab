@@ -1472,6 +1472,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tableSeater: {fileID: 11400000, guid: 5655adfd73483864888cd7e96c476a00, type: 2}
   currentAction: {fileID: 11400000, guid: add060246eb07f24e9273627e0cd9bce, type: 2}
+  customerStateChange: {fileID: 11400000, guid: 6efcacfcb09cf36479ea6996e13ad590, type: 2}
   defaultMat: {fileID: 2100000, guid: 4c1261ffe227db84ebfe8dc62800be0b, type: 2}
   selectedMat: {fileID: 2100000, guid: 0095f11c94b61d34182b8f9cb57ae586, type: 2}
   restaurantExit: {fileID: 0}
@@ -1685,6 +1686,7 @@ MonoBehaviour:
   maxWaitingToOrderTime: 0
   maxWaitingForOrderTime: 0
   moneyPopupEvent: {fileID: 11400000, guid: b24075274a6bb194481fb10afa671b3f, type: 2}
+  customerStateChange: {fileID: 11400000, guid: 6efcacfcb09cf36479ea6996e13ad590, type: 2}
 --- !u!114 &2029552436094525531
 MonoBehaviour:
   m_ObjectHideFlags: 0
