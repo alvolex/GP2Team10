@@ -60,6 +60,11 @@ public class Customer : MonoBehaviour
 
     private void OnDestroy()
     {
+        if (gameObject.transform.parent.TryGetComponent(out SelectGroupOfCustomers sgoc))
+        {
+            sgoc.RemoveFromList(this);
+        }
+
         leaveWhenCustomersStopSpawning.ScriptableEvent -= HandleExitWhenRestaurantCloses;
     }
 

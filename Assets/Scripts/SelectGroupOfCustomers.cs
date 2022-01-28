@@ -49,4 +49,9 @@ public class SelectGroupOfCustomers : MonoBehaviour
     {
         scriptableTableSeater.AssignToList(customersToAdd);
     }
+
+    public void RemoveFromList(Customer customerToRemove)
+    {
+        customersInGroup.Remove(customerToRemove);
+    }
 }
