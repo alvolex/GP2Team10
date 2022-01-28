@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.04362254, g: 0.03859365, b: 0.04611451, a: 1}
+  m_IndirectSpecularColor: {r: 0.043620035, g: 0.038627826, b: 0.046217628, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1038,7 +1038,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4203334714302639905, guid: 24fd35d7f3985dc43928ce006984ed3b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.000020122197
+      value: -0.01
       objectReference: {fileID: 0}
     - target: {fileID: 4203334714302639905, guid: 24fd35d7f3985dc43928ce006984ed3b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1075,34 +1075,6 @@ PrefabInstance:
     - target: {fileID: 5235286167801085699, guid: 24fd35d7f3985dc43928ce006984ed3b, type: 3}
       propertyPath: m_Name
       value: AlienLauncher
-      objectReference: {fileID: 0}
-    - target: {fileID: 8637039782886052586, guid: 24fd35d7f3985dc43928ce006984ed3b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 3.630001
-      objectReference: {fileID: 0}
-    - target: {fileID: 8637039782886052586, guid: 24fd35d7f3985dc43928ce006984ed3b, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.6743892
-      objectReference: {fileID: 0}
-    - target: {fileID: 8637039782886052586, guid: 24fd35d7f3985dc43928ce006984ed3b, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.21260478
-      objectReference: {fileID: 0}
-    - target: {fileID: 8637039782886052586, guid: 24fd35d7f3985dc43928ce006984ed3b, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.6743871
-      objectReference: {fileID: 0}
-    - target: {fileID: 8637039782886052586, guid: 24fd35d7f3985dc43928ce006984ed3b, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.2126042
-      objectReference: {fileID: 0}
-    - target: {fileID: 8637039782886052586, guid: 24fd35d7f3985dc43928ce006984ed3b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -34.995
-      objectReference: {fileID: 0}
-    - target: {fileID: 8637039782886052586, guid: 24fd35d7f3985dc43928ce006984ed3b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24fd35d7f3985dc43928ce006984ed3b, type: 3}
@@ -1306,7 +1278,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8966542451436005878, guid: 223df456e5e9a6c49a39f4088f47e1b4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.04
       objectReference: {fileID: 0}
     - target: {fileID: 8966542451436005878, guid: 223df456e5e9a6c49a39f4088f47e1b4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1314,7 +1286,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8966542451436005878, guid: 223df456e5e9a6c49a39f4088f47e1b4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.24
       objectReference: {fileID: 0}
     - target: {fileID: 8966542451436005878, guid: 223df456e5e9a6c49a39f4088f47e1b4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1577,7 +1549,7 @@ PrefabInstance:
       objectReference: {fileID: 1163694845}
     - target: {fileID: 9142106679105981078, guid: b282e9b361fab644d86965d0f72be003, type: 3}
       propertyPath: dayLength
-      value: 100
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9142106679105981078, guid: b282e9b361fab644d86965d0f72be003, type: 3}
       propertyPath: skyboxRotSpeed
@@ -1585,7 +1557,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9142106679105981078, guid: b282e9b361fab644d86965d0f72be003, type: 3}
       propertyPath: timeLeftToStopSpawning
-      value: 15
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9142106679105981079, guid: b282e9b361fab644d86965d0f72be003, type: 3}
       propertyPath: m_Name

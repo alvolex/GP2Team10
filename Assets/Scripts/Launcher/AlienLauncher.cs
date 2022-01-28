@@ -25,6 +25,14 @@ public class AlienLauncher : MonoBehaviour
             customersToLaunch.Add(cust.GetComponent<Rigidbody>());
         }
     }
+    
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.TryGetComponent(out Customer cust))
+        {
+            customersToLaunch.Remove(cust.GetComponent<Rigidbody>());
+        }
+    }
 
 
     IEnumerator BlastAliensIntoSpace()

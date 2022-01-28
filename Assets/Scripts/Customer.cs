@@ -163,11 +163,14 @@ public class Customer : MonoBehaviour
 
     private void ExitRestaurant()
     {
-        if (!nmagent.isActiveAndEnabled) return;
+        if (!nmagent.isActiveAndEnabled && !isSeated) return;
 
+        //Disable the over-head order icon when customer is leaving
+        orderFood.OrderUIImage.SetActive(false);
+        //Invoke event to tell the table they were seated at that we should mark that chair as empty
         OnFinishedEating?.Invoke(this);
         hasFinishedEating = true;
-        
+        //Unfreeze customer to let them move towards the exit
         rb.constraints = RigidbodyConstraints.None;
         nmObstacle.enabled = false;
         nmagent.enabled = true;
