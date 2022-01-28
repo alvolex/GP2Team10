@@ -26,8 +26,11 @@ public class CustomerSpawner : MonoBehaviour
     [Header("Event")] 
     [SerializeField] private ScriptableSimpleEvent handleStopSpawningCustomers; //Event invoked from DayManager
     [SerializeField] private ScriptableSimpleEvent onNewDaySpawnCustomers; //Event invoked from DayManager
+    [SerializeField] private ScriptableEventOneValue customerMovementSpeedChange;
 
+    
     private bool stopCoroutine;
+    private int customerSpeed;
     
     //todo use this to check if the restaurant is empty or not
     private int totalSpawnedCustomersToday = 0;
@@ -40,6 +43,17 @@ public class CustomerSpawner : MonoBehaviour
         onNewDaySpawnCustomers.ScriptableEvent += StartSpawningCustomers;
         stopCoroutine = false;
     }
+
+    private void Awake()
+    {
+        customerMovementSpeedChange.ScriptableEvent += UpdateCustomerSpeed;
+    }
+
+    void UpdateCustomerSpeed(int value)
+    {
+        customerSpeed += value;
+    }
+    
 
     private void StartSpawningCustomers()
     {
@@ -109,6 +123,8 @@ public class CustomerSpawner : MonoBehaviour
             int randomCustomerIndex = Random.Range(0, customers.Count -1);
             
             GameObject customerInstance = Instantiate(customers[randomCustomerIndex], doorPos.position, Quaternion.identity);
+            customerInstance.GetComponent<Customer>().ChangeMovementspeed(customerSpeed);
+            
             customerInstance.transform.LookAt(player.transform.position);
             customerInstance.name = $"Customer{j}";
             customerInstance.transform.parent = parent.transform; //Assign to parent

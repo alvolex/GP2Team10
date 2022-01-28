@@ -16,6 +16,8 @@ public class Customer : MonoBehaviour
     [SerializeField] private ScriptablePlayerCurrentAction currentAction;
     
     [SerializeField] private ScriptableSimpleEvent customerStateChange;
+    
+    
 
 
     [Header("Highlight Alien")] 
@@ -46,6 +48,12 @@ public class Customer : MonoBehaviour
     public bool IsSeated => isSeated;
     public event Action<Customer> OnFinishedEating;
 
+
+    private void Awake()
+    {
+        nmagent = GetComponent<NavMeshAgent>();
+    }
+
     private void Start()
     {
         isSeated = false;
@@ -53,13 +61,13 @@ public class Customer : MonoBehaviour
         //Get components
         cam = Camera.main;
         orderFood = GetComponent<OrderFood>();
-        nmagent = GetComponent<NavMeshAgent>();
         nmObstacle = GetComponent<NavMeshObstacle>();
         sCollider = GetComponent<SphereCollider>();
         rb = GetComponent<Rigidbody>();
         meshRenderer = GetComponent<MeshRenderer>();
         leaveWhenCustomersStopSpawning.ScriptableEvent += HandleExitWhenRestaurantCloses;
         
+
 
     }
 
@@ -71,6 +79,7 @@ public class Customer : MonoBehaviour
         }
 
         leaveWhenCustomersStopSpawning.ScriptableEvent -= HandleExitWhenRestaurantCloses;
+
     }
 
     private void Update()
@@ -82,6 +91,13 @@ public class Customer : MonoBehaviour
     void HandleExitWhenRestaurantCloses()
     {
         Invoke(nameof(ExitRestaurant), timeOffsetBeforeLeaving);
+    }
+
+    public void ChangeMovementspeed(int value)
+    {
+        Debug.Log(nmagent.speed);
+        
+        nmagent.speed += value;
     }
 
     private void HandleMovingToTable()

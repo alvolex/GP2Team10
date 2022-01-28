@@ -70,6 +70,11 @@ public class AlienAttributes : MonoBehaviour
         currentCustomerState = customerState.WaitingToBeSeated;
     }
 
+    private void OnDestroy()
+    {
+        customerStateChange.ScriptableEvent -= ChangeCustomerState;
+    }
+
     private void ChangeCustomerState()
     {
         Debug.Log("customer is seated");

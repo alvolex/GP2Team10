@@ -78,9 +78,9 @@ public class UpgradeSystem : MonoBehaviour
     int currentSeatingUpgrade = 0;
     
     [SerializeField] private ScriptableSimpleEvent dayEnd;
-    
-    
     [SerializeField] private ScriptableEventIntReference onAlienFed;
+    [SerializeField] private ScriptableEventOneValue customerMovementSpeedChange;
+
 
 
     private void Start()
@@ -175,7 +175,10 @@ public class UpgradeSystem : MonoBehaviour
         {
             tipsReference.ApplyChange(-alienMovementSpeedUpgradeCost[currentCMSUpgrade]);
             
-            customerReference.GetComponent<NavMeshAgent>().speed += AlienMovementSpeedUpgradeAmount;//FIX THIS, THIS IS CHANGING THE NAVMESH THINGY ON PREFAB
+            //customerReference.GetComponent<NavMeshAgent>().speed += AlienMovementSpeedUpgradeAmount;//FIX THIS, THIS IS CHANGING THE NAVMESH THINGY ON PREFAB
+            
+            customerMovementSpeedChange.InvokeEvent(AlienMovementSpeedUpgradeAmount);
+            //INVOKE METHOD
             
             currentCMSUpgrade++;
             alienMovementSpeedUpgradesAvailable--;
@@ -224,8 +227,6 @@ public class UpgradeSystem : MonoBehaviour
         }
 
         //Debug.Log(tipsReference.GetValue());
-        Debug.Log(tipsReference.GetValue());
-        Debug.Log(movementSpeedUpgradesAvailable);
-
+        
     }
 }
