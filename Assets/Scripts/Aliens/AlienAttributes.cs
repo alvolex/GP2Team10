@@ -43,7 +43,6 @@ public class AlienAttributes : MonoBehaviour
 
     [Header("Alex's Stupid Over head pop-up Event :^)")] 
     [SerializeField] private ScriptableMoneyPopupEvent moneyPopupEvent;
-
     [SerializeField] private ScriptableSimpleEvent customerStateChange;
     
     
@@ -77,8 +76,6 @@ public class AlienAttributes : MonoBehaviour
 
     private void ChangeCustomerState()
     {
-        Debug.Log("customer is seated");
-        
         if (GetComponent<Customer>().IsSeated)
         {
             currentCustomerState = customerState.WaitingToOrder;

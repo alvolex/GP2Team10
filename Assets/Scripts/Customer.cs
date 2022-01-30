@@ -11,25 +11,21 @@ public class Customer : MonoBehaviour
 {
     [Header("Scriptable Objects")]
     [SerializeField] private ScriptableTableSeater tableSeater;
-    
     //todo should we just change this to reside in a static class so we dont have to pull it into every script that needs it
     [SerializeField] private ScriptablePlayerCurrentAction currentAction;
-    
-    [SerializeField] private ScriptableSimpleEvent customerStateChange;
-    
-    
-
 
     [Header("Highlight Alien")] 
     [SerializeField] private Material defaultMat;
+
     [SerializeField] private Material selectedMat;
 
     [Header("Debug stuff")]
     public Transform restaurantExit;
-    
+
     [Header("Event")] 
     [SerializeField] private ScriptableSimpleEvent leaveWhenCustomersStopSpawning;
     [SerializeField, Tooltip("Tied to the above event. When the event is called we will start leaving after this many seconds ->")] private float timeOffsetBeforeLeaving = 5;
+    [SerializeField] private ScriptableSimpleEvent customerStateChange;
 
     private Camera cam;
     private NavMeshAgent nmagent;
@@ -66,9 +62,6 @@ public class Customer : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         meshRenderer = GetComponent<MeshRenderer>();
         leaveWhenCustomersStopSpawning.ScriptableEvent += HandleExitWhenRestaurantCloses;
-        
-
-
     }
 
     private void OnDestroy()
@@ -79,7 +72,6 @@ public class Customer : MonoBehaviour
         }
 
         leaveWhenCustomersStopSpawning.ScriptableEvent -= HandleExitWhenRestaurantCloses;
-
     }
 
     private void Update()
@@ -95,8 +87,6 @@ public class Customer : MonoBehaviour
 
     public void ChangeMovementspeed(int value)
     {
-        Debug.Log(nmagent.speed);
-        
         nmagent.speed += value;
     }
 
@@ -111,6 +101,10 @@ public class Customer : MonoBehaviour
         isMovingToTable = false; //Not moving if we have reached table
         isSeated = true;
         
+        //Show tutorial if it hasn't been shown before
+        Tutorial.instance.ShowTutorialText(Tutorial.instance.GameState.hasBeenSeatedTutorial);
+        Tutorial.instance.GameState.hasBeenSeatedTutorial = false;
+
         customerStateChange.InvokeEvent();
 
         //Start the food ordering process

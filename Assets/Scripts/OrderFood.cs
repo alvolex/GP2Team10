@@ -219,6 +219,9 @@ public class OrderFood : MonoBehaviour
         curAction.CurrentAction = CurrentAction.TakingOrder;
 
         AudioManager.Instance.PlayOrderScreenOnSFX();
+        
+        Tutorial.instance.ShowTutorialText(Tutorial.instance.GameState.howToTakeOrderTutorial);
+        Tutorial.instance.GameState.howToTakeOrderTutorial = false;
 
         while (true)
         {
@@ -245,7 +248,6 @@ public class OrderFood : MonoBehaviour
             else
             {
                 curAction.CurrentAction = prevAction;
-                Debug.Log("Too far from customer");
                 orderUIImage.SetActive(true); //Re-activate the image that shows that they want to order a meal
                 ToggleSelectableFoodItems();
                 AudioManager.Instance.PlayOrderScreenOffSFX();
@@ -256,6 +258,10 @@ public class OrderFood : MonoBehaviour
         }
 
         ToggleSelectableFoodItems();
+        
+        //Show tutorial text after taking order
+        Tutorial.instance.ShowTutorialText(Tutorial.instance.GameState.hasTakenOrderTutorial);
+        Tutorial.instance.GameState.hasTakenOrderTutorial = false;
 
         //Create the order
         myOrder = new Order(foodToOrder, GetComponent<Customer>(), spriteRenderer.sprite, selectedDish);
