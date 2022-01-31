@@ -18,17 +18,18 @@ public class Tutorial : MonoBehaviour
 
     [SerializeField] private ScriptableGameState gameState;
     [SerializeField] private TutorialTextPrompts tutText;
-    
 
     [Header("Event")]
     [SerializeField] private ScriptableSimpleEvent showNextPrompt;
 
-    
-    
+
     private Queue<string> textPromptsInOrder = new Queue<string>();
     private bool allTextVisible = false;
     private bool shouldShowNextPrompt = true;
     private float timeBetweenCharactersAtStart;
+
+    private bool isInTutorial = false;
+    private int tutorialsInQueue = 0;
 
     public ScriptableGameState GameState
     {
@@ -96,11 +97,36 @@ public class Tutorial : MonoBehaviour
         }
         
         canvasToToggle.SetActive(true);
+
+        if (!isInTutorial)
+        {
+            StartCoroutine(TypeInTextCoroutine());
+        }
+        else
+        {
+            tutorialsInQueue++;
+            StartCoroutine(WaitUntilLastTutorialIsFinished());
+        }
+    }
+
+    IEnumerator WaitUntilLastTutorialIsFinished()
+    {
+        while (isInTutorial)
+        {
+            yield return new WaitForSeconds(0.2f);
+        }
         StartCoroutine(TypeInTextCoroutine());
+        tutorialsInQueue--;
+
+        if (tutorialsInQueue != 0)
+        {
+            StartCoroutine(WaitUntilLastTutorialIsFinished());
+        }
     }
 
     IEnumerator TypeInTextCoroutine()
     {
+        isInTutorial = true;
         StopCoroutine(CheckForPlayerInput()); //Stop it if it's already running
         StartCoroutine(CheckForPlayerInput());
         
@@ -145,6 +171,7 @@ public class Tutorial : MonoBehaviour
 
         allTextVisible = true;
         continuePanel.SetActive(true);
+        isInTutorial = false;
     }
 
     IEnumerator CheckForPlayerInput()
