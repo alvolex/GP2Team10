@@ -15,6 +15,7 @@ public class DeliverFood : MonoBehaviour
 
     private AlienEatFood customerEatFood;
     private bool canDeliverFood;
+    private bool canDestroyFood = false;
 
     private Order curOrder;
 
@@ -25,6 +26,12 @@ public class DeliverFood : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (canDestroyFood && Input.GetKeyDown(KeyCode.Space))
+        {
+            //Delivered to the trash, amirite?
+            FoodDelivered();
+        }
+        
         if (!canDeliverFood || customerEatFood == null || curOrder == null || customerEatFood.Of.MyOrder == null || customerEatFood.HasRecievedFood) return;
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -50,6 +57,11 @@ public class DeliverFood : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.TryGetComponent(out GarbageCan _))
+        {
+            canDestroyFood = true;
+        }
+        
         if (!other.TryGetComponent(out AlienEatFood curCustomer)) return;
         customerEatFood = curCustomer;
         canDeliverFood = true;
@@ -57,6 +69,14 @@ public class DeliverFood : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        canDeliverFood = false;
+        if (other.TryGetComponent(out AlienEatFood curCustomer))
+        {
+            canDeliverFood = false;
+        }
+        
+        if (other.TryGetComponent(out GarbageCan _))
+        {
+            canDestroyFood = false;
+        }
     }
 }
