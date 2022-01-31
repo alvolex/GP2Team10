@@ -166,7 +166,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1395.0001, y: -165}
+  m_AnchoredPosition: {x: 1510, y: -165}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &698395423
@@ -317,7 +317,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1625.0001, y: -165}
+  m_AnchoredPosition: {x: 1740, y: -165}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &874234825
@@ -578,7 +578,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -618,7 +618,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1510.0001, y: -165}
+  m_AnchoredPosition: {x: 1625, y: -165}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1249592521
@@ -729,7 +729,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -804,7 +804,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.676
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -955,7 +955,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.173
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -995,7 +995,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1740.0001, y: -165}
+  m_AnchoredPosition: {x: 1855, y: -165}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1852110572
@@ -1547,12 +1547,13 @@ MonoBehaviour:
   - {fileID: 874234822}
   - {fileID: 1852110569}
   - {fileID: 1618602987}
-  imageList:
+  progressbarList:
   - {fileID: 1480963257}
   - {fileID: 1117192096}
   - {fileID: 1507110184}
   - {fileID: 1636848342}
   - {fileID: 737974564}
+  foodPickedUp: {fileID: 11400000, guid: 4728e813aba0d834386f50f6e23f0db5, type: 2}
 --- !u!1 &7351048171032696657
 GameObject:
   m_ObjectHideFlags: 0
@@ -1679,6 +1680,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 6648901600415692824}
   curAction: {fileID: 11400000, guid: add060246eb07f24e9273627e0cd9bce, type: 2}
+  foodPickedUp: {fileID: 11400000, guid: 4728e813aba0d834386f50f6e23f0db5, type: 2}
 --- !u!1 &7351048171264218078
 GameObject:
   m_ObjectHideFlags: 0
