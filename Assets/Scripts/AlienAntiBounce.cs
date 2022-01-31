@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class AlienAntiBounce : MonoBehaviour
 {
-    private Rigidbody otherRb;
+    
     private new Rigidbody rigidbody;
     
     private void Start()
@@ -29,7 +29,6 @@ public class AlienAntiBounce : MonoBehaviour
 
     private void OnCollisionExit(Collision other)
     {
-        otherRb = null;
         
         if (!other.gameObject.TryGetComponent(out Customer cust)) return;
 

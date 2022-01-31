@@ -96,7 +96,6 @@ public class AlienAttributes : MonoBehaviour
         {
             maxWaitingForOrderTime -= Time.deltaTime;
         }
-
     }
 
 
@@ -143,7 +142,8 @@ public class AlienAttributes : MonoBehaviour
         
         moneyPopupEvent.InvokeEvent(maxTip, GetComponent<Customer>());
 
-    } 
+    }
+    
 }
             
             

@@ -10,32 +10,28 @@ public class PlayerStats : MonoBehaviour
 {
     [Header("Reputation: ")] 
     [SerializeField] private IntVariable reputation;
-    [SerializeField] private IntReference reputationReference;
     [SerializeField] private TextMeshProUGUI reputationText;
     [SerializeField] private ScriptableEventInt OnRepChangedEvent;
     
     [Header("Tips: ")] 
     [SerializeField] private IntVariable tips;
-    [SerializeField] private IntReference tipsReference;
     [SerializeField] private TextMeshProUGUI tipsText;
     [SerializeField] private ScriptableEventInt OnTipChangedEvent;
 
 
     private void Start()
     {
-        SetReputation($"Current Reputation: {reputation.Value}");
-        SetTip($"Current Reputation: {tips.Value}");
+        SetReputation($"{reputation.Value}");
+        SetTip($"{tips.Value}");
     }
 
     public void OnReputationChanged(int newValue)
     {
-        
-        SetReputation($"Current Reputation: {reputation.Value}");
+        SetReputation($"{reputation.Value}");
     }
     public void OnTipsChanged(int newValue)
     {
-        
-        SetTip($"Current Tips: {tips.Value}");
+        SetTip($"{tips.Value}");
     }
 
     private void SetTip(string text)

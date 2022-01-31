@@ -20,7 +20,7 @@ public class SaveData
         set => _current = value;
     }
 
-    public PlayerProfile profile;
+    public PlayerData data;
 
     public List<AlienData> aliens;
 
