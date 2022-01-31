@@ -1023,6 +1023,7 @@ MonoBehaviour:
   continuePanel: {fileID: 8614029401087789972}
   canvasToToggle: {fileID: 8614029400445639984}
   gameState: {fileID: 11400000, guid: e479ce130e5397f44942839521134b9e, type: 2}
+  tutText: {fileID: 11400000, guid: cc1caec09a412ba4bae14fa525083fba, type: 2}
   showNextPrompt: {fileID: 11400000, guid: b0ed8539653cd884e8afde4ebfdaf3fe, type: 2}
 --- !u!1 &8614029400965437646
 GameObject:
