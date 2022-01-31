@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2780002728581216192}
   - component: {fileID: 2780002728581216195}
   - component: {fileID: 2780002728581216193}
+  - component: {fileID: 594540317}
   m_Layer: 0
   m_Name: UpgradeSystem
   m_TagString: Untagged
@@ -64,18 +65,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2780002728581216193}
-        m_TargetAssemblyTypeName: UpgradeSystem, Assembly-CSharp
-        m_MethodName: CustomersWithAllergiesServed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &2780002728581216193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,7 +78,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerReference: {fileID: 0}
-  customerReference: {fileID: 3037402073341605548, guid: 440de0b56ed897b4b88efb54ab9d80d7, type: 3}
   aliensReference:
     _intVariable: {fileID: 11400000, guid: a58f48f7bf8cfc848a57a4a2899ea483, type: 2}
     _simpleValue: 0
@@ -108,14 +96,14 @@ MonoBehaviour:
   TableUpgradeButton: {fileID: 0}
   CookingStationUpgradeButton: {fileID: 0}
   StorageUpgradeButton: {fileID: 0}
-  movementSpeedUpgradeAmount: 5
-  AlienMovementSpeedUpgradeAmount: 20
+  movementSpeedUpgradeAmount: 2
+  AlienMovementSpeedUpgradeAmount: 2
   upgrade1GoalMS: 3
   upgrade2GoalMS: 5
   upgrade3GoalMS: 8
-  allergensServedLimit1: 0
-  allergensServedLimit2: 0
-  allergensServedLimit3: 0
+  allergensServedLimit1: 1
+  allergensServedLimit2: 3
+  allergensServedLimit3: 5
   upgrade1GoalCMS: 0
   upgrade2GoalCMS: 0
   upgrade3GoalCMS: 0
@@ -132,3 +120,37 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   dayEnd: {fileID: 11400000, guid: 83a4ef0c60d1b2f48a198c9cbccb486e, type: 2}
+  onAlienFed: {fileID: 11400000, guid: b31f42dbba0ae5e4d88a7a1464980fbf, type: 2}
+  customerMovementSpeedChange: {fileID: 11400000, guid: 4d96d5ace1c365145945ffb5e6221ab6, type: 2}
+--- !u!114 &594540317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2780002728581216194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 716ecd2f89034bc439ea0d8119dc9879, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eventNoPayload: {fileID: 0}
+  _responseNoPayload:
+    m_PersistentCalls:
+      m_Calls: []
+  _event: {fileID: 11400000, guid: afbba6d1c27580044be5bea9ed2f23fc, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2780002728581216193}
+        m_TargetAssemblyTypeName: UpgradeSystem, Assembly-CSharp
+        m_MethodName: CustomersWithAllergiesServed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
