@@ -69,12 +69,21 @@ public class Kitchen : MonoBehaviour
         isCooking = true; //Make sure we can't start the co-routine again if it's already running
         while (ordersToCook.Count != 0)
         {
-            currentlyCooking = ordersToCook.Dequeue();
-            Debug.Log("Now cooking: " + currentlyCooking.SelectedFoodItem.FoodName);
-            UpdateKitchenUI();
+            if (foodPickupStation.DoesCounterHaveEnoughSpace())
+            {
+                currentlyCooking = ordersToCook.Dequeue();
+                Debug.Log("Now cooking: " + currentlyCooking.SelectedFoodItem.FoodName);
+                UpdateKitchenUI();
 
-            yield return new WaitForSeconds(currentlyCooking.SelectedFoodItem.TimeToCookFood);
-            foodPickupStation.FoodIsReady(currentlyCooking);
+                yield return new WaitForSeconds(currentlyCooking.SelectedFoodItem.TimeToCookFood);
+                foodPickupStation.FoodIsReady(currentlyCooking);
+            }
+            else
+            {
+                Debug.Log("Waiting for space to be made");
+                yield return new WaitForSeconds(0.2f);
+            }
+            
         }
 
         foodThatIsCurrentlyCooked.sprite = imgWhenNoFoodIsBeingCooked;

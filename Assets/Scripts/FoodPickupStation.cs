@@ -13,6 +13,7 @@ public class FoodPickupStation : MonoBehaviour
 
     private Queue<Order> foodDisplayQueue = new Queue<Order>();
     private List<Image> spriteRenderers = new List<Image>();
+    private int unlockedFoodSlots = 3;
 
     //testing
     private Sprite emptyPlateSprite;
@@ -25,6 +26,7 @@ public class FoodPickupStation : MonoBehaviour
         spriteRenderers = GetComponentsInChildren<Image>().ToList();
         emptyPlateSprite = spriteRenderers[0].sprite;
         canPickupFood = false;
+        UpdateFoodPlatesOnCounter();
     }
 
     private void Update()
@@ -34,6 +36,17 @@ public class FoodPickupStation : MonoBehaviour
             AudioManager.Instance.PlayPickupPlateSFX();
             PickupFood();
         }
+    }
+
+    public void UpgradeFoodCounterStorage()
+    {
+        unlockedFoodSlots++;
+        UpdateFoodPlatesOnCounter();
+    }
+
+    public bool DoesCounterHaveEnoughSpace()
+    {
+        return foodDisplayQueue.Count < unlockedFoodSlots;
     }
 
     public void FoodIsReady(Order food)
@@ -47,12 +60,19 @@ public class FoodPickupStation : MonoBehaviour
     {
         //Reset all the plates to empty before every iteration because im lazy atm
         //todo maybe fix this? idk if necessary (read comment above)
-        for (int j = 0; j < 3; j++)
+        for (int j = 0; j < unlockedFoodSlots; j++)
         {
+            spriteRenderers[j].gameObject.SetActive(true);
+            spriteRenderers[j].sprite = emptyPlateSprite;
+        }
+        
+        for (int j = unlockedFoodSlots; j < spriteRenderers.Count; j++)
+        {
+            spriteRenderers[j].gameObject.SetActive(false);
             spriteRenderers[j].sprite = emptyPlateSprite;
         }
 
-        int index = Mathf.Clamp(foodDisplayQueue.Count, 0, 3);
+        int index = Mathf.Clamp(foodDisplayQueue.Count, 0, unlockedFoodSlots);
         for (int j = 0; j < index; j++)
         {
             spriteRenderers[j].sprite = foodDisplayQueue.ElementAt(j).GetFoodSprite();
