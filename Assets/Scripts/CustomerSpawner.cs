@@ -49,6 +49,13 @@ public class CustomerSpawner : MonoBehaviour
         customerMovementSpeedChange.ScriptableEvent += UpdateCustomerSpeed;
     }
 
+    private void OnDestroy()
+    {
+        handleStopSpawningCustomers.ScriptableEvent -= StopSpawningCustomers;
+        onNewDaySpawnCustomers.ScriptableEvent -= StartSpawningCustomers;
+        customerMovementSpeedChange.ScriptableEvent -= UpdateCustomerSpeed;
+    }
+
     void UpdateCustomerSpeed(int value)
     {
         customerSpeed += value;

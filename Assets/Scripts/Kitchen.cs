@@ -9,14 +9,16 @@ public class Kitchen : MonoBehaviour
 {
     [SerializeField] private Image foodThatIsCurrentlyCooked;
     [SerializeField] private Sprite imgWhenNoFoodIsBeingCooked;
-    
 
     //todo should create a scriptable event for this instead of directly referencing the other script
     [SerializeField] private FoodPickupStation foodPickupStation;
+    
+    private int amountOfChefs = 2;
 
     private Queue<Order> ordersToCook = new Queue<Order>();
     private bool isCooking;
     private Order currentlyCooking;
+    int mealsPreparedCurrently = 0;
 
     private void Start()
     {
@@ -52,7 +54,12 @@ public class Kitchen : MonoBehaviour
     private void StartCooking()
     {
         AudioManager.Instance.PlayOrderStartSFX();
-        StartCoroutine(CookFood());
+
+        for (int i = 0; i < amountOfChefs; i++)
+        {
+            StartCoroutine(CookFood());
+        }
+        
     }
 
     private void UpdateKitchenUI()
@@ -64,7 +71,8 @@ public class Kitchen : MonoBehaviour
     {
         //todo check if there is any open space on the FoodPickupStation for another meal to be placed, otherwise stop cooking until there is room
         
-        if (isCooking) yield break; //Early return if we're already cooking
+        if ( amountOfChefs < mealsPreparedCurrently ) yield break; //Early return if we're already cooking
+        mealsPreparedCurrently++;
         
         isCooking = true; //Make sure we can't start the co-routine again if it's already running
         while (ordersToCook.Count != 0)
@@ -87,6 +95,7 @@ public class Kitchen : MonoBehaviour
         }
 
         foodThatIsCurrentlyCooked.sprite = imgWhenNoFoodIsBeingCooked;
+        mealsPreparedCurrently--;
         isCooking = false;
     }
     
