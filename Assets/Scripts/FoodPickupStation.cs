@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using DefaultNamespace;
+using Scriptables;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,9 @@ public class FoodPickupStation : MonoBehaviour
 {
     [SerializeField] private Canvas canvas;
     [SerializeField] private ScriptablePlayerCurrentAction curAction;
+    
+    [Header("Events")] 
+    [SerializeField] private ScriptableSimpleEvent foodPickedUp;
 
     private Queue<Order> foodDisplayQueue = new Queue<Order>();
     private List<Image> spriteRenderers = new List<Image>();
@@ -34,6 +38,7 @@ public class FoodPickupStation : MonoBehaviour
         if (canPickupFood && foodDisplayQueue.Count != 0 && Input.GetKeyDown(KeyCode.Space))
         {
             AudioManager.Instance.PlayPickupPlateSFX();
+            foodPickedUp.InvokeEvent();
             PickupFood();
         }
     }

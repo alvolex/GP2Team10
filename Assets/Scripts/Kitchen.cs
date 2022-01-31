@@ -13,16 +13,18 @@ public class Kitchen : MonoBehaviour
     //todo should create a scriptable event for this instead of directly referencing the other script
     [SerializeField] private FoodPickupStation foodPickupStation;
     
-    private int amountOfChefs = 2;
+    private int amountOfChefs = 1;
 
     private Queue<Order> ordersToCook = new Queue<Order>();
     private bool isCooking;
     private Order currentlyCooking;
     int mealsPreparedCurrently = 0;
+    private FoodProgressUI foodProgressUI;
 
     private void Start()
     {
         isCooking = false;
+        foodProgressUI = GetComponent<FoodProgressUI>();
     }
 
     //Getters & setters
@@ -64,6 +66,7 @@ public class Kitchen : MonoBehaviour
 
     private void UpdateKitchenUI()
     {
+        
         foodThatIsCurrentlyCooked.sprite = currentlyCooking.GetFoodSprite();
     }
 
@@ -81,7 +84,9 @@ public class Kitchen : MonoBehaviour
             {
                 currentlyCooking = ordersToCook.Dequeue();
                 Debug.Log("Now cooking: " + currentlyCooking.SelectedFoodItem.FoodName);
+                //Update sprite on the kitchen & setup progress UI
                 UpdateKitchenUI();
+                foodProgressUI.UpdateFoodImageAndProgress(currentlyCooking.GetFoodSprite(), currentlyCooking.SelectedFoodItem.TimeToCookFood);
 
                 yield return new WaitForSeconds(currentlyCooking.SelectedFoodItem.TimeToCookFood);
                 foodPickupStation.FoodIsReady(currentlyCooking);
