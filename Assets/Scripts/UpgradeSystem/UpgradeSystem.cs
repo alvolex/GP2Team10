@@ -12,21 +12,22 @@ public class UpgradeSystem : MonoBehaviour
     
     
     [SerializeField] private GameObject playerReference;
-    [SerializeField] private GameObject customerReference;
     
     
     [SerializeField] private IntReference aliensReference;
     [SerializeField] private IntReference allergensReference;
     [SerializeField] private IntReference tipsReference;
+
+    [SerializeField] private ScriptableEventIntReference onTipsChanged;
+    
+    
+    
     [SerializeField] private Button upgradeButton;
     [SerializeField] private Button MovementSpeedUpgradeButton;
     [SerializeField] private Button CustomerMovementSpeedUpgradeButton;
     [SerializeField] private Button TableUpgradeButton;
     [SerializeField] private Button CookingStationUpgradeButton;
     [SerializeField] private Button StorageUpgradeButton;
-
-    
-    
     
     [Header("Movement Speed")] 
     [SerializeField] private int movementSpeedUpgradeAmount;
@@ -74,7 +75,7 @@ public class UpgradeSystem : MonoBehaviour
     int currentCMSUpgrade = 0;
     //int currentAllergenUpgrade = 0;
     int currentCookingStationUpgrade = 0;
-    //int currentStorageUpgrade = 0;
+    int currentStorageUpgrade = 0;
     int currentSeatingUpgrade = 0;
     
     [SerializeField] private ScriptableSimpleEvent dayEnd;
@@ -82,6 +83,26 @@ public class UpgradeSystem : MonoBehaviour
     [SerializeField] private ScriptableEventOneValue customerMovementSpeedChange;
 
 
+    //public int TipsReference => aliensReference.GetValue();
+    public int TipsReference
+    {
+        get => tipsReference.GetValue();
+        set => tipsReference.ApplyChange(value);
+    }
+
+
+    public int AllergensReference => allergensReference.GetValue();
+    public int AliensFedReference => aliensReference.GetValue();
+    public int CurrentMovementSpeedUpgrade => currentMSUpgrade;
+    public int CurrentCustomerMovementSpeedUpgrade => currentCMSUpgrade;
+    public int CurrentSeatingUpgrade => currentSeatingUpgrade;
+
+    public int CurrentStorageUpgrade
+    {
+        get => currentStorageUpgrade;
+        set => currentStorageUpgrade = value;
+    }
+    
 
     private void Start()
     {
@@ -107,8 +128,15 @@ public class UpgradeSystem : MonoBehaviour
         {
             TableUpgradeButton.interactable = false;
         }
+        if (currentStorageUpgrade+1>storageSlotUpgradeCost.Length || 
+            tipsReference.GetValue() < storageSlotUpgradeCost[currentStorageUpgrade])
+        {
+            StorageUpgradeButton.interactable = false;
+        }
         
         CookingStationUpgradeButton.interactable = false;
+        
+        
         
     }
     public void CheckAliensFed()
@@ -123,14 +151,27 @@ public class UpgradeSystem : MonoBehaviour
     }
     public void CustomersWithAllergiesServed()
     {
-        Debug.Log("Gave allergic food");
-        
         if (allergensReference.GetValue() == allergensServedLimit1)
+        {
             alienMovementSpeedUpgradesAvailable++;
+            Debug.Log("Goal 1 reached");
+            Debug.Log(allergensReference.GetValue());
+        }
+            
         if (allergensReference.GetValue() == allergensServedLimit2)
+        {
             alienMovementSpeedUpgradesAvailable++;
+            Debug.Log("Goal 2 reached");
+            Debug.Log(allergensReference.GetValue());
+
+        }
         if (allergensReference.GetValue() == allergensServedLimit3)
+        {
             alienMovementSpeedUpgradesAvailable++;
+            Debug.Log("Goal 3 reached");
+            Debug.Log(allergensReference.GetValue());
+
+        }
         
     }
     public void UpgradeMS()
@@ -179,7 +220,6 @@ public class UpgradeSystem : MonoBehaviour
             }
         }
     }
-
     public void UpgradeTable()
     {
         tipsReference.ApplyChange(-extraSeatingUpgradeCost[currentSeatingUpgrade]);
@@ -191,13 +231,24 @@ public class UpgradeSystem : MonoBehaviour
             
     }
 
+    public void UpgradeStorage()
+    {
+        currentStorageUpgrade++;
+        //FOODPICKUPSTATION.CS
+        CheckMoney();
+    }
+
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
             tipsReference.ApplyChange(+500);
+            onTipsChanged.Raise(tipsReference.GetValue());
+            
+            
             aliensReference.ApplyChange(+1);
             onAlienFed.Raise(aliensReference.GetValue());
+            Debug.Log("added moolah");
         }
 
         //Debug.Log(tipsReference.GetValue());
