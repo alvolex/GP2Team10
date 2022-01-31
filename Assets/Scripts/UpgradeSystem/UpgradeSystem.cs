@@ -123,6 +123,8 @@ public class UpgradeSystem : MonoBehaviour
     }
     public void CustomersWithAllergiesServed()
     {
+        Debug.Log("Gave allergic food");
+        
         if (allergensReference.GetValue() == allergensServedLimit1)
             alienMovementSpeedUpgradesAvailable++;
         if (allergensReference.GetValue() == allergensServedLimit2)
@@ -131,29 +133,6 @@ public class UpgradeSystem : MonoBehaviour
             alienMovementSpeedUpgradesAvailable++;
         
     }
-    /*private void CheckButton()
-    {
-        if (movementSpeedUpgradesAvailable > 0)
-            upgradeButton.interactable = true;
-
-        if (alienMovementSpeedUpgradesAvailable > 0)
-        {
-            //Enable UpgradeButtonHere for 
-        }
-        if (extraCookingStationUpgradesAvailable > 0)
-        {
-            //Enable ExtraCookingStationUpgrades for 
-        }
-        if (extraStorageSlot > 0)
-        {
-            //Enable UpgradeButtonHere for 
-        }
-        if (tableUpgradesAvailable > 0)
-        {
-            //Enable UpgradeButtonHere for 
-        }
-
-    }*/
     public void UpgradeMS()
     {
         
@@ -174,12 +153,7 @@ public class UpgradeSystem : MonoBehaviour
         if (tipsReference.GetValue() > alienMovementSpeedUpgradeCost[currentCMSUpgrade])
         {
             tipsReference.ApplyChange(-alienMovementSpeedUpgradeCost[currentCMSUpgrade]);
-            
-            //customerReference.GetComponent<NavMeshAgent>().speed += AlienMovementSpeedUpgradeAmount;//FIX THIS, THIS IS CHANGING THE NAVMESH THINGY ON PREFAB
-            
             customerMovementSpeedChange.InvokeEvent(AlienMovementSpeedUpgradeAmount);
-            //INVOKE METHOD
-            
             currentCMSUpgrade++;
             alienMovementSpeedUpgradesAvailable--;
             
