@@ -10,7 +10,7 @@ public class MusicBox : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                AudioManager.Instance.PlayMusic();
+                //AudioManager.Instance.PlayMusic();
             }
         }
     }

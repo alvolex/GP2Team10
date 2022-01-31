@@ -5,8 +5,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
-
-    [SerializeField] private AudioSource musicSource;
+    //[SerializeField] private AudioSource musicSource;
     [SerializeField] private  AudioSource orderStartSource;
     [SerializeField] private  AudioSource orderCompleteSource;
     [SerializeField] private  AudioSource journalOpenSource;
@@ -21,6 +20,18 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource dayEnd5SecSource;
     [SerializeField] private AudioSource orderScreenOnSource;
     [SerializeField] private AudioSource orderScreenOffSource;
+    [SerializeField] private AudioSource alienBigManTalk;
+    [SerializeField] private AudioSource alienBigManTalk1;
+    [SerializeField] private AudioSource alienBigManTalk2;
+    [SerializeField] private AudioSource alienHairyThingTalk;
+    [SerializeField] private AudioSource alienHairyThingTalk1;
+    [SerializeField] private AudioSource alienHairyThingTalk2;
+    [SerializeField] private AudioSource alienHairyThingTalk3;
+    [SerializeField] private AudioSource alienSquidThingTalk;
+    [SerializeField] private AudioSource alienSquidThingTalk1;
+
+    [Header("Volume Control")]
+    [Range(0, 1)]public float volume;
 
     private void Awake()
     {
@@ -33,8 +44,23 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
     }
-    public void PlayMusic()
+    private void OnValidate()
+    {
+        foreach(AudioSource audioSource in GetComponentsInChildren<AudioSource>())
+        {
+            if (audioSource.gameObject.name == "Music")
+            {
+                audioSource.volume = 0.03f;
+            }
+            else
+            {
+                audioSource.volume = volume;
+            }
+        }
+    }
+    /*public void PlayMusic()
     {
         if(!musicSource.isPlaying)
         {
@@ -44,7 +70,7 @@ public class AudioManager : MonoBehaviour
         {
             musicSource.Stop();
         }
-    }
+    }*/
 
     public void PlayOrderStartSFX()
     {
