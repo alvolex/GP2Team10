@@ -34,6 +34,7 @@ public class Tutorial : MonoBehaviour
 
     private bool isInTutorial = false;
     private int tutorialsInQueue = 0;
+    private int spotlightIndex = 0;
 
     public ScriptableGameState GameState
     {
@@ -67,13 +68,7 @@ public class Tutorial : MonoBehaviour
         
         AddStringToList();
         ShowTutorialText(true);
-        //showNextPrompt.ScriptableEvent += ShowTutorialText;
     }
-
-    /*private void OnDestroy()
-    {
-        showNextPrompt.ScriptableEvent -= ShowTutorialText;
-    }*/
 
     private void AddStringToList()
     {
@@ -113,9 +108,17 @@ public class Tutorial : MonoBehaviour
         }
     }
 
-    public void TurnOnSeatedCustomerSpotlight()
+    public void TurnOnAndMoveSpotlight()
     {
+        //todo read the position list and lerp (move towards?)
+        if (spotlightIndex >= spotlightPositions.Count) 
+        {
+            Debug.Log("Position missing, can't move spotlight");
+        }
+        
         spotLightTutorial.SetActive(true);
+        spotLightTutorial.transform.position = spotlightPositions[spotlightIndex].transform.position;
+        spotlightIndex++;
     }
 
     IEnumerator WaitUntilLastTutorialIsFinished()
@@ -191,6 +194,7 @@ public class Tutorial : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Space) && !allTextVisible)
             {
+                allTextVisible = true; //If the player spams space the prompt will close
                 timeBetweenCharacters = 0.0001f;
             }
             else if (Input.GetKeyDown(KeyCode.Space))
