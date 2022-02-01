@@ -219,9 +219,17 @@ public class OrderFood : MonoBehaviour
         curAction.CurrentAction = CurrentAction.TakingOrder;
 
         AudioManager.Instance.PlayOrderScreenOnSFX();
+
+        if (Tutorial.instance != null)
+        {
+            Tutorial.instance.ShowTutorialText(Tutorial.instance.GameState.howToTakeOrderTutorial);
+            if (Tutorial.instance.GameState.howToTakeOrderTutorial)
+            {
+                Tutorial.instance.TurnOnAndMoveSpotlight();
+            }
+            Tutorial.instance.GameState.howToTakeOrderTutorial = false;
+        }
         
-        Tutorial.instance.ShowTutorialText(Tutorial.instance.GameState.howToTakeOrderTutorial);
-        Tutorial.instance.GameState.howToTakeOrderTutorial = false;
 
         while (true)
         {
@@ -260,9 +268,16 @@ public class OrderFood : MonoBehaviour
         ToggleSelectableFoodItems();
         
         //Show tutorial text after taking order
-        Tutorial.instance.ShowTutorialText(Tutorial.instance.GameState.hasTakenOrderTutorial);
-        Tutorial.instance.GameState.hasTakenOrderTutorial = false;
-
+        if (Tutorial.instance != null)
+        {
+            Tutorial.instance.ShowTutorialText(Tutorial.instance.GameState.hasTakenOrderTutorial);
+            if (Tutorial.instance.GameState.hasTakenOrderTutorial)
+            {
+                Tutorial.instance.TurnOnAndMoveSpotlight();
+            }
+            Tutorial.instance.GameState.hasTakenOrderTutorial = false;
+        }
+        
         //Create the order
         myOrder = new Order(foodToOrder, GetComponent<Customer>(), spriteRenderer.sprite, selectedDish);
 

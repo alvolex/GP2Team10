@@ -5,6 +5,7 @@ using DefaultNamespace;
 using Scriptables;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Experimental.GlobalIllumination;
 using Random = UnityEngine.Random;
 
 public class Customer : MonoBehaviour
@@ -16,7 +17,6 @@ public class Customer : MonoBehaviour
 
     [Header("Highlight Alien")] 
     [SerializeField] private Material defaultMat;
-
     [SerializeField] private Material selectedMat;
 
     [Header("Debug stuff")]
@@ -102,8 +102,15 @@ public class Customer : MonoBehaviour
         isSeated = true;
         
         //Show tutorial if it hasn't been shown before
-        Tutorial.instance.ShowTutorialText(Tutorial.instance.GameState.hasBeenSeatedTutorial);
-        Tutorial.instance.GameState.hasBeenSeatedTutorial = false;
+        if (Tutorial.instance != null)
+        {
+            Tutorial.instance.ShowTutorialText(Tutorial.instance.GameState.hasBeenSeatedTutorial);
+            if (Tutorial.instance.GameState.hasBeenSeatedTutorial)
+            {
+                Tutorial.instance.TurnOnAndMoveSpotlight();
+            }
+            Tutorial.instance.GameState.hasBeenSeatedTutorial = false;
+        }
 
         customerStateChange.InvokeEvent();
 
