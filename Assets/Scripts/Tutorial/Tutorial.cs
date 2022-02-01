@@ -111,9 +111,10 @@ public class Tutorial : MonoBehaviour
     public void TurnOnAndMoveSpotlight()
     {
         //todo read the position list and lerp (move towards?)
-        if (spotlightIndex >= spotlightPositions.Count) 
+        if (spotlightPositions.Count <= spotlightIndex) 
         {
             Debug.Log("Position missing, can't move spotlight");
+            return;
         }
         
         spotLightTutorial.SetActive(true);
