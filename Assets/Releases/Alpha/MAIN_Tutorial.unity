@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0436294, g: 0.0386084, b: 0.046143606, a: 1}
+  m_IndirectSpecularColor: {r: 0.04384292, g: 0.038785253, b: 0.046369664, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -153,7 +153,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 25937578}
   m_LocalRotation: {x: 0.68028235, y: 0.10493902, z: -0.07250835, w: 0.7217661}
-  m_LocalPosition: {x: -5.13, y: 6.8049297, z: 11.33}
+  m_LocalPosition: {x: -4.826, y: 6.832, z: 11.542}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -173,8 +173,8 @@ Light:
   m_Color: {r: 0.8245797, g: 0.8490566, b: 0.20425417, a: 1}
   m_Intensity: 110
   m_Range: 9.51
-  m_SpotAngle: 57.84445
-  m_InnerSpotAngle: 57.84445
+  m_SpotAngle: 76.577805
+  m_InnerSpotAngle: 39.777775
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
@@ -2405,7 +2405,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &1137716198
 Light:
   m_ObjectHideFlags: 0
@@ -2417,7 +2417,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.46226418, g: 0.42671064, b: 0.054512277, a: 1}
   m_Intensity: 0.3
   m_Range: 10
   m_SpotAngle: 30
@@ -2997,6 +2997,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8614029400110744102, guid: 6f06d07679bf6604399c3c691fdcb266, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 739b18974be82154dad67b99e470fb51, type: 2}
+    - target: {fileID: 8614029400110744102, guid: 6f06d07679bf6604399c3c691fdcb266, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -4400922819208308142, guid: 739b18974be82154dad67b99e470fb51, type: 2}
+    - target: {fileID: 8614029400665092939, guid: 6f06d07679bf6604399c3c691fdcb266, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8614029400665092939, guid: 6f06d07679bf6604399c3c691fdcb266, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: de091273fdc6cde429aa5701a25058a9, type: 3}
     - target: {fileID: 8614029400729899252, guid: 6f06d07679bf6604399c3c691fdcb266, type: 3}
       propertyPath: m_RootOrder
       value: 19
@@ -3081,6 +3097,22 @@ PrefabInstance:
       propertyPath: spotlightPositions.Array.data[6]
       value: 
       objectReference: {fileID: 1770479461}
+    - target: {fileID: 8614029400965437644, guid: 6f06d07679bf6604399c3c691fdcb266, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 739b18974be82154dad67b99e470fb51, type: 2}
+    - target: {fileID: 8614029400965437644, guid: 6f06d07679bf6604399c3c691fdcb266, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -4400922819208308142, guid: 739b18974be82154dad67b99e470fb51, type: 2}
+    - target: {fileID: 8614029400978485668, guid: 6f06d07679bf6604399c3c691fdcb266, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 739b18974be82154dad67b99e470fb51, type: 2}
+    - target: {fileID: 8614029400978485668, guid: 6f06d07679bf6604399c3c691fdcb266, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -4400922819208308142, guid: 739b18974be82154dad67b99e470fb51, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f06d07679bf6604399c3c691fdcb266, type: 3}
 --- !u!1 &1639460134 stripped
@@ -3402,7 +3434,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &1959582469
 Light:
   m_ObjectHideFlags: 0
@@ -4105,6 +4137,10 @@ PrefabInstance:
       propertyPath: startNextDay
       value: 
       objectReference: {fileID: 11400000, guid: 71a4df6f45fa69d4ba8378163d846057, type: 2}
+    - target: {fileID: 4809175757380973077, guid: f872a45fbde373646aaea996916bc783, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5926432967940370523, guid: f872a45fbde373646aaea996916bc783, type: 3}
       propertyPath: m_IsActive
       value: 0
