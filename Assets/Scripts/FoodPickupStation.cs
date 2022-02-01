@@ -90,6 +90,16 @@ public class FoodPickupStation : MonoBehaviour
         UpdateFoodPlatesOnCounter();
 
         foodToPickup.HasBeenPickedUp = true;
+        
+        //Tutorial Stuff
+        if (Tutorial.instance != null)
+        {
+            if (Tutorial.instance.GameState.foodPickedUpFromCounter)
+            {
+                Tutorial.instance.TurnOnAndMoveSpotlight();
+                Tutorial.instance.GameState.foodPickedUpFromCounter = false;
+            }
+        }
 
         //Debug.Log("Food has been picked up: " + foodToPickup.GetFood());
 

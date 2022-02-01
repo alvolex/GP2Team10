@@ -90,6 +90,17 @@ public class Kitchen : MonoBehaviour
 
                 yield return new WaitForSeconds(currentlyCooking.SelectedFoodItem.TimeToCookFood);
                 foodPickupStation.FoodIsReady(currentlyCooking);
+                
+                //Tutorial Stuff
+                if (Tutorial.instance != null)
+                {
+                    if (Tutorial.instance.GameState.foodReadyToDeliverTutorial)
+                    {
+                        Tutorial.instance.TurnOnAndMoveSpotlight();
+                        Tutorial.instance.GameState.foodReadyToDeliverTutorial = false;
+                    }
+                }
+                
             }
             else
             {
