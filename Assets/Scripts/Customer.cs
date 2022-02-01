@@ -107,7 +107,7 @@ public class Customer : MonoBehaviour
             Tutorial.instance.ShowTutorialText(Tutorial.instance.GameState.hasBeenSeatedTutorial);
             if (Tutorial.instance.GameState.hasBeenSeatedTutorial)
             {
-                Tutorial.instance.TurnOnSeatedCustomerSpotlight();
+                Tutorial.instance.TurnOnAndMoveSpotlight();
             }
             Tutorial.instance.GameState.hasBeenSeatedTutorial = false;
         }

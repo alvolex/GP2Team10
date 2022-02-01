@@ -74,12 +74,10 @@ public class AlienAttributes : MonoBehaviour
         customerStateChange.ScriptableEvent += ChangeCustomerState;
         currentCustomerState = customerState.WaitingToBeSeated;
     }
-
     private void OnDestroy()
     {
         customerStateChange.ScriptableEvent -= ChangeCustomerState;
     }
-
     private void ChangeCustomerState()
     {
         if (GetComponent<Customer>().IsSeated)
@@ -100,6 +98,16 @@ public class AlienAttributes : MonoBehaviour
         if (currentCustomerState  == customerState.WaitingForFood)
         {
             maxWaitingForOrderTime -= Time.deltaTime;
+        }
+        
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            startersFed.ApplyChange(+1);
+            onStarterFed.Raise(startersFed.GetValue());
+            dessertsFed.ApplyChange(+1);
+            onDessertFed.Raise(dessertsFed.GetValue());
+            aliensFedReference.ApplyChange(+1);
+            onAlienFed.Raise(aliensFedReference.GetValue());
         }
     }
     public void CheckAllergies(ScriptableFood foodToCheck)
@@ -122,16 +130,13 @@ public class AlienAttributes : MonoBehaviour
         }
         FoodIsEdible(foodToCheck);
     }
-
     private void CustomerIsAllergic()
     {
         allergensFedReference.ApplyChange(+1);
         onAllergenFed.Raise(allergensFedReference.GetValue());
     }
-
     void FoodIsEdible(ScriptableFood foodToCheck)
     {
-
         if (foodToCheck.FoodType == FoodType.Starter)
         {
             startersFed.ApplyChange(+1);
@@ -160,10 +165,7 @@ public class AlienAttributes : MonoBehaviour
         AudioManager.Instance.PlayGetMoneySFX();
         
         moneyPopupEvent.InvokeEvent(maxTip, GetComponent<Customer>());
-
     }
-    
-    
 }
             
             

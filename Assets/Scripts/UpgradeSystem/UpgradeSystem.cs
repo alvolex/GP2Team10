@@ -77,9 +77,6 @@ public class UpgradeSystem : MonoBehaviour
     
     [Header("Tables")]
     [SerializeField] private GameObject[] tables;
-
-    private int cookingStation;
-    private int table;
     
     private int movementSpeedUpgradesAvailable;
     private int alienMovementSpeedUpgradesAvailable;
@@ -96,7 +93,10 @@ public class UpgradeSystem : MonoBehaviour
     [SerializeField] private ScriptableSimpleEvent dayEnd;
     [SerializeField] private ScriptableEventIntReference onAlienFed;
     [SerializeField] private ScriptableEventOneValue customerMovementSpeedChange;
+
+    [SerializeField] private FoodPickupStation foodPickupStation;
     
+
     public int CurrentMovementSpeedUpgrade
     {
         get => currentMSUpgrade;
@@ -146,6 +146,8 @@ public class UpgradeSystem : MonoBehaviour
     private void Start()
     {
         dayEnd.ScriptableEvent += CheckMoney;
+        foodPickupStation = FindObjectOfType<FoodPickupStation>();
+
     }
 
     public void CheckMoney()
@@ -162,8 +164,9 @@ public class UpgradeSystem : MonoBehaviour
         {
             CustomerMovementSpeedUpgradeButton.interactable = false;
         }
-        if (currentSeatingUpgrade+1>=extraSeatingUpgradeCost.Length || 
-            tipsReference.GetValue() < extraSeatingUpgradeCost[currentSeatingUpgrade])
+        if (currentSeatingUpgrade+1>extraSeatingUpgradeCost.Length || 
+            tipsReference.GetValue() < extraSeatingUpgradeCost[currentSeatingUpgrade]||
+            tableUpgradesAvailable==0)
         {
             TableUpgradeButton.interactable = false;
         }
@@ -173,6 +176,9 @@ public class UpgradeSystem : MonoBehaviour
         {
             StorageUpgradeButton.interactable = false;
         }
+        
+        
+        //This thing needs to be added for the cooking time eventually and then linked to the goals and stufferino :PPP
         CookingStationUpgradeButton.interactable = false;
     }
     public void CheckAliensFed()
@@ -246,13 +252,11 @@ public class UpgradeSystem : MonoBehaviour
             CheckMoney();
         }
     }
-    public void UpgradeCookingStation()
+    /*public void UpgradeCookingStation()///UNUSSED I THINK
     {
         if (tipsReference.GetValue() > cookingStationUpgradeSlot[currentCookingStationUpgrade])
         {
             tipsReference.ApplyChange(-cookingStationUpgradeSlot[currentCookingStationUpgrade]);
-            //Adjust movement depending on how to adjust it i guess
-            
             cookingStations[cookingStation].SetActive(false);
             cookingStation++;
             cookingStations[cookingStation].SetActive(true);
@@ -264,7 +268,7 @@ public class UpgradeSystem : MonoBehaviour
                 upgradeButton.interactable = false;
             }
         }
-    }
+    }*/
     public void UpgradeTable()
     {
         tipsReference.ApplyChange(-extraSeatingUpgradeCost[currentSeatingUpgrade]);
@@ -277,26 +281,37 @@ public class UpgradeSystem : MonoBehaviour
     {
         extraStorageUpgradesAvailable--;
         currentStorageUpgrade++;
-        //FOODPICKUPSTATION.CS
+        
         CheckMoney();
     }
 
-    /*public void Update()
+    public void ApplyUpgrades()
+    {
+        for (var i = currentCMSUpgrade; i>=0; i--)
+        {
+            playerReference.GetComponent<PlayerMovement>().MovementSpeed += movementSpeedUpgradeAmount;
+        }
+        for (var j = currentCMSUpgrade; j >= 0; j--)
+        {
+            customerMovementSpeedChange.InvokeEvent(AlienMovementSpeedUpgradeAmount);
+        }
+        for (int j = 0; j < currentSeatingUpgrade; j++)
+        {
+            tables[j].GetComponent<Table>().UnlockTable();
+        }
+        for (int i = 0; i <= currentStorageUpgrade; i++)
+        {
+            foodPickupStation.UpgradeFoodCounterStorage();
+        }
+    }
+    public void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
             tipsReference.ApplyChange(+500);
             onTipsChanged.Raise(tipsReference.GetValue());
-            
-            
-            aliensReference.ApplyChange(+1);
-            onAlienFed.Raise(aliensReference.GetValue());
             Debug.Log("added moolah");
         }
-        
-        Debug.Log(CurrentMovementSpeedUpgrade);
 
-        //Debug.Log(tipsReference.GetValue());
-        
-    }*/
+    }
 }
