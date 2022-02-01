@@ -19,6 +19,10 @@ public class Tutorial : MonoBehaviour
     [SerializeField] private ScriptableGameState gameState;
     [SerializeField] private TutorialTextPrompts tutText;
 
+    [Header("Lights")] 
+    [SerializeField] private GameObject spotLightTutorial;
+    [SerializeField] private List<Transform> spotlightPositions = new List<Transform>();
+
     [Header("Event")]
     [SerializeField] private ScriptableSimpleEvent showNextPrompt;
 
@@ -107,6 +111,11 @@ public class Tutorial : MonoBehaviour
             tutorialsInQueue++;
             StartCoroutine(WaitUntilLastTutorialIsFinished());
         }
+    }
+
+    public void TurnOnSeatedCustomerSpotlight()
+    {
+        spotLightTutorial.SetActive(true);
     }
 
     IEnumerator WaitUntilLastTutorialIsFinished()
