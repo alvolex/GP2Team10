@@ -10,6 +10,7 @@ namespace Scriptables
         
         //Tutorial pop-up checks
         public bool hasBeenSeatedTutorial;
+        public bool hasStartedSeatingCustomer;
         public bool howToTakeOrderTutorial;
         public bool hasTakenOrderTutorial;
         public bool hasLeftOrderAtKitchenTutorial;
@@ -20,6 +21,7 @@ namespace Scriptables
         private void OnEnable()
         {
             hasBeenSeatedTutorial = true;
+            hasStartedSeatingCustomer = true;
             howToTakeOrderTutorial = true;
             hasTakenOrderTutorial = true;
             hasLeftOrderAtKitchenTutorial = true;
