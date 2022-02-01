@@ -162,6 +162,11 @@ public class Tutorial : MonoBehaviour
         //Get all the text that will fit on one line, then write out each char separately
         foreach (var line in currenTextHidden.GetTextInfo(currenTextHidden.text).lineInfo)
         {
+            if (!isInTutorial)
+            {
+                yield break;
+            }
+
             //Fixes strange behaviour where firstcharindex sometimes gets a wrong(?) value.
             if (line.firstCharacterIndex > currenTextHidden.text.Length)
             {
@@ -207,9 +212,11 @@ public class Tutorial : MonoBehaviour
                 {
                     ShowTutorialText(true);
                     shouldShowNextPrompt = false;
+                    isInTutorial = false;
                     yield break;
                 }
                 
+                isInTutorial = false;
                 canvasToToggle.SetActive(false);
                 yield break;
             }
