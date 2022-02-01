@@ -167,7 +167,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 5319866195737165776}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
@@ -191,6 +191,10 @@ GameObject:
   - component: {fileID: 6414541750804244570}
   - component: {fileID: 7700265811842089808}
   - component: {fileID: 1960739444156903254}
+  - component: {fileID: 1639460135}
+  - component: {fileID: 1639460136}
+  - component: {fileID: 1639460137}
+  - component: {fileID: 1639460149}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -207,7 +211,7 @@ Transform:
   m_GameObject: {fileID: 6414541750804244563}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.2574337, y: 2.2574337, z: 2.2574337}
   m_Children:
   - {fileID: 6414541751466005115}
   - {fileID: 6414541751660422850}
@@ -382,6 +386,111 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 123bc031a2399fa4590339744c6bdaa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1639460135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6414541750804244563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af71a62dad830d94abab25c690adb5bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tipsReference: {fileID: 11400000, guid: f3a9f27de7b4c1e42aabd428a1c9fd29, type: 2}
+  reputationReference: {fileID: 11400000, guid: 28cdcbf3b26c52241a280a5a45ab8b5e, type: 2}
+  currentMovementSpeedUpgrade: 0
+  currentCustomerMovementSpeedUpgrade: 0
+  currentSeatingUpgrade: 0
+  currentStorageUpgrade: 0
+  movementSpeedUpgradesAvailable: 0
+  alienMovementSpeedUpgradesAvailable: 0
+  extraCookingStationUpgradesAvailable: 0
+  extraStorageSlot: 0
+  tableUpgradesAvailable: 0
+--- !u!114 &1639460136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6414541750804244563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 716ecd2f89034bc439ea0d8119dc9879, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eventNoPayload: {fileID: 0}
+  _responseNoPayload:
+    m_PersistentCalls:
+      m_Calls: []
+  _event: {fileID: 11400000, guid: 8cd1ac879b790bb4cb2332cabd694f0f, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: PlayerStats, Assembly-CSharp
+        m_MethodName: OnReputationChanged
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1639460137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6414541750804244563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 716ecd2f89034bc439ea0d8119dc9879, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eventNoPayload: {fileID: 0}
+  _responseNoPayload:
+    m_PersistentCalls:
+      m_Calls: []
+  _event: {fileID: 11400000, guid: 11f6bda5cd30cdf44a0980a6d6dfd5c2, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: PlayerStats, Assembly-CSharp
+        m_MethodName: OnTipsChanged
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1639460149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6414541750804244563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c59fd0224c10642459d77b9bb1e0c5eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reputation: {fileID: 11400000, guid: 28cdcbf3b26c52241a280a5a45ab8b5e, type: 2}
+  reputationText: {fileID: 0}
+  OnRepChangedEvent: {fileID: 11400000, guid: 96341294a5dd31c43a1587c7d63d3e27, type: 2}
+  tips: {fileID: 11400000, guid: f3a9f27de7b4c1e42aabd428a1c9fd29, type: 2}
+  tipsText: {fileID: 0}
+  OnTipChangedEvent: {fileID: 11400000, guid: 066dfd64a6628e34c87d0928e20decee, type: 2}
 --- !u!1 &6414541750860809125
 GameObject:
   m_ObjectHideFlags: 0
