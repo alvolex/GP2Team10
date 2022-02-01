@@ -25,7 +25,6 @@ public class Customer : MonoBehaviour
     [Header("Event")] 
     [SerializeField] private ScriptableSimpleEvent leaveWhenCustomersStopSpawning;
     [SerializeField, Tooltip("Tied to the above event. When the event is called we will start leaving after this many seconds ->")] private float timeOffsetBeforeLeaving = 5;
-    [SerializeField] private ScriptableSimpleEvent customerStateChange;
 
     private Camera cam;
     private NavMeshAgent nmagent;
@@ -33,6 +32,7 @@ public class Customer : MonoBehaviour
     private SphereCollider sCollider;
     private OrderFood orderFood;
     private MeshRenderer meshRenderer;
+    private AlienAttributes attributes;
     
     private bool closeToHost = false;
     private Rigidbody rb;
@@ -56,11 +56,14 @@ public class Customer : MonoBehaviour
         isMovingToTable = false;
         //Get components
         cam = Camera.main;
+
+        attributes = GetComponent<AlienAttributes>();
         orderFood = GetComponent<OrderFood>();
         nmObstacle = GetComponent<NavMeshObstacle>();
         sCollider = GetComponent<SphereCollider>();
         rb = GetComponent<Rigidbody>();
         meshRenderer = GetComponent<MeshRenderer>();
+        
         leaveWhenCustomersStopSpawning.ScriptableEvent += HandleExitWhenRestaurantCloses;
     }
 
@@ -101,6 +104,9 @@ public class Customer : MonoBehaviour
         isMovingToTable = false; //Not moving if we have reached table
         isSeated = true;
         
+        //Customer state is now sitting
+        attributes.ChangeCustomerState();
+        
         //Show tutorial if it hasn't been shown before
         if (Tutorial.instance != null)
         {
@@ -111,8 +117,6 @@ public class Customer : MonoBehaviour
             }
             Tutorial.instance.GameState.hasBeenSeatedTutorial = false;
         }
-
-        customerStateChange.InvokeEvent();
 
         //Start the food ordering process
         orderFood.Order();
@@ -190,7 +194,7 @@ public class Customer : MonoBehaviour
         GetComponentInParent<SelectGroupOfCustomers>().UnhighlightGroup();
     }
 
-    private void ExitRestaurant()
+    public void ExitRestaurant()
     {
         if (!nmagent.isActiveAndEnabled && !isSeated) return;
 

@@ -128,6 +128,9 @@ public class Tutorial : MonoBehaviour
         {
             yield return new WaitForSeconds(0.2f);
         }
+        
+        StopAllCoroutines(); //todo is this breaking shit?
+        
         StartCoroutine(TypeInTextCoroutine());
         tutorialsInQueue--;
 

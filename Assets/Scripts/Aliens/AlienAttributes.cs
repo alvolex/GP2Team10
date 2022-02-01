@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using ScriptableEvents;
 using Scriptables;
 using SOs;
@@ -56,7 +57,7 @@ public class AlienAttributes : MonoBehaviour
     [Header("Alex's Stupid Over head pop-up Event :^)")] 
     [SerializeField] private ScriptableMoneyPopupEvent moneyPopupEvent;
     [SerializeField] private ScriptableSimpleEvent customerStateChange;
-    
+
 
     enum customerState
     {
@@ -65,12 +66,13 @@ public class AlienAttributes : MonoBehaviour
         WaitingForFood,
     }
 
-    private customerState currentCustomerState;
+    private customerState currentCustomerState = customerState.WaitingToBeSeated;
     
     public event Action<Customer> customerHasDied;
     
     private void Start()
     {
+        StartCoroutine(CustomerWaitTimer(maxWaitingToBeSeatedTime));
         customerStateChange.ScriptableEvent += ChangeCustomerState;
         currentCustomerState = customerState.WaitingToBeSeated;
     }
@@ -78,11 +80,21 @@ public class AlienAttributes : MonoBehaviour
     {
         customerStateChange.ScriptableEvent -= ChangeCustomerState;
     }
-    private void ChangeCustomerState()
+    
+    public void ChangeCustomerState()
     {
-        if (GetComponent<Customer>().IsSeated)
+        StopAllCoroutines();
+        
+        switch (currentCustomerState)
         {
-            currentCustomerState = customerState.WaitingToOrder;
+            case customerState.WaitingToBeSeated:
+                currentCustomerState = customerState.WaitingToOrder;
+                StartCoroutine(CustomerWaitTimer(maxWaitingToOrderTime));
+                break;
+            case customerState.WaitingToOrder:
+                currentCustomerState = customerState.WaitingForFood;
+                StartCoroutine(CustomerWaitTimer(maxWaitingForOrderTime));
+                break;
         }
     }
     private void Update()
@@ -165,6 +177,13 @@ public class AlienAttributes : MonoBehaviour
         AudioManager.Instance.PlayGetMoneySFX();
         
         moneyPopupEvent.InvokeEvent(maxTip, GetComponent<Customer>());
+    }
+
+    IEnumerator CustomerWaitTimer(float timeToWwait)
+    {
+        yield return new WaitForSeconds(timeToWwait);
+
+        GetComponent<Customer>().ExitRestaurant();
     }
 }
             
