@@ -17,6 +17,7 @@ namespace DefaultNamespace
         [SerializeField] private ScriptableSimpleEvent foodPickedUp;
 
         private Dictionary<GameObject, Image> combinedList = new Dictionary<GameObject, Image>();
+        private bool hasBeenPickedUp = false;
 
         private void Awake()
         {
@@ -31,7 +32,7 @@ namespace DefaultNamespace
             }
         }
 
-        public void UpdateFoodImageAndProgress(Sprite foodSprite, float timeToCook)
+        public void UpdateFoodImageAndProgress(Sprite foodSprite, float timeToCook, float timeBeforFoodGoesBad, Order currentOrder)
         {
             var index = FindFirstFreeUI();
             
@@ -41,7 +42,7 @@ namespace DefaultNamespace
                 uiGameobject[index].SetActive(true);
                 uiGameobject[index].GetComponent<Image>().sprite = foodSprite;
 
-                StartCoroutine(HandleUpdateUI(index, timeToCook));
+                StartCoroutine(HandleUpdateUI(index, timeToCook, timeBeforFoodGoesBad, currentOrder));
             }
         }
 
@@ -57,6 +58,7 @@ namespace DefaultNamespace
             //Reset the removed objects
             tempGameobject.SetActive(false);
             tempProgressbar.fillAmount = 0;
+            tempProgressbar.color = new Color(0.07f, 1f, 0f); //Reset to "base" color
             
             //Add them back to the end of the list
             uiGameobject.Add(tempGameobject);
@@ -80,18 +82,38 @@ namespace DefaultNamespace
             return -1;
         }
 
-        IEnumerator HandleUpdateUI(int index, float timeToCook)
+        IEnumerator HandleUpdateUI(int index, float timeToCook, float timeBeforFoodGoesBad, Order currentOrder)
         {
             float startTime = 0;
             var curBar =  progressbarList[index];
 
+            //Cooking food progress
             while (curBar.fillAmount < 0.99f)
             {
                 startTime += Time.deltaTime;
                 curBar.fillAmount = startTime / timeToCook;
                 yield return null;
             }
+            //Food turning bad
+            curBar.fillAmount = 0;
+            curBar.color = Color.red;
+            startTime = 0;
+            
+            while (curBar.fillAmount < 0.99f)
+            {
+                //If the order is in the players hand, it won't go bad(?)
+                if (currentOrder.HasBeenPickedUp)
+                {
+                    yield break;
+                }
+                
+                startTime += Time.deltaTime;
+                curBar.fillAmount = startTime / timeBeforFoodGoesBad;
+                yield return null;
+            }
+
+            //If the order stays to long on the counter it will go bad
+            currentOrder.HasSpoiled = true;
         }
-        
     }
 }

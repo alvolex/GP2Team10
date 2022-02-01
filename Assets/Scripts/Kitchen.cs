@@ -86,7 +86,7 @@ public class Kitchen : MonoBehaviour
                 Debug.Log("Now cooking: " + currentlyCooking.SelectedFoodItem.FoodName);
                 //Update sprite on the kitchen & setup progress UI
                 UpdateKitchenUI();
-                foodProgressUI.UpdateFoodImageAndProgress(currentlyCooking.GetFoodSprite(), currentlyCooking.SelectedFoodItem.TimeToCookFood);
+                foodProgressUI.UpdateFoodImageAndProgress(currentlyCooking.GetFoodSprite(), currentlyCooking.SelectedFoodItem.TimeToCookFood, currentlyCooking.SelectedFoodItem.TimeBeforeFoodSpoils, currentlyCooking);
 
                 yield return new WaitForSeconds(currentlyCooking.SelectedFoodItem.TimeToCookFood);
                 foodPickupStation.FoodIsReady(currentlyCooking);

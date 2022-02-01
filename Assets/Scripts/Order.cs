@@ -9,6 +9,8 @@ namespace DefaultNamespace
         private readonly FoodType foodType = FoodType.NotOrdered;
         private readonly Customer customerWhoOrderedTheFood;
         private readonly Sprite foodSprite;
+        private bool hasSpoiled;
+        private bool hasBeenPickedUp;
 
         private ScriptableFood selectedFoodItem;
         public ScriptableFood SelectedFoodItem
@@ -23,6 +25,20 @@ namespace DefaultNamespace
             customerWhoOrderedTheFood = customer;
             foodSprite = foodImg;
             selectedFoodItem = scriptableFood;
+            hasSpoiled = false;
+            hasBeenPickedUp = false;
+        }
+
+        public bool HasSpoiled
+        {
+            get => hasSpoiled;
+            set => hasSpoiled = value;
+        }
+
+        public bool HasBeenPickedUp
+        {
+            get => hasBeenPickedUp;
+            set => hasBeenPickedUp = value;
         }
 
         public FoodType GetFood()
