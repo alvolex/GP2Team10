@@ -28,7 +28,6 @@ public class CustomerSpawner : MonoBehaviour
     [SerializeField] private ScriptableSimpleEvent handleStopSpawningCustomers; //Event invoked from DayManager
     [SerializeField] private ScriptableSimpleEvent onNewDaySpawnCustomers; //Event invoked from DayManager
     [SerializeField] private ScriptableEventOneValue customerMovementSpeedChange;
-
     
     private bool stopCoroutine;
     private int customerSpeed;
