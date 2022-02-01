@@ -144,7 +144,9 @@ public class Customer : MonoBehaviour
         currentAction.CurrentAction = CurrentAction.SeatingCustomer;
         if (transform.parent.TryGetComponent(out SelectGroupOfCustomers sgc))
         {
-            sgc.SelectCustomersInGroup(); 
+            MoveTutorialSpotlightIfTutorialIsActive();
+
+            sgc.SelectCustomersInGroup();
         }
     }
 
@@ -234,6 +236,20 @@ public class Customer : MonoBehaviour
     public void UnhighlightCustomer()
     {
         meshRenderer.material = defaultMat;
+    }
+    
+    private static void MoveTutorialSpotlightIfTutorialIsActive()
+    {
+        //Tutorial Stuff
+        if (Tutorial.instance != null)
+        {
+            if (Tutorial.instance.GameState.hasStartedSeatingCustomer)
+            {
+                Tutorial.instance.TurnOnAndMoveSpotlight();
+            }
+
+            Tutorial.instance.GameState.hasStartedSeatingCustomer = false;
+        }
     }
     
     //todo Maybe this should be in it's own class(?)

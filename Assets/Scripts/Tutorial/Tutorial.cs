@@ -84,7 +84,7 @@ public class Tutorial : MonoBehaviour
 
     public void ShowTutorialText(bool shouldShowTutorial)
     {
-        if (!shouldShowTutorial)return;
+        if (!shouldShowTutorial || !gameState.shouldShowTutorial)return;
         //Reset the values
         timeBetweenCharacters = timeBetweenCharactersAtStart;
         allTextVisible = false;
@@ -118,8 +118,8 @@ public class Tutorial : MonoBehaviour
         }
         
         spotLightTutorial.SetActive(true);
-        spotLightTutorial.transform.position = spotlightPositions[spotlightIndex].transform.position;
         spotlightIndex++;
+        spotLightTutorial.transform.position = spotlightPositions[spotlightIndex].transform.position;
     }
 
     IEnumerator WaitUntilLastTutorialIsFinished()
