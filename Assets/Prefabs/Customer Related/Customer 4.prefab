@@ -1008,12 +1008,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tableSeater: {fileID: 11400000, guid: 5655adfd73483864888cd7e96c476a00, type: 2}
   currentAction: {fileID: 11400000, guid: add060246eb07f24e9273627e0cd9bce, type: 2}
-  customerStateChange: {fileID: 11400000, guid: 6efcacfcb09cf36479ea6996e13ad590, type: 2}
   defaultMat: {fileID: 2100000, guid: c71ae6d761476724c8c3857ded0edbf5, type: 2}
   selectedMat: {fileID: 2100000, guid: 0095f11c94b61d34182b8f9cb57ae586, type: 2}
   restaurantExit: {fileID: 0}
   leaveWhenCustomersStopSpawning: {fileID: 11400000, guid: 2a13d75055a79b64d89a7fc48faa69ad, type: 2}
   timeOffsetBeforeLeaving: 5
+  customerStateChange: {fileID: 11400000, guid: 6efcacfcb09cf36479ea6996e13ad590, type: 2}
 --- !u!114 &6550137573986440521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1215,6 +1215,21 @@ MonoBehaviour:
     _simpleValue: 0
     _useSimple: 0
   onAllergenFed: {fileID: 11400000, guid: afbba6d1c27580044be5bea9ed2f23fc, type: 2}
+  startersFed:
+    _intVariable: {fileID: 11400000, guid: d06bac2eee6b16245b103df2ffa44247, type: 2}
+    _simpleValue: 0
+    _useSimple: 0
+  onStarterFed: {fileID: 11400000, guid: 8f9b2ae59e03b9f41bf4b7777d5bc793, type: 2}
+  maincourseFed:
+    _intVariable: {fileID: 11400000, guid: 8869defe1b8e9ff4f863eec551622be1, type: 2}
+    _simpleValue: 0
+    _useSimple: 0
+  onMaincourseFed: {fileID: 11400000, guid: 8c63d7f0190c53b43a25bbf6f65695d8, type: 2}
+  dessertsFed:
+    _intVariable: {fileID: 11400000, guid: 34f1aa4aca96aaa45bc5d8eadfd4ad74, type: 2}
+    _simpleValue: 0
+    _useSimple: 0
+  onDessertFed: {fileID: 11400000, guid: 821abebc7fa81694aaccc7112f84224d, type: 2}
   allergy: 0400000000000000
   maxRep: 300
   maxTip: 265

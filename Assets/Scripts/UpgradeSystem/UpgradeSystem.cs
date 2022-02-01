@@ -17,10 +17,13 @@ public class UpgradeSystem : MonoBehaviour
     [SerializeField] private IntReference aliensReference;
     [SerializeField] private IntReference allergensReference;
     [SerializeField] private IntReference tipsReference;
+    [SerializeField] private IntReference startersReference;
+    [SerializeField] private IntReference mainCourseReference;
+    [SerializeField] private IntReference dessertReference;
+    
 
+    [Header("Event callers")]
     [SerializeField] private ScriptableEventIntReference onTipsChanged;
-    
-    
     
     [SerializeField] private Button upgradeButton;
     [SerializeField] private Button MovementSpeedUpgradeButton;
@@ -49,6 +52,19 @@ public class UpgradeSystem : MonoBehaviour
     [SerializeField] private int upgrade2GoalCMS;
     [SerializeField] private int upgrade3GoalCMS;
     
+    [Header("Starters Goals")] 
+    [SerializeField] private int startersFedGoal1;
+    [SerializeField] private int startersFedGoal2;
+    [SerializeField] private int startersFedGoal3;
+    [Header("Main Course Goals")] 
+    [SerializeField] private int mainCourseGoal1;
+    [SerializeField] private int mainCourseGoal2;
+    [SerializeField] private int mainCourseGoal3;
+    [Header("Dessert Goals")] 
+    [SerializeField] private int dessertGoal1;
+    [SerializeField] private int dessertGoal2;
+    [SerializeField] private int dessertGoal3;
+    
     [Header("Upgrade Costs")]
     [SerializeField] private int[] movementSpeedUpgradeCost;
     [SerializeField] private int[] alienMovementSpeedUpgradeCost;
@@ -68,7 +84,7 @@ public class UpgradeSystem : MonoBehaviour
     private int movementSpeedUpgradesAvailable;
     private int alienMovementSpeedUpgradesAvailable;
     private int extraCookingStationUpgradesAvailable;
-    private int extraStorageSlot;
+    private int extraStorageUpgradesAvailable;
     private int tableUpgradesAvailable;
 
     int currentMSUpgrade = 0;
@@ -118,8 +134,8 @@ public class UpgradeSystem : MonoBehaviour
     }
     public int ExtraStorageSlot
     {
-        get => extraStorageSlot;
-        set => extraStorageSlot = value;
+        get => extraStorageUpgradesAvailable;
+        set => extraStorageUpgradesAvailable = value;
     }
     public int TableUpgradesAvailable
     {
@@ -152,7 +168,8 @@ public class UpgradeSystem : MonoBehaviour
             TableUpgradeButton.interactable = false;
         }
         if (currentStorageUpgrade+1>storageSlotUpgradeCost.Length || 
-            tipsReference.GetValue() < storageSlotUpgradeCost[currentStorageUpgrade])
+            tipsReference.GetValue() < storageSlotUpgradeCost[currentStorageUpgrade] ||
+            extraStorageUpgradesAvailable == 0)
         {
             StorageUpgradeButton.interactable = false;
         }
@@ -166,26 +183,44 @@ public class UpgradeSystem : MonoBehaviour
             movementSpeedUpgradesAvailable++;
         if (aliensReference.GetValue() == upgrade3GoalMS)
             movementSpeedUpgradesAvailable++;
-        
     }
     public void CustomersWithAllergiesServed()
     {
         if (allergensReference.GetValue() == allergensServedLimit1)
-        {
             alienMovementSpeedUpgradesAvailable++;
-        }
-            
         if (allergensReference.GetValue() == allergensServedLimit2)
-        {
             alienMovementSpeedUpgradesAvailable++;
-
-        }
         if (allergensReference.GetValue() == allergensServedLimit3)
-        {
             alienMovementSpeedUpgradesAvailable++;
-
-        }
+    }
+    public void StarterFed()
+    {
+        if (startersReference.GetValue() == startersFedGoal1)
+            extraCookingStationUpgradesAvailable++;
+        if (startersReference.GetValue() == startersFedGoal2)
+            extraCookingStationUpgradesAvailable++;
+        if (startersReference.GetValue() == startersFedGoal3)
+            extraCookingStationUpgradesAvailable++;
+    }
+    public void MainCourseFed()
+    {
+        if (mainCourseReference.GetValue() == mainCourseGoal1)
+            extraStorageUpgradesAvailable++;
+        if (mainCourseReference.GetValue() == mainCourseGoal2)
+            extraStorageUpgradesAvailable++;
+        if (mainCourseReference.GetValue() == mainCourseGoal3)
+            extraStorageUpgradesAvailable++;
+    }
+    public void DessertFed()
+    {
+        Debug.Log("Desert fed");
         
+        if (dessertReference.GetValue() == dessertGoal1)
+            tableUpgradesAvailable++;
+        if (dessertReference.GetValue() == dessertGoal2)
+            tableUpgradesAvailable++;
+        if (dessertReference.GetValue() == dessertGoal3)
+            tableUpgradesAvailable++;
     }
     public void UpgradeMS()
     {
@@ -240,12 +275,13 @@ public class UpgradeSystem : MonoBehaviour
     }
     public void UpgradeStorage()
     {
+        extraStorageUpgradesAvailable--;
         currentStorageUpgrade++;
         //FOODPICKUPSTATION.CS
         CheckMoney();
     }
 
-    public void Update()
+    /*public void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
@@ -262,5 +298,5 @@ public class UpgradeSystem : MonoBehaviour
 
         //Debug.Log(tipsReference.GetValue());
         
-    }
+    }*/
 }

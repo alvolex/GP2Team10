@@ -29,6 +29,18 @@ public class AlienAttributes : MonoBehaviour
     [Header("Allergens fed: ")]
     [SerializeField] private IntReference allergensFedReference;
     [SerializeField] private ScriptableEventIntReference onAllergenFed;
+   
+    [Header("Starter orders: ")]
+    [SerializeField] private IntReference startersFed;
+    [SerializeField] private ScriptableEventIntReference onStarterFed;
+    
+    [Header("Maincourse orders: ")]
+    [SerializeField] private IntReference maincourseFed;
+    [SerializeField] private ScriptableEventIntReference onMaincourseFed;
+    
+    [Header("Dessert orders: ")]
+    [SerializeField] private IntReference dessertsFed;
+    [SerializeField] private ScriptableEventIntReference onDessertFed;
     
     
 
@@ -45,10 +57,6 @@ public class AlienAttributes : MonoBehaviour
     [SerializeField] private ScriptableMoneyPopupEvent moneyPopupEvent;
     [SerializeField] private ScriptableSimpleEvent customerStateChange;
     
-    
-    
-    
-    
 
     enum customerState
     {
@@ -59,10 +67,8 @@ public class AlienAttributes : MonoBehaviour
 
     private customerState currentCustomerState;
     
-    
     public event Action<Customer> customerHasDied;
-
-
+    
     private void Start()
     {
         customerStateChange.ScriptableEvent += ChangeCustomerState;
@@ -81,7 +87,6 @@ public class AlienAttributes : MonoBehaviour
             currentCustomerState = customerState.WaitingToOrder;
         }
     }
-
     private void Update()
     {
         if (currentCustomerState  == customerState.WaitingToBeSeated)
@@ -97,8 +102,6 @@ public class AlienAttributes : MonoBehaviour
             maxWaitingForOrderTime -= Time.deltaTime;
         }
     }
-
-
     public void CheckAllergies(ScriptableFood foodToCheck)
     {
         foreach (var allergyInFood in foodToCheck.Allergies)
@@ -117,7 +120,7 @@ public class AlienAttributes : MonoBehaviour
                 }
             }
         }
-        FoodIsEdible();
+        FoodIsEdible(foodToCheck);
     }
 
     private void CustomerIsAllergic()
@@ -126,8 +129,24 @@ public class AlienAttributes : MonoBehaviour
         onAllergenFed.Raise(allergensFedReference.GetValue());
     }
 
-    void FoodIsEdible()
+    void FoodIsEdible(ScriptableFood foodToCheck)
     {
+
+        if (foodToCheck.FoodType == FoodType.Starter)
+        {
+            startersFed.ApplyChange(+1);
+            onStarterFed.Raise(startersFed.GetValue());
+        }
+        if (foodToCheck.FoodType == FoodType.MainCourse)
+        {
+            maincourseFed.ApplyChange(+1);
+            onMaincourseFed.Raise(maincourseFed.GetValue());
+        }
+        if (foodToCheck.FoodType == FoodType.Dessert)
+        {
+            dessertsFed.ApplyChange(+1);
+            onDessertFed.Raise(dessertsFed.GetValue());
+        }
         
         aliensFedReference.ApplyChange(+1);
         onAlienFed.Raise(aliensFedReference.GetValue());
@@ -143,6 +162,7 @@ public class AlienAttributes : MonoBehaviour
         moneyPopupEvent.InvokeEvent(maxTip, GetComponent<Customer>());
 
     }
+    
     
 }
             
