@@ -13,15 +13,32 @@ public class PlayerData
     
     public int reputation;
     public int tips;
-    public int currentMovementspeedUpgrade;
-    public int currentCustomerMovementspeedUpgrade;
+    public int currentMovementSpeedUpgrade;
+    public int currentCustomerMovementSpeedUpgrade;
     public int currentSeatingUpgrade;
+    public int currentStorageUpgrade;
+    
+    public int movementSpeedUpgradesAvailable;
+    public int alienMovementSpeedUpgradesAvailable;
+    public int extraCookingStationUpgradesAvailable;
+    public int extraStorageSlot;
+    public int tableUpgradesAvailable;
 
     public PlayerData(Player player)
     {
         tips = player.tipsReference.Value;
-        //currentMovementspeedUpgrade = upgradeSystem.CurrentMovementSpeedUpgrade;
-       // currentCustomerMovementspeedUpgrade = upgradeSystem.CurrentCustomerMovementSpeedUpgrade;
-        //currentSeatingUpgrade = upgradeSystem.CurrentSeatingUpgrade;
+        reputation = player.reputationReference.Value;
+        
+        currentMovementSpeedUpgrade = player.currentMovementSpeedUpgrade;
+        currentCustomerMovementSpeedUpgrade = player.currentCustomerMovementSpeedUpgrade;
+        currentSeatingUpgrade = player.currentSeatingUpgrade;
+        currentStorageUpgrade = player.currentStorageUpgrade;
+        
+        movementSpeedUpgradesAvailable = player.movementSpeedUpgradesAvailable;
+        alienMovementSpeedUpgradesAvailable = player.alienMovementSpeedUpgradesAvailable;
+        extraCookingStationUpgradesAvailable = player.extraCookingStationUpgradesAvailable;
+        extraStorageSlot = player.extraStorageSlot;
+        tableUpgradesAvailable = player.tableUpgradesAvailable;
+        
     }
 }

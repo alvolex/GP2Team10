@@ -73,7 +73,6 @@ public class UpgradeSystem : MonoBehaviour
 
     int currentMSUpgrade = 0;
     int currentCMSUpgrade = 0;
-    //int currentAllergenUpgrade = 0;
     int currentCookingStationUpgrade = 0;
     int currentStorageUpgrade = 0;
     int currentSeatingUpgrade = 0;
@@ -81,28 +80,52 @@ public class UpgradeSystem : MonoBehaviour
     [SerializeField] private ScriptableSimpleEvent dayEnd;
     [SerializeField] private ScriptableEventIntReference onAlienFed;
     [SerializeField] private ScriptableEventOneValue customerMovementSpeedChange;
-
-
-    //public int TipsReference => aliensReference.GetValue();
-    public int TipsReference
+    
+    public int CurrentMovementSpeedUpgrade
     {
-        get => tipsReference.GetValue();
-        set => tipsReference.ApplyChange(value);
+        get => currentMSUpgrade;
+        set => currentMSUpgrade = value;
     }
-
-
-    public int AllergensReference => allergensReference.GetValue();
-    public int AliensFedReference => aliensReference.GetValue();
-    public int CurrentMovementSpeedUpgrade => currentMSUpgrade;
-    public int CurrentCustomerMovementSpeedUpgrade => currentCMSUpgrade;
-    public int CurrentSeatingUpgrade => currentSeatingUpgrade;
-
+    public int CurrentCustomerMovementSpeedUpgrade
+    {
+        get => currentCMSUpgrade;
+        set => currentCMSUpgrade = value;
+    }
+    public int CurrentSeatingUpgrade
+    {
+        get => currentSeatingUpgrade;
+        set => currentSeatingUpgrade = value;
+    }
     public int CurrentStorageUpgrade
     {
         get => currentStorageUpgrade;
         set => currentStorageUpgrade = value;
     }
-    
+    public int MovementSpeedUpgradesAvailable
+    {
+        get => movementSpeedUpgradesAvailable;
+        set => movementSpeedUpgradesAvailable = value;
+    }
+    public int AlienMovementSpeedUpgradesAvailable
+    {
+        get => alienMovementSpeedUpgradesAvailable;
+        set => alienMovementSpeedUpgradesAvailable = value;
+    }
+    public int ExtraCookingStationUpgradesAvailable
+    {
+        get => extraCookingStationUpgradesAvailable;
+        set => extraCookingStationUpgradesAvailable = value;
+    }
+    public int ExtraStorageSlot
+    {
+        get => extraStorageSlot;
+        set => extraStorageSlot = value;
+    }
+    public int TableUpgradesAvailable
+    {
+        get => tableUpgradesAvailable;
+        set => tableUpgradesAvailable = value;
+    }
 
     private void Start()
     {
@@ -133,11 +156,7 @@ public class UpgradeSystem : MonoBehaviour
         {
             StorageUpgradeButton.interactable = false;
         }
-        
         CookingStationUpgradeButton.interactable = false;
-        
-        
-        
     }
     public void CheckAliensFed()
     {
@@ -154,34 +173,25 @@ public class UpgradeSystem : MonoBehaviour
         if (allergensReference.GetValue() == allergensServedLimit1)
         {
             alienMovementSpeedUpgradesAvailable++;
-            Debug.Log("Goal 1 reached");
-            Debug.Log(allergensReference.GetValue());
         }
             
         if (allergensReference.GetValue() == allergensServedLimit2)
         {
             alienMovementSpeedUpgradesAvailable++;
-            Debug.Log("Goal 2 reached");
-            Debug.Log(allergensReference.GetValue());
 
         }
         if (allergensReference.GetValue() == allergensServedLimit3)
         {
             alienMovementSpeedUpgradesAvailable++;
-            Debug.Log("Goal 3 reached");
-            Debug.Log(allergensReference.GetValue());
 
         }
         
     }
     public void UpgradeMS()
     {
-        
         if (tipsReference.GetValue() > movementSpeedUpgradeCost[currentMSUpgrade])
         {
             tipsReference.ApplyChange(-movementSpeedUpgradeCost[currentMSUpgrade]);
-            Debug.Log("Upgraded something");
-            //Adjust movement depending on how to adjust it i guess
             playerReference.GetComponent<PlayerMovement>().MovementSpeed += movementSpeedUpgradeAmount;
             currentMSUpgrade++;
             movementSpeedUpgradesAvailable--;
@@ -226,11 +236,8 @@ public class UpgradeSystem : MonoBehaviour
         tables[currentSeatingUpgrade].GetComponent<Table>().UnlockTable();
         currentSeatingUpgrade++;
         tableUpgradesAvailable--;
-        
         CheckMoney();
-            
     }
-
     public void UpgradeStorage()
     {
         currentStorageUpgrade++;
@@ -250,6 +257,8 @@ public class UpgradeSystem : MonoBehaviour
             onAlienFed.Raise(aliensReference.GetValue());
             Debug.Log("added moolah");
         }
+        
+        Debug.Log(CurrentMovementSpeedUpgrade);
 
         //Debug.Log(tipsReference.GetValue());
         
