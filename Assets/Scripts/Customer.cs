@@ -44,6 +44,9 @@ public class Customer : MonoBehaviour
     public bool IsSeated => isSeated;
     public event Action<Customer> OnFinishedEating;
 
+    [SerializeField] private Animator customerAnimator;
+    
+
 
     private void Awake()
     {
@@ -79,6 +82,8 @@ public class Customer : MonoBehaviour
 
     private void Update()
     {
+        customerAnimator.SetFloat("x",nmagent.velocity.magnitude);
+        
         HandleCustomerSelection();
         HandleMovingToTable();
     }
@@ -125,6 +130,9 @@ public class Customer : MonoBehaviour
         nmagent.ResetPath();
         nmagent.enabled = false;
         nmObstacle.enabled = true;
+        
+        
+        customerAnimator.SetBool("IsSeated",true);;
     }
     
     //todo maybe the player should handle this(?)
