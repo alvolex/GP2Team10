@@ -9,6 +9,7 @@ public class CustomerSpawner : MonoBehaviour
 {
     [Header("Setup")] 
     [SerializeField, Tooltip("This is per day")] private int maxNumberOfCustomersToSpawn = 3;
+    [SerializeField, Tooltip("How much *harder* the next day should be")] private int numberOfCustomersPerDayMultiplier = 1;
     [SerializeField, Tooltip("Seconds between customers spawning")] private float timeBetweenCustomers = 7f;
 
     [Header("Spawn probabilities (should add up to 100)(%)")]
@@ -31,6 +32,7 @@ public class CustomerSpawner : MonoBehaviour
     
     private bool stopCoroutine;
     private int customerSpeed;
+    bool isFirstDay = true;
     
     //todo use this to check if the restaurant is empty or not
     private int totalSpawnedCustomersToday = 0;
@@ -65,6 +67,7 @@ public class CustomerSpawner : MonoBehaviour
     private void StartSpawningCustomers()
     {
         //Starting to spawn customers because an event told me to
+        maxNumberOfCustomersToSpawn += numberOfCustomersPerDayMultiplier;
         stopCoroutine = false;
         StartCoroutine(SpawnCustomers());
     }

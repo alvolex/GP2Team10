@@ -17,7 +17,6 @@ namespace DefaultNamespace
         [SerializeField] private ScriptableSimpleEvent foodPickedUp;
 
         private Dictionary<GameObject, Image> combinedList = new Dictionary<GameObject, Image>();
-        private bool hasBeenPickedUp = false;
 
         private void Awake()
         {
@@ -38,7 +37,6 @@ namespace DefaultNamespace
             
             if (index != -1)
             {
-                Debug.Log("called?");
                 uiGameobject[index].SetActive(true);
                 uiGameobject[index].GetComponent<Image>().sprite = foodSprite;
 
