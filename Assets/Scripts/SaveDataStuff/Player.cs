@@ -43,7 +43,7 @@ public class Player : MonoBehaviour
 
 
     }
-    void SetUpgrades(PlayerData playerData)
+    void ApplyUpgrades(PlayerData playerData)
     {
         upgradeSystem.CurrentMovementSpeedUpgrade = playerData.currentMovementSpeedUpgrade;
         upgradeSystem.CurrentCustomerMovementSpeedUpgrade = playerData.currentCustomerMovementSpeedUpgrade;
@@ -56,6 +56,7 @@ public class Player : MonoBehaviour
         upgradeSystem.TableUpgradesAvailable = playerData.tableUpgradesAvailable;
         upgradeSystem.ExtraStorageSlot = playerData.extraStorageSlot;
         
+        upgradeSystem.ApplyUpgrades();
         //CALL METHOD HERE TO APPLY UPGRADES IN UPGRADES SCRIPT
     }
     
@@ -70,7 +71,7 @@ public class Player : MonoBehaviour
         PlayerData data = SaveSystem.LoadPlayer();
         tipsReference.SetValue(data.tips);
         reputationReference.SetValue(data.reputation);
-        SetUpgrades(data);
+        ApplyUpgrades(data);
     }
     private void Update()
     {
