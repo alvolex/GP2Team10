@@ -15,6 +15,7 @@ namespace Scriptables
         public bool hasTakenOrderTutorial;
         public bool hasLeftOrderAtKitchenTutorial;
         public bool foodReadyToDeliverTutorial;
+        public bool foodPickedUpFromCounter;
         public bool alienReceivedFoodTutorial;
 
         //Reset checks on startup
@@ -26,6 +27,7 @@ namespace Scriptables
             hasTakenOrderTutorial = true;
             hasLeftOrderAtKitchenTutorial = true;
             foodReadyToDeliverTutorial = true;
+            foodPickedUpFromCounter = true;
             alienReceivedFoodTutorial = true;
         }
     }

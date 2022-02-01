@@ -115,12 +115,11 @@ public class Customer : MonoBehaviour
         //Show tutorial if it hasn't been shown before
         if (Tutorial.instance != null)
         {
-            Tutorial.instance.ShowTutorialText(Tutorial.instance.GameState.hasBeenSeatedTutorial);
             if (Tutorial.instance.GameState.hasBeenSeatedTutorial)
             {
-                Tutorial.instance.TurnOnAndMoveSpotlight();
+                Tutorial.instance.ShowTutorialText(Tutorial.instance.GameState.hasBeenSeatedTutorial);
+                Tutorial.instance.GameState.hasBeenSeatedTutorial = false;
             }
-            Tutorial.instance.GameState.hasBeenSeatedTutorial = false;
         }
 
         //Start the food ordering process
@@ -246,9 +245,8 @@ public class Customer : MonoBehaviour
             if (Tutorial.instance.GameState.hasStartedSeatingCustomer)
             {
                 Tutorial.instance.TurnOnAndMoveSpotlight();
+                Tutorial.instance.GameState.hasStartedSeatingCustomer = false;
             }
-
-            Tutorial.instance.GameState.hasStartedSeatingCustomer = false;
         }
     }
     

@@ -220,16 +220,15 @@ public class OrderFood : MonoBehaviour
 
         AudioManager.Instance.PlayOrderScreenOnSFX();
 
+        //Tutorial stuff
         if (Tutorial.instance != null)
         {
-            Tutorial.instance.ShowTutorialText(Tutorial.instance.GameState.howToTakeOrderTutorial);
             if (Tutorial.instance.GameState.howToTakeOrderTutorial)
             {
-                Tutorial.instance.TurnOnAndMoveSpotlight();
+                Tutorial.instance.ShowTutorialText(Tutorial.instance.GameState.howToTakeOrderTutorial);
+                Tutorial.instance.GameState.howToTakeOrderTutorial = false;
             }
-            Tutorial.instance.GameState.howToTakeOrderTutorial = false;
         }
-        
 
         while (true)
         {
