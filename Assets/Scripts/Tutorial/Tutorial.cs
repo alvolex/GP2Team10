@@ -90,7 +90,7 @@ public class Tutorial : MonoBehaviour
         allTextVisible = false;
 
         //Turn off the tutorial if the player has finished it
-        if (textPromptsInOrder.Count == 1)
+        if (textPromptsInOrder.Count == 0)
         {
             gameState.shouldShowTutorial = false;
         }

@@ -43,6 +43,18 @@ public class DeliverFood : MonoBehaviour
 
     private void FoodDelivered()
     {
+        //Tutorial food is delivered
+        if (Tutorial.instance != null)
+        {
+            if (Tutorial.instance.GameState.alienReceivedFoodTutorial)
+            {
+                Tutorial.instance.ShowTutorialText(true);
+                Tutorial.instance.TurnOnAndMoveSpotlight();
+                Tutorial.instance.GameState.alienReceivedFoodTutorial = false;
+            }
+        }
+        
+        
         curOrder = null;
         plate.SetActive(false);
         currentAction.CurrentAction = CurrentAction.None;
