@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxNumberOfCustomersToSpawn: 100
+  numberOfCustomersPerDayMultiplier: 1
   timeBetweenCustomers: 10
   chanceOf1Customer: 30
   chanceOf2Customers: 30
@@ -57,6 +58,7 @@ MonoBehaviour:
   groupParentPrefab: {fileID: 3473076432964725747, guid: 5fefdcda45847ab40ad10989344b6b99, type: 3}
   handleStopSpawningCustomers: {fileID: 11400000, guid: 2a13d75055a79b64d89a7fc48faa69ad, type: 2}
   onNewDaySpawnCustomers: {fileID: 11400000, guid: 71a4df6f45fa69d4ba8378163d846057, type: 2}
+  customerMovementSpeedChange: {fileID: 0}
 --- !u!1 &8966542451947613954
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,7 +107,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8966542451947613954}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
