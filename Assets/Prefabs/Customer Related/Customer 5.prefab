@@ -531,7 +531,7 @@ MonoBehaviour:
   selectedMat: {fileID: 2100000, guid: 0095f11c94b61d34182b8f9cb57ae586, type: 2}
   restaurantExit: {fileID: 0}
   leaveWhenCustomersStopSpawning: {fileID: 11400000, guid: 2a13d75055a79b64d89a7fc48faa69ad, type: 2}
-  timeOffsetBeforeLeaving: 30
+  timeOffsetBeforeLeaving: 15
   meshRenderer: {fileID: 2369290766455089259}
   customerAnimator: {fileID: 2795807404959195697}
 --- !u!114 &708026727204617424
@@ -753,9 +753,9 @@ MonoBehaviour:
   allergy: 0200000005000000
   maxRep: 300
   maxTip: 265
-  maxWaitingToBeSeatedTime: 20
-  maxWaitingToOrderTime: 30
-  maxWaitingForOrderTime: 30
+  maxWaitingToBeSeatedTime: 30
+  maxWaitingToOrderTime: 45
+  maxWaitingForOrderTime: 45
   moneyPopupEvent: {fileID: 11400000, guid: b24075274a6bb194481fb10afa671b3f, type: 2}
   customerStateChange: {fileID: 11400000, guid: 6efcacfcb09cf36479ea6996e13ad590, type: 2}
 --- !u!114 &6429437496325983086
