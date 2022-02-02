@@ -38,8 +38,6 @@ public class PlayerStats : MonoBehaviour
     {
         tipsText.text = text;
     }
-
-
     private void SetReputation(string text)
     {
         reputationText.text = text;
