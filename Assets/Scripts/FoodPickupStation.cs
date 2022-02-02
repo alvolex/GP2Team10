@@ -96,6 +96,7 @@ public class FoodPickupStation : MonoBehaviour
         {
             if (Tutorial.instance.GameState.foodPickedUpFromCounter)
             {
+                Tutorial.instance.ShowTutorialText(true);
                 Tutorial.instance.TurnOnAndMoveSpotlight();
                 Tutorial.instance.GameState.foodPickedUpFromCounter = false;
             }

@@ -83,6 +83,18 @@ public class Kitchen : MonoBehaviour
         mealsPreparedCurrently++;
         
         isCooking = true; //Make sure we can't start the co-routine again if it's already running
+        
+        //Tutorial started cooking food
+        if (Tutorial.instance != null)
+        {
+            if (Tutorial.instance.GameState.hasLeftOrderAtKitchenTutorial)
+            {
+                Tutorial.instance.ShowTutorialText(true);
+                Tutorial.instance.TurnOnAndMoveSpotlight();
+                Tutorial.instance.GameState.hasLeftOrderAtKitchenTutorial = false;
+            }
+        }
+        
         while (ordersToCook.Count != 0)
         {
             if (foodPickupStation.DoesCounterHaveEnoughSpace())
@@ -96,11 +108,12 @@ public class Kitchen : MonoBehaviour
                 yield return new WaitForSeconds(currentlyCooking.SelectedFoodItem.TimeToCookFood);
                 foodPickupStation.FoodIsReady(currentlyCooking);
                 
-                //Tutorial Stuff
+                //Tutorial food is ready
                 if (Tutorial.instance != null)
                 {
                     if (Tutorial.instance.GameState.foodReadyToDeliverTutorial)
                     {
+                        Tutorial.instance.ShowTutorialText(true);
                         Tutorial.instance.TurnOnAndMoveSpotlight();
                         Tutorial.instance.GameState.foodReadyToDeliverTutorial = false;
                     }
