@@ -61,7 +61,7 @@ public class CurrentDay : MonoBehaviour
 
     IEnumerator StartDay()
     {
-        dayText.text = $"Day: {currentDay} | {dayLength.ToString()}";
+        SetMinutesAndSecondsLeft(0);
         
         yield return new WaitForSeconds(0.5f);
         StartCoroutine(FadeSun(0,1, 0.3f));
@@ -70,12 +70,8 @@ public class CurrentDay : MonoBehaviour
         sun.transform.rotation = sunStartRotation;
         while (i < dayLength)
         {
-            yield return new WaitForSeconds(1f);
             i++;
-
-            int timeLeft = (int)dayLength - i;
-            string uiText = $"Day: {currentDay} | {timeLeft.ToString()}";
-            dayText.text = uiText;
+            var timeLeft = SetMinutesAndSecondsLeft(i);
 
             if (timeLeft == timeLeftToStopSpawning)
             {
@@ -87,6 +83,7 @@ public class CurrentDay : MonoBehaviour
             {
                 AudioManager.Instance.PlayDayEnd5SecSFX();
             }
+            yield return new WaitForSeconds(1f);
         }
         currentDay++;
         
@@ -94,6 +91,19 @@ public class CurrentDay : MonoBehaviour
         Debug.Log("Day ended!");
 
         StartCoroutine(FadeSun(1,0, 0.4f));
+    }
+
+    private int SetMinutesAndSecondsLeft(int i)
+    {
+        int timeLeft = (int) dayLength - i;
+
+        int minutes = timeLeft / 60;
+        int seconds = timeLeft % 60;
+
+        string minAndSecs = $"{(minutes > 0 ? $"{minutes}:" : "")}{seconds}";
+        string uiText = $"Day: {currentDay} | {minAndSecs}";
+        dayText.text = uiText;
+        return timeLeft;
     }
 
     IEnumerator FadeSun(int start, int end, float time)

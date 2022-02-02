@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Game State
   m_EditorClassIdentifier: 
   shouldShowTutorial: 1
-  hasBeenSeatedTutorial: 0
-  howToTakeOrderTutorial: 0
-  hasTakenOrderTutorial: 0
-  hasLeftOrderAtKitchenTutorial: 0
-  foodReadyToDeliverTutorial: 0
-  alienReceivedFoodTutorial: 0
+  hasBeenSeatedTutorial: 1
+  hasStartedSeatingCustomer: 1
+  howToTakeOrderTutorial: 1
+  hasTakenOrderTutorial: 1
+  hasLeftOrderAtKitchenTutorial: 1
+  foodReadyToDeliverTutorial: 1
+  foodPickedUpFromCounter: 1
+  alienReceivedFoodTutorial: 1
