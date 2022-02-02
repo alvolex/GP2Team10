@@ -131,7 +131,7 @@ public class Customer : MonoBehaviour
         nmObstacle.enabled = true;
         
         
-        customerAnimator.SetBool("IsSeated",true);;
+        customerAnimator.SetBool("IsSeated",true);
     }
     
     //todo maybe the player should handle this(?)
@@ -205,6 +205,10 @@ public class Customer : MonoBehaviour
 
     public void ExitRestaurant()
     {
+        
+        customerAnimator.SetBool("IsSeated",false);
+
+        
         if (!nmagent.isActiveAndEnabled && !isSeated) return;
 
         //Disable the over-head order icon when customer is leaving
