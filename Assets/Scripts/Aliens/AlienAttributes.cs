@@ -174,6 +174,8 @@ public class AlienAttributes : MonoBehaviour
         tipsReference.ApplyChange(+maxTip);
         onTipsChanged.Raise(aliensFedReference.GetValue());  
         
+        Debug.Log($"Recieved {maxTip} dollal");
+        
         AudioManager.Instance.PlayGetMoneySFX();
         
         moneyPopupEvent.InvokeEvent(maxTip, GetComponent<Customer>());
