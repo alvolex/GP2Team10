@@ -3157,6 +3157,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MoneyPopup
       objectReference: {fileID: 0}
+    - target: {fileID: 3667651029361460672, guid: 47e4140cc5023634280558997a18d461, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6596868672568484356, guid: 47e4140cc5023634280558997a18d461, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
