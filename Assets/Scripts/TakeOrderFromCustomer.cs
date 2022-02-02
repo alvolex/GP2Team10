@@ -96,7 +96,11 @@ public class TakeOrderFromCustomer : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (!canTakeOrder && !canLeaveOrdersToKitchen) return;
-        canLeaveOrdersToKitchen = false;
+
+        if (other.TryGetComponent(out kitchen))
+        {
+            canLeaveOrdersToKitchen = false;
+        }
 
         var removeFood = other.GetComponent<OrderFood>();
         if (removeFood == null) return;
