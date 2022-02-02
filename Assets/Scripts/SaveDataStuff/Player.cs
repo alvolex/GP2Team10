@@ -8,6 +8,10 @@ using Variables;
 
 public class Player : MonoBehaviour
 {
+    
+    public static bool loadGame = false;
+
+    
     public IntVariable tipsReference;
     public IntVariable reputationReference;
 
@@ -26,6 +30,20 @@ public class Player : MonoBehaviour
     private void Start()
     {
         upgradeSystem = FindObjectOfType<UpgradeSystem>();
+
+        if (loadGame)
+        {
+            LoadPlayer();
+        }
+    }
+    
+    public void LoadGame()
+    {
+        loadGame = true;
+    }
+    public void NewGame()
+    {
+        loadGame = false;
     }
 
     void SaveUpgradesAndPoints()
@@ -57,11 +75,10 @@ public class Player : MonoBehaviour
         upgradeSystem.ExtraStorageSlot = playerData.extraStorageSlot;
         
         upgradeSystem.ApplyUpgrades();
-        //CALL METHOD HERE TO APPLY UPGRADES IN UPGRADES SCRIPT
     }
     
     
-    void SavePlayer()
+    public void SavePlayer()
     {
         SaveUpgradesAndPoints();
         SaveSystem.SavePlayerStats(this);

@@ -8,12 +8,8 @@ using Variables;
 
 public class UpgradeSystem : MonoBehaviour
 {
-    [Header("References")] 
-    
-    
+    [Header("References")]
     [SerializeField] private GameObject playerReference;
-    
-    
     [SerializeField] private IntReference aliensReference;
     [SerializeField] private IntReference allergensReference;
     [SerializeField] private IntReference tipsReference;
@@ -21,11 +17,9 @@ public class UpgradeSystem : MonoBehaviour
     [SerializeField] private IntReference mainCourseReference;
     [SerializeField] private IntReference dessertReference;
     
-
     [Header("Event callers")]
     [SerializeField] private ScriptableEventIntReference onTipsChanged;
     
-    [SerializeField] private Button upgradeButton;
     [SerializeField] private Button MovementSpeedUpgradeButton;
     [SerializeField] private Button CustomerMovementSpeedUpgradeButton;
     [SerializeField] private Button TableUpgradeButton;
@@ -36,7 +30,7 @@ public class UpgradeSystem : MonoBehaviour
     [SerializeField] private int movementSpeedUpgradeAmount;
     [SerializeField] private int AlienMovementSpeedUpgradeAmount;
 
-    
+    [Header("Customers fed goal")]
     [SerializeField] private int upgrade1GoalMS;
     [SerializeField] private int upgrade2GoalMS;
     [SerializeField] private int upgrade3GoalMS;
@@ -46,12 +40,6 @@ public class UpgradeSystem : MonoBehaviour
     [SerializeField] private int allergensServedLimit1;
     [SerializeField] private int allergensServedLimit2;
     [SerializeField] private int allergensServedLimit3;
-
-    [Header("Customer Movement Speed")] 
-    [SerializeField] private int upgrade1GoalCMS;
-    [SerializeField] private int upgrade2GoalCMS;
-    [SerializeField] private int upgrade3GoalCMS;
-    
     [Header("Starters Goals")] 
     [SerializeField] private int startersFedGoal1;
     [SerializeField] private int startersFedGoal2;
@@ -68,13 +56,10 @@ public class UpgradeSystem : MonoBehaviour
     [Header("Upgrade Costs")]
     [SerializeField] private int[] movementSpeedUpgradeCost;
     [SerializeField] private int[] alienMovementSpeedUpgradeCost;
-    [SerializeField] private int[] cookingStationUpgradeSlot;
+    [SerializeField] private int[] cookingStationUpgradeCost;
     [SerializeField] private int[] storageSlotUpgradeCost;
     [SerializeField] private int[] extraSeatingUpgradeCost;
-    
-    [Header("Cooking Stations")]
-    [SerializeField] private GameObject[] cookingStations;
-    
+
     [Header("Tables")]
     [SerializeField] private GameObject[] tables;
     
@@ -95,8 +80,8 @@ public class UpgradeSystem : MonoBehaviour
     [SerializeField] private ScriptableEventOneValue customerMovementSpeedChange;
 
     [SerializeField] private FoodPickupStation foodPickupStation;
+    [SerializeField] private Kitchen kitchen;
     
-
     public int CurrentMovementSpeedUpgrade
     {
         get => currentMSUpgrade;
@@ -142,14 +127,13 @@ public class UpgradeSystem : MonoBehaviour
         get => tableUpgradesAvailable;
         set => tableUpgradesAvailable = value;
     }
-
     private void Start()
     {
         dayEnd.ScriptableEvent += CheckMoney;
         foodPickupStation = FindObjectOfType<FoodPickupStation>();
+        kitchen = FindObjectOfType<Kitchen>();
 
     }
-
     public void CheckMoney()
     {
         if (currentMSUpgrade+1>movementSpeedUpgradeCost.Length || 
@@ -176,10 +160,12 @@ public class UpgradeSystem : MonoBehaviour
         {
             StorageUpgradeButton.interactable = false;
         }
-        
-        
-        //This thing needs to be added for the cooking time eventually and then linked to the goals and stufferino :PPP
-        CookingStationUpgradeButton.interactable = false;
+        if (currentCookingStationUpgrade+1 > cookingStationUpgradeCost.Length ||
+            tipsReference.GetValue() < cookingStationUpgradeCost[currentCookingStationUpgrade] ||
+            extraCookingStationUpgradesAvailable == 0)
+        {
+            CookingStationUpgradeButton.interactable = false;
+        }
     }
     public void CheckAliensFed()
     {
@@ -252,23 +238,6 @@ public class UpgradeSystem : MonoBehaviour
             CheckMoney();
         }
     }
-    /*public void UpgradeCookingStation()///UNUSSED I THINK
-    {
-        if (tipsReference.GetValue() > cookingStationUpgradeSlot[currentCookingStationUpgrade])
-        {
-            tipsReference.ApplyChange(-cookingStationUpgradeSlot[currentCookingStationUpgrade]);
-            cookingStations[cookingStation].SetActive(false);
-            cookingStation++;
-            cookingStations[cookingStation].SetActive(true);
-            
-            alienMovementSpeedUpgradesAvailable--;
-            currentCMSUpgrade++;
-            if (alienMovementSpeedUpgradesAvailable == 0)
-            {
-                upgradeButton.interactable = false;
-            }
-        }
-    }*/
     public void UpgradeTable()
     {
         tipsReference.ApplyChange(-extraSeatingUpgradeCost[currentSeatingUpgrade]);
@@ -284,7 +253,12 @@ public class UpgradeSystem : MonoBehaviour
         
         CheckMoney();
     }
-
+    public void UpgradeCookingStation()
+    {
+        extraCookingStationUpgradesAvailable--;
+        currentCookingStationUpgrade++;
+        CheckMoney();
+    }
     public void ApplyUpgrades()
     {
         for (var i = currentCMSUpgrade; i>=0; i--)
@@ -302,6 +276,10 @@ public class UpgradeSystem : MonoBehaviour
         for (int i = 0; i <= currentStorageUpgrade; i++)
         {
             foodPickupStation.UpgradeFoodCounterStorage();
+        }
+        for (int i = 0; i <= currentCookingStationUpgrade; i++)
+        {
+            kitchen.AddChef();
         }
     }
     public void Update()
