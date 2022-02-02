@@ -51,6 +51,11 @@ public class Kitchen : MonoBehaviour
 
         StartCooking();
     }
+    
+    public void AddChef()
+    {
+        amountOfChefs++;
+    }
 
     
     private void StartCooking()
