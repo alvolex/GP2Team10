@@ -66,7 +66,7 @@ public class TableAssigner : MonoBehaviour
                 Vector3 chairPos = curTable.GetEmptyChairPosition(customer);
 
                 //Move customer to the assigned chair
-                customer.MoveToTable(chairPos);
+                customer.MoveToTable(chairPos, curTable);
             }
             
             currentAction.CurrentAction = CurrentAction.None;

@@ -33,6 +33,7 @@ public class Customer : MonoBehaviour
     private OrderFood orderFood;
     public SkinnedMeshRenderer meshRenderer;
     private AlienAttributes attributes;
+    private Table tableImSeatedAt;
     
     private bool closeToHost = false;
     private Rigidbody rb;
@@ -40,9 +41,11 @@ public class Customer : MonoBehaviour
     private bool isMovingToTable;
     private bool hasFinishedEating = false;
     private bool isSeated = false;
+    private Vector3 chairPos;
 
     public bool IsSeated => isSeated;
     public event Action<Customer> OnFinishedEating;
+    
 
     [SerializeField] private Animator customerAnimator;
     
@@ -135,12 +138,9 @@ public class Customer : MonoBehaviour
         //Start the food ordering process
         orderFood.Order();
         orderFood.SCollider = sCollider;
-        rb.constraints = RigidbodyConstraints.FreezeAll;
-        nmagent.ResetPath();
-        nmagent.enabled = false;
-        nmObstacle.enabled = true;
-        
-        
+
+        StartCoroutine(RotateTowardsTableCenter());
+
         customerAnimator.SetBool("IsSeated",true);
     }
     
@@ -159,10 +159,13 @@ public class Customer : MonoBehaviour
         }
     }
 
-    public void MoveToTable(Vector3 pos)
+    public void MoveToTable(Vector3 pos, Table table)
     {
         isMovingToTable = true;
+        tableImSeatedAt = table;
+        chairPos = pos;
         
+        //Reset current speed and start moving to table
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
         nmagent.destination = pos;
@@ -276,5 +279,35 @@ public class Customer : MonoBehaviour
         hasFinishedEating = true;
 
         ExitRestaurant();
+    }
+
+    IEnumerator RotateTowardsTableCenter()
+    {
+        float t = 0f;
+        
+        //todo lerp all the values because these mofos be teleporting
+        
+        /*while (t < 1.5f)
+        {
+            
+            t += Time.deltaTime;
+            yield return null;
+        }*/
+
+        //Put the aliens in their chair.. Very lazy teleporty approach
+        transform.position = new Vector3(chairPos.x, transform.position.y, chairPos.z);
+        transform.LookAt(tableImSeatedAt.CenterOftable);
+        Vector3 dirToTable = tableImSeatedAt.CenterOftable.position - transform.position;
+        dirToTable = new Vector3(dirToTable.x, 0, dirToTable.z); //Don't move up..
+        transform.position += dirToTable * 0.4f;
+
+        //Nm agent constraints so we can set ourselves as obstacles
+        rb.constraints = RigidbodyConstraints.FreezeAll;
+        nmagent.ResetPath();
+        nmagent.enabled = false;
+        nmObstacle.enabled = true;
+
+        yield return null;
+
     }
 }

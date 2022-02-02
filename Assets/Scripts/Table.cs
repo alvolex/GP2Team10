@@ -14,8 +14,8 @@ public class Table : MonoBehaviour
     [SerializeField] private List<GameObject> chairPositions;
     [SerializeField] private MeshRenderer tableMeshRenderer;
     [SerializeField] private Collider triggerCollider;
-    
-    
+    [SerializeField] private Transform centerOftable;
+
     [Header("Materials")]
     [SerializeField] private Material defaultMat;
     [SerializeField] private Material selectedMat;
@@ -26,6 +26,7 @@ public class Table : MonoBehaviour
     private Dictionary<Customer, int> customerChairDictionary = new Dictionary<Customer, int>();
     private Dictionary<int, bool> availableSeats = new Dictionary<int, bool>();
 
+    public Transform CenterOftable => centerOftable;
     public bool IsUnlocked => isUnlocked;
 
     private void Start()
