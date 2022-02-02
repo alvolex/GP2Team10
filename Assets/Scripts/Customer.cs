@@ -82,6 +82,16 @@ public class Customer : MonoBehaviour
 
     private void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            customerAnimator.SetBool("IsSeated",true);
+        }
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            customerAnimator.SetBool("IsSeated",false);
+        }
+        
         customerAnimator.SetFloat("x",nmagent.velocity.magnitude);
         
         HandleCustomerSelection();
