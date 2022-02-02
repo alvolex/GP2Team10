@@ -31,7 +31,7 @@ public class Customer : MonoBehaviour
     private NavMeshObstacle nmObstacle;
     private SphereCollider sCollider;
     private OrderFood orderFood;
-    private MeshRenderer meshRenderer;
+    public SkinnedMeshRenderer meshRenderer;
     private AlienAttributes attributes;
     
     private bool closeToHost = false;
@@ -65,7 +65,7 @@ public class Customer : MonoBehaviour
         nmObstacle = GetComponent<NavMeshObstacle>();
         sCollider = GetComponent<SphereCollider>();
         rb = GetComponent<Rigidbody>();
-        meshRenderer = GetComponent<MeshRenderer>();
+       // meshRenderer = GetComponent<MeshRenderer>(); (changed settings to test)
         
         leaveWhenCustomersStopSpawning.ScriptableEvent += HandleExitWhenRestaurantCloses;
     }

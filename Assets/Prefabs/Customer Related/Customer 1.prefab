@@ -2681,6 +2681,7 @@ MonoBehaviour:
   restaurantExit: {fileID: 0}
   leaveWhenCustomersStopSpawning: {fileID: 11400000, guid: 2a13d75055a79b64d89a7fc48faa69ad, type: 2}
   timeOffsetBeforeLeaving: 30
+  meshRenderer: {fileID: 5081253234439727716}
   customerAnimator: {fileID: 4659503258023321662}
 --- !u!114 &8049690711492001503
 MonoBehaviour:
@@ -2901,9 +2902,9 @@ MonoBehaviour:
   allergy: 0100000003000000
   maxRep: 300
   maxTip: 265
-  maxWaitingToBeSeatedTime: 10
+  maxWaitingToBeSeatedTime: 20
   maxWaitingToOrderTime: 30
-  maxWaitingForOrderTime: 5
+  maxWaitingForOrderTime: 30
   moneyPopupEvent: {fileID: 11400000, guid: b24075274a6bb194481fb10afa671b3f, type: 2}
   customerStateChange: {fileID: 11400000, guid: 6efcacfcb09cf36479ea6996e13ad590, type: 2}
 --- !u!114 &4565707558532729185
@@ -3140,6 +3141,11 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 6147728398669887541, guid: c4cd413fbcf6ced4596ec1fad1689273, type: 3}
   m_PrefabInstance: {fileID: 1583296669876606987}
   m_PrefabAsset: {fileID: 0}
+--- !u!137 &5081253234439727716 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6015897656865878639, guid: c4cd413fbcf6ced4596ec1fad1689273, type: 3}
+  m_PrefabInstance: {fileID: 1583296669876606987}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8923724285384582430
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3242,6 +3248,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3667651029361460672, guid: 47e4140cc5023634280558997a18d461, type: 3}
   m_PrefabInstance: {fileID: 8923724285384582430}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &2331640773319526170 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6596868672568484356, guid: 47e4140cc5023634280558997a18d461, type: 3}
+  m_PrefabInstance: {fileID: 8923724285384582430}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5892906354430878005 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3031099494786745387, guid: 47e4140cc5023634280558997a18d461, type: 3}
@@ -3253,8 +3264,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &2331640773319526170 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6596868672568484356, guid: 47e4140cc5023634280558997a18d461, type: 3}
-  m_PrefabInstance: {fileID: 8923724285384582430}
-  m_PrefabAsset: {fileID: 0}

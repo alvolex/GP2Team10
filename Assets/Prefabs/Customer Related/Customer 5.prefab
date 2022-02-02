@@ -532,6 +532,7 @@ MonoBehaviour:
   restaurantExit: {fileID: 0}
   leaveWhenCustomersStopSpawning: {fileID: 11400000, guid: 2a13d75055a79b64d89a7fc48faa69ad, type: 2}
   timeOffsetBeforeLeaving: 30
+  meshRenderer: {fileID: 2369290766455089259}
   customerAnimator: {fileID: 2795807404959195697}
 --- !u!114 &708026727204617424
 MonoBehaviour:
@@ -752,9 +753,9 @@ MonoBehaviour:
   allergy: 0200000005000000
   maxRep: 300
   maxTip: 265
-  maxWaitingToBeSeatedTime: 10
+  maxWaitingToBeSeatedTime: 20
   maxWaitingToOrderTime: 30
-  maxWaitingForOrderTime: 5
+  maxWaitingForOrderTime: 30
   moneyPopupEvent: {fileID: 11400000, guid: b24075274a6bb194481fb10afa671b3f, type: 2}
   customerStateChange: {fileID: 11400000, guid: 6efcacfcb09cf36479ea6996e13ad590, type: 2}
 --- !u!114 &6429437496325983086
@@ -3256,5 +3257,10 @@ Transform:
 --- !u!95 &2795807404959195697 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 6147728398669887541, guid: c4cd413fbcf6ced4596ec1fad1689273, type: 3}
+  m_PrefabInstance: {fileID: 8331002273831541252}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &2369290766455089259 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6015897656865878639, guid: c4cd413fbcf6ced4596ec1fad1689273, type: 3}
   m_PrefabInstance: {fileID: 8331002273831541252}
   m_PrefabAsset: {fileID: 0}

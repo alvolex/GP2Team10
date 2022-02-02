@@ -4497,7 +4497,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 4d96d5ace1c365145945ffb5e6221ab6, type: 2}
     - target: {fileID: 8966542451436005877, guid: 223df456e5e9a6c49a39f4088f47e1b4, type: 3}
       propertyPath: maxNumberOfCustomersToSpawn
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8966542451436005877, guid: 223df456e5e9a6c49a39f4088f47e1b4, type: 3}
       propertyPath: numberOfCustomersPerDayMultiplier
