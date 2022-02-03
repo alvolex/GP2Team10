@@ -13,6 +13,12 @@ namespace DefaultNamespace
         [SerializeField] private List<GameObject> uiGameobject = new List<GameObject>();
         [SerializeField] private List<Image> progressbarList = new List<Image>();
         
+        [Header("Hazard pos")] 
+        [SerializeField] private HazardManager hazManager;
+        [SerializeField] private KitchenThrowFood throwFood;
+        [SerializeField] private Transform[] controlPoints;
+
+
         [Header("Events")]
         [SerializeField] private ScriptableSimpleEvent foodPickedUp;
 
@@ -21,6 +27,11 @@ namespace DefaultNamespace
         private void Awake()
         {
             foodPickedUp.ScriptableEvent += FoodTakenFromCounter;
+        }
+
+        private void OnDestroy()
+        {
+            foodPickedUp.ScriptableEvent -= FoodTakenFromCounter;
         }
 
         private void ListsToDict()
@@ -112,6 +123,22 @@ namespace DefaultNamespace
 
             //If the order stays to long on the counter it will go bad
             currentOrder.HasSpoiled = true;
+            StartCoroutine(ThrowFoodIntoRestaurant(currentOrder));
+
+        }
+
+        IEnumerator ThrowFoodIntoRestaurant(Order currentOrder)
+        {
+            yield return new WaitForSeconds(5f);
+            if (currentOrder.HasBeenPickedUp) yield break;
+
+            //Get hazard positions and set the curve to correct pos
+            Vector3 hazPos = hazManager.GetHazardPosition();
+            foreach (var point in controlPoints)
+            {
+                point.position = new Vector3(hazPos.x, point.position.y, hazPos.z);
+            }
+            throwFood.ThrowFood();
         }
     }
 }

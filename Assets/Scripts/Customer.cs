@@ -117,7 +117,7 @@ public class Customer : MonoBehaviour
 
         if (nmagent.pathPending ||
             nmagent.pathStatus == NavMeshPathStatus.PathInvalid ||
-            nmagent.path.corners.Length == 0 || nmagent.remainingDistance >= 0.2f) return;
+            nmagent.path.corners.Length == 0 || nmagent.remainingDistance >= 0.5f) return;
 
         isMovingToTable = false; //Not moving if we have reached table
         isSeated = true;
