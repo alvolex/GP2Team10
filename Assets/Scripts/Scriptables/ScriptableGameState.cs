@@ -33,6 +33,7 @@ namespace Scriptables
         
         public void ResetAll()
         {
+            shouldShowTutorial = true;
             hasBeenSeatedTutorial = true;
             hasStartedSeatingCustomer = true;
             howToTakeOrderTutorial = true;
