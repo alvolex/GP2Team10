@@ -36,6 +36,12 @@ public class CurrentDay : MonoBehaviour
         StartCoroutine(StartDay());
 
         startNextDay.ScriptableEvent += delegate { StartCoroutine(StartDay()); };
+        RenderSettings.skybox.SetFloat("_Rotation", 0);
+    }
+
+    private void OnDestroy()
+    {
+        RenderSettings.skybox.SetFloat("_Rotation", 0);
     }
 
     private void Update()
