@@ -11,9 +11,9 @@ public class MoveSunAlongCurve : MonoBehaviour
 
     [SerializeField] private float dayLength = 10f;
 
-    [SerializeField] private Material mat1;
+    /*[SerializeField] private Material mat1;
     [SerializeField] private Material mat2;
-    [SerializeField] private Material mat3;
+    [SerializeField] private Material mat3;*/
 
     //[SerializeField] private Image img;
 
