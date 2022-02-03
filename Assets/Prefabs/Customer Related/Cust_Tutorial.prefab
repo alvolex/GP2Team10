@@ -828,9 +828,9 @@ MonoBehaviour:
   allergy: 0200000003000000
   maxRep: 200
   maxTip: 200
-  maxWaitingToBeSeatedTime: 999
-  maxWaitingToOrderTime: 999
-  maxWaitingForOrderTime: 999
+  maxWaitingToBeSeatedTime: 45
+  maxWaitingToOrderTime: 45
+  maxWaitingForOrderTime: 45
   moneyPopupEvent: {fileID: 11400000, guid: b24075274a6bb194481fb10afa671b3f, type: 2}
   customerStateChange: {fileID: 11400000, guid: 6efcacfcb09cf36479ea6996e13ad590, type: 2}
 --- !u!114 &6429437496325983086

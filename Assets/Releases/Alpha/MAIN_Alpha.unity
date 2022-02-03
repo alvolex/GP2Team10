@@ -232,6 +232,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RespawnPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 4111695901122749033, guid: 3b7c50544b3d4fe4484dc2643da6a58f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4111695901122749035, guid: 3b7c50544b3d4fe4484dc2643da6a58f, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -2676,69 +2680,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
-      propertyPath: dessertGoal1
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
-      propertyPath: dessertGoal2
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
-      propertyPath: dessertGoal3
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
-      propertyPath: onTipsChanged
-      value: 
-      objectReference: {fileID: 11400000, guid: 11f6bda5cd30cdf44a0980a6d6dfd5c2, type: 2}
-    - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
-      propertyPath: mainCourseGoal1
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
-      propertyPath: mainCourseGoal2
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
-      propertyPath: mainCourseGoal3
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
       propertyPath: playerReference
       value: 
       objectReference: {fileID: 1639460134}
     - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
-      propertyPath: upgrade1GoalCMS
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
-      propertyPath: upgrade2GoalCMS
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
-      propertyPath: upgrade3GoalCMS
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
-      propertyPath: startersFedGoal1
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
-      propertyPath: startersFedGoal2
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
-      propertyPath: startersFedGoal3
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
       propertyPath: TableUpgradeButton
       value: 
       objectReference: {fileID: 852971477}
-    - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
-      propertyPath: StorageUpgradeButton
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
       propertyPath: tables.Array.data[0]
       value: 
@@ -2756,22 +2704,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2030392196}
     - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
-      propertyPath: dessertReference._intVariable
-      value: 
-      objectReference: {fileID: 11400000, guid: 34f1aa4aca96aaa45bc5d8eadfd4ad74, type: 2}
-    - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
-      propertyPath: startersReference._intVariable
-      value: 
-      objectReference: {fileID: 11400000, guid: d06bac2eee6b16245b103df2ffa44247, type: 2}
-    - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
-      propertyPath: mainCourseReference._intVariable
-      value: 
-      objectReference: {fileID: 11400000, guid: 8869defe1b8e9ff4f863eec551622be1, type: 2}
-    - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
-      propertyPath: storageSlotUpgradeCost.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
       propertyPath: CustomerMovementSpeedUpgradeButton
       value: 
       objectReference: {fileID: 1324821979}
@@ -2781,107 +2713,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
---- !u!1 &706764349 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2780002728581216194, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
-  m_PrefabInstance: {fileID: 706764348}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &706764350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 706764349}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 716ecd2f89034bc439ea0d8119dc9879, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _eventNoPayload: {fileID: 0}
-  _responseNoPayload:
-    m_PersistentCalls:
-      m_Calls: []
-  _event: {fileID: 11400000, guid: 821abebc7fa81694aaccc7112f84224d, type: 2}
-  _response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1526257517}
-        m_TargetAssemblyTypeName: UpgradeSystem, Assembly-CSharp
-        m_MethodName: DessertFed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &706764351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 706764349}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 716ecd2f89034bc439ea0d8119dc9879, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _eventNoPayload: {fileID: 0}
-  _responseNoPayload:
-    m_PersistentCalls:
-      m_Calls: []
-  _event: {fileID: 11400000, guid: 8c63d7f0190c53b43a25bbf6f65695d8, type: 2}
-  _response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1526257517}
-        m_TargetAssemblyTypeName: UpgradeSystem, Assembly-CSharp
-        m_MethodName: MainCourseFed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &706764352
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 706764349}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 716ecd2f89034bc439ea0d8119dc9879, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _eventNoPayload: {fileID: 0}
-  _responseNoPayload:
-    m_PersistentCalls:
-      m_Calls: []
-  _event: {fileID: 11400000, guid: 8f9b2ae59e03b9f41bf4b7777d5bc793, type: 2}
-  _response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1526257517}
-        m_TargetAssemblyTypeName: UpgradeSystem, Assembly-CSharp
-        m_MethodName: StarterFed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1001 &714193574
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5560,7 +5391,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
   m_PrefabInstance: {fileID: 706764348}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 706764349}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e78dfa2438b4b97448649d3cece54f20, type: 3}
@@ -6750,6 +6581,14 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2846478391050957411, guid: d23aec3fb4a62304a97e9e88a8cd86ee, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3408246357547639094, guid: d23aec3fb4a62304a97e9e88a8cd86ee, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7351048171016993988, guid: d23aec3fb4a62304a97e9e88a8cd86ee, type: 3}
       propertyPath: m_Name
       value: Kitchen
@@ -7124,6 +6963,10 @@ PrefabInstance:
     - target: {fileID: 4111695901122749033, guid: 3b7c50544b3d4fe4484dc2643da6a58f, type: 3}
       propertyPath: m_Name
       value: RespawnPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 4111695901122749033, guid: 3b7c50544b3d4fe4484dc2643da6a58f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4111695901122749035, guid: 3b7c50544b3d4fe4484dc2643da6a58f, type: 3}
       propertyPath: m_RootOrder
@@ -8044,6 +7887,10 @@ PrefabInstance:
     - target: {fileID: 9055570940532483804, guid: f872a45fbde373646aaea996916bc783, type: 3}
       propertyPath: m_Name
       value: UI Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 9055570941310230036, guid: f872a45fbde373646aaea996916bc783, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f872a45fbde373646aaea996916bc783, type: 3}
