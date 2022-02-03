@@ -532,6 +532,7 @@ MonoBehaviour:
   restaurantExit: {fileID: 0}
   leaveWhenCustomersStopSpawning: {fileID: 11400000, guid: 2a13d75055a79b64d89a7fc48faa69ad, type: 2}
   timeOffsetBeforeLeaving: 30
+  meshRenderer: {fileID: 0}
   customerAnimator: {fileID: 2795807404959195697}
 --- !u!114 &708026727204617424
 MonoBehaviour:
@@ -815,7 +816,7 @@ RectTransform:
   m_GameObject: {fileID: 2092691906180212865}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.673, y: 1.673, z: 1.673}
   m_Children:
   - {fileID: 8873340819100460974}
   - {fileID: 9019498049052722138}
@@ -824,7 +825,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.746, y: 5.43}
+  m_AnchoredPosition: {x: 2.746, y: 11.13}
   m_SizeDelta: {x: 11.532, y: 6.75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7475417800734071951
@@ -1684,7 +1685,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8618156070373107954
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2978,6 +2979,81 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &8919188969458313405
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3724785035413415722}
+  - component: {fileID: 369017083431203787}
+  - component: {fileID: 3909072958387964030}
+  m_Layer: 0
+  m_Name: Gold image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3724785035413415722
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8919188969458313405}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.01721252, y: 0.01721252, z: 0.01721252}
+  m_Children: []
+  m_Father: {fileID: 5061750680842765589}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -1.6999999, y: -0.309999}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &369017083431203787
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8919188969458313405}
+  m_CullTransparentMesh: 1
+--- !u!114 &3909072958387964030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8919188969458313405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 736da2a9b436d8b4db7eb341017dbcec, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &8930299132175052359
 GameObject:
   m_ObjectHideFlags: 0
@@ -3080,9 +3156,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8618156070373107954}
     m_Modifications:
+    - target: {fileID: 3031099494786745387, guid: 47e4140cc5023634280558997a18d461, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.43921572
+      objectReference: {fileID: 0}
+    - target: {fileID: 3031099494786745387, guid: 47e4140cc5023634280558997a18d461, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.7725491
+      objectReference: {fileID: 0}
+    - target: {fileID: 3031099494786745387, guid: 47e4140cc5023634280558997a18d461, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.92549026
+      objectReference: {fileID: 0}
+    - target: {fileID: 3031099494786745387, guid: 47e4140cc5023634280558997a18d461, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4285580780
+      objectReference: {fileID: 0}
     - target: {fileID: 3667651029361460672, guid: 47e4140cc5023634280558997a18d461, type: 3}
       propertyPath: m_Name
       value: MoneyPopup
+      objectReference: {fileID: 0}
+    - target: {fileID: 3667651029361460672, guid: 47e4140cc5023634280558997a18d461, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6596868672568484356, guid: 47e4140cc5023634280558997a18d461, type: 3}
       propertyPath: m_Pivot.x
@@ -3170,11 +3266,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47e4140cc5023634280558997a18d461, type: 3}
---- !u!1 &3410394093754180305 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3667651029361460672, guid: 47e4140cc5023634280558997a18d461, type: 3}
-  m_PrefabInstance: {fileID: 2139837052162762513}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &5061750680842765589 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6596868672568484356, guid: 47e4140cc5023634280558997a18d461, type: 3}
@@ -3191,6 +3282,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &3410394093754180305 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3667651029361460672, guid: 47e4140cc5023634280558997a18d461, type: 3}
+  m_PrefabInstance: {fileID: 2139837052162762513}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8331002273831541252
 PrefabInstance:
   m_ObjectHideFlags: 0
