@@ -26,7 +26,14 @@ public class HazardManager : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(HazardSpawner());
+        //StartCoroutine(HazardSpawner());
+    }
+
+    public Vector3 GetHazardPosition()
+    {
+        Vector3 pos = Random.insideUnitSphere* hazardSpawnRadius;
+        Vector3 v3Pos = new Vector3(pos.x, hazardOrigin.transform.position.y, pos.z);
+        return v3Pos;
     }
 
     IEnumerator HazardSpawner()

@@ -37,8 +37,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_516df89dbac04947bd4ad96bb1c447f4: 0.8
+    - Vector1_676ddc5f264a4673aba603c98024c5e5: 0
+    - Vector1_817362d43d8a4619bf1784579c8beee1: 2
+    - Vector1_906474d819f74a4d9daa2ebe7d80fbf2: 0.1
     - Vector1_9aaac228d2c540daba29a33d9e217351: 7.04
     - Vector1_a99f1ccd6a324804a63f8f08edfebdb7: 0.2
+    - Vector1_f69400adb5f34c2f998b74d2fcfb6537: 0.1
     m_Colors:
-    - Color_0133466f838441b185440799cef39d79: {r: 0.46082512, g: 1, b: 0.37169808, a: 1}
+    - Color_0133466f838441b185440799cef39d79: {r: 0.14374995, g: 1, b: 0, a: 1}
   m_BuildTextureStacks: []
