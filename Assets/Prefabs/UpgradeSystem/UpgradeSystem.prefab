@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: 2780002728581216195}
   - component: {fileID: 2780002728581216193}
   - component: {fileID: 594540317}
+  - component: {fileID: 706764350}
+  - component: {fileID: 706764351}
+  - component: {fileID: 706764352}
   m_Layer: 0
   m_Name: UpgradeSystem
   m_TagString: Untagged
@@ -90,7 +93,19 @@ MonoBehaviour:
     _intVariable: {fileID: 11400000, guid: f3a9f27de7b4c1e42aabd428a1c9fd29, type: 2}
     _simpleValue: 0
     _useSimple: 0
-  upgradeButton: {fileID: 0}
+  startersReference:
+    _intVariable: {fileID: 11400000, guid: d06bac2eee6b16245b103df2ffa44247, type: 2}
+    _simpleValue: 0
+    _useSimple: 0
+  mainCourseReference:
+    _intVariable: {fileID: 11400000, guid: 8869defe1b8e9ff4f863eec551622be1, type: 2}
+    _simpleValue: 0
+    _useSimple: 0
+  dessertReference:
+    _intVariable: {fileID: 11400000, guid: 34f1aa4aca96aaa45bc5d8eadfd4ad74, type: 2}
+    _simpleValue: 0
+    _useSimple: 0
+  onTipsChanged: {fileID: 11400000, guid: 11f6bda5cd30cdf44a0980a6d6dfd5c2, type: 2}
   MovementSpeedUpgradeButton: {fileID: 0}
   CustomerMovementSpeedUpgradeButton: {fileID: 0}
   TableUpgradeButton: {fileID: 0}
@@ -104,24 +119,28 @@ MonoBehaviour:
   allergensServedLimit1: 1
   allergensServedLimit2: 3
   allergensServedLimit3: 5
-  upgrade1GoalCMS: 0
-  upgrade2GoalCMS: 0
-  upgrade3GoalCMS: 0
+  startersFedGoal1: 5
+  startersFedGoal2: 10
+  startersFedGoal3: 15
+  mainCourseGoal1: 5
+  mainCourseGoal2: 10
+  mainCourseGoal3: 15
+  dessertGoal1: 5
+  dessertGoal2: 10
+  dessertGoal3: 15
   movementSpeedUpgradeCost: 1e0000001e0000001e000000
   alienMovementSpeedUpgradeCost: 050000000500000005000000
-  cookingStationUpgradeSlot: 000000000000000000000000
-  storageSlotUpgradeCost: 000000000000000000000000
+  cookingStationUpgradeCost: 
+  storageSlotUpgradeCost: 0000000000000000
   extraSeatingUpgradeCost: 000000000000000000000000
-  cookingStations:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   tables:
   - {fileID: 0}
   - {fileID: 0}
   dayEnd: {fileID: 11400000, guid: 83a4ef0c60d1b2f48a198c9cbccb486e, type: 2}
   onAlienFed: {fileID: 11400000, guid: b31f42dbba0ae5e4d88a7a1464980fbf, type: 2}
   customerMovementSpeedChange: {fileID: 11400000, guid: 4d96d5ace1c365145945ffb5e6221ab6, type: 2}
+  foodPickupStation: {fileID: 0}
+  kitchen: {fileID: 0}
 --- !u!114 &594540317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,6 +164,102 @@ MonoBehaviour:
       - m_Target: {fileID: 2780002728581216193}
         m_TargetAssemblyTypeName: UpgradeSystem, Assembly-CSharp
         m_MethodName: CustomersWithAllergiesServed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &706764350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2780002728581216194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 716ecd2f89034bc439ea0d8119dc9879, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eventNoPayload: {fileID: 0}
+  _responseNoPayload:
+    m_PersistentCalls:
+      m_Calls: []
+  _event: {fileID: 11400000, guid: 821abebc7fa81694aaccc7112f84224d, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2780002728581216193}
+        m_TargetAssemblyTypeName: UpgradeSystem, Assembly-CSharp
+        m_MethodName: DessertFed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &706764351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2780002728581216194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 716ecd2f89034bc439ea0d8119dc9879, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eventNoPayload: {fileID: 0}
+  _responseNoPayload:
+    m_PersistentCalls:
+      m_Calls: []
+  _event: {fileID: 11400000, guid: 8c63d7f0190c53b43a25bbf6f65695d8, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2780002728581216193}
+        m_TargetAssemblyTypeName: UpgradeSystem, Assembly-CSharp
+        m_MethodName: MainCourseFed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &706764352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2780002728581216194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 716ecd2f89034bc439ea0d8119dc9879, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eventNoPayload: {fileID: 0}
+  _responseNoPayload:
+    m_PersistentCalls:
+      m_Calls: []
+  _event: {fileID: 11400000, guid: 8f9b2ae59e03b9f41bf4b7777d5bc793, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2780002728581216193}
+        m_TargetAssemblyTypeName: UpgradeSystem, Assembly-CSharp
+        m_MethodName: StarterFed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

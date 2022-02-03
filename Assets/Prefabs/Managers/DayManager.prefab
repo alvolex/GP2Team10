@@ -43,8 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68fa98f428e51234080c7cf96803f4c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dayLength: 45
-  timeLeftToStopSpawning: 10
+  dayLength: 180
+  timeLeftToStopSpawning: 30
   dayText: {fileID: 0}
   sun: {fileID: 0}
   skyboxRotSpeed: 1.5

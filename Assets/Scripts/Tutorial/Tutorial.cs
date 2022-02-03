@@ -65,6 +65,7 @@ public class Tutorial : MonoBehaviour
     {
         if (!gameState.shouldShowTutorial) return;
         timeBetweenCharactersAtStart = timeBetweenCharacters;
+        gameState.ResetAll();
         
         AddStringToList();
         ShowTutorialText(true);
