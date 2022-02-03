@@ -48,6 +48,8 @@ public class AlienAttributes : MonoBehaviour
     public Ingredients.Allergy[] allergy;
     [SerializeField] private int maxRep;
     [SerializeField] private int maxTip;
+    [SerializeField] private int negativeRepFromKilling;
+    
     
     [Header("Waiting Times")]
     [SerializeField] private float maxWaitingToBeSeatedTime;
@@ -132,6 +134,10 @@ public class AlienAttributes : MonoBehaviour
                 {
                     //TODO separate the allergy killing from the allergy just making them sick
                     Debug.Log("Allergy spotted, killed customer");
+                    
+                    reputationReference.ApplyChange(-negativeRepFromKilling);
+                    onReputationChanged.Raise(reputationReference.GetValue());
+                    
                     CustomerIsAllergic();
                     Destroy(gameObject);
                     AudioManager.Instance.PlayAlienExplodeSFX();
@@ -169,10 +175,10 @@ public class AlienAttributes : MonoBehaviour
         onAlienFed.Raise(aliensFedReference.GetValue());
         
         reputationReference.ApplyChange(+maxRep);
-        onReputationChanged.Raise(aliensFedReference.GetValue());
+        onReputationChanged.Raise(reputationReference.GetValue());
 
         tipsReference.ApplyChange(+maxTip);
-        onTipsChanged.Raise(aliensFedReference.GetValue());  
+        onTipsChanged.Raise(tipsReference.GetValue());  
         
         Debug.Log($"Recieved {maxTip} dollal");
         

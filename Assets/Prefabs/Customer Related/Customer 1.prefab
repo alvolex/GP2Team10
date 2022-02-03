@@ -2902,6 +2902,7 @@ MonoBehaviour:
   allergy: 0100000003000000
   maxRep: 300
   maxTip: 265
+  negativeRepFromKilling: 500
   maxWaitingToBeSeatedTime: 30
   maxWaitingToOrderTime: 45
   maxWaitingForOrderTime: 45
