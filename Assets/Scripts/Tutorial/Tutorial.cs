@@ -93,6 +93,7 @@ public class Tutorial : MonoBehaviour
         if (textPromptsInOrder.Count == 0)
         {
             gameState.shouldShowTutorial = false;
+            return;
         }
         
         canvasToToggle.SetActive(true);
@@ -129,12 +130,12 @@ public class Tutorial : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
         }
         
-        StopAllCoroutines(); //todo is this breaking shit?
+        //StopAllCoroutines(); //todo is this breaking shit?
         
         StartCoroutine(TypeInTextCoroutine());
         tutorialsInQueue--;
 
-        if (tutorialsInQueue != 0)
+        if (tutorialsInQueue > 0)
         {
             StartCoroutine(WaitUntilLastTutorialIsFinished());
         }
@@ -143,7 +144,7 @@ public class Tutorial : MonoBehaviour
     IEnumerator TypeInTextCoroutine()
     {
         isInTutorial = true;
-        StopCoroutine(CheckForPlayerInput()); //Stop it if it's already running
+        //StopCoroutine(CheckForPlayerInput()); //Stop it if it's already running
         StartCoroutine(CheckForPlayerInput());
         
         currenText.text = "";
@@ -158,21 +159,23 @@ public class Tutorial : MonoBehaviour
             lineBreakString = currenTextHidden.text.Substring(currenTextHidden.text.LastIndexOf('+') + 1);
             currenTextHidden.text = currenTextHidden.text.Split('+')[0];
         }
+       
 
         //Get all the text that will fit on one line, then write out each char separately
         foreach (var line in currenTextHidden.GetTextInfo(currenTextHidden.text).lineInfo)
         {
-            if (!isInTutorial)
+            /*if (!isInTutorial)
             {
                 yield break;
-            }
+            }*/
 
             //Fixes strange behaviour where firstcharindex sometimes gets a wrong(?) value.
             if (line.firstCharacterIndex > currenTextHidden.text.Length)
             {
+                Debug.Log("Continue");
                 continue;
             }
-           
+            
             foreach (var c in currenTextHidden.text.Substring(line.firstCharacterIndex, line.characterCount))
             {
                 yield return new WaitForSeconds(timeBetweenCharacters);
@@ -185,6 +188,10 @@ public class Tutorial : MonoBehaviour
         {
             foreach (var c in lineBreakString)
             {
+                if (!isInTutorial)
+                {
+                    yield break;
+                }
                 yield return new WaitForSeconds(timeBetweenCharacters);
                 currenText.text += $"{c}";
             }
