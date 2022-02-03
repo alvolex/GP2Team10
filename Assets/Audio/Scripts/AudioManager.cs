@@ -132,39 +132,57 @@ public class AudioManager : MonoBehaviour
     }
     public void PlayAlienBigManTalkSFX()
     {
-        PlaySound(alienBigManTalkSource, alienBigManTalkSource.clip);
+        int r = Random.Range(1, 4);
+        if (r == 1)
+        {
+            PlaySound(alienBigManTalkSource, alienBigManTalkSource.clip);
+        }
+        else if (r == 2)
+        {
+            PlaySound(alienBigManTalk1Source, alienBigManTalk1Source.clip);
+        }
+        else
+        {
+            PlaySound(alienBigManTalk2Source, alienBigManTalk2Source.clip);
+        }
+        Debug.Log(r);
     }
-    public void PlayAlienBigManTalk1SFX()
-    {
-        PlaySound(alienBigManTalk1Source, alienBigManTalk1Source.clip);
-    }
-    public void PlayAlienBigManTalk2SFX()
-    {
-        PlaySound(alienBigManTalk2Source, alienBigManTalk2Source.clip);
-    }
+
+
     public void PlayAlienHairyThingTalkSFX()
     {
-        PlaySound(alienHairyThingTalkSource, alienHairyThingTalkSource.clip);
+        int r = Random.Range(1, 5);
+        if (r == 1)
+        {
+            PlaySound(alienHairyThingTalkSource, alienHairyThingTalkSource.clip);
+        }
+        else if (r == 2)
+        {
+            PlaySound(alienHairyThingTalk1Source, alienHairyThingTalk1Source.clip);
+        }
+        else if (r == 3)
+        {
+            PlaySound(alienHairyThingTalk2Source, alienHairyThingTalk2Source.clip);
+        }
+        else
+        {
+            PlaySound(alienHairyThingTalk3Source, alienHairyThingTalk3Source.clip);
+        }
+        Debug.Log(r);
     }
-    public void PlayAlienHairyThingTalk1SFX()
-    {
-        PlaySound(alienHairyThingTalk1Source, alienHairyThingTalk1Source.clip);
-    }
-    public void PlayAlienHairyThingTalk2SFX()
-    {
-        PlaySound(alienHairyThingTalk2Source, alienHairyThingTalk2Source.clip);
-    }
-    public void PlayAlienHairyThingTalk3SFX()
-    {
-        PlaySound(alienHairyThingTalk3Source, alienHairyThingTalk3Source.clip);
-    }
+
     public void PlayAlienSquidThingTalkSFX()
     {
-        PlaySound(alienSquidThingTalkSource, alienSquidThingTalkSource.clip);
-    }
-    public void PlayAlienSquidThingTalk1SFX()
-    {
-        PlaySound(alienSquidThingTalk1Source, alienSquidThingTalk1Source.clip);
+        int r = Random.Range(1, 3);
+        if (r == 1)
+        {
+            PlaySound(alienSquidThingTalkSource, alienSquidThingTalkSource.clip);
+        }
+        else
+        {
+            PlaySound(alienSquidThingTalk1Source, alienSquidThingTalk1Source.clip);
+        }
+        Debug.Log(r);
     }
     public void PlayGarbageCanSFX()
     {

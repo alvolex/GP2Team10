@@ -220,6 +220,11 @@ public class OrderFood : MonoBehaviour
 
         AudioManager.Instance.PlayOrderScreenOnSFX();
 
+        AudioManager.Instance.PlayAlienBigManTalkSFX();
+        //AudioManager.Instance.PlayAlienHairyThingTalkSFX();
+        //AudioManager.Instance.PlayAlienSquidThingTalkSFX();
+
+
         //Tutorial stuff
         if (Tutorial.instance != null)
         {
