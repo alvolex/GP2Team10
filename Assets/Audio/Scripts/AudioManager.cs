@@ -5,8 +5,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
-
-    [SerializeField] private AudioSource musicSource;
+    //[SerializeField] private AudioSource musicSource;
     [SerializeField] private  AudioSource orderStartSource;
     [SerializeField] private  AudioSource orderCompleteSource;
     [SerializeField] private  AudioSource journalOpenSource;
@@ -21,6 +20,19 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource dayEnd5SecSource;
     [SerializeField] private AudioSource orderScreenOnSource;
     [SerializeField] private AudioSource orderScreenOffSource;
+    [SerializeField] private AudioSource alienBigManTalkSource;
+    [SerializeField] private AudioSource alienBigManTalk1Source;
+    [SerializeField] private AudioSource alienBigManTalk2Source;
+    [SerializeField] private AudioSource alienHairyThingTalkSource;
+    [SerializeField] private AudioSource alienHairyThingTalk1Source;
+    [SerializeField] private AudioSource alienHairyThingTalk2Source;
+    [SerializeField] private AudioSource alienHairyThingTalk3Source;
+    [SerializeField] private AudioSource alienSquidThingTalkSource;
+    [SerializeField] private AudioSource alienSquidThingTalk1Source;
+    [SerializeField] private AudioSource garbageCanSource;
+
+    [Header("Volume Control")]
+    [Range(0, 1)]public float SFXVolume;
 
     private void Awake()
     {
@@ -33,8 +45,24 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
     }
-    public void PlayMusic()
+
+    private void OnValidate()
+    {
+        foreach(AudioSource audioSource in GetComponentsInChildren<AudioSource>())
+        {
+            if (audioSource.gameObject.name == "Music")
+            {
+                audioSource.volume = 0.03f;
+            }
+            else
+            {
+                audioSource.volume = SFXVolume;
+            }
+        }
+    }
+    /*public void PlayMusic()
     {
         if(!musicSource.isPlaying)
         {
@@ -44,7 +72,7 @@ public class AudioManager : MonoBehaviour
         {
             musicSource.Stop();
         }
-    }
+    }*/
 
     public void PlayOrderStartSFX()
     {
@@ -101,6 +129,46 @@ public class AudioManager : MonoBehaviour
     public void PlayOrderScreenOffSFX()
     {
         PlaySound(orderScreenOnSource, orderScreenOnSource.clip);
+    }
+    public void PlayAlienBigManTalkSFX()
+    {
+        PlaySound(alienBigManTalkSource, alienBigManTalkSource.clip);
+    }
+    public void PlayAlienBigManTalk1SFX()
+    {
+        PlaySound(alienBigManTalk1Source, alienBigManTalk1Source.clip);
+    }
+    public void PlayAlienBigManTalk2SFX()
+    {
+        PlaySound(alienBigManTalk2Source, alienBigManTalk2Source.clip);
+    }
+    public void PlayAlienHairyThingTalkSFX()
+    {
+        PlaySound(alienHairyThingTalkSource, alienHairyThingTalkSource.clip);
+    }
+    public void PlayAlienHairyThingTalk1SFX()
+    {
+        PlaySound(alienHairyThingTalk1Source, alienHairyThingTalk1Source.clip);
+    }
+    public void PlayAlienHairyThingTalk2SFX()
+    {
+        PlaySound(alienHairyThingTalk2Source, alienHairyThingTalk2Source.clip);
+    }
+    public void PlayAlienHairyThingTalk3SFX()
+    {
+        PlaySound(alienHairyThingTalk3Source, alienHairyThingTalk3Source.clip);
+    }
+    public void PlayAlienSquidThingTalkSFX()
+    {
+        PlaySound(alienSquidThingTalkSource, alienSquidThingTalkSource.clip);
+    }
+    public void PlayAlienSquidThingTalk1SFX()
+    {
+        PlaySound(alienSquidThingTalk1Source, alienSquidThingTalk1Source.clip);
+    }
+    public void PlayGarbageCanSFX()
+    {
+        PlaySound(garbageCanSource, garbageCanSource.clip);
     }
 
     public void PlaySound(AudioSource source, AudioClip clip)
