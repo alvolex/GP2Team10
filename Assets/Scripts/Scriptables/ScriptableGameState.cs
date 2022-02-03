@@ -30,5 +30,17 @@ namespace Scriptables
             foodPickedUpFromCounter = true;
             alienReceivedFoodTutorial = true;
         }
+        
+        public void ResetAll()
+        {
+            hasBeenSeatedTutorial = true;
+            hasStartedSeatingCustomer = true;
+            howToTakeOrderTutorial = true;
+            hasTakenOrderTutorial = true;
+            hasLeftOrderAtKitchenTutorial = true;
+            foodReadyToDeliverTutorial = true;
+            foodPickedUpFromCounter = true;
+            alienReceivedFoodTutorial = true;
+        }
     }
 }
