@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: AllergySpriteHandler
   m_EditorClassIdentifier: 
   getSprites:
-    chocolateImage: {fileID: 21300000, guid: 6e746c1763c5b114bb2def6725a76aae, type: 3}
-    fruitImage: {fileID: 21300000, guid: af350c87ec52d494293691c6b324b274, type: 3}
-    proteinImage: {fileID: 21300000, guid: dd89ae8ea043ef74c92755449dcb7544, type: 3}
-    sauceImage: {fileID: 21300000, guid: d6deef7b1ea0d9447a9121733fb2a740, type: 3}
-    veggiesImage: {fileID: 21300000, guid: 2480716cb95c0a9419fa954e25a2da2c, type: 3}
-    milkproductsImage: {fileID: 21300000, guid: 0b06067889c14c44a81a6a51ce33a19b, type: 3}
+    chocolateImage: {fileID: 21300000, guid: 08af7fa16581bf24e9aa6975d84b9f62, type: 3}
+    fruitImage: {fileID: 21300000, guid: 67f2e9d53af1ccb4d985fcf14b8c9df1, type: 3}
+    proteinImage: {fileID: 21300000, guid: 0d0d70a17bf92ef4596be7b0fe584f44, type: 3}
+    sauceImage: {fileID: 21300000, guid: e9233cad0d2879843badf71ab20f61e4, type: 3}
+    veggiesImage: {fileID: 21300000, guid: 235f525bec6ee7c4fa80e77de69ad6bc, type: 3}
+    milkproductsImage: {fileID: 21300000, guid: 6279b7af8203aa24f8f620eddd9d3111, type: 3}
