@@ -31,6 +31,13 @@ public class FoodPickupStation : MonoBehaviour
         emptyPlateSprite = spriteRenderers[0].sprite;
         canPickupFood = false;
         UpdateFoodPlatesOnCounter();
+
+        foodPickedUp.ScriptableEvent += DestroyFood;
+    }
+
+    private void OnDestroy()
+    {
+        foodPickedUp.ScriptableEvent -= DestroyFood;
     }
 
     private void Update()
@@ -82,6 +89,12 @@ public class FoodPickupStation : MonoBehaviour
         {
             spriteRenderers[j].sprite = foodDisplayQueue.ElementAt(j).GetFoodSprite();
         }
+    }
+
+    void DestroyFood()
+    {
+        foodDisplayQueue.Dequeue();
+        UpdateFoodPlatesOnCounter();
     }
 
     void PickupFood()

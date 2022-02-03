@@ -139,6 +139,8 @@ namespace DefaultNamespace
                 point.position = new Vector3(hazPos.x, point.position.y, hazPos.z);
             }
             throwFood.ThrowFood();
+            
+            foodPickedUp.InvokeEvent();
         }
     }
 }

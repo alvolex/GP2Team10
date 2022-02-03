@@ -115,9 +115,13 @@ public class Customer : MonoBehaviour
     {   //Check if customer has reached the table or not
         if (!isMovingToTable) return;
 
+        //Apparantly rigidbody speed fucks with the nmagent, lul
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        
         if (nmagent.pathPending ||
             nmagent.pathStatus == NavMeshPathStatus.PathInvalid ||
-            nmagent.path.corners.Length == 0 || nmagent.remainingDistance >= 0.5f) return;
+            nmagent.path.corners.Length == 0 || nmagent.remainingDistance >= 0.7f) return;
 
         isMovingToTable = false; //Not moving if we have reached table
         isSeated = true;
