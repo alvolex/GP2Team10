@@ -36,16 +36,13 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-<<<<<<< Updated upstream
-    clipAnimations: []
-=======
     clipAnimations:
     - serializedVersion: 16
       name: rig|Action
       takeName: rig|Action
       internalID: 0
       firstFrame: 0
-      lastFrame: 39
+      lastFrame: 40
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -98,7 +95,6 @@ ModelImporter:
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
->>>>>>> Stashed changes
     isReadable: 0
   meshes:
     lODScreenPercentages: []
