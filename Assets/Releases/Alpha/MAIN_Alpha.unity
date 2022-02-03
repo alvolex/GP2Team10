@@ -3562,11 +3562,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1006577135 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 560115257439362826, guid: d23aec3fb4a62304a97e9e88a8cd86ee, type: 3}
-  m_PrefabInstance: {fileID: 1856405675}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1019068030
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5491,11 +5486,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 81506d13a728f1f408c6cf6092346771, type: 3}
   m_PrefabInstance: {fileID: 1170083979}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1534926489 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 774441826348723765, guid: d23aec3fb4a62304a97e9e88a8cd86ee, type: 3}
-  m_PrefabInstance: {fileID: 1856405675}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1552481248
 GameObject:
   m_ObjectHideFlags: 0
@@ -6686,11 +6676,11 @@ PrefabInstance:
     - target: {fileID: 211719584, guid: d23aec3fb4a62304a97e9e88a8cd86ee, type: 3}
       propertyPath: controlPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1006577135}
+      objectReference: {fileID: 1856405680}
     - target: {fileID: 211719584, guid: d23aec3fb4a62304a97e9e88a8cd86ee, type: 3}
       propertyPath: controlPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1534926489}
+      objectReference: {fileID: 1856405679}
     - target: {fileID: 363657203, guid: d23aec3fb4a62304a97e9e88a8cd86ee, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 0
@@ -6937,6 +6927,16 @@ MonoBehaviour:
   foodToThrow: {fileID: 5258389213701092252, guid: ce9001e3aa1a22942bea5ea0675221f8, type: 3}
   hazardToSpawn: {fileID: 2981187903834637394, guid: eb19c4f50ed0c87468fcda1dfaa56972, type: 3}
   airTime: 0.7
+--- !u!4 &1856405679 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6531768846924678240, guid: d23aec3fb4a62304a97e9e88a8cd86ee, type: 3}
+  m_PrefabInstance: {fileID: 1856405675}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1856405680 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8667998516370120664, guid: d23aec3fb4a62304a97e9e88a8cd86ee, type: 3}
+  m_PrefabInstance: {fileID: 1856405675}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1872264605 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 210036301, guid: f872a45fbde373646aaea996916bc783, type: 3}
