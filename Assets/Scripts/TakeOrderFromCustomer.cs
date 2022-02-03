@@ -86,9 +86,10 @@ public class TakeOrderFromCustomer : MonoBehaviour
         }
         
         //Leave orders at the kitchen
-        if (currentAction.CurrentAction == CurrentAction.HandlingOrder && other.TryGetComponent(out kitchen))
+        if (currentAction.CurrentAction == CurrentAction.HandlingOrder && other.TryGetComponent(out Kitchen kitchenCollided))
         {
             canLeaveOrdersToKitchen = true;
+            kitchen = kitchenCollided;
         }
     }
     
@@ -97,7 +98,7 @@ public class TakeOrderFromCustomer : MonoBehaviour
     {
         if (!canTakeOrder && !canLeaveOrdersToKitchen) return;
 
-        if (other.TryGetComponent(out kitchen))
+        if (other.GetComponent<Kitchen>())
         {
             canLeaveOrdersToKitchen = false;
         }
