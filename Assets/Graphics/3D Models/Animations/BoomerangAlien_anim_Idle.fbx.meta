@@ -9,6 +9,9 @@ ModelImporter:
   - first:
       74: 3374748389425109202
     second: rig|rigAction
+  - first:
+      74: 3442939687358799571
+    second: rig|rigAction (1)
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -42,7 +45,11 @@ ModelImporter:
       takeName: rig|Action
       internalID: 0
       firstFrame: 0
+<<<<<<< Updated upstream
       lastFrame: 129
+=======
+      lastFrame: 34
+>>>>>>> Stashed changes
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -65,7 +72,7 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 12.4
     - serializedVersion: 16
       name: rig|rigAction
       takeName: rig|rigAction
