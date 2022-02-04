@@ -223,8 +223,10 @@ public class Customer : MonoBehaviour
     public void ExitRestaurant()
     {
         
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        
         customerAnimator.SetBool("IsSeated",false);
-
         
         if (!nmagent.isActiveAndEnabled && !isSeated) return;
 
