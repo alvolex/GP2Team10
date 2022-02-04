@@ -27,8 +27,6 @@ public class ButtonHandler : MonoBehaviour
     [SerializeField] private Button applySettingsButton;
     [SerializeField] private Button returnFromOptions;
     
-
-
     
     private int[] screenResolutionsX = {1920,1600, 1280};
     private int[] screenResolutionsY = {1080,900,720};
@@ -38,13 +36,14 @@ public class ButtonHandler : MonoBehaviour
 
     void Start()
     {
-        startButton.onClick.AddListener(StartGame);
+        
+        resolutionButton.GetComponentInChildren<TextMeshProUGUI>().text = $"Resolution: {screenResolutionsX[0]} : {screenResolutionsY[0]}";
+        
         creditsButton.onClick.AddListener(Credits);
         returnFromCredits.onClick.AddListener(ReturnToMenu);
         exitGame.onClick.AddListener(ExitGame);
         optionButton.onClick.AddListener(Options);
         resolutionButton.onClick.AddListener(SetResolution);
-        resolutionButton.GetComponentInChildren<TextMeshProUGUI>().text = $"Resolution: {screenResolutionsX[0]} : {screenResolutionsY[0]}";
         windowModeButton.onClick.AddListener(SetWindowMode);
         applySettingsButton.onClick.AddListener(ApplySetting);
         returnFromOptions.onClick.AddListener(ReturnFromOptions);
@@ -62,11 +61,7 @@ public class ButtonHandler : MonoBehaviour
         }
         
     }
-
-    public void StartGame()
-    {
-        SceneManager.LoadScene("Starteronis");
-    }
+    
     public void Credits()
     {
         buttons.SetActive(false);
