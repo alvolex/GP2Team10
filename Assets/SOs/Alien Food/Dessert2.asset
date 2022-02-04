@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 055a0a7656254f63b1118f394b34c881, type: 3}
   m_Name: Dessert2
   m_EditorClassIdentifier: 
-  foodName: Milky apple pie
+  foodName: apple pie
   foodType: 2
   allergies: 0500000003000000
   timeToCookFood: 7
   foodPrefab: {fileID: 0}
   foodDescription: 
+  timeBeforeFoodSpoils: 10
