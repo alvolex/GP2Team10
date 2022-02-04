@@ -130,11 +130,9 @@ public class Tutorial : MonoBehaviour
         {
             yield return new WaitForSeconds(0.2f);
         }
-
-        allTextVisible = false;
         
         StopAllCoroutines(); //todo is this breaking shit?
-
+        
         StartCoroutine(TypeInTextCoroutine());
         tutorialsInQueue--;
 
@@ -165,27 +163,34 @@ public class Tutorial : MonoBehaviour
        
 
         //Get all the text that will fit on one line, then write out each char separately
-        foreach (var line in currenTextHidden.GetTextInfo(currenTextHidden.text).lineInfo)
-        {
-            /*if (!isInTutorial)
+
+
+        var tmpLineInfos = currenTextHidden?.GetTextInfo(currenTextHidden.text)?.lineInfo;
+        
+        if (tmpLineInfos != null)
+            foreach (var line in tmpLineInfos)
+            {
+                /*if (!isInTutorial)
             {
                 yield break;
             }*/
 
-            //Fixes strange behaviour where firstcharindex sometimes gets a wrong(?) value.
-            if (line.firstCharacterIndex > currenTextHidden.text.Length)
-            {
-                Debug.Log("Continue");
-                continue;
+                //Fixes strange behaviour where firstcharindex sometimes gets a wrong(?) value.
+                if (line.firstCharacterIndex > currenTextHidden.text.Length)
+                {
+                    Debug.Log("Continue");
+                    continue;
+                }
+
+                foreach (var c in currenTextHidden.text.Substring(line.firstCharacterIndex, line.characterCount))
+                {
+                    yield return new WaitForSeconds(timeBetweenCharacters);
+                    currenText.text += $"{c}";
+                }
+
+                currenText.text += '\n';
             }
-            
-            foreach (var c in currenTextHidden.text.Substring(line.firstCharacterIndex, line.characterCount))
-            {
-                yield return new WaitForSeconds(timeBetweenCharacters);
-                currenText.text += $"{c}";
-            }
-            currenText.text += '\n';
-        }
+
 
         if (containsLinebreak)
         {
@@ -220,6 +225,7 @@ public class Tutorial : MonoBehaviour
             {
                 if (shouldShowNextPrompt)
                 {
+                    //This code will only run the first time
                     ShowTutorialText(true);
                     shouldShowNextPrompt = false;
                     isInTutorial = false;

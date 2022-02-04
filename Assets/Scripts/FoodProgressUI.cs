@@ -125,6 +125,8 @@ namespace DefaultNamespace
 
             //If the order stays to long on the counter it will go bad
             currentOrder.HasSpoiled = true;
+            if (hazManager == null || throwFood == null) yield break;
+
             StartCoroutine(ThrowFoodIntoRestaurant(currentOrder));
 
         }
@@ -142,9 +144,9 @@ namespace DefaultNamespace
             }
             
             throwFood.ThrowFood();
+            
             destroyFoodWhenThrown.InvokeEvent();
             FoodTakenFromCounter();
-            
         }
     }
 }

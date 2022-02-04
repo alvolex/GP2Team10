@@ -94,7 +94,9 @@ public class FoodPickupStation : MonoBehaviour
 
     void DestroyFood()
     {
-        foodDisplayQueue.Dequeue();
+        var foodToPickup = foodDisplayQueue.Dequeue();
+        foodToPickup.HasBeenPickedUp = true;
+        
         UpdateFoodPlatesOnCounter();
     }
 
