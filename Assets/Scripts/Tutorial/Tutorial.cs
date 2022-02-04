@@ -132,6 +132,11 @@ public class Tutorial : MonoBehaviour
         }
         
         StopAllCoroutines(); //todo is this breaking shit?
+        //I dont know what these do anymore, yolo
+        isInTutorial = false;
+        allTextVisible = false;
+        canvasToToggle.SetActive(false);
+        
         
         StartCoroutine(TypeInTextCoroutine());
         tutorialsInQueue--;
@@ -214,7 +219,7 @@ public class Tutorial : MonoBehaviour
                 allTextVisible = true; //If the player spams space the prompt will close
                 timeBetweenCharacters = 0.0001f;
             }
-            else if (Input.GetKeyDown(KeyCode.Space))
+            else if (Input.GetKeyDown(KeyCode.E))
             {
                 if (shouldShowNextPrompt)
                 {

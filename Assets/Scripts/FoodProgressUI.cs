@@ -21,6 +21,8 @@ namespace DefaultNamespace
 
         [Header("Events")]
         [SerializeField] private ScriptableSimpleEvent foodPickedUp;
+        [SerializeField] private ScriptableSimpleEvent destroyFoodWhenThrown;
+        
 
         private Dictionary<GameObject, Image> combinedList = new Dictionary<GameObject, Image>();
 
@@ -138,9 +140,11 @@ namespace DefaultNamespace
             {
                 point.position = new Vector3(hazPos.x, point.position.y, hazPos.z);
             }
-            throwFood.ThrowFood();
             
-            foodPickedUp.InvokeEvent();
+            throwFood.ThrowFood();
+            destroyFoodWhenThrown.InvokeEvent();
+            FoodTakenFromCounter();
+            
         }
     }
 }

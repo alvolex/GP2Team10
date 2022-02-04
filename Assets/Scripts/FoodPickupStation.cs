@@ -14,6 +14,7 @@ public class FoodPickupStation : MonoBehaviour
     
     [Header("Events")] 
     [SerializeField] private ScriptableSimpleEvent foodPickedUp;
+    [SerializeField] private ScriptableSimpleEvent destroyFoodWhenThrown;
 
     private Queue<Order> foodDisplayQueue = new Queue<Order>();
     private List<Image> spriteRenderers = new List<Image>();
@@ -32,12 +33,12 @@ public class FoodPickupStation : MonoBehaviour
         canPickupFood = false;
         UpdateFoodPlatesOnCounter();
 
-        foodPickedUp.ScriptableEvent += DestroyFood;
+        destroyFoodWhenThrown.ScriptableEvent += DestroyFood;
     }
 
     private void OnDestroy()
     {
-        foodPickedUp.ScriptableEvent -= DestroyFood;
+        destroyFoodWhenThrown.ScriptableEvent -= DestroyFood;
     }
 
     private void Update()
@@ -93,7 +94,7 @@ public class FoodPickupStation : MonoBehaviour
 
     void DestroyFood()
     {
-        //foodDisplayQueue.Dequeue();
+        foodDisplayQueue.Dequeue();
         UpdateFoodPlatesOnCounter();
     }
 

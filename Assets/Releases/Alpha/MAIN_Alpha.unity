@@ -2847,16 +2847,16 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_Intensity: 0
+  m_Intensity: 0.2
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.268
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -6692,6 +6692,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1272551865}
     - target: {fileID: 211719584, guid: d23aec3fb4a62304a97e9e88a8cd86ee, type: 3}
+      propertyPath: destroyFoodWhenThrown
+      value: 
+      objectReference: {fileID: 11400000, guid: 964e08ef323cdf84c8b0b432f719c743, type: 2}
+    - target: {fileID: 211719584, guid: d23aec3fb4a62304a97e9e88a8cd86ee, type: 3}
       propertyPath: controlPoints.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -6707,6 +6711,10 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1512173361, guid: d23aec3fb4a62304a97e9e88a8cd86ee, type: 3}
+      propertyPath: destroyFoodWhenThrown
+      value: 
+      objectReference: {fileID: 11400000, guid: 964e08ef323cdf84c8b0b432f719c743, type: 2}
     - target: {fileID: 560115257439362826, guid: d23aec3fb4a62304a97e9e88a8cd86ee, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.0199986
