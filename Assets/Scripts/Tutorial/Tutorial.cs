@@ -130,14 +130,11 @@ public class Tutorial : MonoBehaviour
         {
             yield return new WaitForSeconds(0.2f);
         }
+
+        allTextVisible = false;
         
         StopAllCoroutines(); //todo is this breaking shit?
-        //I dont know what these do anymore, yolo
-        isInTutorial = false;
-        allTextVisible = false;
-        canvasToToggle.SetActive(false);
-        
-        
+
         StartCoroutine(TypeInTextCoroutine());
         tutorialsInQueue--;
 
