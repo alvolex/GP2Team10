@@ -93,7 +93,7 @@ public class FoodPickupStation : MonoBehaviour
 
     void DestroyFood()
     {
-        foodDisplayQueue.Dequeue();
+        //foodDisplayQueue.Dequeue();
         UpdateFoodPlatesOnCounter();
     }
 

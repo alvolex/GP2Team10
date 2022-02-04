@@ -5785,7 +5785,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0
+  m_BaseOffset: 0.43
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!4 &1639460144 stripped
@@ -7756,9 +7756,17 @@ PrefabInstance:
       propertyPath: reputationText
       value: 
       objectReference: {fileID: 2117114905}
+    - target: {fileID: 3548059141143549193, guid: 66552416112903f40a7c0e80ac451ca8, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6414541750804244563, guid: 66552416112903f40a7c0e80ac451ca8, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6414541750804244569, guid: 66552416112903f40a7c0e80ac451ca8, type: 3}
+      propertyPath: m_Constraints
+      value: 112
       objectReference: {fileID: 0}
     - target: {fileID: 6414541750804244571, guid: 66552416112903f40a7c0e80ac451ca8, type: 3}
       propertyPath: m_Enabled

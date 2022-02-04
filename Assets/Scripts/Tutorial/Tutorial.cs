@@ -209,7 +209,7 @@ public class Tutorial : MonoBehaviour
         {
             yield return null;
 
-            if (Input.GetKeyDown(KeyCode.Space) && !allTextVisible)
+            if (Input.GetKeyDown(KeyCode.E) && !allTextVisible)
             {
                 allTextVisible = true; //If the player spams space the prompt will close
                 timeBetweenCharacters = 0.0001f;
