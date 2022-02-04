@@ -11,25 +11,55 @@ public class HandleDisplayUpgradeMenu : MonoBehaviour
     [Header("Events")]
     [SerializeField] private ScriptableSimpleEvent dayEnd;
     [SerializeField] private ScriptableSimpleEvent startNextDay;
+    private FadeToAndFrom fadeToAndFrom;
+    
+    private bool showUI = false;
 
     private void Start()
     {
-        dayEnd.ScriptableEvent += ToggleUI;
+        dayEnd.ScriptableEvent += StartFadeIntoEvent;
+        fadeToAndFrom = FindObjectOfType<FadeToAndFrom>();
+    }
+    void StartFadeIntoEvent()
+    {
+        StartCoroutine(FadeInto());
+    }
+    public void StartFadeFromEvent()
+    {
+        StartCoroutine(FadeFrom());
     }
 
     void ToggleUI()
     {
         upgradeUI.SetActive(!upgradeUI.activeSelf);
-        
         Time.timeScale = 0;
     }
 
     public void StartNextDay()
     {
         startNextDay.InvokeEvent();
-        
-        ToggleUI();
         Time.timeScale = 1;
     }
-    
+
+    IEnumerator FadeInto()
+    {
+        while (fadeToAndFrom.blackImage.alpha < 0.999f)
+        {
+            fadeToAndFrom.blackImage.alpha = Mathf.Lerp( fadeToAndFrom.blackImage.alpha, 1,  fadeToAndFrom.fadeSpeed);
+            yield return null;
+        }
+        ToggleUI();
+        yield return null;
+    }
+    IEnumerator FadeFrom()
+    {
+        ToggleUI();
+        while (fadeToAndFrom.blackImage.alpha > 0.01f)
+        {
+            fadeToAndFrom.blackImage.alpha = Mathf.Lerp( fadeToAndFrom.blackImage.alpha, 0,  fadeToAndFrom.fadeSpeed);
+            yield return null;
+        }
+        StartNextDay();
+        yield return null;
+    }
 }
