@@ -130,9 +130,11 @@ public class Tutorial : MonoBehaviour
         {
             yield return new WaitForSeconds(0.2f);
         }
+
+        allTextVisible = false;
         
         StopAllCoroutines(); //todo is this breaking shit?
-        
+
         StartCoroutine(TypeInTextCoroutine());
         tutorialsInQueue--;
 
@@ -214,7 +216,7 @@ public class Tutorial : MonoBehaviour
                 allTextVisible = true; //If the player spams space the prompt will close
                 timeBetweenCharacters = 0.0001f;
             }
-            else if (Input.GetKeyDown(KeyCode.Space))
+            else if (Input.GetKeyDown(KeyCode.E))
             {
                 if (shouldShowNextPrompt)
                 {
