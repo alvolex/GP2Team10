@@ -49,6 +49,10 @@ public class AlienAttributes : MonoBehaviour
     [SerializeField] private int maxRep;
     [SerializeField] private int maxTip;
     
+    [Header("Negative rep from killing, put this without the minus sign")]
+    [SerializeField] private int negativeRepFromKilling;
+    
+    
     [Header("Waiting Times")]
     [SerializeField] private float maxWaitingToBeSeatedTime;
     [SerializeField] private float maxWaitingToOrderTime;
@@ -135,6 +139,8 @@ public class AlienAttributes : MonoBehaviour
                     CustomerIsAllergic();
                     Destroy(gameObject);
                     AudioManager.Instance.PlayAlienExplodeSFX();
+                    reputationReference.ApplyChange(-negativeRepFromKilling);
+                    onReputationChanged.Raise(reputationReference.GetValue());
                     customerHasDied?.Invoke(gameObject.GetComponent<Customer>());
                     return;
                 }

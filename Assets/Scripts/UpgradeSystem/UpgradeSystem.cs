@@ -142,31 +142,53 @@ public class UpgradeSystem : MonoBehaviour
             tipsReference.GetValue() < movementSpeedUpgradeCost[currentMSUpgrade] ||
             movementSpeedUpgradesAvailable==0)
         {
-            MovementSpeedUpgradeButton.interactable = false;
+            MovementSpeedUpgradeButton.gameObject.SetActive(false);
+        }
+        else
+        {
+            MovementSpeedUpgradeButton.gameObject.SetActive(true);
         }
         if (currentCMSUpgrade+1>alienMovementSpeedUpgradeCost.Length ||
             tipsReference.GetValue()<alienMovementSpeedUpgradeCost[currentCMSUpgrade] ||
             alienMovementSpeedUpgradesAvailable==0)
         {
-            CustomerMovementSpeedUpgradeButton.interactable = false;
+            CustomerMovementSpeedUpgradeButton.gameObject.SetActive(false);
+        }
+        else
+        {
+            CustomerMovementSpeedUpgradeButton.gameObject.SetActive(true);
+            ;
         }
         if (currentSeatingUpgrade+1>extraSeatingUpgradeCost.Length || 
             tipsReference.GetValue() < extraSeatingUpgradeCost[currentSeatingUpgrade]||
             tableUpgradesAvailable==0)
         {
-            TableUpgradeButton.interactable = false;
+            TableUpgradeButton.gameObject.SetActive(false);
+        }
+        else
+        {
+            TableUpgradeButton.gameObject.SetActive(true);
+
         }
         if (currentStorageUpgrade+1>storageSlotUpgradeCost.Length || 
             tipsReference.GetValue() < storageSlotUpgradeCost[currentStorageUpgrade] ||
             extraStorageUpgradesAvailable == 0)
         {
-            StorageUpgradeButton.interactable = false;
+            StorageUpgradeButton.gameObject.SetActive(false);
+        }
+        else
+        {
+            StorageUpgradeButton.gameObject.SetActive(true);
         }
         if (currentCookingStationUpgrade+1 > cookingStationUpgradeCost.Length ||
             tipsReference.GetValue() < cookingStationUpgradeCost[currentCookingStationUpgrade] ||
             extraCookingStationUpgradesAvailable == 0)
         {
-            CookingStationUpgradeButton.interactable = false;
+            CookingStationUpgradeButton.gameObject.SetActive(false);
+        }
+        else
+        {
+            CookingStationUpgradeButton.gameObject.SetActive(true);
         }
     }
     public void CheckAliensFed()
