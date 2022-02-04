@@ -90,6 +90,7 @@ public class Player : MonoBehaviour
         reputationReference.SetValue(data.reputation);
         ApplyUpgrades(data);
     }
+    
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.L))

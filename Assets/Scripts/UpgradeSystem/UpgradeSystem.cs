@@ -13,12 +13,14 @@ public class UpgradeSystem : MonoBehaviour
     [SerializeField] private IntReference aliensReference;
     [SerializeField] private IntReference allergensReference;
     [SerializeField] private IntReference tipsReference;
+    [SerializeField] private IntReference RepReputation;
     [SerializeField] private IntReference startersReference;
     [SerializeField] private IntReference mainCourseReference;
     [SerializeField] private IntReference dessertReference;
     
     [Header("Event callers")]
     [SerializeField] private ScriptableEventIntReference onTipsChanged;
+    [SerializeField] private ScriptableEventIntReference OnReputationChanged;
     
     [SerializeField] private Button MovementSpeedUpgradeButton;
     [SerializeField] private Button CustomerMovementSpeedUpgradeButton;
@@ -286,6 +288,9 @@ public class UpgradeSystem : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
+            RepReputation.ApplyChange(-500);
+            OnReputationChanged.Raise(RepReputation.GetValue());
+            
             tipsReference.ApplyChange(+500);
             onTipsChanged.Raise(tipsReference.GetValue());
             Debug.Log("added moolah");
