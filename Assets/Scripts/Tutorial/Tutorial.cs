@@ -65,7 +65,7 @@ public class Tutorial : MonoBehaviour
     {
         if (!gameState.shouldShowTutorial) return;
         timeBetweenCharactersAtStart = timeBetweenCharacters;
-        gameState.ResetAll();
+        gameState.ResetAll(); //Todo this needs to be called from a Tutorial start button
         
         AddStringToList();
         ShowTutorialText(true);
@@ -149,6 +149,9 @@ public class Tutorial : MonoBehaviour
         StartCoroutine(CheckForPlayerInput());
         
         currenText.text = "";
+
+        if (textPromptsInOrder.Count == 0) yield break;
+
         currenTextHidden.text = textPromptsInOrder.Dequeue();
 
         bool containsLinebreak = currenTextHidden.text.Contains("+");
@@ -164,8 +167,18 @@ public class Tutorial : MonoBehaviour
 
         //Get all the text that will fit on one line, then write out each char separately
 
-
-        var tmpLineInfos = currenTextHidden?.GetTextInfo(currenTextHidden.text)?.lineInfo;
+        TMP_LineInfo[] tmpLineInfos;
+        try
+        {
+            tmpLineInfos = currenTextHidden.GetTextInfo(currenTextHidden.text)?.lineInfo;
+        }
+        catch (Exception e)
+        {
+            Debug.Log(currenTextHidden.GetTextInfo(currenTextHidden.text) + " <--- Getting lineinfo from this caused an error");
+            Console.WriteLine(e);
+            throw;
+        }
+        
         
         if (tmpLineInfos != null)
             foreach (var line in tmpLineInfos)
