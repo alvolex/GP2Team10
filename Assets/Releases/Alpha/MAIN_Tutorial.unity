@@ -695,7 +695,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 3
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -720,7 +720,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 486424035}
         m_TargetAssemblyTypeName: UpgradeSystem, Assembly-CSharp
         m_MethodName: UpgradeMS
         m_Mode: 1
@@ -1698,9 +1698,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 563254376}
         m_TargetAssemblyTypeName: FoodPickupStation, Assembly-CSharp
         m_MethodName: UpgradeFoodCounterStorage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 486424035}
+        m_TargetAssemblyTypeName: UpgradeSystem, Assembly-CSharp
+        m_MethodName: UpgradeStorage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2627,6 +2639,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 43a3c5244bd74ec4db502c19203b7aba, type: 3}
   m_PrefabInstance: {fileID: 2084030648}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &486424035 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
+  m_PrefabInstance: {fileID: 706764348}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78dfa2438b4b97448649d3cece54f20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &504824074
 GameObject:
   m_ObjectHideFlags: 0
@@ -2686,7 +2709,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 3
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -2711,7 +2734,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 486424035}
+        m_TargetAssemblyTypeName: UpgradeSystem, Assembly-CSharp
+        m_MethodName: UpgradeCookingStation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1619610210}
         m_TargetAssemblyTypeName: Kitchen, Assembly-CSharp
         m_MethodName: AddChef
         m_Mode: 1
@@ -3395,7 +3430,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 3
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -3529,7 +3564,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 3
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -3554,7 +3589,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 486424035}
         m_TargetAssemblyTypeName: UpgradeSystem, Assembly-CSharp
         m_MethodName: UpgradeCustomerMS
         m_Mode: 1
@@ -4755,6 +4790,7 @@ GameObject:
   - component: {fileID: 944955007}
   - component: {fileID: 944955006}
   - component: {fileID: 944955005}
+  - component: {fileID: 944955008}
   m_Layer: 5
   m_Name: StartNextDay
   m_TagString: Untagged
@@ -4801,7 +4837,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 3
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -4829,6 +4865,18 @@ MonoBehaviour:
       - m_Target: {fileID: 423235922}
         m_TargetAssemblyTypeName: HandleDisplayUpgradeMenu, Assembly-CSharp
         m_MethodName: StartFadeFromEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 944955008}
+        m_TargetAssemblyTypeName: LoadNextScene, Assembly-CSharp
+        m_MethodName: LoadScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4876,6 +4924,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 944955003}
   m_CullTransparentMesh: 1
+--- !u!114 &944955008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944955003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cedf0a73ff223194bacba66bc0af4f02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &971573996 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5987475948565007990, guid: 6db9ebc31ef1a2049aef9fba03e58fce, type: 3}
@@ -4964,7 +5024,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1639460135}
         m_TargetAssemblyTypeName: PlayerStats, Assembly-CSharp
         m_MethodName: RestartGame
         m_Mode: 1
@@ -7771,7 +7831,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1639460135}
         m_TargetAssemblyTypeName: PlayerStats, Assembly-CSharp
         m_MethodName: QuitToMenu
         m_Mode: 1
