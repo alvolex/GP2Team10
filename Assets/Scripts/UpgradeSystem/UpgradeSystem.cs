@@ -32,13 +32,13 @@ public class UpgradeSystem : MonoBehaviour
     [SerializeField] private int movementSpeedUpgradeAmount;
     [SerializeField] private int AlienMovementSpeedUpgradeAmount;
 
-    [Header("Customers fed goal")]
+    /*[Header("Customers fed goal")]
     [SerializeField] private int upgrade1GoalMS;
     [SerializeField] private int upgrade2GoalMS;
     [SerializeField] private int upgrade3GoalMS;
     
     
-    [Header("Allergens Served limits")] 
+    /*[Header("Allergens Served limits")] 
     [SerializeField] private int allergensServedLimit1;
     [SerializeField] private int allergensServedLimit2;
     [SerializeField] private int allergensServedLimit3;
@@ -53,7 +53,7 @@ public class UpgradeSystem : MonoBehaviour
     [Header("Dessert Goals")] 
     [SerializeField] private int dessertGoal1;
     [SerializeField] private int dessertGoal2;
-    [SerializeField] private int dessertGoal3;
+    [SerializeField] private int dessertGoal3;*/
     
     [Header("Upgrade Costs")]
     [SerializeField] private int[] movementSpeedUpgradeCost;
@@ -186,7 +186,7 @@ public class UpgradeSystem : MonoBehaviour
             CookingStationUpgradeButton.gameObject.SetActive(true);
         }
     }
-    public void CheckAliensFed()
+    /*public void CheckAliensFed()
     {
         if (aliensReference.GetValue() == upgrade1GoalMS)
             movementSpeedUpgradesAvailable++;
@@ -232,7 +232,7 @@ public class UpgradeSystem : MonoBehaviour
             tableUpgradesAvailable++;
         if (dessertReference.GetValue() == dessertGoal3)
             tableUpgradesAvailable++;
-    }
+    }*/
     public void UpgradeMS()
     {
         if (tipsReference.GetValue() > movementSpeedUpgradeCost[currentMSUpgrade])
@@ -278,7 +278,7 @@ public class UpgradeSystem : MonoBehaviour
         currentCookingStationUpgrade++;
         CheckMoney();
     }
-    public void ApplyUpgrades()
+    /*public void ApplyUpgrades()
     {
         for (var i = currentCMSUpgrade; i>=0; i--)
         {
@@ -300,7 +300,7 @@ public class UpgradeSystem : MonoBehaviour
         {
             kitchen.AddChef();
         }
-    }
+    }*/
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
