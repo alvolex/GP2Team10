@@ -23,8 +23,10 @@ public class Tutorial : MonoBehaviour
     [SerializeField] private GameObject spotLightTutorial;
     [SerializeField] private List<Transform> spotlightPositions = new List<Transform>();
 
-    [Header("Event")]
-    [SerializeField] private ScriptableSimpleEvent showNextPrompt;
+    [Header("Tutorial event & text")]
+    [SerializeField] private ScriptableTutorialEvent tutorialEvent;
+    [SerializeField] private ScriptableTutorialText startText;
+    [SerializeField] private ScriptableTutorialText howToSeatCustomers;
 
 
     private Queue<string> textPromptsInOrder = new Queue<string>();
@@ -49,6 +51,8 @@ public class Tutorial : MonoBehaviour
     public static Tutorial instance;
     private void Awake()
     {
+        tutorialEvent.ScriptableEvent += HandleTutorialEvent;
+        
         if (ReferenceEquals(instance, null))
         {
             instance = this;
@@ -59,6 +63,7 @@ public class Tutorial : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
     #endregion
     
     
@@ -69,9 +74,25 @@ public class Tutorial : MonoBehaviour
         timeBetweenCharactersAtStart = timeBetweenCharacters;
         gameState.ResetAll(); //Todo this needs to be called from a Tutorial start button
         
-        AddStringToList();
-        ShowTutorialText(true);
+        //AddStringToList();
+        
+        //Show first text prompt at startup
+        textPromptsInOrder.Enqueue(startText.TutorialText);
+        textPromptsInOrder.Enqueue(howToSeatCustomers.TutorialText);
+        startText.hasBeenPlayed = true;
+        howToSeatCustomers.hasBeenPlayed = true;
+        ShowTutorialText();
     }
+    
+    private void HandleTutorialEvent(ScriptableTutorialText scriptableTutorial)
+    {
+        if (scriptableTutorial.hasBeenPlayed) return;
+        scriptableTutorial.hasBeenPlayed = true;
+        
+        textPromptsInOrder.Enqueue(scriptableTutorial.TutorialText);
+        ShowTutorialText();
+    }
+    
 
     private void AddStringToList()
     {
@@ -85,9 +106,9 @@ public class Tutorial : MonoBehaviour
         textPromptsInOrder.Enqueue(tutText.alienRecievedFoodString);
     }
 
-    public void ShowTutorialText(bool shouldShowTutorial)
+    public void ShowTutorialText()
     {
-        if (!shouldShowTutorial || !gameState.shouldShowTutorial)return;
+        if (!gameState.shouldShowTutorial)return;
         //Reset the values
         timeBetweenCharacters = timeBetweenCharactersAtStart;
         allTextVisible = false;
@@ -147,8 +168,6 @@ public class Tutorial : MonoBehaviour
 
     IEnumerator TypeInTextCoroutine()
     {
-        Debug.Log("Starting text ");
-        
         canvasToToggle.SetActive(true);
         isInTutorial = true;
         //StopCoroutine(CheckForPlayerInput()); //Stop it if it's already running
@@ -250,7 +269,7 @@ public class Tutorial : MonoBehaviour
                     
                     yield return new WaitForSeconds(0.1f);
 
-                    ShowTutorialText(true);
+                    ShowTutorialText();
                     yield break;
                 }
                 

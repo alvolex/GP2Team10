@@ -312,6 +312,8 @@ MonoBehaviour:
   plate: {fileID: 5319866195737165776}
   foodSpriteRenderer: {fileID: 8288119483462585072}
   currentAction: {fileID: 11400000, guid: add060246eb07f24e9273627e0cd9bce, type: 2}
+  tutorialEvent: {fileID: 11400000, guid: 0a5258619e3ddc44e9211bbaf30d158a, type: 2}
+  orderDeliveredText: {fileID: 11400000, guid: 16e9112df8c3b2a42b15fea3ad827aef, type: 2}
 --- !u!114 &1960739444156903254
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,6 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74b1196b455042179a2151673e5b8797, type: 3}
-  m_Name: ShowNextTutorialEvent
+  m_Script: {fileID: 11500000, guid: c7f4f09e9d01472f9ecc0058ccf213c2, type: 3}
+  m_Name: TutorialOrderLeftAtKitchen
   m_EditorClassIdentifier: 
+  tutorialText: Fantastic work! Now the chef is cooking that delicious grub. Once
+    the food is ready it will be delivered to the counter!
+  hasBeenPlayed: 0

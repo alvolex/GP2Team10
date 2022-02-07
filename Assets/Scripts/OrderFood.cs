@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using DefaultNamespace;
+using Scriptables;
 using SOs;
 using TMPro;
 using UnityEngine;
@@ -38,6 +39,11 @@ public class OrderFood : MonoBehaviour
     [Header("Allergy sprites")] 
     [SerializeField] private List<Image> allergySpriteRenderer = new List<Image>();
     [SerializeField] private ScriptableAllergySpriteHandler getSprite;
+    
+    [Header("Tutorial")]
+    [SerializeField] private ScriptableTutorialEvent tutorialEvent;
+    [SerializeField] private ScriptableTutorialText howToTakeOrderText;
+    [SerializeField] private ScriptableTutorialText orderTakenText;
 
     //All private vars and getters
     #region Private vars and getters
@@ -226,14 +232,7 @@ public class OrderFood : MonoBehaviour
 
 
         //Tutorial stuff
-        if (Tutorial.instance != null)
-        {
-            if (Tutorial.instance.GameState.howToTakeOrderTutorial)
-            {
-                Tutorial.instance.ShowTutorialText(Tutorial.instance.GameState.howToTakeOrderTutorial);
-                Tutorial.instance.GameState.howToTakeOrderTutorial = false;
-            }
-        }
+        tutorialEvent.InvokeEvent(howToTakeOrderText);
 
         while (true)
         {
@@ -272,15 +271,7 @@ public class OrderFood : MonoBehaviour
         ToggleSelectableFoodItems();
         
         //Show tutorial text after taking order
-        if (Tutorial.instance != null)
-        {
-            Tutorial.instance.ShowTutorialText(Tutorial.instance.GameState.hasTakenOrderTutorial);
-            if (Tutorial.instance.GameState.hasTakenOrderTutorial)
-            {
-                Tutorial.instance.TurnOnAndMoveSpotlight();
-            }
-            Tutorial.instance.GameState.hasTakenOrderTutorial = false;
-        }
+        tutorialEvent.InvokeEvent(orderTakenText);
         
         //Create the order
         myOrder = new Order(foodToOrder, GetComponent<Customer>(), spriteRenderer.sprite, selectedDish);
