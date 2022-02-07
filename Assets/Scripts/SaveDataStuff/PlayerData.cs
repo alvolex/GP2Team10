@@ -24,7 +24,7 @@ public class PlayerData
     public int extraStorageSlot;
     public int tableUpgradesAvailable;
 
-    public PlayerData(Player player)
+    /*public PlayerData(Player player)
     {
         tips = player.tipsReference.Value;
         reputation = player.reputationReference.Value;
@@ -40,5 +40,5 @@ public class PlayerData
         extraStorageSlot = player.extraStorageSlot;
         tableUpgradesAvailable = player.tableUpgradesAvailable;
         
-    }
+    }*/
 }
