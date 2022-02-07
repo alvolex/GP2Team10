@@ -98,6 +98,8 @@ public class FoodPickupStation : MonoBehaviour
 
     void DestroyFood()
     {
+        if (foodDisplayQueue.Count == 0) return;
+
         var foodToPickup = foodDisplayQueue.Dequeue();
         foodToPickup.HasBeenPickedUp = true;
         
@@ -106,6 +108,8 @@ public class FoodPickupStation : MonoBehaviour
 
     void PickupFood()
     {
+        if (foodDisplayQueue.Count == 0) return;
+        
         var foodToPickup = foodDisplayQueue.Dequeue();
         UpdateFoodPlatesOnCounter();
 

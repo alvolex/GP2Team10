@@ -79,9 +79,12 @@ public class DeliverFood : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.TryGetComponent(out AlienEatFood curCustomer))
+        if (other.TryGetComponent(out AlienEatFood cust))
         {
-            canDeliverFood = false;
+            if (cust == customerEatFood)
+            {
+                canDeliverFood = false;
+            }
         }
         
         if (other.TryGetComponent(out GarbageCan _))
