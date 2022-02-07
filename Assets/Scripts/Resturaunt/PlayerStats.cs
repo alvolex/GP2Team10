@@ -74,6 +74,13 @@ public class PlayerStats : MonoBehaviour
         restartGameButton.gameObject.SetActive(true);
         quitToMenuButton.gameObject.SetActive(true);
         
+        
+        tips.SetValue(0);
+        OnTipChangedEvent.Raise();
+        
+        reputation.SetValue(0);
+        OnRepChangedEvent.Raise();
+        
         Debug.Log("You lose lol");
         Time.timeScale = 0;
     }

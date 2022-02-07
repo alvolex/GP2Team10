@@ -14,6 +14,7 @@ public class OverHeadTipsAndMoneyUI : MonoBehaviour
 
     [Header("Event")] 
     [SerializeField] private ScriptableMoneyPopupEvent moneyEvent;
+    [SerializeField] private ScriptableMoneyPopupEvent repEvent;
     private Customer myself;
 
     private void Start()
