@@ -9,15 +9,8 @@ using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
-    // Update is called once per frame
-    
     private Scene scene;
-    public TextMeshProUGUI tmp;
-
     public GameObject userInterface;
-
-    
-
     private float time;
 
     private void Start()
@@ -33,9 +26,6 @@ public class PauseMenu : MonoBehaviour
             Time.timeScale = 0;
             userInterface.SetActive(true);
         }
-
-        tmp.text = $"{time += Time.deltaTime}";
-        
     }
 
     public void ResumeGame()

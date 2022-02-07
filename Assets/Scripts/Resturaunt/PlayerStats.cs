@@ -7,16 +7,22 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Variables;
+using Object = UnityEngine.Object;
 
 public class PlayerStats : MonoBehaviour
 {
+    
     [Header("Loosing Condition Reputation: ")] [SerializeField]
     private int loosingCondition;
 
-    [SerializeField] private Button restartGameButton;
-    
 
-    
+    [Header("Buttons")]
+    [SerializeField] private Button restartGameButton;
+    [SerializeField] private Button quitToMenuButton;
+    private PlayerStateHandler currentState;
+
+
+    public Object mainMnueSCENE;
     
     [Header("Reputation: ")] 
     [SerializeField] private IntVariable reputation;
@@ -33,19 +39,17 @@ public class PlayerStats : MonoBehaviour
     {
         SetReputation($"{reputation.Value}");
         SetTip($"{tips.Value}");
+        currentState = GetComponent<PlayerStateHandler>();
+        
         restartGameButton.gameObject.SetActive(false);
+        quitToMenuButton.gameObject.SetActive(false);
     }
 
     public void OnReputationChanged(int newValue)
     {
         if (reputation.Value <= loosingCondition)
         {
-            
-            restartGameButton.gameObject.SetActive(true);
-            Debug.Log("You lose lol");
-            Time.timeScale = 0;
-            
-            
+            YouLost();
         }
         
         SetReputation($"{reputation.Value}");
@@ -64,12 +68,30 @@ public class PlayerStats : MonoBehaviour
         reputationText.text = text;
     }
 
+    public void YouLost()
+    {
+        
+        restartGameButton.gameObject.SetActive(true);
+        quitToMenuButton.gameObject.SetActive(true);
+        
+        Debug.Log("You lose lol");
+        Time.timeScale = 0;
+    }
+    
+    
+
     public void RestartGame()
     {
         Scene scene = SceneManager.GetActiveScene();
         Time.timeScale = 1;
         SceneManager.LoadScene(scene.name);
     }
+
+    public void QuitToMenu()
+    {
+        SceneManager.LoadScene(mainMnueSCENE.name);
+    }
+    
     
     
 }
