@@ -48,5 +48,10 @@ public class PauseMenu : MonoBehaviour
     {
         SceneManager.LoadScene(scene.name);
     }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
     
 }
