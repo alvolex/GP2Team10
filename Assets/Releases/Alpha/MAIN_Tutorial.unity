@@ -10369,7 +10369,7 @@ PrefabInstance:
     - target: {fileID: 1639460149, guid: 66552416112903f40a7c0e80ac451ca8, type: 3}
       propertyPath: tipsText
       value: 
-      objectReference: {fileID: 77049439}
+      objectReference: {fileID: 1457589492}
     - target: {fileID: 1639460149, guid: 66552416112903f40a7c0e80ac451ca8, type: 3}
       propertyPath: mainMnueSCENE
       value: 
@@ -10377,7 +10377,7 @@ PrefabInstance:
     - target: {fileID: 1639460149, guid: 66552416112903f40a7c0e80ac451ca8, type: 3}
       propertyPath: reputationText
       value: 
-      objectReference: {fileID: 1457589492}
+      objectReference: {fileID: 77049439}
     - target: {fileID: 1639460149, guid: 66552416112903f40a7c0e80ac451ca8, type: 3}
       propertyPath: quitToMenuButton
       value: 

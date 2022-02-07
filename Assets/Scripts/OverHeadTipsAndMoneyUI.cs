@@ -11,16 +11,18 @@ public class OverHeadTipsAndMoneyUI : MonoBehaviour
     [SerializeField] private GameObject moneyPopupUI;
     [SerializeField] private GameObject reputationPopupUI;
     [SerializeField] private TMP_Text tmpMoneyText;
+    //[SerializeField] private TMP_Text tmpRepText;
 
     [Header("Event")] 
     [SerializeField] private ScriptableMoneyPopupEvent moneyEvent;
-    [SerializeField] private ScriptableMoneyPopupEvent repEvent;
+    //[SerializeField] private ScriptableMoneyPopupEvent repEvent;
     private Customer myself;
 
     private void Start()
     {
         myself = GetComponent<Customer>();
         moneyEvent.ScriptableEvent += HandleMoneyPopup;
+        //repEvent.ScriptableEvent += HandleMoneyPopup;
     }
 
     private void HandleMoneyPopup(int moneyRecieved, Customer customer)
