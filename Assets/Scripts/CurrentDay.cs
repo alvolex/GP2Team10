@@ -70,7 +70,7 @@ public class CurrentDay : MonoBehaviour
         SetMinutesAndSecondsLeft(0);
         
         yield return new WaitForSeconds(0.5f);
-        StartCoroutine(FadeSun(0,1, 0.3f));
+        //StartCoroutine(FadeSun(0,1, 0.3f));
 
         int i = 0;
         sun.transform.rotation = sunStartRotation;
