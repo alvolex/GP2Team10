@@ -15,6 +15,8 @@ public class FoodPickupStation : MonoBehaviour
     [Header("Events")] 
     [SerializeField] private ScriptableSimpleEvent foodPickedUp;
     [SerializeField] private ScriptableSimpleEvent destroyFoodWhenThrown;
+    [SerializeField] private ScriptableOrderEvent destroyFoodEvent;
+    
     
     [Header("Tutorial")]
     [SerializeField] private ScriptableTutorialEvent tutorialEvent;
@@ -37,12 +39,14 @@ public class FoodPickupStation : MonoBehaviour
         canPickupFood = false;
         UpdateFoodPlatesOnCounter();
 
-        destroyFoodWhenThrown.ScriptableEvent += DestroyFood;
+        //destroyFoodWhenThrown.ScriptableEvent += DestroyFood;
+        destroyFoodEvent.ScriptableEvent += DestroyFood;
     }
 
     private void OnDestroy()
     {
-        destroyFoodWhenThrown.ScriptableEvent -= DestroyFood;
+        //destroyFoodWhenThrown.ScriptableEvent -= DestroyFood;
+        destroyFoodEvent.ScriptableEvent -= DestroyFood;
     }
 
     private void Update()
@@ -96,14 +100,28 @@ public class FoodPickupStation : MonoBehaviour
         }
     }
 
-    void DestroyFood()
+    void DestroyFood(Order orderToThrow)
     {
         if (foodDisplayQueue.Count == 0) return;
 
-        var foodToPickup = foodDisplayQueue.Dequeue();
-        foodToPickup.HasBeenPickedUp = true;
-        
-        UpdateFoodPlatesOnCounter();
+        //If the order exists in the list then we remove if and then reassemble the list
+        if (foodDisplayQueue.Contains(orderToThrow))
+        {
+            var tempList = foodDisplayQueue.ToList();
+            tempList.Remove(orderToThrow);
+            orderToThrow.HasBeenPickedUp = true;
+
+            foodDisplayQueue = new Queue<Order>();
+
+            foreach (var order in tempList)
+            {
+                foodDisplayQueue.Enqueue(order);
+            }
+            
+            /*var foodToPickup = foodDisplayQueue.Dequeue();
+            foodToPickup.HasBeenPickedUp = true;*/
+            UpdateFoodPlatesOnCounter();
+        }
     }
 
     void PickupFood()
