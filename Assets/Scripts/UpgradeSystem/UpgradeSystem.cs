@@ -139,8 +139,7 @@ public class UpgradeSystem : MonoBehaviour
     public void CheckMoney()
     {
         if (currentMSUpgrade+1>movementSpeedUpgradeCost.Length || 
-            tipsReference.GetValue() < movementSpeedUpgradeCost[currentMSUpgrade] ||
-            movementSpeedUpgradesAvailable==0)
+            tipsReference.GetValue() < movementSpeedUpgradeCost[currentMSUpgrade])
         {
             MovementSpeedUpgradeButton.gameObject.SetActive(false);
         }
@@ -149,8 +148,7 @@ public class UpgradeSystem : MonoBehaviour
             MovementSpeedUpgradeButton.gameObject.SetActive(true);
         }
         if (currentCMSUpgrade+1>alienMovementSpeedUpgradeCost.Length ||
-            tipsReference.GetValue()<alienMovementSpeedUpgradeCost[currentCMSUpgrade] ||
-            alienMovementSpeedUpgradesAvailable==0)
+            tipsReference.GetValue()<alienMovementSpeedUpgradeCost[currentCMSUpgrade])
         {
             CustomerMovementSpeedUpgradeButton.gameObject.SetActive(false);
         }
@@ -160,8 +158,7 @@ public class UpgradeSystem : MonoBehaviour
             ;
         }
         if (currentSeatingUpgrade+1>extraSeatingUpgradeCost.Length || 
-            tipsReference.GetValue() < extraSeatingUpgradeCost[currentSeatingUpgrade]||
-            tableUpgradesAvailable==0)
+            tipsReference.GetValue() < extraSeatingUpgradeCost[currentSeatingUpgrade])
         {
             TableUpgradeButton.gameObject.SetActive(false);
         }
@@ -171,8 +168,7 @@ public class UpgradeSystem : MonoBehaviour
 
         }
         if (currentStorageUpgrade+1>storageSlotUpgradeCost.Length || 
-            tipsReference.GetValue() < storageSlotUpgradeCost[currentStorageUpgrade] ||
-            extraStorageUpgradesAvailable == 0)
+            tipsReference.GetValue() < storageSlotUpgradeCost[currentStorageUpgrade])
         {
             StorageUpgradeButton.gameObject.SetActive(false);
         }
@@ -181,8 +177,7 @@ public class UpgradeSystem : MonoBehaviour
             StorageUpgradeButton.gameObject.SetActive(true);
         }
         if (currentCookingStationUpgrade+1 > cookingStationUpgradeCost.Length ||
-            tipsReference.GetValue() < cookingStationUpgradeCost[currentCookingStationUpgrade] ||
-            extraCookingStationUpgradesAvailable == 0)
+            tipsReference.GetValue() < cookingStationUpgradeCost[currentCookingStationUpgrade])
         {
             CookingStationUpgradeButton.gameObject.SetActive(false);
         }
@@ -245,7 +240,7 @@ public class UpgradeSystem : MonoBehaviour
             tipsReference.ApplyChange(-movementSpeedUpgradeCost[currentMSUpgrade]);
             playerReference.GetComponent<PlayerMovement>().MovementSpeed += movementSpeedUpgradeAmount;
             currentMSUpgrade++;
-            movementSpeedUpgradesAvailable--;
+            //movementSpeedUpgradesAvailable--;
 
             CheckMoney();
         }
@@ -257,7 +252,7 @@ public class UpgradeSystem : MonoBehaviour
             tipsReference.ApplyChange(-alienMovementSpeedUpgradeCost[currentCMSUpgrade]);
             customerMovementSpeedChange.InvokeEvent(AlienMovementSpeedUpgradeAmount);
             currentCMSUpgrade++;
-            alienMovementSpeedUpgradesAvailable--;
+            //alienMovementSpeedUpgradesAvailable--;
             
             CheckMoney();
         }
@@ -267,19 +262,19 @@ public class UpgradeSystem : MonoBehaviour
         tipsReference.ApplyChange(-extraSeatingUpgradeCost[currentSeatingUpgrade]);
         tables[currentSeatingUpgrade].GetComponent<Table>().UnlockTable();
         currentSeatingUpgrade++;
-        tableUpgradesAvailable--;
+        //tableUpgradesAvailable--;
         CheckMoney();
     }
     public void UpgradeStorage()
     {
-        extraStorageUpgradesAvailable--;
+        //extraStorageUpgradesAvailable--;
         currentStorageUpgrade++;
         
         CheckMoney();
     }
     public void UpgradeCookingStation()
     {
-        extraCookingStationUpgradesAvailable--;
+        //extraCookingStationUpgradesAvailable--;
         currentCookingStationUpgrade++;
         CheckMoney();
     }
@@ -310,8 +305,8 @@ public class UpgradeSystem : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            RepReputation.ApplyChange(-500);
-            OnReputationChanged.Raise(RepReputation.GetValue());
+            //RepReputation.ApplyChange(-500);
+            //OnReputationChanged.Raise(RepReputation.GetValue());
             
             tipsReference.ApplyChange(+500);
             onTipsChanged.Raise(tipsReference.GetValue());
