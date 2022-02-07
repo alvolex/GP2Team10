@@ -81,7 +81,13 @@ public class Tutorial : MonoBehaviour
         howToSeatCustomers.hasBeenPlayed = true;
         ShowTutorialText();
     }
-    
+
+    private void OnDestroy()
+    {
+        tutorialEvent.ScriptableEvent -= HandleTutorialEvent;
+        canvasToToggle.SetActive(false);
+    }
+
     private void HandleTutorialEvent(ScriptableTutorialText scriptableTutorial)
     {
         if (scriptableTutorial.hasBeenPlayed) return;
