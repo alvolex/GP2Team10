@@ -136,6 +136,13 @@ public class UpgradeSystem : MonoBehaviour
         kitchen = FindObjectOfType<Kitchen>();
 
     }
+
+
+    private void OnDestroy()
+    {
+        dayEnd.ScriptableEvent -= CheckMoney;
+    }
+
     public void CheckMoney()
     {
         if (currentMSUpgrade+1>movementSpeedUpgradeCost.Length || 

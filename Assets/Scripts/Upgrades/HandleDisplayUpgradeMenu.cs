@@ -20,6 +20,12 @@ public class HandleDisplayUpgradeMenu : MonoBehaviour
         dayEnd.ScriptableEvent += StartFadeIntoEvent;
         fadeToAndFrom = FindObjectOfType<FadeToAndFrom>();
     }
+
+    private void OnDestroy()
+    {
+        dayEnd.ScriptableEvent -= StartFadeIntoEvent;
+    }
+
     void StartFadeIntoEvent()
     {
         StartCoroutine(FadeInto());

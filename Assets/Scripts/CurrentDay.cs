@@ -35,13 +35,23 @@ public class CurrentDay : MonoBehaviour
         sunStartRotation = sun.transform.rotation;
         StartCoroutine(StartDay());
 
-        startNextDay.ScriptableEvent += delegate { StartCoroutine(StartDay()); };
+
+        startNextDay.ScriptableEvent += HandleStartCoroutine;
+        //startNextDay.ScriptableEvent += delegate { StartCoroutine(StartDay()); };
         RenderSettings.skybox.SetFloat("_Rotation", 0);
     }
 
     private void OnDestroy()
     {
+        startNextDay.ScriptableEvent -= HandleStartCoroutine;
+
+        //startNextDay.ScriptableEvent -= () => StartCoroutine(StartDay());
         RenderSettings.skybox.SetFloat("_Rotation", 0);
+    }
+
+    void HandleStartCoroutine()
+    {
+        StartCoroutine(StartDay());
     }
 
     private void Update()
