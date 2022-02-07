@@ -1261,6 +1261,8 @@ GameObject:
   - component: {fileID: 4862916305574732806}
   - component: {fileID: -1793767745350656034}
   - component: {fileID: 601780036648557986}
+  - component: {fileID: 5207444119124921871}
+  - component: {fileID: 6105297800109240703}
   m_Layer: 0
   m_Name: Customer
   m_TagString: Untagged
@@ -1562,6 +1564,32 @@ MonoBehaviour:
   reputationPopupUI: {fileID: 0}
   tmpMoneyText: {fileID: 684591620431312778}
   moneyEvent: {fileID: 11400000, guid: b24075274a6bb194481fb10afa671b3f, type: 2}
+--- !u!114 &5207444119124921871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3037402073341605548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44e776d9df050c14fa90433334e1ce1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+--- !u!114 &6105297800109240703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3037402073341605548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44e776d9df050c14fa90433334e1ce1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
 --- !u!1 &3918593502057357455
 GameObject:
   m_ObjectHideFlags: 0

@@ -785,6 +785,7 @@ GameObject:
   - component: {fileID: 9033726581846634678}
   - component: {fileID: 6429437496325983086}
   - component: {fileID: 3925803151371766034}
+  - component: {fileID: 3565455711830963628}
   m_Layer: 0
   m_Name: Customer 5
   m_TagString: Untagged
@@ -1086,6 +1087,19 @@ MonoBehaviour:
   reputationPopupUI: {fileID: 0}
   tmpMoneyText: {fileID: 4008936597864063802}
   moneyEvent: {fileID: 11400000, guid: b24075274a6bb194481fb10afa671b3f, type: 2}
+--- !u!114 &3565455711830963628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442761548992602652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44e776d9df050c14fa90433334e1ce1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
 --- !u!1 &1455770294269004391
 GameObject:
   m_ObjectHideFlags: 0
@@ -3699,11 +3713,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3667651029361460672, guid: 47e4140cc5023634280558997a18d461, type: 3}
   m_PrefabInstance: {fileID: 2139837052162762513}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &5061750680842765589 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6596868672568484356, guid: 47e4140cc5023634280558997a18d461, type: 3}
-  m_PrefabInstance: {fileID: 2139837052162762513}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4008936597864063802 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3031099494786745387, guid: 47e4140cc5023634280558997a18d461, type: 3}
@@ -3715,6 +3724,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &5061750680842765589 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6596868672568484356, guid: 47e4140cc5023634280558997a18d461, type: 3}
+  m_PrefabInstance: {fileID: 2139837052162762513}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8331002273831541252
 PrefabInstance:
   m_ObjectHideFlags: 0

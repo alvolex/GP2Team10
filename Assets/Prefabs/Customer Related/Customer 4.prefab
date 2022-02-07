@@ -166,6 +166,7 @@ GameObject:
   - component: {fileID: 6999356747065146752}
   - component: {fileID: 4991528530922931800}
   - component: {fileID: 3028612186024592420}
+  - component: {fileID: -7248028625578123709}
   m_Layer: 0
   m_Name: Customer 4
   m_TagString: Untagged
@@ -463,6 +464,19 @@ MonoBehaviour:
   reputationPopupUI: {fileID: 0}
   tmpMoneyText: {fileID: 3160982741415489036}
   moneyEvent: {fileID: 11400000, guid: b24075274a6bb194481fb10afa671b3f, type: 2}
+--- !u!114 &-7248028625578123709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610585651099610922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44e776d9df050c14fa90433334e1ce1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
 --- !u!1 &624622099817243330
 GameObject:
   m_ObjectHideFlags: 0

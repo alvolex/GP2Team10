@@ -2675,6 +2675,7 @@ GameObject:
   - component: {fileID: 2162255662894288573}
   - component: {fileID: 4208100592491083109}
   - component: {fileID: 6135203747846125337}
+  - component: {fileID: -5404366148468482727}
   m_Layer: 0
   m_Name: Customer 2
   m_TagString: Untagged
@@ -2972,6 +2973,19 @@ MonoBehaviour:
   reputationPopupUI: {fileID: 0}
   tmpMoneyText: {fileID: 6124126932085562673}
   moneyEvent: {fileID: 11400000, guid: b24075274a6bb194481fb10afa671b3f, type: 2}
+--- !u!114 &-5404366148468482727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8600302553123986455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44e776d9df050c14fa90433334e1ce1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
 --- !u!1 &8729313870087423127
 GameObject:
   m_ObjectHideFlags: 0
@@ -3380,6 +3394,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47e4140cc5023634280558997a18d461, type: 3}
+--- !u!1 &5479747411726441690 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3667651029361460672, guid: 47e4140cc5023634280558997a18d461, type: 3}
+  m_PrefabInstance: {fileID: 9146217180797180186}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6124126932085562673 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3031099494786745387, guid: 47e4140cc5023634280558997a18d461, type: 3}
@@ -3394,10 +3413,5 @@ MonoBehaviour:
 --- !u!224 &2693483573413247774 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6596868672568484356, guid: 47e4140cc5023634280558997a18d461, type: 3}
-  m_PrefabInstance: {fileID: 9146217180797180186}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &5479747411726441690 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3667651029361460672, guid: 47e4140cc5023634280558997a18d461, type: 3}
   m_PrefabInstance: {fileID: 9146217180797180186}
   m_PrefabAsset: {fileID: 0}
