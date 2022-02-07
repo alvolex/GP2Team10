@@ -1562,6 +1562,7 @@ MonoBehaviour:
   controlPoints: []
   foodPickedUp: {fileID: 11400000, guid: 4728e813aba0d834386f50f6e23f0db5, type: 2}
   destroyFoodWhenThrown: {fileID: 11400000, guid: 964e08ef323cdf84c8b0b432f719c743, type: 2}
+  destroyOrderEvent: {fileID: 11400000, guid: e9182be1f9c8d514c8614b226ce8ed82, type: 2}
 --- !u!1 &7351048171032696657
 GameObject:
   m_ObjectHideFlags: 0
@@ -1690,6 +1691,7 @@ MonoBehaviour:
   curAction: {fileID: 11400000, guid: add060246eb07f24e9273627e0cd9bce, type: 2}
   foodPickedUp: {fileID: 11400000, guid: 4728e813aba0d834386f50f6e23f0db5, type: 2}
   destroyFoodWhenThrown: {fileID: 0}
+  destroyFoodEvent: {fileID: 11400000, guid: e9182be1f9c8d514c8614b226ce8ed82, type: 2}
   tutorialEvent: {fileID: 11400000, guid: 0a5258619e3ddc44e9211bbaf30d158a, type: 2}
   foodAtTheCounterText: {fileID: 11400000, guid: 5c457545c57e82947b7b30816f9b266e, type: 2}
 --- !u!1 &7351048171264218078

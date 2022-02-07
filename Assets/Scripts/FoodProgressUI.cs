@@ -22,6 +22,7 @@ namespace DefaultNamespace
         [Header("Events")]
         [SerializeField] private ScriptableSimpleEvent foodPickedUp;
         [SerializeField] private ScriptableSimpleEvent destroyFoodWhenThrown;
+        [SerializeField] private ScriptableOrderEvent destroyOrderEvent;
         
 
         private Dictionary<GameObject, Image> combinedList = new Dictionary<GameObject, Image>();
@@ -145,7 +146,9 @@ namespace DefaultNamespace
             
             throwFood.ThrowFood();
             
-            destroyFoodWhenThrown.InvokeEvent();
+            //destroyFoodWhenThrown.InvokeEvent();
+            
+            destroyOrderEvent.InvokeEvent(currentOrder);
             FoodTakenFromCounter();
         }
     }
