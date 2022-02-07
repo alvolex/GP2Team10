@@ -36,6 +36,8 @@ public class Tutorial : MonoBehaviour
     private int tutorialsInQueue = 0;
     private int spotlightIndex = 0;
 
+    private bool checkingForInput = false;
+
     public ScriptableGameState GameState
     {
         get => gameState;
@@ -131,23 +133,30 @@ public class Tutorial : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
         }
         
-        StopAllCoroutines(); //todo is this breaking shit?
+        //StopAllCoroutines(); //todo is this breaking shit?
         
         StartCoroutine(TypeInTextCoroutine());
         tutorialsInQueue--;
 
         if (tutorialsInQueue > 0)
         {
+            yield return new WaitForSeconds(0.2f);
             StartCoroutine(WaitUntilLastTutorialIsFinished());
         }
     }
 
     IEnumerator TypeInTextCoroutine()
     {
+        Debug.Log("Starting text ");
+        
+        canvasToToggle.SetActive(true);
         isInTutorial = true;
         //StopCoroutine(CheckForPlayerInput()); //Stop it if it's already running
-        StartCoroutine(CheckForPlayerInput());
-        
+        if (!checkingForInput)
+        {
+            StartCoroutine(CheckForPlayerInput());
+        }
+
         currenText.text = "";
 
         if (textPromptsInOrder.Count == 0) yield break;
@@ -167,36 +176,32 @@ public class Tutorial : MonoBehaviour
 
         //Get all the text that will fit on one line, then write out each char separately
 
-        TMP_LineInfo[] tmpLineInfos;
+        TMP_TextInfo tmpLineInfos;
         try
         {
-            tmpLineInfos = currenTextHidden.GetTextInfo(currenTextHidden.text)?.lineInfo;
+            tmpLineInfos = currenTextHidden.GetTextInfo(currenTextHidden.text)/*?.lineInfo*/;
         }
         catch (Exception e)
         {
             Debug.Log(currenTextHidden.text + " <--- Getting lineinfo from this caused an error");
             Console.WriteLine(e);
-            throw;
+            yield break;
         }
         
         
         if (tmpLineInfos != null)
-            foreach (var line in tmpLineInfos)
+            foreach (var line in tmpLineInfos.lineInfo)
             {
-                /*if (!isInTutorial)
-            {
-                yield break;
-            }*/
-
                 //Fixes strange behaviour where firstcharindex sometimes gets a wrong(?) value.
                 if (line.firstCharacterIndex > currenTextHidden.text.Length)
                 {
-                    Debug.Log("Continue");
                     continue;
                 }
 
                 foreach (var c in currenTextHidden.text.Substring(line.firstCharacterIndex, line.characterCount))
                 {
+                    if (!isInTutorial) yield break;
+
                     yield return new WaitForSeconds(timeBetweenCharacters);
                     currenText.text += $"{c}";
                 }
@@ -225,10 +230,9 @@ public class Tutorial : MonoBehaviour
 
     IEnumerator CheckForPlayerInput()
     {
+        checkingForInput = true;
         while (true)
         {
-            yield return null;
-
             if (Input.GetKeyDown(KeyCode.E) && !allTextVisible)
             {
                 allTextVisible = true; //If the player spams space the prompt will close
@@ -239,16 +243,25 @@ public class Tutorial : MonoBehaviour
                 if (shouldShowNextPrompt)
                 {
                     //This code will only run the first time
-                    ShowTutorialText(true);
+                    StopCoroutine(TypeInTextCoroutine());
                     shouldShowNextPrompt = false;
                     isInTutorial = false;
+                    checkingForInput = false;
+                    
+                    yield return new WaitForSeconds(0.1f);
+
+                    ShowTutorialText(true);
                     yield break;
                 }
                 
                 isInTutorial = false;
                 canvasToToggle.SetActive(false);
+                checkingForInput = false;
+                StopCoroutine(TypeInTextCoroutine());
                 yield break;
             }
+
+            yield return null;
         }
     }
 }
