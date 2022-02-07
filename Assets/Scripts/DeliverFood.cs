@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DefaultNamespace;
+using Scriptables;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,11 @@ public class DeliverFood : MonoBehaviour
     [SerializeField] private Image foodSpriteRenderer;
 
     [SerializeField] private ScriptablePlayerCurrentAction currentAction;
+    
+    
+    [Header("Tutorial")]
+    [SerializeField] private ScriptableTutorialEvent tutorialEvent;
+    [SerializeField] private ScriptableTutorialText orderDeliveredText;
     
 
     private AlienEatFood customerEatFood;
@@ -44,17 +50,9 @@ public class DeliverFood : MonoBehaviour
     private void FoodDelivered()
     {
         //Tutorial food is delivered
-        if (Tutorial.instance != null)
-        {
-            if (Tutorial.instance.GameState.alienReceivedFoodTutorial)
-            {
-                Tutorial.instance.ShowTutorialText(true);
-                Tutorial.instance.TurnOnAndMoveSpotlight();
-                Tutorial.instance.GameState.alienReceivedFoodTutorial = false;
-            }
-        }
-        
-        
+        tutorialEvent.InvokeEvent(orderDeliveredText);
+
+
         curOrder = null;
         plate.SetActive(false);
         currentAction.CurrentAction = CurrentAction.None;

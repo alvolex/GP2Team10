@@ -1530,6 +1530,9 @@ MonoBehaviour:
   foodThatIsCurrentlyCooked: {fileID: 7351048171273338067}
   imgWhenNoFoodIsBeingCooked: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   foodPickupStation: {fileID: 1512173361}
+  tutorialEvent: {fileID: 11400000, guid: 0a5258619e3ddc44e9211bbaf30d158a, type: 2}
+  orderLeftAtKitchenText: {fileID: 11400000, guid: 6fc20d944ff298246a3a5817315297db, type: 2}
+  foodIsReadyText: {fileID: 11400000, guid: a1f4bd76b9cc00c4a8c16f44ade85d2a, type: 2}
 --- !u!114 &211719584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1555,7 +1558,10 @@ MonoBehaviour:
   - {fileID: 1636848342}
   - {fileID: 737974564}
   hazManager: {fileID: 0}
+  throwFood: {fileID: 0}
+  controlPoints: []
   foodPickedUp: {fileID: 11400000, guid: 4728e813aba0d834386f50f6e23f0db5, type: 2}
+  destroyFoodWhenThrown: {fileID: 11400000, guid: 964e08ef323cdf84c8b0b432f719c743, type: 2}
 --- !u!1 &7351048171032696657
 GameObject:
   m_ObjectHideFlags: 0
@@ -1683,6 +1689,9 @@ MonoBehaviour:
   canvas: {fileID: 6648901600415692824}
   curAction: {fileID: 11400000, guid: add060246eb07f24e9273627e0cd9bce, type: 2}
   foodPickedUp: {fileID: 11400000, guid: 4728e813aba0d834386f50f6e23f0db5, type: 2}
+  destroyFoodWhenThrown: {fileID: 0}
+  tutorialEvent: {fileID: 11400000, guid: 0a5258619e3ddc44e9211bbaf30d158a, type: 2}
+  foodAtTheCounterText: {fileID: 11400000, guid: 5c457545c57e82947b7b30816f9b266e, type: 2}
 --- !u!1 &7351048171264218078
 GameObject:
   m_ObjectHideFlags: 0

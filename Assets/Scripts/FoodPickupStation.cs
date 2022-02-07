@@ -15,6 +15,10 @@ public class FoodPickupStation : MonoBehaviour
     [Header("Events")] 
     [SerializeField] private ScriptableSimpleEvent foodPickedUp;
     [SerializeField] private ScriptableSimpleEvent destroyFoodWhenThrown;
+    
+    [Header("Tutorial")]
+    [SerializeField] private ScriptableTutorialEvent tutorialEvent;
+    [SerializeField] private ScriptableTutorialText foodAtTheCounterText;
 
     private Queue<Order> foodDisplayQueue = new Queue<Order>();
     private List<Image> spriteRenderers = new List<Image>();
@@ -108,15 +112,7 @@ public class FoodPickupStation : MonoBehaviour
         foodToPickup.HasBeenPickedUp = true;
         
         //Tutorial Stuff
-        if (Tutorial.instance != null)
-        {
-            if (Tutorial.instance.GameState.foodPickedUpFromCounter)
-            {
-                Tutorial.instance.ShowTutorialText(true);
-                Tutorial.instance.TurnOnAndMoveSpotlight();
-                Tutorial.instance.GameState.foodPickedUpFromCounter = false;
-            }
-        }
+        tutorialEvent.InvokeEvent(foodAtTheCounterText);
 
         //Debug.Log("Food has been picked up: " + foodToPickup.GetFood());
 

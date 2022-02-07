@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DefaultNamespace;
+using Scriptables;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +13,11 @@ public class Kitchen : MonoBehaviour
 
     //todo should create a scriptable event for this instead of directly referencing the other script
     [SerializeField] private FoodPickupStation foodPickupStation;
+    
+    [Header("Tutorial")]
+    [SerializeField] private ScriptableTutorialEvent tutorialEvent;
+    [SerializeField] private ScriptableTutorialText orderLeftAtKitchenText;
+    [SerializeField] private ScriptableTutorialText foodIsReadyText;
     
     private int amountOfChefs = 1;
 
@@ -85,15 +91,7 @@ public class Kitchen : MonoBehaviour
         isCooking = true; //Make sure we can't start the co-routine again if it's already running
         
         //Tutorial started cooking food
-        if (Tutorial.instance != null)
-        {
-            if (Tutorial.instance.GameState.hasLeftOrderAtKitchenTutorial)
-            {
-                Tutorial.instance.ShowTutorialText(true);
-                Tutorial.instance.TurnOnAndMoveSpotlight();
-                Tutorial.instance.GameState.hasLeftOrderAtKitchenTutorial = false;
-            }
-        }
+        tutorialEvent.InvokeEvent(orderLeftAtKitchenText);
         
         while (ordersToCook.Count != 0)
         {
@@ -109,15 +107,7 @@ public class Kitchen : MonoBehaviour
                 foodPickupStation.FoodIsReady(currentlyCooking);
                 
                 //Tutorial food is ready
-                if (Tutorial.instance != null)
-                {
-                    if (Tutorial.instance.GameState.foodReadyToDeliverTutorial)
-                    {
-                        Tutorial.instance.ShowTutorialText(true);
-                        Tutorial.instance.TurnOnAndMoveSpotlight();
-                        Tutorial.instance.GameState.foodReadyToDeliverTutorial = false;
-                    }
-                }
+                tutorialEvent.InvokeEvent(foodIsReadyText);
                 
             }
             else
