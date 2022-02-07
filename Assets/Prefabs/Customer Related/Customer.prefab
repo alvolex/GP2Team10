@@ -1307,6 +1307,8 @@ MonoBehaviour:
   restaurantExit: {fileID: 0}
   leaveWhenCustomersStopSpawning: {fileID: 11400000, guid: 2a13d75055a79b64d89a7fc48faa69ad, type: 2}
   timeOffsetBeforeLeaving: 15
+  tutorialEvent: {fileID: 0}
+  hasBeenSeatedText: {fileID: 0}
   meshRenderer: {fileID: 2216856844443286747}
   customerAnimator: {fileID: 1796380922555905665}
 --- !u!114 &4031241071056332896
@@ -1335,6 +1337,9 @@ MonoBehaviour:
   - {fileID: 7844477255312307549}
   - {fileID: 477051653615855064}
   getSprite: {fileID: 11400000, guid: 19578c246d9a2664b889185b22d62f9c, type: 2}
+  tutorialEvent: {fileID: 11400000, guid: 0a5258619e3ddc44e9211bbaf30d158a, type: 2}
+  howToTakeOrderText: {fileID: 11400000, guid: b47380d9a275d624eb2eed1f41301e25, type: 2}
+  orderTakenText: {fileID: 11400000, guid: b5a9fdbf68f31e749ba0ad4a0f255f5d, type: 2}
 --- !u!33 &505479031458704922
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1533,6 +1538,7 @@ MonoBehaviour:
   maxWaitingToOrderTime: 45
   maxWaitingForOrderTime: 45
   moneyPopupEvent: {fileID: 11400000, guid: b24075274a6bb194481fb10afa671b3f, type: 2}
+  reputationPopupEvent: {fileID: 0}
   customerStateChange: {fileID: 11400000, guid: 6efcacfcb09cf36479ea6996e13ad590, type: 2}
 --- !u!114 &-1793767745350656034
 MonoBehaviour:
