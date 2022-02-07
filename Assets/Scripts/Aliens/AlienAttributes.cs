@@ -60,6 +60,7 @@ public class AlienAttributes : MonoBehaviour
 
     [Header("Alex's Stupid Over head pop-up Event :^)")] 
     [SerializeField] private ScriptableMoneyPopupEvent moneyPopupEvent;
+    [SerializeField] private ScriptableMoneyPopupEvent reputationPopupEvent;
     [SerializeField] private ScriptableSimpleEvent customerStateChange;
 
 
@@ -185,6 +186,8 @@ public class AlienAttributes : MonoBehaviour
         AudioManager.Instance.PlayGetMoneySFX();
         
         moneyPopupEvent.InvokeEvent(maxTip, GetComponent<Customer>());
+       // reputationPopupEvent.InvokeEvent(maxRep, GetComponent<Customer>());
+        
     }
 
     IEnumerator CustomerWaitTimer(float timeToWwait)

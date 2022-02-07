@@ -9997,6 +9997,14 @@ PrefabInstance:
       propertyPath: m_Transition
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3972550730463313608, guid: 9a3d6304acd430d4c810bcfff62de4de, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3972550730463313608, guid: 9a3d6304acd430d4c810bcfff62de4de, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3972550730463313609, guid: 9a3d6304acd430d4c810bcfff62de4de, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -10100,6 +10108,10 @@ PrefabInstance:
     - target: {fileID: 3972550730463313611, guid: 9a3d6304acd430d4c810bcfff62de4de, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3972550731704550712, guid: 9a3d6304acd430d4c810bcfff62de4de, type: 3}
+      propertyPath: m_text
+      value: Load Game
       objectReference: {fileID: 0}
     - target: {fileID: 3972550731704550712, guid: 9a3d6304acd430d4c810bcfff62de4de, type: 3}
       propertyPath: m_fontSize
