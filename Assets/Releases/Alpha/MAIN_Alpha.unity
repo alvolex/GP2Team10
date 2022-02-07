@@ -3217,8 +3217,60 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 831564702498186222}
     - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
+      propertyPath: storageSlotUpgradeCost.Array.data[0]
+      value: 1700
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
+      propertyPath: storageSlotUpgradeCost.Array.data[1]
+      value: 1700
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
+      propertyPath: storageSlotUpgradeCost.Array.data[2]
+      value: 1700
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
+      propertyPath: extraSeatingUpgradeCost.Array.data[0]
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
+      propertyPath: extraSeatingUpgradeCost.Array.data[1]
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
+      propertyPath: extraSeatingUpgradeCost.Array.data[2]
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
+      propertyPath: movementSpeedUpgradeCost.Array.data[1]
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
+      propertyPath: movementSpeedUpgradeCost.Array.data[2]
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
+      propertyPath: cookingStationUpgradeCost.Array.data[0]
+      value: 2500
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
+      propertyPath: cookingStationUpgradeCost.Array.data[1]
+      value: 2500
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
+      propertyPath: cookingStationUpgradeCost.Array.data[2]
+      value: 2500
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
       propertyPath: alienMovementSpeedUpgradeCost.Array.data[0]
-      value: 1000
+      value: 1200
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
+      propertyPath: alienMovementSpeedUpgradeCost.Array.data[1]
+      value: 1200
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780002728581216193, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
+      propertyPath: alienMovementSpeedUpgradeCost.Array.data[2]
+      value: 1200
       objectReference: {fileID: 0}
     - target: {fileID: 2780002728581216194, guid: 5b37489a20c280c4d913a80ae7e33d84, type: 3}
       propertyPath: m_Name
