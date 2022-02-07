@@ -174,7 +174,7 @@ public class Tutorial : MonoBehaviour
         }
         catch (Exception e)
         {
-            Debug.Log(currenTextHidden.GetTextInfo(currenTextHidden.text) + " <--- Getting lineinfo from this caused an error");
+            Debug.Log(currenTextHidden + " <--- Getting lineinfo from this caused an error");
             Console.WriteLine(e);
             throw;
         }
