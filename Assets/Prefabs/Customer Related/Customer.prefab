@@ -1307,8 +1307,8 @@ MonoBehaviour:
   restaurantExit: {fileID: 0}
   leaveWhenCustomersStopSpawning: {fileID: 11400000, guid: 2a13d75055a79b64d89a7fc48faa69ad, type: 2}
   timeOffsetBeforeLeaving: 15
-  tutorialEvent: {fileID: 0}
-  hasBeenSeatedText: {fileID: 0}
+  tutorialEvent: {fileID: 11400000, guid: 0a5258619e3ddc44e9211bbaf30d158a, type: 2}
+  hasBeenSeatedText: {fileID: 11400000, guid: acaf578968bf68c43ba5b64c3b7a5f6b, type: 2}
   meshRenderer: {fileID: 2216856844443286747}
   customerAnimator: {fileID: 1796380922555905665}
 --- !u!114 &4031241071056332896
@@ -1565,7 +1565,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyPopupUI: {fileID: 1258357729656485473}
-  reputationPopupUI: {fileID: 0}
   tmpMoneyText: {fileID: 684591620431312778}
   moneyEvent: {fileID: 11400000, guid: b24075274a6bb194481fb10afa671b3f, type: 2}
 --- !u!1 &3918593502057357455
