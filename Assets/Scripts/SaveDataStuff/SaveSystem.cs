@@ -6,7 +6,7 @@ using UnityEngine;
 
 public static class SaveSystem
 {
-    public static void SavePlayerStats(Player player)
+   /* public static void SavePlayerStats(Player player)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/player.save";
@@ -37,6 +37,6 @@ public static class SaveSystem
             return null;
         }
     } 
-    
+    */
     
 }

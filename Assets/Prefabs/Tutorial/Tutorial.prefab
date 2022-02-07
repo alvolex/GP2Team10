@@ -1026,7 +1026,9 @@ MonoBehaviour:
   tutText: {fileID: 11400000, guid: cc1caec09a412ba4bae14fa525083fba, type: 2}
   spotLightTutorial: {fileID: 0}
   spotlightPositions: []
-  showNextPrompt: {fileID: 11400000, guid: b0ed8539653cd884e8afde4ebfdaf3fe, type: 2}
+  tutorialEvent: {fileID: 11400000, guid: 0a5258619e3ddc44e9211bbaf30d158a, type: 2}
+  startText: {fileID: 11400000, guid: 9df812ae32227024b87e93555f2ebf88, type: 2}
+  howToSeatCustomers: {fileID: 11400000, guid: 6e4ae652e3176094eb58315ccc687c28, type: 2}
 --- !u!1 &8614029400965437646
 GameObject:
   m_ObjectHideFlags: 0

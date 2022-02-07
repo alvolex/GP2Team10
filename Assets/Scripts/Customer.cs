@@ -25,6 +25,11 @@ public class Customer : MonoBehaviour
     [Header("Event")] 
     [SerializeField] private ScriptableSimpleEvent leaveWhenCustomersStopSpawning;
     [SerializeField, Tooltip("Tied to the above event. When the event is called we will start leaving after this many seconds ->")] private float timeOffsetBeforeLeaving = 5;
+    
+    [Header("Tutorial")]
+    [SerializeField] private ScriptableTutorialEvent tutorialEvent;
+    [SerializeField] private ScriptableTutorialText hasBeenSeatedText;
+    
 
     private Camera cam;
     private NavMeshAgent nmagent;
@@ -130,14 +135,7 @@ public class Customer : MonoBehaviour
         attributes.ChangeCustomerState();
         
         //Show tutorial if it hasn't been shown before
-        if (Tutorial.instance != null)
-        {
-            if (Tutorial.instance.GameState.hasBeenSeatedTutorial)
-            {
-                Tutorial.instance.ShowTutorialText(Tutorial.instance.GameState.hasBeenSeatedTutorial);
-                Tutorial.instance.GameState.hasBeenSeatedTutorial = false;
-            }
-        }
+        tutorialEvent.InvokeEvent(hasBeenSeatedText);
 
         //Start the food ordering process
         orderFood.Order();
@@ -216,7 +214,11 @@ public class Customer : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        closeToHost = false;
+        if (other.GetComponent<PlayerMovement>())
+        {
+            closeToHost = false;
+        }
+
         GetComponentInParent<SelectGroupOfCustomers>().UnhighlightGroup();
     }
 

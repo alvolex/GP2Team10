@@ -9,7 +9,7 @@ using Variables;
 public class Player : MonoBehaviour
 {
     
-    public static bool loadGame = false;
+    /*public static bool loadGame = false;
 
     
     public IntVariable tipsReference;
@@ -101,5 +101,5 @@ public class Player : MonoBehaviour
         {
             LoadPlayer();
         }
-    }
+    }*/
 }

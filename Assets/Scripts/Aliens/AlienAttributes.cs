@@ -186,7 +186,7 @@ public class AlienAttributes : MonoBehaviour
         AudioManager.Instance.PlayGetMoneySFX();
         
         moneyPopupEvent.InvokeEvent(maxTip, GetComponent<Customer>());
-       // reputationPopupEvent.InvokeEvent(maxRep, GetComponent<Customer>());
+        //reputationPopupEvent.InvokeEvent(maxRep, GetComponent<Customer>());
         
     }
 
