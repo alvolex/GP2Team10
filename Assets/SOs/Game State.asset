@@ -13,8 +13,18 @@ MonoBehaviour:
   m_Name: Game State
   m_EditorClassIdentifier: 
   shouldShowTutorial: 1
+  tutorialTextList:
+  - {fileID: 11400000, guid: 16e9112df8c3b2a42b15fea3ad827aef, type: 2}
+  - {fileID: 11400000, guid: acaf578968bf68c43ba5b64c3b7a5f6b, type: 2}
+  - {fileID: 11400000, guid: 5c457545c57e82947b7b30816f9b266e, type: 2}
+  - {fileID: 11400000, guid: 6e4ae652e3176094eb58315ccc687c28, type: 2}
+  - {fileID: 11400000, guid: a1f4bd76b9cc00c4a8c16f44ade85d2a, type: 2}
+  - {fileID: 11400000, guid: 6fc20d944ff298246a3a5817315297db, type: 2}
+  - {fileID: 11400000, guid: b5a9fdbf68f31e749ba0ad4a0f255f5d, type: 2}
+  - {fileID: 11400000, guid: 9df812ae32227024b87e93555f2ebf88, type: 2}
+  - {fileID: 11400000, guid: b47380d9a275d624eb2eed1f41301e25, type: 2}
   hasBeenSeatedTutorial: 1
-  hasStartedSeatingCustomer: 1
+  hasStartedSeatingCustomer: 0
   howToTakeOrderTutorial: 1
   hasTakenOrderTutorial: 1
   hasLeftOrderAtKitchenTutorial: 1

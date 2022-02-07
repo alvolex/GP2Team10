@@ -214,7 +214,11 @@ public class Customer : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        closeToHost = false;
+        if (other.GetComponent<PlayerMovement>())
+        {
+            closeToHost = false;
+        }
+
         GetComponentInParent<SelectGroupOfCustomers>().UnhighlightGroup();
     }
 

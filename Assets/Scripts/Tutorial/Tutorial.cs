@@ -63,16 +63,14 @@ public class Tutorial : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
     #endregion
-    
-    
+
 
     private void Start()
     {
         if (!gameState.shouldShowTutorial) return;
         timeBetweenCharactersAtStart = timeBetweenCharacters;
-        gameState.ResetAll(); //Todo this needs to be called from a Tutorial start button
+        gameState.ResetTutorial(); //Todo this needs to be called from a Tutorial start button
         
         //AddStringToList();
         

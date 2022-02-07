@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Scriptables
@@ -7,6 +8,8 @@ namespace Scriptables
     public class ScriptableGameState : ScriptableObject
     {
         public bool shouldShowTutorial = true;
+        [SerializeField] private List<ScriptableTutorialText> tutorialTextList = new List<ScriptableTutorialText>();
+        
         
         //Tutorial pop-up checks
         public bool hasBeenSeatedTutorial;
@@ -42,6 +45,17 @@ namespace Scriptables
             foodReadyToDeliverTutorial = true;
             foodPickedUpFromCounter = true;
             alienReceivedFoodTutorial = true;
+        }
+
+
+        public void ResetTutorial()
+        {
+            ResetAll();
+            if (!shouldShowTutorial) return;
+            foreach (var tut in tutorialTextList)
+            {
+                tut.hasBeenPlayed = false;
+            }
         }
     }
 }
