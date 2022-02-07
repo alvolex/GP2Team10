@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
+    path: Assets/Releases/Alpha/MAIN_MENU.unity
+    guid: e2641c65c5263184d9c8ffaa00831c3f
+  - enabled: 1
     path: Assets/Releases/Alpha/MAIN_Tutorial.unity
     guid: 1a705f5ccf3d65c469a7eef075266e30
   - enabled: 1
