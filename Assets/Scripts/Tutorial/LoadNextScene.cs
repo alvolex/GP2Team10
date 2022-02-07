@@ -8,6 +8,8 @@ public class LoadNextScene : MonoBehaviour
 
     public void LoadScene()
     {
+        Destroy(Tutorial.instance);
         SceneManager.LoadScene("MAIN_Alpha");
+        
     }
 }
