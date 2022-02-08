@@ -63,6 +63,8 @@ public class AlienAttributes : MonoBehaviour
     [SerializeField] private ScriptableMoneyPopupEvent reputationPopupEvent;
     [SerializeField] private ScriptableSimpleEvent customerStateChange;
 
+    private NegativeReputationPrompt promptPos;
+
 
     enum customerState
     {
@@ -81,6 +83,8 @@ public class AlienAttributes : MonoBehaviour
         currentCustomerState = customerState.WaitingToBeSeated;
         
         StartCoroutine(CustomerWaitTimer(maxWaitingToBeSeatedTime, customerState.WaitingToBeSeated));
+
+        promptPos = FindObjectOfType<NegativeReputationPrompt>();
     }
     private void OnDestroy()
     {
@@ -139,6 +143,11 @@ public class AlienAttributes : MonoBehaviour
                     //TODO separate the allergy killing from the allergy just making them sick
                     Debug.Log("Allergy spotted, killed customer");
                     CustomerIsAllergic();
+                    
+                    //promptPos.HandleMoneyPopup(transform.position);
+                    Debug.Log(promptPos);
+                    //POSITION HERE
+                    
                     Destroy(gameObject);
                     AudioManager.Instance.PlayAlienExplodeSFX();
                     reputationReference.ApplyChange(-negativeRepFromKilling);
