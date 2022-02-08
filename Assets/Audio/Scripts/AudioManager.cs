@@ -30,6 +30,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource alienSquidThingTalkSource;
     [SerializeField] private AudioSource alienSquidThingTalk1Source;
     [SerializeField] private AudioSource garbageCanSource;
+    [SerializeField] private AudioSource plateDestroySource;
+    [SerializeField] private AudioSource platePunchAwaySource;
 
     [Header("Volume Control")]
     [Range(0, 1)]public float SFXVolume;
@@ -187,6 +189,14 @@ public class AudioManager : MonoBehaviour
     public void PlayGarbageCanSFX()
     {
         PlaySound(garbageCanSource, garbageCanSource.clip);
+    }
+    public void PlayPlateDestroySFX()
+    {
+        PlaySound(plateDestroySource, plateDestroySource.clip);
+    }
+    public void PlayPlatePunchAwaySFX()
+    {
+        PlaySound(platePunchAwaySource, platePunchAwaySource.clip);
     }
 
     public void PlaySound(AudioSource source, AudioClip clip)

@@ -28,6 +28,7 @@ public class KitchenThrowFood : MonoBehaviour
 
     IEnumerator StartThrowFood()
     {
+        AudioManager.Instance.PlayPlatePunchAwaySFX(); Debug.Log("gamer time");
         t = 0;
         float startTime = Time.time;
 
@@ -44,6 +45,7 @@ public class KitchenThrowFood : MonoBehaviour
         //hazardInstance.GetComponent<Renderer>().sharedMaterial.SetFloat(Alpha, 0.8f);
         hazardInstance.transform.position = foodInstance.transform.position;
         Destroy(foodInstance);
+        AudioManager.Instance.PlayPlateDestroySFX(); Debug.Log("yike");
         Destroy(hazardInstance, 7f);
     }
 
