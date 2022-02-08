@@ -116,10 +116,9 @@ public class Table : MonoBehaviour
 
     private void HandleCustomerFinishedEating(Customer customer)
     {
-        emptyChairs++;
-
         if (customerChairDictionary.ContainsKey(customer))
         {
+            emptyChairs++;
             availableSeats[customerChairDictionary[customer]] = true;
             customerChairDictionary.Remove(customer);
         }
