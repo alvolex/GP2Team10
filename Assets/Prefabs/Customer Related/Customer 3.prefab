@@ -798,7 +798,6 @@ MonoBehaviour:
   moneyPopupEvent: {fileID: 11400000, guid: b24075274a6bb194481fb10afa671b3f, type: 2}
   reputationPopupEvent: {fileID: 0}
   customerStateChange: {fileID: 11400000, guid: 6efcacfcb09cf36479ea6996e13ad590, type: 2}
-  promptPos: {fileID: 6842482021965063363, guid: ae7466667ccf1b84db257347dc6b1c33, type: 3}
 --- !u!114 &4692561511602829827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -833,7 +832,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 874568589764203377}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
