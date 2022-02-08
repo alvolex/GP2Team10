@@ -23,7 +23,8 @@ public class SelectGroupOfCustomers : MonoBehaviour
         foreach (var customer in customersInGroup)
         {
             if (customer == null) continue; //If the poor fella has died from being poisoned :(
-            customer.HighlightCustomer();
+            //customer.HighlightCustomer();
+            customer.GetComponent<Outline>().OutlineOn();
         }
 
         scriptableTableSeater.IsHighlighting = true;
@@ -34,7 +35,8 @@ public class SelectGroupOfCustomers : MonoBehaviour
         foreach (var customer in customersInGroup)
         {
             if (customer == null) continue; //If the poor fella has died from being poisoned :(
-            customer.UnhighlightCustomer();
+            //customer.UnhighlightCustomer();
+            customer.GetComponent<Outline>().OutlineOff();
         }
 
         scriptableTableSeater.IsHighlighting = false;

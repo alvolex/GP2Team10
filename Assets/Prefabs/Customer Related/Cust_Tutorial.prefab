@@ -561,6 +561,7 @@ GameObject:
   - component: {fileID: 9033726581846634678}
   - component: {fileID: 6429437496325983086}
   - component: {fileID: 3925803151371766034}
+  - component: {fileID: 659497700284038529}
   m_Layer: 0
   m_Name: Cust_Tutorial
   m_TagString: Untagged
@@ -865,9 +866,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyPopupUI: {fileID: 3410394093754180305}
-  reputationPopupUI: {fileID: 0}
   tmpMoneyText: {fileID: 4008936597864063802}
   moneyEvent: {fileID: 11400000, guid: b24075274a6bb194481fb10afa671b3f, type: 2}
+--- !u!114 &659497700284038529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442761548992602652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 2
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1826813529105312070
 GameObject:
   m_ObjectHideFlags: 0
@@ -3700,11 +3718,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47e4140cc5023634280558997a18d461, type: 3}
---- !u!1 &3410394093754180305 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3667651029361460672, guid: 47e4140cc5023634280558997a18d461, type: 3}
-  m_PrefabInstance: {fileID: 2139837052162762513}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &5061750680842765589 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6596868672568484356, guid: 47e4140cc5023634280558997a18d461, type: 3}
@@ -3721,6 +3734,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &3410394093754180305 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3667651029361460672, guid: 47e4140cc5023634280558997a18d461, type: 3}
+  m_PrefabInstance: {fileID: 2139837052162762513}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8331002273831541252
 PrefabInstance:
   m_ObjectHideFlags: 0

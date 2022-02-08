@@ -136,11 +136,11 @@ public class Outline : MonoBehaviour {
       UpdateMaterialProperties();
     }
 
-    if (Input.GetKeyDown(KeyCode.Space))
+    /*if (Input.GetKeyDown(KeyCode.Space))
     {
             if (OutlineMode == Mode.OutlineVisible) OutlineMode = Mode.OutlineHidden;
             else if (OutlineMode == Mode.OutlineHidden) OutlineMode = Mode.OutlineVisible;
-    }
+    }*/
   }
 
   void OnDisable() {
@@ -163,6 +163,17 @@ public class Outline : MonoBehaviour {
     Destroy(outlineFillMaterial);
   }
 
+  public void OutlineOff()
+  {
+    enabled = false;
+  }
+  
+  public void OutlineOn()
+  {
+    enabled = true;
+    OutlineMode = Mode.OutlineAll;
+  }
+  
   void Bake() {
 
     // Generate smooth normals for each mesh
@@ -202,11 +213,11 @@ public class Outline : MonoBehaviour {
     }
 
     // Clear UV3 on skinned mesh renderers
-    foreach (var skinnedMeshRenderer in GetComponentsInChildren<SkinnedMeshRenderer>()) {
+    /*foreach (var skinnedMeshRenderer in GetComponentsInChildren<SkinnedMeshRenderer>()) {
       if (registeredMeshes.Add(skinnedMeshRenderer.sharedMesh)) {
         skinnedMeshRenderer.sharedMesh.uv4 = new Vector2[skinnedMeshRenderer.sharedMesh.vertexCount];
       }
-    }
+    }*/
   }
 
   List<Vector3> SmoothNormals(Mesh mesh) {
