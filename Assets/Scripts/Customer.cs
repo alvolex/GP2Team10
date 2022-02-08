@@ -49,6 +49,7 @@ public class Customer : MonoBehaviour
     private bool isSeated = false;
     private Vector3 chairPos;
     public bool hasEaten;
+    private bool hasChangedState = false;
 
     public bool IsSeated => isSeated;
     public event Action<Customer> OnFinishedEating;
@@ -125,8 +126,12 @@ public class Customer : MonoBehaviour
         rb.angularVelocity = Vector3.zero;
         
         //Customer state is now sitting
-        attributes.ChangeCustomerState();
-        
+        if (!hasChangedState)
+        {
+            attributes.ChangeCustomerState();
+            hasChangedState = true;
+        }
+
         if (nmagent.pathPending ||
             nmagent.pathStatus == NavMeshPathStatus.PathInvalid ||
             nmagent.path.corners.Length == 0 || nmagent.remainingDistance >= 0.7f) return;

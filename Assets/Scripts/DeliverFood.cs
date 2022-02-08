@@ -64,6 +64,7 @@ public class DeliverFood : MonoBehaviour
 
             closeAlienList.Remove(closestAlien);
             closestAlien.DeliverFood(curOrder);
+            closestAlien.GetComponent<AlienAttributes>().ChangeCustomerState();
             //customerEatFood.DeliverFood(curOrder);
             FoodDelivered();
         }

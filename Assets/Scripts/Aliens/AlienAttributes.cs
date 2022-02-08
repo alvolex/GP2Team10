@@ -85,23 +85,22 @@ public class AlienAttributes : MonoBehaviour
     
     private void Start()
     {
-        customerStateChange.ScriptableEvent += ChangeCustomerState;
+        //customerStateChange.ScriptableEvent += ChangeCustomerState;
         currentCustomerState = customerState.WaitingToBeSeated;
 
         customer = GetComponent<Customer>();
-        
         StartCoroutine(CustomerWaitTimer(maxWaitingToBeSeatedTime, customerState.WaitingToBeSeated));
-
         promptPos = FindObjectOfType<NegativeReputationPrompt>();
     }
     private void OnDestroy()
     {
-        customerStateChange.ScriptableEvent -= ChangeCustomerState;
+        //customerStateChange.ScriptableEvent -= ChangeCustomerState;
     }
     
     public void ChangeCustomerState()
     {
         //StopAllCoroutines();
+        Debug.Log("State changed");
         
         switch (currentCustomerState)
         {
@@ -114,6 +113,7 @@ public class AlienAttributes : MonoBehaviour
                 StartCoroutine(CustomerWaitTimer(maxWaitingForOrderTime, customerState.WaitingForFood));
                 break;
         }
+        Debug.Log("New state: " + currentCustomerState);
     }
     private void Update()
     {

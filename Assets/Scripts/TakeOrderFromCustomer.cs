@@ -60,6 +60,7 @@ public class TakeOrderFromCustomer : MonoBehaviour
 
             of = closestOf;
             of.StartOrderProcess();
+            of.GetComponent<AlienAttributes>().ChangeCustomerState();
             
             //If another customer is close by, make it so that we can take their order by pressing space again
             ofList.Remove(of);
