@@ -522,6 +522,7 @@ GameObject:
   - component: {fileID: 7311768770663350747}
   - component: {fileID: 4692561511602829827}
   - component: {fileID: 3341074615287445631}
+  - component: {fileID: -1811435602183679726}
   m_Layer: 0
   m_Name: Customer 3
   m_TagString: Untagged
@@ -822,9 +823,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyPopupUI: {fileID: 3995405182515614652}
-  reputationPopupUI: {fileID: 0}
   tmpMoneyText: {fileID: 3423925507720729175}
   moneyEvent: {fileID: 11400000, guid: b24075274a6bb194481fb10afa671b3f, type: 2}
+--- !u!114 &-1811435602183679726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874568589764203377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 2
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1181551065722242386
 GameObject:
   m_ObjectHideFlags: 0
@@ -3319,6 +3337,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3667651029361460672, guid: 47e4140cc5023634280558997a18d461, type: 3}
   m_PrefabInstance: {fileID: 402116646228366972}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &6780261523675575416 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6596868672568484356, guid: 47e4140cc5023634280558997a18d461, type: 3}
+  m_PrefabInstance: {fileID: 402116646228366972}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &3423925507720729175 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3031099494786745387, guid: 47e4140cc5023634280558997a18d461, type: 3}
@@ -3330,11 +3353,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &6780261523675575416 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6596868672568484356, guid: 47e4140cc5023634280558997a18d461, type: 3}
-  m_PrefabInstance: {fileID: 402116646228366972}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7762810400179268457
 PrefabInstance:
   m_ObjectHideFlags: 0
