@@ -16,8 +16,9 @@ public class AlienAttributes : MonoBehaviour
     [SerializeField] private IntVariable tips;
 
     [Header("Reputation: ")]
-    [SerializeField] private IntReference reputationReference;
-    [SerializeField] private ScriptableEventIntReference onReputationChanged;
+    [SerializeField]
+    public IntReference reputationReference;
+    [SerializeField] public ScriptableEventIntReference onReputationChanged;
     
     [Header("Tips: ")]
     [SerializeField] private IntReference tipsReference;
@@ -50,7 +51,11 @@ public class AlienAttributes : MonoBehaviour
     [SerializeField] private int maxTip;
     
     [Header("Negative rep from killing, put this without the minus sign")]
-    [SerializeField] private int negativeRepFromKilling;
+    [SerializeField]
+    public int negativeRepFromKilling;
+    
+    [Header("Negative rep from customer leaving")]
+    [SerializeField] public int negativeRepFromLeaving;
     
     
     [Header("Waiting Times")]
@@ -64,6 +69,7 @@ public class AlienAttributes : MonoBehaviour
     [SerializeField] private ScriptableSimpleEvent customerStateChange;
 
     private NegativeReputationPrompt promptPos;
+    private Customer customer;
 
 
     enum customerState
@@ -81,6 +87,8 @@ public class AlienAttributes : MonoBehaviour
     {
         customerStateChange.ScriptableEvent += ChangeCustomerState;
         currentCustomerState = customerState.WaitingToBeSeated;
+
+        customer = GetComponent<Customer>();
         
         StartCoroutine(CustomerWaitTimer(maxWaitingToBeSeatedTime, customerState.WaitingToBeSeated));
 
@@ -164,8 +172,17 @@ public class AlienAttributes : MonoBehaviour
         allergensFedReference.ApplyChange(+1);
         onAllergenFed.Raise(allergensFedReference.GetValue());
     }
+
+    private void CustomerHasLeftTheArea()
+    {
+        reputationReference.ApplyChange(-negativeRepFromKilling);
+        onReputationChanged.Raise(reputationReference.GetValue());
+    }
     void FoodIsEdible(ScriptableFood foodToCheck)
     {
+
+        customer.hasEaten = true;
+        
         if (foodToCheck.FoodType == FoodType.Starter)
         {
             startersFed.ApplyChange(+1);

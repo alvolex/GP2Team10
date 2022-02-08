@@ -38,7 +38,7 @@ public class Customer : MonoBehaviour
     private SphereCollider sCollider;
     private OrderFood orderFood;
     public SkinnedMeshRenderer meshRenderer;
-    private AlienAttributes attributes;
+    [HideInInspector] public AlienAttributes attributes;
     private Table tableImSeatedAt;
     
     private bool closeToHost = false;
@@ -48,12 +48,14 @@ public class Customer : MonoBehaviour
     private bool hasFinishedEating = false;
     private bool isSeated = false;
     private Vector3 chairPos;
+    public bool hasEaten;
 
     public bool IsSeated => isSeated;
     public event Action<Customer> OnFinishedEating;
     
 
     [SerializeField] private Animator customerAnimator;
+    private NegativeReputationPrompt negativeReputationPrompt;
     
 
 
@@ -74,6 +76,7 @@ public class Customer : MonoBehaviour
         nmObstacle = GetComponent<NavMeshObstacle>();
         sCollider = GetComponent<SphereCollider>();
         rb = GetComponent<Rigidbody>();
+        negativeReputationPrompt = FindObjectOfType<NegativeReputationPrompt>();
        // meshRenderer = GetComponent<MeshRenderer>(); (changed settings to test)
         
         leaveWhenCustomersStopSpawning.ScriptableEvent += HandleExitWhenRestaurantCloses;
@@ -92,13 +95,9 @@ public class Customer : MonoBehaviour
     private void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.H))
         {
-            customerAnimator.SetBool("IsSeated",true);
-        }
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            customerAnimator.SetBool("IsSeated",false);
+            negativeReputationPrompt.OnExitResturuantPopup(this);
         }
         
         customerAnimator.SetFloat("x",nmagent.velocity.magnitude);
@@ -209,7 +208,15 @@ public class Customer : MonoBehaviour
         //Just testin'
         if (other.CompareTag("Finish") && hasFinishedEating)
         {
+            
             Destroy(gameObject);
+            if (!hasEaten)
+            {
+                attributes.reputationReference.ApplyChange(-attributes.negativeRepFromKilling);
+                attributes.onReputationChanged.Raise(attributes.reputationReference.GetValue());
+                
+                negativeReputationPrompt.OnExitResturuantPopup(this);
+            }
         }
     }
 
@@ -231,6 +238,8 @@ public class Customer : MonoBehaviour
         customerAnimator.SetBool("IsSeated",false);
         
         if (!nmagent.isActiveAndEnabled && !isSeated) return;
+
+        
 
         //Disable the over-head order icon when customer is leaving
         orderFood.OrderUIImage.SetActive(false);

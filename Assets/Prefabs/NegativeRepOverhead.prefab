@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6842482021965063367
 RectTransform:
   m_ObjectHideFlags: 0
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 736da2a9b436d8b4db7eb341017dbcec, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 00afdaf349c70534e8080e611403d96f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -184,23 +184,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3031099494786745387, guid: 47e4140cc5023634280558997a18d461, type: 3}
       propertyPath: m_fontColor.b
-      value: 0.43921572
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3031099494786745387, guid: 47e4140cc5023634280558997a18d461, type: 3}
       propertyPath: m_fontColor.g
-      value: 0.7725491
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3031099494786745387, guid: 47e4140cc5023634280558997a18d461, type: 3}
       propertyPath: m_fontColor.r
-      value: 0.92549026
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3031099494786745387, guid: 47e4140cc5023634280558997a18d461, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4285580780
+      value: 4278190335
       objectReference: {fileID: 0}
     - target: {fileID: 3667651029361460672, guid: 47e4140cc5023634280558997a18d461, type: 3}
       propertyPath: m_Name
-      value: MoneyPopup
+      value: ReputationPopup
       objectReference: {fileID: 0}
     - target: {fileID: 3667651029361460672, guid: 47e4140cc5023634280558997a18d461, type: 3}
       propertyPath: m_IsActive
@@ -244,15 +244,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6596868672568484356, guid: 47e4140cc5023634280558997a18d461, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.64515
+      value: 0.48764306
       objectReference: {fileID: 0}
     - target: {fileID: 6596868672568484356, guid: 47e4140cc5023634280558997a18d461, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.64515
+      value: 0.48764306
       objectReference: {fileID: 0}
     - target: {fileID: 6596868672568484356, guid: 47e4140cc5023634280558997a18d461, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.64515
+      value: 0.48764306
       objectReference: {fileID: 0}
     - target: {fileID: 6596868672568484356, guid: 47e4140cc5023634280558997a18d461, type: 3}
       propertyPath: m_LocalPosition.x
@@ -264,7 +264,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6596868672568484356, guid: 47e4140cc5023634280558997a18d461, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.44
+      value: 11.315
       objectReference: {fileID: 0}
     - target: {fileID: 6596868672568484356, guid: 47e4140cc5023634280558997a18d461, type: 3}
       propertyPath: m_LocalRotation.w
@@ -284,11 +284,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6596868672568484356, guid: 47e4140cc5023634280558997a18d461, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -415.29
+      value: -420.5008
       objectReference: {fileID: 0}
     - target: {fileID: 6596868672568484356, guid: 47e4140cc5023634280558997a18d461, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -229.16447
+      value: -229.75
       objectReference: {fileID: 0}
     - target: {fileID: 6596868672568484356, guid: 47e4140cc5023634280558997a18d461, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
