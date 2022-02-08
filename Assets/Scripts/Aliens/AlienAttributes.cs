@@ -77,9 +77,10 @@ public class AlienAttributes : MonoBehaviour
     
     private void Start()
     {
-        StartCoroutine(CustomerWaitTimer(maxWaitingToBeSeatedTime));
         customerStateChange.ScriptableEvent += ChangeCustomerState;
         currentCustomerState = customerState.WaitingToBeSeated;
+        
+        StartCoroutine(CustomerWaitTimer(maxWaitingToBeSeatedTime, customerState.WaitingToBeSeated));
     }
     private void OnDestroy()
     {
@@ -88,23 +89,23 @@ public class AlienAttributes : MonoBehaviour
     
     public void ChangeCustomerState()
     {
-        StopAllCoroutines();
+        //StopAllCoroutines();
         
         switch (currentCustomerState)
         {
             case customerState.WaitingToBeSeated:
                 currentCustomerState = customerState.WaitingToOrder;
-                StartCoroutine(CustomerWaitTimer(maxWaitingToOrderTime));
+                StartCoroutine(CustomerWaitTimer(maxWaitingToOrderTime, customerState.WaitingToOrder));
                 break;
             case customerState.WaitingToOrder:
                 currentCustomerState = customerState.WaitingForFood;
-                StartCoroutine(CustomerWaitTimer(maxWaitingForOrderTime));
+                StartCoroutine(CustomerWaitTimer(maxWaitingForOrderTime, customerState.WaitingForFood));
                 break;
         }
     }
     private void Update()
     {
-        if (currentCustomerState  == customerState.WaitingToBeSeated)
+        /*if (currentCustomerState  == customerState.WaitingToBeSeated)
         {
             maxWaitingToBeSeatedTime -= Time.deltaTime;
         }
@@ -115,7 +116,7 @@ public class AlienAttributes : MonoBehaviour
         if (currentCustomerState  == customerState.WaitingForFood)
         {
             maxWaitingForOrderTime -= Time.deltaTime;
-        }
+        }*/
         
         if (Input.GetKeyDown(KeyCode.P))
         {
@@ -190,11 +191,15 @@ public class AlienAttributes : MonoBehaviour
         
     }
 
-    IEnumerator CustomerWaitTimer(float timeToWwait)
+    IEnumerator CustomerWaitTimer(float timeToWwait, customerState state)
     {
+        var stateOnStart = state;
         yield return new WaitForSeconds(timeToWwait);
 
-        GetComponent<Customer>().ExitRestaurant();
+        if (stateOnStart == currentCustomerState)
+        {
+            GetComponent<Customer>().ExitRestaurant();
+        }
     }
 }
             

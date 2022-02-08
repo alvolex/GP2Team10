@@ -24,7 +24,8 @@ public class Customer : MonoBehaviour
 
     [Header("Event")] 
     [SerializeField] private ScriptableSimpleEvent leaveWhenCustomersStopSpawning;
-    [SerializeField, Tooltip("Tied to the above event. When the event is called we will start leaving after this many seconds ->")] private float timeOffsetBeforeLeaving = 5;
+    [SerializeField, Tooltip("Tied to the above event. When the event is called we will start leaving after this many seconds ->")] 
+    private float timeOffsetBeforeLeaving = 5;
     
     [Header("Tutorial")]
     [SerializeField] private ScriptableTutorialEvent tutorialEvent;
@@ -224,7 +225,6 @@ public class Customer : MonoBehaviour
 
     public void ExitRestaurant()
     {
-        
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
         

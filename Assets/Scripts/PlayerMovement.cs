@@ -20,6 +20,13 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody otherRb;
 
+    [SerializeField] private Animator playerAnimator;
+
+    [HideInInspector] public bool hasPlate;
+    
+    
+    
+
 
     public float MovementSpeed
     {
@@ -39,6 +46,12 @@ public class PlayerMovement : MonoBehaviour
     {
         HandleMovementInput();
         HandlePlayerRotation();
+
+        
+        playerAnimator.SetFloat("y", Input.GetAxis("Vertical"));
+        playerAnimator.SetFloat("x", Input.GetAxis("Horizontal"));
+        playerAnimator.SetBool("hasPlate", hasPlate);
+        
     }
 
     private void HandleMovementInput()
@@ -68,14 +81,7 @@ public class PlayerMovement : MonoBehaviour
             rigidbody.MovePosition( transform.position += IsoVectorConvert(movementVector));
         }
         
-        /*if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
-        {
-            animator.SetBool("Running", true);
-        }
-        else
-        {
-            animator.SetBool("Running", false);
-        }*/
+        
     }
 
     private void HandlePlayerRotation()
@@ -117,4 +123,6 @@ public class PlayerMovement : MonoBehaviour
     {
         otherRb = null;
     }
+    
+    
 }

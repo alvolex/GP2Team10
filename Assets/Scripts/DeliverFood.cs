@@ -25,9 +25,12 @@ public class DeliverFood : MonoBehaviour
 
     private Order curOrder;
 
+    private PlayerMovement playerMovement;
+
     private void Start()
     {
         canDeliverFood = false;
+        playerMovement = FindObjectOfType<PlayerMovement>();
     }
 
     private void LateUpdate()
@@ -55,6 +58,7 @@ public class DeliverFood : MonoBehaviour
 
         curOrder = null;
         plate.SetActive(false);
+        playerMovement.hasPlate = false;
         currentAction.CurrentAction = CurrentAction.None;
     }
 
@@ -62,6 +66,7 @@ public class DeliverFood : MonoBehaviour
     {
         curOrder = order;
         plate.SetActive(true);
+        playerMovement.hasPlate = true;
         foodSpriteRenderer.sprite = order.GetFoodSprite();
     }
 
