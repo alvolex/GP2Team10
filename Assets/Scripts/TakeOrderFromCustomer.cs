@@ -30,7 +30,7 @@ public class TakeOrderFromCustomer : MonoBehaviour
     private void Update()
     {
         //todo This is one ugly if statement
-        if (of != null && !of.HasOrdered && canTakeOrder && (currentAction.CurrentAction == CurrentAction.None ||
+        if (/*of != null && !of.HasOrdered && canTakeOrder*/ ofList.Count != 0 && (currentAction.CurrentAction == CurrentAction.None ||
                                                              currentAction.CurrentAction == CurrentAction.HandlingOrder))
         {
             HandleTakeOrderFromCustomer();
@@ -46,14 +46,23 @@ public class TakeOrderFromCustomer : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && of.ReadyToOrder /*&& canTakeOrder*/)
         {
+            var closestOf = ofList[0];
+            var dist = Vector3.Distance(transform.position, closestOf.transform.position);
+
+            foreach (var curOf in ofList)
+            {
+                var curDist = Vector3.Distance(transform.position, curOf.transform.position);
+                if (curDist < dist)
+                {
+                    closestOf = curOf;
+                }
+            }
+
+            of = closestOf;
             of.StartOrderProcess();
             
             //If another customer is close by, make it so that we can take their order by pressing space again
             ofList.Remove(of);
-            if (ofList.Count != 0)
-            {
-                of = ofList[0];
-            }
         }
     }
 
@@ -75,26 +84,20 @@ public class TakeOrderFromCustomer : MonoBehaviour
         }
     }
     
-    //Todo experiment with overlapspheres, might be more performant, currently it's not a noticeable performance hit, maybe range-checking like in "TableAssigner" is a better option
+
     //Using list makes the trigger more reliable when there are multiple stacked triggers. 
     private void OnTriggerEnter(Collider other)
     {
         //Take order from customer
-        if ((currentAction.CurrentAction == CurrentAction.None || currentAction.CurrentAction == CurrentAction.HandlingOrder) && other.TryGetComponent(out OrderFood orderFood))
+        if (/*(currentAction.CurrentAction == CurrentAction.None || currentAction.CurrentAction == CurrentAction.HandlingOrder) &&*/ other.TryGetComponent(out OrderFood orderFood))
         {
-            if (orderFood.HasOrdered)
-            {
-                return;
-            }
-            
-            if (!ofList.Contains(orderFood))
+            if (!ofList.Contains(orderFood) && orderFood.ReadyToOrder && !orderFood.HasOrdered)
             {
                 ofList.Add(orderFood);
+                of = orderFood;
+                canTakeOrder = true;
+                of.PlayerRef = this;
             }
-
-            of = orderFood;
-            canTakeOrder = true;
-            of.PlayerRef = this;
         }
         
         //Leave orders at the kitchen
@@ -117,15 +120,10 @@ public class TakeOrderFromCustomer : MonoBehaviour
 
         var removeFood = other.GetComponent<OrderFood>();
         if (removeFood == null) return;
-        
-        ofList.Remove(removeFood);
-        if (ofList.Count == 0)
+
+        if (ofList.Contains(removeFood))
         {
-            canTakeOrder = false;
-        }
-        else if (ofList.Count == 1)
-        {
-            of = ofList[0];
+            ofList.Remove(removeFood);
         }
     }
 }
