@@ -567,6 +567,7 @@ GameObject:
   m_Component:
   - component: {fileID: 342829934200529299}
   - component: {fileID: 202761586082969291}
+  - component: {fileID: 8534976662309401305}
   m_Layer: 0
   m_Name: Table_2Chairs
   m_TagString: Untagged
@@ -612,10 +613,29 @@ MonoBehaviour:
   tableMeshRenderer: {fileID: 7286527281431281232}
   triggerCollider: {fileID: 0}
   centerOftable: {fileID: 598948569}
+  outline: {fileID: 0}
   defaultMat: {fileID: 2100000, guid: 91d917152462d514a897dfcd0b3cc5a0, type: 2}
   selectedMat: {fileID: 2100000, guid: 0095f11c94b61d34182b8f9cb57ae586, type: 2}
   lockedMaterial: {fileID: 2100000, guid: 3735c1cbe8686bf4ba38ce18d61953a0, type: 2}
   emptyChairs: 0
+--- !u!114 &8534976662309401305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6440227414216442289}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &7711636267420370906
 GameObject:
   m_ObjectHideFlags: 0
