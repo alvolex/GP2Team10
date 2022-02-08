@@ -15,6 +15,8 @@ public class Table : MonoBehaviour
     [SerializeField] private MeshRenderer tableMeshRenderer;
     [SerializeField] private Collider triggerCollider;
     [SerializeField] private Transform centerOftable;
+    [SerializeField] private Outline outline;
+    
 
     [Header("Materials")]
     [SerializeField] private Material defaultMat;
@@ -31,6 +33,7 @@ public class Table : MonoBehaviour
 
     private void Start()
     {
+        outline = GetComponent<Outline>();
         emptyChairs = chairPositions.Count;
         SetupAvailableChairs();
         SetCorrectMaterial();
@@ -74,12 +77,14 @@ public class Table : MonoBehaviour
 
     public void HighlightTable()
     {
-        tableMeshRenderer.material = selectedMat;
+        //tableMeshRenderer.material = selectedMat;
+        outline.OutlineOn();
     }
     
     public void UnhighlightTable()
     {
-        tableMeshRenderer.material = defaultMat;
+        //tableMeshRenderer.material = defaultMat;
+        outline.OutlineOff();
     }
 
     public bool HasEmptySeat()
