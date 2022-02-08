@@ -212,7 +212,7 @@ public class Customer : MonoBehaviour
             Destroy(gameObject);
             if (!hasEaten)
             {
-                attributes.reputationReference.ApplyChange(-attributes.negativeRepFromKilling);
+                attributes.reputationReference.ApplyChange(-attributes.negativeRepFromLeaving);
                 attributes.onReputationChanged.Raise(attributes.reputationReference.GetValue());
                 
                 negativeReputationPrompt.OnExitResturuantPopup(this);
