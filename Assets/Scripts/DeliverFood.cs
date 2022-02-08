@@ -98,9 +98,12 @@ public class DeliverFood : MonoBehaviour
         
         if (!other.TryGetComponent(out AlienEatFood curCustomer)) return;
 
-        closeAlienList.Add(curCustomer);
-        customerEatFood = curCustomer;
-        canDeliverFood = true;
+        if (curCustomer.Of.HasOrdered)
+        {
+            closeAlienList.Add(curCustomer);
+            customerEatFood = curCustomer;
+            canDeliverFood = true;
+        }
     }
 
     private void OnTriggerExit(Collider other)
