@@ -47,6 +47,17 @@ public class TakeOrderFromCustomer : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && of.ReadyToOrder /*&& canTakeOrder*/)
         {
             of.StartOrderProcess();
+            
+            //If another customer is close by, make it so that we can take their order by pressing space again
+            ofList.Remove(of);
+            if (ofList.Count != 0)
+            {
+                of = ofList[0];
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.Space) && canTakeOrder )
+        {
+            Debug.Log(of);
         }
     }
 
@@ -75,6 +86,11 @@ public class TakeOrderFromCustomer : MonoBehaviour
         //Take order from customer
         if ((currentAction.CurrentAction == CurrentAction.None || currentAction.CurrentAction == CurrentAction.HandlingOrder) && other.TryGetComponent(out OrderFood orderFood))
         {
+            if (orderFood.HasOrdered)
+            {
+                return;
+            }
+            
             if (!ofList.Contains(orderFood))
             {
                 ofList.Add(orderFood);

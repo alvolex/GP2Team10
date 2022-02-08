@@ -17,7 +17,9 @@ public class DeliverFood : MonoBehaviour
     [Header("Tutorial")]
     [SerializeField] private ScriptableTutorialEvent tutorialEvent;
     [SerializeField] private ScriptableTutorialText orderDeliveredText;
-    
+
+    [SerializeField] private List<AlienEatFood> closeAlienList = new List<AlienEatFood>();
+
 
     private AlienEatFood customerEatFood;
     private bool canDeliverFood;
@@ -40,12 +42,29 @@ public class DeliverFood : MonoBehaviour
             //Delivered to the trash, amirite?
             FoodDelivered();
         }
+
+        if (!canDeliverFood || customerEatFood == null || curOrder == null || customerEatFood.Of.MyOrder == null ||
+            customerEatFood.HasRecievedFood) return;
         
-        if (!canDeliverFood || customerEatFood == null || curOrder == null || customerEatFood.Of.MyOrder == null || customerEatFood.HasRecievedFood) return;
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            customerEatFood.DeliverFood(curOrder);
+            AlienEatFood closestAlien = closeAlienList[0];
+            float dist = Vector3.Distance(transform.position, closestAlien.transform.position); //Get dist to first alien
+            
+            foreach (var alien in closeAlienList)
+            {
+                var distToCheck = Vector3.Distance(transform.position, alien.transform.position);
+
+                if (distToCheck < dist)
+                {
+                    closestAlien = alien;
+                }
+            }
+
+            closeAlienList.Remove(closestAlien);
+            closestAlien.DeliverFood(curOrder);
+            //customerEatFood.DeliverFood(curOrder);
             FoodDelivered();
         }
     }
@@ -78,6 +97,8 @@ public class DeliverFood : MonoBehaviour
         }
         
         if (!other.TryGetComponent(out AlienEatFood curCustomer)) return;
+
+        closeAlienList.Add(curCustomer);
         customerEatFood = curCustomer;
         canDeliverFood = true;
     }
@@ -86,7 +107,12 @@ public class DeliverFood : MonoBehaviour
     {
         if (other.TryGetComponent(out AlienEatFood cust))
         {
-            if (cust == customerEatFood)
+            if (closeAlienList.Contains(cust))
+            {
+                closeAlienList.Remove(cust);
+            }
+
+            if (closeAlienList.Count == 0)
             {
                 canDeliverFood = false;
             }
