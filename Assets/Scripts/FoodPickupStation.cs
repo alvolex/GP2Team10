@@ -113,9 +113,12 @@ public class FoodPickupStation : MonoBehaviour
 
             foodDisplayQueue = new Queue<Order>();
 
+            Debug.Log(orderToThrow.GetCustomerWhoOrdered() + " Food destroyed: " + orderToThrow.GetFood());
+            
             foreach (var order in tempList)
             {
                 foodDisplayQueue.Enqueue(order);
+                Debug.Log(order.GetCustomerWhoOrdered() + " Back in list: " + order.GetFood());
             }
             
             /*var foodToPickup = foodDisplayQueue.Dequeue();

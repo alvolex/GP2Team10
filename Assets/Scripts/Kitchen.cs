@@ -23,7 +23,7 @@ public class Kitchen : MonoBehaviour
 
     private Queue<Order> ordersToCook = new Queue<Order>();
     private bool isCooking;
-    private Order currentlyCooking;
+    //private Order currentlyCooking;
     int mealsPreparedCurrently = 0;
     private FoodProgressUI foodProgressUI;
 
@@ -78,7 +78,7 @@ public class Kitchen : MonoBehaviour
     private void UpdateKitchenUI()
     {
         
-        foodThatIsCurrentlyCooked.sprite = currentlyCooking.GetFoodSprite();
+        //foodThatIsCurrentlyCooked.sprite = currentlyCooking.GetFoodSprite();
     }
 
     IEnumerator CookFood()
@@ -97,10 +97,10 @@ public class Kitchen : MonoBehaviour
         {
             if (foodPickupStation.DoesCounterHaveEnoughSpace())
             {
-                currentlyCooking = ordersToCook.Dequeue();
+                var currentlyCooking = ordersToCook.Dequeue();
                 Debug.Log("Now cooking: " + currentlyCooking.SelectedFoodItem.FoodName);
                 //Update sprite on the kitchen & setup progress UI
-                UpdateKitchenUI();
+                //UpdateKitchenUI();
                 foodProgressUI.UpdateFoodImageAndProgress(currentlyCooking.GetFoodSprite(), currentlyCooking.SelectedFoodItem.TimeToCookFood, currentlyCooking.SelectedFoodItem.TimeBeforeFoodSpoils, currentlyCooking);
 
                 yield return new WaitForSeconds(currentlyCooking.SelectedFoodItem.TimeToCookFood);
