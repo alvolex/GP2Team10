@@ -144,7 +144,7 @@ public class AlienAttributes : MonoBehaviour
                     Debug.Log("Allergy spotted, killed customer");
                     CustomerIsAllergic();
                     
-                    //promptPos.HandleMoneyPopup(transform.position);
+                    promptPos.HandleMoneyPopup(transform.position, negativeRepFromKilling);
                     Debug.Log(promptPos);
                     //POSITION HERE
                     

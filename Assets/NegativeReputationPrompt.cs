@@ -17,8 +17,10 @@ public class NegativeReputationPrompt : MonoBehaviour
         
     }
 
-    public void HandleMoneyPopup(Vector3 pos)
+    public void HandleMoneyPopup(Vector3 pos, int negativeRep)
     {
+        reputationText.text = $"-{negativeRep}";
+        
         reputationPopupUI.SetActive(true);
         reputationPopupUI.transform.position = pos;
         StartCoroutine(SlowlySlideUp(reputationPopupUI));
@@ -31,8 +33,8 @@ public class NegativeReputationPrompt : MonoBehaviour
         
         float startTime = Time.time;
 
-        var startpos = startVector.y;
-        var endPos = startVector.y + 3f;
+        var startpos = startVector.y+2;
+        var endPos = startpos + 3f;
         var t = 0f;
         
         while (startTime + 1.5f > Time.time)
