@@ -125,16 +125,16 @@ public class Customer : MonoBehaviour
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
         
+        //Customer state is now sitting
+        attributes.ChangeCustomerState();
+        
         if (nmagent.pathPending ||
             nmagent.pathStatus == NavMeshPathStatus.PathInvalid ||
             nmagent.path.corners.Length == 0 || nmagent.remainingDistance >= 0.7f) return;
 
         isMovingToTable = false; //Not moving if we have reached table
         isSeated = true;
-        
-        //Customer state is now sitting
-        attributes.ChangeCustomerState();
-        
+
         //Show tutorial if it hasn't been shown before
         tutorialEvent.InvokeEvent(hasBeenSeatedText);
 
