@@ -55,10 +55,6 @@ public class TakeOrderFromCustomer : MonoBehaviour
                 of = ofList[0];
             }
         }
-        else if (Input.GetKeyDown(KeyCode.Space) && canTakeOrder )
-        {
-            Debug.Log(of);
-        }
     }
 
     public void QueueUpOrder(Order order)
