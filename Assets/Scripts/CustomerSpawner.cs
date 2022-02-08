@@ -11,6 +11,11 @@ public class CustomerSpawner : MonoBehaviour
     [SerializeField, Tooltip("This is per day")] private int maxNumberOfCustomersToSpawn = 3;
     [SerializeField, Tooltip("How much *harder* the next day should be")] private int numberOfCustomersPerDayMultiplier = 1;
     [SerializeField, Tooltip("Seconds between customers spawning")] private float timeBetweenCustomers = 7f;
+    
+    [Header("Make game harder each day")] 
+    [SerializeField] private float minTimeBetweenCustomers = 4f;
+    [SerializeField] private float speedUpSpawning = 2f;
+    [SerializeField] private int daysUntilNoSingleCustomer = 5;
 
     [Header("Spawn probabilities (should add up to 100)(%)")]
     [SerializeField] private int chanceOf1Customer = 25;
@@ -74,10 +79,38 @@ public class CustomerSpawner : MonoBehaviour
 
     private void StopSpawningCustomers()
     {
+        MakeGameHarder();
+        
         //Stopped spawning customers because an event told me to
         Debug.Log("Total customers today: " + totalSpawnedCustomersToday);
         stopCoroutine = true;
         StopCoroutine(SpawnCustomers());
+    }
+
+    private void MakeGameHarder()
+    {
+        if (timeBetweenCustomers > minTimeBetweenCustomers)
+        {
+            timeBetweenCustomers -= speedUpSpawning;
+            Mathf.Max(timeBetweenCustomers, minTimeBetweenCustomers);
+        }
+
+        RedistributeProbabilities();
+    }
+
+    private void RedistributeProbabilities()
+    {
+        if (daysUntilNoSingleCustomer == -1) return;
+
+        var probabilitiesToSplit = chanceOf1Customer / (daysUntilNoSingleCustomer + 1);
+        daysUntilNoSingleCustomer--;
+        chanceOf1Customer -= probabilitiesToSplit -1;
+
+        probabilitiesToSplit /= 3;
+
+        chanceOf2Customers += probabilitiesToSplit;
+        chanceOf3Customers += probabilitiesToSplit;
+        chanceOf4Customers += probabilitiesToSplit;
     }
 
     private int CustomersInParty()
