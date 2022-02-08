@@ -147,7 +147,6 @@ public class AudioManager : MonoBehaviour
         {
             PlaySound(alienBigManTalk2Source, alienBigManTalk2Source.clip);
         }
-        Debug.Log(r);
     }
 
 
@@ -170,7 +169,6 @@ public class AudioManager : MonoBehaviour
         {
             PlaySound(alienHairyThingTalk3Source, alienHairyThingTalk3Source.clip);
         }
-        Debug.Log(r);
     }
 
     public void PlayAlienSquidThingTalkSFX()
@@ -184,7 +182,6 @@ public class AudioManager : MonoBehaviour
         {
             PlaySound(alienSquidThingTalk1Source, alienSquidThingTalk1Source.clip);
         }
-        Debug.Log(r);
     }
     public void PlayGarbageCanSFX()
     {
