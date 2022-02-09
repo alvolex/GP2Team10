@@ -64,31 +64,31 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: x
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: y
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: IsSeated
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: hasPlate
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -184,7 +184,7 @@ BlendTree:
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: ca8d643f19635dc4d95499d1cbfde211, type: 2}
     m_Threshold: 2
-    m_Position: {x: -0.15, y: 0}
+    m_Position: {x: 0, y: 0.15}
     m_TimeScale: 1.75
     m_CycleOffset: 0
     m_DirectBlendParameter: Blend
@@ -192,7 +192,7 @@ BlendTree:
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: ca8d643f19635dc4d95499d1cbfde211, type: 2}
     m_Threshold: 3
-    m_Position: {x: 0.15, y: 0}
+    m_Position: {x: -0.15, y: 0}
     m_TimeScale: 1.75
     m_CycleOffset: 0
     m_DirectBlendParameter: Blend
@@ -200,7 +200,7 @@ BlendTree:
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: ca8d643f19635dc4d95499d1cbfde211, type: 2}
     m_Threshold: 4
-    m_Position: {x: 0, y: 0.15}
+    m_Position: {x: 0.15, y: 0}
     m_TimeScale: 1.75
     m_CycleOffset: 0
     m_DirectBlendParameter: Blend
