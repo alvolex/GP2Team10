@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0031040972, g: 0.0027302245, b: 0.0033065365, a: 1}
+  m_IndirectSpecularColor: {r: 0.0031037452, g: 0.002729593, b: 0.0033060266, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10054,20 +10054,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8966542451436005877, guid: 223df456e5e9a6c49a39f4088f47e1b4, type: 3}
       propertyPath: customers.Array.size
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8966542451436005877, guid: 223df456e5e9a6c49a39f4088f47e1b4, type: 3}
       propertyPath: timeBetweenCustomers
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8966542451436005877, guid: 223df456e5e9a6c49a39f4088f47e1b4, type: 3}
+      propertyPath: customers.Array.data[0]
+      value: 
+      objectReference: {fileID: 874568589764203377, guid: 030d2fd019386d444b39344465899a34, type: 3}
+    - target: {fileID: 8966542451436005877, guid: 223df456e5e9a6c49a39f4088f47e1b4, type: 3}
       propertyPath: customers.Array.data[1]
       value: 
-      objectReference: {fileID: 8241836353645797395, guid: 1640b7a12a984974d899e6f8fe7af7fe, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 8966542451436005877, guid: 223df456e5e9a6c49a39f4088f47e1b4, type: 3}
       propertyPath: customers.Array.data[2]
       value: 
-      objectReference: {fileID: 8600302553123986455, guid: bbf6b3d80a33d87489f6d5242a93a27f, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 8966542451436005877, guid: 223df456e5e9a6c49a39f4088f47e1b4, type: 3}
       propertyPath: customers.Array.data[3]
       value: 
@@ -10075,11 +10079,11 @@ PrefabInstance:
     - target: {fileID: 8966542451436005877, guid: 223df456e5e9a6c49a39f4088f47e1b4, type: 3}
       propertyPath: customers.Array.data[4]
       value: 
-      objectReference: {fileID: 610585651099610922, guid: 8895a071a973b1b4987d9113ae042773, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 8966542451436005877, guid: 223df456e5e9a6c49a39f4088f47e1b4, type: 3}
       propertyPath: customers.Array.data[5]
       value: 
-      objectReference: {fileID: 1442761548992602652, guid: 645a77832c72dc249a69876b284e002f, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 8966542451436005877, guid: 223df456e5e9a6c49a39f4088f47e1b4, type: 3}
       propertyPath: customerMovementSpeedChange
       value: 
@@ -10775,7 +10779,7 @@ PrefabInstance:
       objectReference: {fileID: 9055570940965007077}
     - target: {fileID: 9142106679105981078, guid: b282e9b361fab644d86965d0f72be003, type: 3}
       propertyPath: dayLength
-      value: 5
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 9142106679105981078, guid: b282e9b361fab644d86965d0f72be003, type: 3}
       propertyPath: timeLeftToStopSpawning
