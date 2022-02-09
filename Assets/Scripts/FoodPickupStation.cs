@@ -11,23 +11,27 @@ public class FoodPickupStation : MonoBehaviour
 {
     [SerializeField] private Canvas canvas;
     [SerializeField] private ScriptablePlayerCurrentAction curAction;
-    
+    [SerializeField] private Sprite emptyPlateSprite;
+
+
     [Header("Events")] 
     [SerializeField] private ScriptableSimpleEvent foodPickedUp;
+
     [SerializeField] private ScriptableSimpleEvent destroyFoodWhenThrown;
     [SerializeField] private ScriptableOrderEvent destroyFoodEvent;
-    
-    
+
+
     [Header("Tutorial")]
     [SerializeField] private ScriptableTutorialEvent tutorialEvent;
+
     [SerializeField] private ScriptableTutorialText foodAtTheCounterText;
 
     private Queue<Order> foodDisplayQueue = new Queue<Order>();
     private List<Image> spriteRenderers = new List<Image>();
     private int unlockedFoodSlots = 3;
 
+
     //testing
-    private Sprite emptyPlateSprite;
     private bool canPickupFood;
 
     private DeliverFood playerCarry;
@@ -35,7 +39,7 @@ public class FoodPickupStation : MonoBehaviour
     private void Start()
     {
         spriteRenderers = GetComponentsInChildren<Image>().ToList();
-        emptyPlateSprite = spriteRenderers[0].sprite;
+        //emptyPlateSprite = spriteRenderers[0].sprite;
         canPickupFood = false;
         UpdateFoodPlatesOnCounter();
 

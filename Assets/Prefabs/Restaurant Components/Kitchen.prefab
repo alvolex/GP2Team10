@@ -393,7 +393,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0.744, y: 2.0980225}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &898155548
 CanvasRenderer:
@@ -468,7 +468,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 1.772, y: 2.0980225}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &1026306817
 CanvasRenderer:
@@ -1071,7 +1071,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -2.2790527, y: 2.104004}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &9123960975261826310
 CanvasRenderer:
@@ -1250,7 +1250,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -0.2210083, y: 2.0980225}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &3992241533930794080
 CanvasRenderer:
@@ -1325,7 +1325,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -1.2730103, y: 2.0980225}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &3019368582509878767
 CanvasRenderer:
@@ -1691,6 +1691,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 6648901600415692824}
   curAction: {fileID: 11400000, guid: add060246eb07f24e9273627e0cd9bce, type: 2}
+  emptyPlateSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   foodPickedUp: {fileID: 11400000, guid: 4728e813aba0d834386f50f6e23f0db5, type: 2}
   destroyFoodWhenThrown: {fileID: 0}
   destroyFoodEvent: {fileID: 11400000, guid: e9182be1f9c8d514c8614b226ce8ed82, type: 2}
