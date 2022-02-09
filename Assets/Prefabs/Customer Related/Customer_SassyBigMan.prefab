@@ -2720,6 +2720,8 @@ MonoBehaviour:
   timeOffsetBeforeLeaving: 15
   tutorialEvent: {fileID: 11400000, guid: 0a5258619e3ddc44e9211bbaf30d158a, type: 2}
   hasBeenSeatedText: {fileID: 11400000, guid: acaf578968bf68c43ba5b64c3b7a5f6b, type: 2}
+  moveTowardsTableOffset: 0.4
+  sitdownYOffset: 0
   meshRenderer: {fileID: 4881540261856400992}
   attributes: {fileID: 0}
   hasEaten: 0
