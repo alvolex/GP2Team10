@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f4f09e9d01472f9ecc0058ccf213c2, type: 3}
   m_Name: TutorialFoodWentBad
   m_EditorClassIdentifier: 
-  tutorialText: Oh, I see you let the chefs hard work go to waste and now the food
-    is spoiled. The least you can do is to pick it up from the counter and throw
-    it in the trash!
+  tutorialText: '*sighs* You got four arms but no legs apparently. Do NOT serve that
+    dish!'
   shouldMoveLights: 0
   hasBeenPlayed: 1

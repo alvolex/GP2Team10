@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f4f09e9d01472f9ecc0058ccf213c2, type: 3}
   m_Name: TutorialOrderFinishedCooking
   m_EditorClassIdentifier: 
-  tutorialText: The chefs have finished cooking the meal, hurry over and pick it
-    up!
-  shouldMoveLights: 1
+  tutorialText: 'Order is ready! Go go go! If you leave the dish at the counter for
+    too long it will go bad. '
+  shouldMoveLights: 0
   hasBeenPlayed: 1
