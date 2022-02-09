@@ -15,4 +15,5 @@ MonoBehaviour:
   tutorialText: To help patrons find their way to a table, simply walk up to them
     and interact with their group using (Spacebar), then find a suitable table and
     interact with it as well! (Spacebar)
-  hasBeenPlayed: 0
+  shouldMoveLights: 0
+  hasBeenPlayed: 1

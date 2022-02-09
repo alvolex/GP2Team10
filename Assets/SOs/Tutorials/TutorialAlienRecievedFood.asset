@@ -15,4 +15,5 @@ MonoBehaviour:
   tutorialText: Wow, you made it, my bet was that you'd quit before you managed to
     deliver your first order. Stay vigilant, some of these aliens will really test
     your patience!
-  hasBeenPlayed: 0
+  shouldMoveLights: 1
+  hasBeenPlayed: 1
