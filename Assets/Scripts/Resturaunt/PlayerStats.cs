@@ -12,6 +12,13 @@ using Object = UnityEngine.Object;
 public class PlayerStats : MonoBehaviour
 {
     
+    
+    [Header("Start Reputation and Money")] 
+    [SerializeField] private int startingMoney;
+    [SerializeField] private int startingRep;
+
+    
+    
     [Header("Loosing Condition Reputation: ")] [SerializeField]
     private int loosingCondition;
 
@@ -37,6 +44,12 @@ public class PlayerStats : MonoBehaviour
 
     private void Start()
     {
+        tips.SetValue(startingMoney);
+        OnTipChangedEvent.Raise();
+        
+        reputation.SetValue(startingRep);
+        OnRepChangedEvent.Raise();
+        
         SetReputation($"{reputation.Value}");
         SetTip($"{tips.Value}");
         currentState = GetComponent<PlayerStateHandler>();

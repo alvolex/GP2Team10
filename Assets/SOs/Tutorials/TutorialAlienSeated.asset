@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f4f09e9d01472f9ecc0058ccf213c2, type: 3}
   m_Name: TutorialAlienSeated
   m_EditorClassIdentifier: 
-  tutorialText: Well done, friend! You've successfully seated your first patrons,
-    it's quite likely that they will, at some point, want to order some food. When
-    that happens, take their order and try not to butcher them. Aliens are quite
-    sensitive when it comes to their gastronomical needs.
+  tutorialText: "Good jo-- Hey! Don\u2019t just stand there, give them some space!
+    Our patrons are of a higher class than the likes of you and must not be rushed.
+    Give them time to relax. They will gesture for you when they are ready to order,
+    so be on your toes."
   shouldMoveLights: 0
-  hasBeenPlayed: 1
+  hasBeenPlayed: 0
