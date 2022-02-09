@@ -120,7 +120,6 @@ public class Tutorial : MonoBehaviour
         if (!gameState.shouldShowTutorial)return;
         //Reset the values
         timeBetweenCharacters = timeBetweenCharactersAtStart;
-        allTextVisible = false;
 
         //Turn off the tutorial if the player has finished it
         if (textPromptsInOrder.Count == 0)
@@ -192,6 +191,7 @@ public class Tutorial : MonoBehaviour
     {
         canvasToToggle.SetActive(true);
         isInTutorial = true;
+        allTextVisible = false;
         //StopCoroutine(CheckForPlayerInput()); //Stop it if it's already running
         if (!checkingForInput)
         {
