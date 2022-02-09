@@ -6,10 +6,12 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Object = UnityEngine.Object;
 
 public class PauseMenu : MonoBehaviour
 {
     private Scene scene;
+    public Object mainMenu;
     public GameObject userInterface;
     private float time;
 
@@ -36,12 +38,14 @@ public class PauseMenu : MonoBehaviour
 
     public void NewGame()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(scene.name);
     }
 
     public void ExitGame()
     {
-        Application.Quit();
+        Time.timeScale = 1;
+        SceneManager.LoadScene(mainMenu.name);
     }
     
 }

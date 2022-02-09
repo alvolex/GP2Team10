@@ -328,17 +328,4 @@ public class UpgradeSystem : MonoBehaviour
             kitchen.AddChef();
         }
     }*/
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            //RepReputation.ApplyChange(-500);
-            //OnReputationChanged.Raise(RepReputation.GetValue());
-            
-            tipsReference.ApplyChange(+500);
-            onTipsChanged.Raise(tipsReference.GetValue());
-            Debug.Log("added moolah");
-        }
-
-    }
 }

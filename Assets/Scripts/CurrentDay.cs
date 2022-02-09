@@ -59,10 +59,10 @@ public class CurrentDay : MonoBehaviour
         RotateSun();
         RotateSkybox();
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+       /* if (Input.GetKeyDown(KeyCode.Escape))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
+        }*/
     }
 
     private void RotateSkybox()
