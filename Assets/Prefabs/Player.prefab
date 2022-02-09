@@ -312,6 +312,7 @@ MonoBehaviour:
   currentAction: {fileID: 11400000, guid: add060246eb07f24e9273627e0cd9bce, type: 2}
   tutorialEvent: {fileID: 11400000, guid: 0a5258619e3ddc44e9211bbaf30d158a, type: 2}
   orderDeliveredText: {fileID: 11400000, guid: 16e9112df8c3b2a42b15fea3ad827aef, type: 2}
+  closeAlienList: []
 --- !u!114 &1960739444156903254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,7 +413,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c59fd0224c10642459d77b9bb1e0c5eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loosingCondition: -1500
+  startingMoney: 0
+  startingRep: 1000
+  loosingCondition: 0
   restartGameButton: {fileID: 0}
   quitToMenuButton: {fileID: 0}
   mainMnueSCENE: {fileID: 102900000, guid: e2641c65c5263184d9c8ffaa00831c3f, type: 3}

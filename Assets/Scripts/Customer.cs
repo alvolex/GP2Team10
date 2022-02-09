@@ -31,6 +31,9 @@ public class Customer : MonoBehaviour
     [SerializeField] private ScriptableTutorialEvent tutorialEvent;
     [SerializeField] private ScriptableTutorialText hasBeenSeatedText;
     
+    [Header("Sitting down offsets")] 
+    [SerializeField] private float moveTowardsTableOffset = 0.4f;
+    [SerializeField] private float sitdownYOffset = 0f;
 
     private Camera cam;
     private NavMeshAgent nmagent;
@@ -315,7 +318,9 @@ public class Customer : MonoBehaviour
         transform.LookAt(tableImSeatedAt.CenterOftable);
         Vector3 dirToTable = tableImSeatedAt.CenterOftable.position - transform.position;
         dirToTable = new Vector3(dirToTable.x, 0, dirToTable.z); //Don't move up..
-        transform.position += dirToTable * 0.4f;
+        transform.position += dirToTable * moveTowardsTableOffset;
+
+        transform.position = new Vector3(transform.position.x, sitdownYOffset, transform.position.z);
 
         //Nm agent constraints so we can set ourselves as obstacles
         rb.constraints = RigidbodyConstraints.FreezeAll;
