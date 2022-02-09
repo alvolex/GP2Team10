@@ -320,7 +320,7 @@ public class Customer : MonoBehaviour
         dirToTable = new Vector3(dirToTable.x, 0, dirToTable.z); //Don't move up..
         transform.position += dirToTable * moveTowardsTableOffset;
 
-        transform.position = new Vector3(transform.position.x, sitdownYOffset, transform.position.z);
+        transform.position = new Vector3(transform.position.x, transform.position.y + sitdownYOffset, transform.position.z);
 
         //Nm agent constraints so we can set ourselves as obstacles
         rb.constraints = RigidbodyConstraints.FreezeAll;
