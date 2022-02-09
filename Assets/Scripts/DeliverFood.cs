@@ -49,6 +49,8 @@ public class DeliverFood : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            if (closeAlienList.Count < 1) return;
+
             AlienEatFood closestAlien = closeAlienList[0];
             float dist = Vector3.Distance(transform.position, closestAlien.transform.position); //Get dist to first alien
             
