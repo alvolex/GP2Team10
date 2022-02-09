@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.85, y: 7.1334424}
-  m_SizeDelta: {x: 862.9436, y: 50}
+  m_AnchoredPosition: {x: 1.26, y: 7.1334424}
+  m_SizeDelta: {x: 991.1346, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4813291597271112165
 CanvasRenderer:
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press the 1 2 3 buttons to select an item on the menu
+  m_text: Press the 1 2 3 buttons on your keyboard to select an item on the menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 739b18974be82154dad67b99e470fb51, type: 2}
   m_sharedMaterial: {fileID: -4400922819208308142, guid: 739b18974be82154dad67b99e470fb51, type: 2}
