@@ -303,24 +303,42 @@ public class Customer : MonoBehaviour
     IEnumerator RotateTowardsTableCenter()
     {
         float t = 0f;
+        //Vector3 
+        Vector3 dirToTable = tableImSeatedAt.CenterOftable.position - chairPos;
+        dirToTable = new Vector3(dirToTable.x, 0, dirToTable.z);
         
-        //todo lerp all the values because these mofos be teleporting
-        
-        /*while (t < 1.5f)
-        {
-            
-            t += Time.deltaTime;
-            yield return null;
-        }*/
+        var startPos = transform.position;
+        var endPos = new Vector3(chairPos.x, transform.position.y + sitdownYOffset, chairPos.z) + dirToTable * moveTowardsTableOffset;
 
+        //endPos = new Vector3(endPos.x, endPos.y + sitdownYOffset, endPos.z);
+
+        while (t < 1f)
+        {
+            var curPos = Vector3.Lerp(startPos, endPos, t);
+            Debug.DrawLine(endPos, new Vector3(endPos.x, endPos.y + 2f, endPos.z)); 
+            transform.position = curPos;
+            transform.LookAt(tableImSeatedAt.CenterOftable);
+            t += Time.deltaTime * 3f;
+            yield return null;
+        }
+        
+        transform.LookAt(tableImSeatedAt.CenterOftable);
+        transform.position = endPos;
+
+
+        //transform.LookAt(tableImSeatedAt.CenterOftable);
         //Put the aliens in their chair.. Very lazy teleporty approach
+        
+        /*
         transform.position = new Vector3(chairPos.x, transform.position.y, chairPos.z);
         transform.LookAt(tableImSeatedAt.CenterOftable);
-        Vector3 dirToTable = tableImSeatedAt.CenterOftable.position - transform.position;
+        
+        dirToTable = tableImSeatedAt.CenterOftable.position - transform.position;
         dirToTable = new Vector3(dirToTable.x, 0, dirToTable.z); //Don't move up..
+        
         transform.position += dirToTable * moveTowardsTableOffset;
-
         transform.position = new Vector3(transform.position.x, transform.position.y + sitdownYOffset, transform.position.z);
+        */
 
         //Nm agent constraints so we can set ourselves as obstacles
         rb.constraints = RigidbodyConstraints.FreezeAll;
