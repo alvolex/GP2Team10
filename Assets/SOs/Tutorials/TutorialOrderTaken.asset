@@ -15,4 +15,5 @@ MonoBehaviour:
   tutorialText: Hopefully we managed to satisfy their dietary needs, we really couldn't
     afford another lawsuit.. Now let's scurry over to the kitchen and hand them the
     order, the quicker the better so that the chef's don't get overwhelmed!
-  hasBeenPlayed: 0
+  shouldMoveLights: 1
+  hasBeenPlayed: 1

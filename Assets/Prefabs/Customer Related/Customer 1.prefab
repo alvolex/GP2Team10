@@ -2796,6 +2796,8 @@ MonoBehaviour:
   tutorialEvent: {fileID: 11400000, guid: 0a5258619e3ddc44e9211bbaf30d158a, type: 2}
   hasBeenSeatedText: {fileID: 11400000, guid: acaf578968bf68c43ba5b64c3b7a5f6b, type: 2}
   meshRenderer: {fileID: 8563295089930078531}
+  attributes: {fileID: 0}
+  hasEaten: 0
   customerAnimator: {fileID: 4244102769430306716}
 --- !u!114 &8049690711492001503
 MonoBehaviour:
@@ -2886,8 +2888,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.1869035, z: 0.5290065}
-  m_Center: {x: 0, y: 0.4971757, z: -0.027979136}
+  m_Size: {x: 0.58, y: 1.1869035, z: 0.53}
+  m_Center: {x: 0, y: 0.59, z: -0.08}
 --- !u!54 &7323368729945858430
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2923,7 +2925,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 1
-  m_BaseOffset: 0.5
+  m_BaseOffset: 0.01
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!135 &7053375671936340595
@@ -3020,12 +3022,15 @@ MonoBehaviour:
   maxRep: 300
   maxTip: 265
   negativeRepFromKilling: 500
+  negativeRepFromLeaving: 100
   maxWaitingToBeSeatedTime: 30
   maxWaitingToOrderTime: 45
   maxWaitingForOrderTime: 45
   moneyPopupEvent: {fileID: 11400000, guid: b24075274a6bb194481fb10afa671b3f, type: 2}
   reputationPopupEvent: {fileID: 11400000, guid: d2171712367a3904c9638b6d4e06df38, type: 2}
   customerStateChange: {fileID: 11400000, guid: 6efcacfcb09cf36479ea6996e13ad590, type: 2}
+  tutorialEvent: {fileID: 0}
+  killedCustomerByGivingBadFoodText: {fileID: 0}
 --- !u!114 &4565707558532729185
 MonoBehaviour:
   m_ObjectHideFlags: 0

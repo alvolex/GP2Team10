@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f4f09e9d01472f9ecc0058ccf213c2, type: 3}
   m_Name: TutorialFoodWentBad
   m_EditorClassIdentifier: 
-  tutorialText: Wow, you made it, my bet was that you'd quit before you managed to
-    deliver your first order. Stay vigilant, some of these aliens will really test
-    your patience!
-  hasBeenPlayed: 0
+  tutorialText: Oh, I see you let the chefs hard work go to waste and now the food
+    is spoiled. The least you can do is to pick it up from the counter and throw
+    it in the trash!
+  shouldMoveLights: 0
+  hasBeenPlayed: 1
