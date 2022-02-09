@@ -138,7 +138,20 @@ public class Tutorial : MonoBehaviour
         else
         {
             tutorialsInQueue++;
-            StartCoroutine(WaitUntilLastTutorialIsFinished());
+            //StartCoroutine(WaitUntilLastTutorialIsFinished());
+        }
+    }
+
+    private void Update()
+    {
+        if (tutorialsInQueue > 0)
+        {
+            if (!isInTutorial)
+            {
+                isInTutorial = true;
+                tutorialsInQueue--;
+                StartCoroutine(TypeInTextCoroutine());
+            }
         }
     }
 
@@ -156,7 +169,7 @@ public class Tutorial : MonoBehaviour
         spotLightTutorial.transform.position = spotlightPositions[spotlightIndex].transform.position;
     }
 
-    IEnumerator WaitUntilLastTutorialIsFinished()
+    /*IEnumerator WaitUntilLastTutorialIsFinished()
     {
         while (isInTutorial)
         {
@@ -173,12 +186,10 @@ public class Tutorial : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
             StartCoroutine(WaitUntilLastTutorialIsFinished());
         }
-    }
+    }*/
 
     IEnumerator TypeInTextCoroutine()
     {
-
-        
         canvasToToggle.SetActive(true);
         isInTutorial = true;
         //StopCoroutine(CheckForPlayerInput()); //Stop it if it's already running
@@ -241,7 +252,6 @@ public class Tutorial : MonoBehaviour
                     yield return new WaitForSeconds(timeBetweenCharacters);
                     currenText.text += $"{c}";
                 }
-
                 currenText.text += '\n';
             }
 
@@ -261,7 +271,7 @@ public class Tutorial : MonoBehaviour
 
         allTextVisible = true;
         continuePanel.SetActive(true);
-        isInTutorial = false;
+        //isInTutorial = false;
     }
 
     IEnumerator CheckForPlayerInput()
