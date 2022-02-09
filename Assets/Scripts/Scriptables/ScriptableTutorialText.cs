@@ -11,5 +11,6 @@ namespace Scriptables
         public bool hasBeenPlayed = false;
 
         public string TutorialText => tutorialText;
+        public bool ShouldMoveLights => shouldMoveLights;
     }
 }
