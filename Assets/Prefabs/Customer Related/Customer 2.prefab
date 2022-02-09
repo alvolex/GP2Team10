@@ -2954,8 +2954,8 @@ MonoBehaviour:
   moneyPopupEvent: {fileID: 11400000, guid: b24075274a6bb194481fb10afa671b3f, type: 2}
   reputationPopupEvent: {fileID: 0}
   customerStateChange: {fileID: 11400000, guid: 6efcacfcb09cf36479ea6996e13ad590, type: 2}
-  tutorialEvent: {fileID: 0}
-  killedCustomerByGivingBadFoodText: {fileID: 0}
+  tutorialEvent: {fileID: 11400000, guid: 0a5258619e3ddc44e9211bbaf30d158a, type: 2}
+  killedCustomerByGivingBadFoodText: {fileID: 11400000, guid: 4af716217dfd39d40a0fe45e968b30ce, type: 2}
 --- !u!114 &4208100592491083109
 MonoBehaviour:
   m_ObjectHideFlags: 0
