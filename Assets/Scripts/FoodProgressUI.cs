@@ -16,6 +16,7 @@ namespace DefaultNamespace
         [Header("Hazard pos")] 
         [SerializeField] private HazardManager hazManager;
         [SerializeField] private KitchenThrowFood throwFood;
+        [Header("Only use the last two control points here")]
         [SerializeField] private Transform[] controlPoints;
 
 

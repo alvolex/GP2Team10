@@ -1477,6 +1477,7 @@ GameObject:
   - component: {fileID: 7351048171016994010}
   - component: {fileID: 7351048171016994011}
   - component: {fileID: 211719584}
+  - component: {fileID: 5097741366017424168}
   m_Layer: 0
   m_Name: Kitchen
   m_TagString: Untagged
@@ -1558,13 +1559,29 @@ MonoBehaviour:
   - {fileID: 1636848342}
   - {fileID: 737974564}
   hazManager: {fileID: 0}
-  throwFood: {fileID: 0}
+  throwFood: {fileID: 5097741366017424168}
   controlPoints: []
   foodPickedUp: {fileID: 11400000, guid: 4728e813aba0d834386f50f6e23f0db5, type: 2}
   destroyFoodWhenThrown: {fileID: 11400000, guid: 964e08ef323cdf84c8b0b432f719c743, type: 2}
   destroyOrderEvent: {fileID: 11400000, guid: e9182be1f9c8d514c8614b226ce8ed82, type: 2}
   tutorialEvent: {fileID: 11400000, guid: 0a5258619e3ddc44e9211bbaf30d158a, type: 2}
   foodHasGoneBadText: {fileID: 11400000, guid: 7bae93cc64c344f4ebaf8094a0c128b0, type: 2}
+--- !u!114 &5097741366017424168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7351048171016993988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b00a94d3b479dc44da7b0378f1a84fa0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curveT: {fileID: 2094682218747780620}
+  foodToThrow: {fileID: 919132149155446097, guid: 83a6aaac540cc774cac1655718501078, type: 3}
+  hazardToSpawn: {fileID: 2981187903834637394, guid: eb19c4f50ed0c87468fcda1dfaa56972, type: 3}
+  airTime: 0.7
 --- !u!1 &7351048171032696657
 GameObject:
   m_ObjectHideFlags: 0
@@ -1924,6 +1941,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89d53b09959319b44b7edcbcde87205c, type: 3}
+--- !u!114 &2094682218747780620 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8051657550399279228, guid: 89d53b09959319b44b7edcbcde87205c, type: 3}
+  m_PrefabInstance: {fileID: 8263249349869162096}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db52ee3a8786479397bbebc934dcb91c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &7463712856232788984 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1529142276874849672, guid: 89d53b09959319b44b7edcbcde87205c, type: 3}
