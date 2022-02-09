@@ -95,12 +95,6 @@ public class Customer : MonoBehaviour
 
     private void Update()
     {
-
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            negativeReputationPrompt.OnExitResturuantPopup(this);
-        }
-        
         customerAnimator.SetFloat("x",nmagent.velocity.magnitude);
         
         HandleCustomerSelection();
