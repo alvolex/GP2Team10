@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using DefaultNamespace;
 using ScriptableEvents;
 using Scriptables;
 using SOs;
@@ -68,9 +69,13 @@ public class AlienAttributes : MonoBehaviour
     [SerializeField] private ScriptableMoneyPopupEvent reputationPopupEvent;
     [SerializeField] private ScriptableSimpleEvent customerStateChange;
 
+    [Header("Tutorial")]
+    [SerializeField] private ScriptableTutorialEvent tutorialEvent;
+    [SerializeField] private ScriptableTutorialText killedCustomerByGivingBadFoodText;
+
+    
     private NegativeReputationPrompt promptPos;
     private Customer customer;
-
 
     enum customerState
     {
@@ -100,7 +105,6 @@ public class AlienAttributes : MonoBehaviour
     public void ChangeCustomerState()
     {
         //StopAllCoroutines();
-        Debug.Log("State changed");
         
         switch (currentCustomerState)
         {
@@ -113,7 +117,6 @@ public class AlienAttributes : MonoBehaviour
                 StartCoroutine(CustomerWaitTimer(maxWaitingForOrderTime, customerState.WaitingForFood));
                 break;
         }
-        Debug.Log("New state: " + currentCustomerState);
     }
     private void Update()
     {
@@ -140,33 +143,46 @@ public class AlienAttributes : MonoBehaviour
             onAlienFed.Raise(aliensFedReference.GetValue());
         }
     }
-    public void CheckAllergies(ScriptableFood foodToCheck)
+    public void CheckAllergies(Order foodToCheck)
     {
-        foreach (var allergyInFood in foodToCheck.Allergies)
+        if (foodToCheck.HasSpoiled)
+        {
+            tutorialEvent.InvokeEvent(killedCustomerByGivingBadFoodText);
+            KillCustomer();
+            return;
+        }
+        
+        foreach (var allergyInFood in foodToCheck.SelectedFoodItem.Allergies)
         {
             foreach (var alienAllergy in allergy)
             {
                 if (allergyInFood == alienAllergy)
                 {
-                    //TODO separate the allergy killing from the allergy just making them sick
-                    Debug.Log("Allergy spotted, killed customer");
-                    CustomerIsAllergic();
-                    
-                    promptPos.HandleMoneyPopup(transform.position, negativeRepFromKilling);
-                    Debug.Log(promptPos);
-                    //POSITION HERE
-                    
-                    Destroy(gameObject);
-                    AudioManager.Instance.PlayAlienExplodeSFX();
-                    reputationReference.ApplyChange(-negativeRepFromKilling);
-                    onReputationChanged.Raise(reputationReference.GetValue());
-                    customerHasDied?.Invoke(gameObject.GetComponent<Customer>());
+                    KillCustomer();
                     return;
                 }
             }
         }
-        FoodIsEdible(foodToCheck);
+        FoodIsEdible(foodToCheck.SelectedFoodItem);
     }
+
+    private void KillCustomer()
+    {
+        Debug.Log("Allergy spotted, killed customer");
+        CustomerIsAllergic();
+
+        promptPos.HandleMoneyPopup(transform.position, negativeRepFromKilling);
+        Debug.Log(promptPos);
+        //POSITION HERE
+
+        Destroy(gameObject);
+        AudioManager.Instance.PlayAlienExplodeSFX();
+        reputationReference.ApplyChange(-negativeRepFromKilling);
+        onReputationChanged.Raise(reputationReference.GetValue());
+        customerHasDied?.Invoke(gameObject.GetComponent<Customer>());
+    }
+
+
     private void CustomerIsAllergic()
     {
         allergensFedReference.ApplyChange(+1);

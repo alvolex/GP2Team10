@@ -29,7 +29,7 @@ public class AlienEatFood : MonoBehaviour
         
         //Debug.Log( "Order has been recieved by alien: " + order.GetFood());
 
-        attributes.CheckAllergies(order.SelectedFoodItem);
+        attributes.CheckAllergies(order);
 
         if (order == myOrder)
         {
