@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorialText: The chefs have finished cooking the meal, hurry over and pick it
     up!
-  hasBeenPlayed: 0
+  shouldMoveLights: 1
+  hasBeenPlayed: 1

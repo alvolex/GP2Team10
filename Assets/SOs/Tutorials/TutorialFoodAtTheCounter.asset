@@ -15,4 +15,5 @@ MonoBehaviour:
   tutorialText: Although the chefs can be quite salty at times, their cooking abilities
     are top-notch when it comes to intergalactic dining. Be sure to deliver the order
     to the correct customer, post-haste!
-  hasBeenPlayed: 0
+  shouldMoveLights: 1
+  hasBeenPlayed: 1
