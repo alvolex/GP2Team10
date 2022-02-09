@@ -47,6 +47,9 @@ MonoBehaviour:
   maxNumberOfCustomersToSpawn: 100
   numberOfCustomersPerDayMultiplier: 1
   timeBetweenCustomers: 10
+  minTimeBetweenCustomers: 4
+  speedUpSpawning: 3
+  daysUntilNoSingleCustomer: 5
   chanceOf1Customer: 30
   chanceOf2Customers: 30
   chanceOf3Customers: 25
