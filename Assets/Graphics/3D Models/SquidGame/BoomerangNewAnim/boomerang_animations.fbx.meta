@@ -9,6 +9,9 @@ ModelImporter:
   - first:
       74: -521952229688420066
     second: rig|Action.001
+  - first:
+      74: -5486591445745080094
+    second: rig|Action.001 (1)
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -38,10 +41,10 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: rig|Action
-      takeName: rig|Action
+      name: rig|Action.001 (1)
+      takeName: rig|Action.001
       internalID: 0
-      firstFrame: 120
+      firstFrame: 0
       lastFrame: 129
       wrapMode: 0
       orientationOffsetY: 0
