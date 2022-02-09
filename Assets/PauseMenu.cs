@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using ScriptableEvents;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
@@ -14,6 +15,15 @@ public class PauseMenu : MonoBehaviour
     public Object mainMenu;
     public GameObject userInterface;
     private float time;
+    
+    [Header("Reputation: ")] 
+    [SerializeField] private IntVariable reputation;
+    [SerializeField] private ScriptableEventInt OnRepChangedEvent;
+    
+    [Header("Tips: ")] 
+    [SerializeField] private IntVariable tips;
+    [SerializeField] private ScriptableEventInt OnTipChangedEvent;
+    
 
     private void Start()
     {
@@ -38,12 +48,24 @@ public class PauseMenu : MonoBehaviour
 
     public void NewGame()
     {
+        
+        tips.SetValue(0);
+        OnTipChangedEvent.Raise();
+        
+        reputation.SetValue(0);
+        OnRepChangedEvent.Raise();
         Time.timeScale = 1;
         SceneManager.LoadScene(scene.name);
     }
 
     public void ExitGame()
     {
+        tips.SetValue(0);
+        OnTipChangedEvent.Raise();
+        
+        reputation.SetValue(0);
+        OnRepChangedEvent.Raise();
+        
         Time.timeScale = 1;
         SceneManager.LoadScene(mainMenu.name);
     }
