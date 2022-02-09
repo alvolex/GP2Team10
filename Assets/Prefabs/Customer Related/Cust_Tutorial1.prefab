@@ -532,10 +532,12 @@ MonoBehaviour:
   selectedMat: {fileID: 2100000, guid: 0095f11c94b61d34182b8f9cb57ae586, type: 2}
   restaurantExit: {fileID: 0}
   leaveWhenCustomersStopSpawning: {fileID: 11400000, guid: 2a13d75055a79b64d89a7fc48faa69ad, type: 2}
-  timeOffsetBeforeLeaving: 30
+  timeOffsetBeforeLeaving: 15
   tutorialEvent: {fileID: 11400000, guid: 0a5258619e3ddc44e9211bbaf30d158a, type: 2}
   hasBeenSeatedText: {fileID: 11400000, guid: acaf578968bf68c43ba5b64c3b7a5f6b, type: 2}
   meshRenderer: {fileID: 0}
+  attributes: {fileID: 0}
+  hasEaten: 0
   customerAnimator: {fileID: 2795807404959195697}
 --- !u!114 &708026727204617424
 MonoBehaviour:
@@ -760,6 +762,7 @@ MonoBehaviour:
   maxRep: 200
   maxTip: 200
   negativeRepFromKilling: 0
+  negativeRepFromLeaving: 0
   maxWaitingToBeSeatedTime: 45
   maxWaitingToOrderTime: 45
   maxWaitingForOrderTime: 45

@@ -24,6 +24,10 @@ namespace DefaultNamespace
         [SerializeField] private ScriptableSimpleEvent destroyFoodWhenThrown;
         [SerializeField] private ScriptableOrderEvent destroyOrderEvent;
         
+        [Header("Tutorial stuff")] 
+        [SerializeField] private ScriptableTutorialEvent tutorialEvent;
+        [SerializeField] private ScriptableTutorialText foodHasGoneBadText;
+
 
         private Dictionary<GameObject, Image> combinedList = new Dictionary<GameObject, Image>();
 
@@ -126,6 +130,8 @@ namespace DefaultNamespace
 
             //If the order stays to long on the counter it will go bad
             currentOrder.HasSpoiled = true;
+            tutorialEvent.InvokeEvent(foodHasGoneBadText);
+            
             if (hazManager == null || throwFood == null) yield break;
 
             StartCoroutine(ThrowFoodIntoRestaurant(currentOrder));

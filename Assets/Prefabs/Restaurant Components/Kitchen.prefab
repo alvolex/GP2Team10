@@ -1563,6 +1563,8 @@ MonoBehaviour:
   foodPickedUp: {fileID: 11400000, guid: 4728e813aba0d834386f50f6e23f0db5, type: 2}
   destroyFoodWhenThrown: {fileID: 11400000, guid: 964e08ef323cdf84c8b0b432f719c743, type: 2}
   destroyOrderEvent: {fileID: 11400000, guid: e9182be1f9c8d514c8614b226ce8ed82, type: 2}
+  tutorialEvent: {fileID: 11400000, guid: 0a5258619e3ddc44e9211bbaf30d158a, type: 2}
+  foodHasGoneBadText: {fileID: 11400000, guid: 7bae93cc64c344f4ebaf8094a0c128b0, type: 2}
 --- !u!1 &7351048171032696657
 GameObject:
   m_ObjectHideFlags: 0
