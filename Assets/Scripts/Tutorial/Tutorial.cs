@@ -30,6 +30,7 @@ public class Tutorial : MonoBehaviour
 
 
     private Queue<string> textPromptsInOrder = new Queue<string>();
+    private Queue<bool> shouldMoveLightQueue = new Queue<bool>();
     private bool allTextVisible = false;
     private bool shouldShowNextPrompt = true;
     private float timeBetweenCharactersAtStart;
@@ -76,7 +77,10 @@ public class Tutorial : MonoBehaviour
         
         //Show first text prompt at startup
         textPromptsInOrder.Enqueue(startText.TutorialText);
+        shouldMoveLightQueue.Enqueue(startText.ShouldMoveLights);
         textPromptsInOrder.Enqueue(howToSeatCustomers.TutorialText);
+        shouldMoveLightQueue.Enqueue(howToSeatCustomers.ShouldMoveLights);
+
         startText.hasBeenPlayed = true;
         howToSeatCustomers.hasBeenPlayed = true;
         ShowTutorialText();
@@ -93,6 +97,7 @@ public class Tutorial : MonoBehaviour
         if (scriptableTutorial.hasBeenPlayed) return;
         scriptableTutorial.hasBeenPlayed = true;
         
+        shouldMoveLightQueue.Enqueue(scriptableTutorial.ShouldMoveLights);
         textPromptsInOrder.Enqueue(scriptableTutorial.TutorialText);
         ShowTutorialText();
     }
@@ -172,6 +177,8 @@ public class Tutorial : MonoBehaviour
 
     IEnumerator TypeInTextCoroutine()
     {
+
+        
         canvasToToggle.SetActive(true);
         isInTutorial = true;
         //StopCoroutine(CheckForPlayerInput()); //Stop it if it's already running
@@ -185,6 +192,12 @@ public class Tutorial : MonoBehaviour
         if (textPromptsInOrder.Count == 0) yield break;
 
         currenTextHidden.text = textPromptsInOrder.Dequeue();
+        bool moveLights = shouldMoveLightQueue.Dequeue();
+        
+        if (moveLights)
+        {
+            TurnOnAndMoveSpotlight();
+        }
 
         bool containsLinebreak = currenTextHidden.text.Contains("+");
         string lineBreakString = "";
