@@ -524,7 +524,7 @@ GameObject:
   - component: {fileID: 3341074615287445631}
   - component: {fileID: -1811435602183679726}
   m_Layer: 0
-  m_Name: Customer 3
+  m_Name: Customer_Squidgames
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

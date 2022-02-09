@@ -2752,7 +2752,7 @@ GameObject:
   - component: {fileID: 5773074491020217117}
   - component: {fileID: -6012618269604763573}
   m_Layer: 0
-  m_Name: Customer 1
+  m_Name: Customer_Boomerang
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2795,6 +2795,8 @@ MonoBehaviour:
   timeOffsetBeforeLeaving: 15
   tutorialEvent: {fileID: 11400000, guid: 0a5258619e3ddc44e9211bbaf30d158a, type: 2}
   hasBeenSeatedText: {fileID: 11400000, guid: acaf578968bf68c43ba5b64c3b7a5f6b, type: 2}
+  moveTowardsTableOffset: 0.6
+  sitdownYOffset: 0.5
   meshRenderer: {fileID: 8563295089930078531}
   attributes: {fileID: 0}
   hasEaten: 0
@@ -3227,6 +3229,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5477479526674248742}
     m_Modifications:
+    - target: {fileID: 2584108353048840258, guid: c1d9e0aab51cb964db27a41a4aa2ff70, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5c8b174f325775740ba8f09989213f5d, type: 2}
     - target: {fileID: 5010372434276212180, guid: c1d9e0aab51cb964db27a41a4aa2ff70, type: 3}
       propertyPath: m_Name
       value: BoomerangAlien_anim_Idle
