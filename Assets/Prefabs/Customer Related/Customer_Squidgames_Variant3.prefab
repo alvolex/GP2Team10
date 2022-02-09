@@ -524,7 +524,7 @@ GameObject:
   - component: {fileID: 3341074615287445631}
   - component: {fileID: -1811435602183679726}
   m_Layer: 0
-  m_Name: Customer_Squidgames
+  m_Name: Customer_Squidgames_Variant3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -567,6 +567,8 @@ MonoBehaviour:
   timeOffsetBeforeLeaving: 15
   tutorialEvent: {fileID: 11400000, guid: 0a5258619e3ddc44e9211bbaf30d158a, type: 2}
   hasBeenSeatedText: {fileID: 11400000, guid: acaf578968bf68c43ba5b64c3b7a5f6b, type: 2}
+  moveTowardsTableOffset: 0.4
+  sitdownYOffset: 0
   meshRenderer: {fileID: 0}
   attributes: {fileID: 0}
   hasEaten: 0
@@ -3413,6 +3415,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: squid_Animations_fix2
       objectReference: {fileID: 0}
+    - target: {fileID: 1140850561249670515, guid: 9f42f09cbf062c445adef25954d6d7d2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3878dc2a850c4ed4091b5520a17dc343, type: 2}
+    - target: {fileID: 1140850561249670515, guid: 9f42f09cbf062c445adef25954d6d7d2, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 87dcec96fb06d3840a742efc9ddebb05, type: 2}
+    - target: {fileID: 1140850561249670515, guid: 9f42f09cbf062c445adef25954d6d7d2, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: f6e7d09a4dc49a34fbd6a5c64612710f, type: 2}
+    - target: {fileID: 1140850561249670515, guid: 9f42f09cbf062c445adef25954d6d7d2, type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 89e64bbe0140a2f45a458f026236d3d2, type: 2}
     - target: {fileID: 3658063460606485015, guid: 9f42f09cbf062c445adef25954d6d7d2, type: 3}
       propertyPath: m_Controller
       value: 
