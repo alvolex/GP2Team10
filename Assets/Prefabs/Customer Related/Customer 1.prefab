@@ -3022,7 +3022,7 @@ MonoBehaviour:
   maxRep: 300
   maxTip: 265
   negativeRepFromKilling: 500
-  negativeRepFromLeaving: 0
+  negativeRepFromLeaving: 100
   maxWaitingToBeSeatedTime: 30
   maxWaitingToOrderTime: 45
   maxWaitingForOrderTime: 45
