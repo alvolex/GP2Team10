@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f4f09e9d01472f9ecc0058ccf213c2, type: 3}
   m_Name: TutorialOrderTaken
   m_EditorClassIdentifier: 
-  tutorialText: Hopefully we managed to satisfy their dietary needs, we really couldn't
-    afford another lawsuit.. Now let's scurry over to the kitchen and hand them the
-    order, the quicker the better so that the chef's don't get overwhelmed!
-  hasBeenPlayed: 0
+  tutorialText: I trust that you got that right. We can not afford a lawsuit and
+    I am not in the mood for another heart attack. Now hurry over to the kitchen
+    counter and hand the order to the chefs. Chop chop!
+  shouldMoveLights: 0
+  hasBeenPlayed: 1

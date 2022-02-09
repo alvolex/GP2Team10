@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f4f09e9d01472f9ecc0058ccf213c2, type: 3}
   m_Name: TutorialOrderLeftAtKitchen
   m_EditorClassIdentifier: 
-  tutorialText: Fantastic work! Now the chef is cooking that delicious grub. Once
-    the food is ready it will be delivered to the counter!
+  tutorialText: Now, let the chefs cook that delicious meal in peace. When the dish
+    is ready it will be placed on the counter. So far, I wouldn't say I'm impressed
+    by your performance, but I'm also not unimpressed.
+  shouldMoveLights: 0
   hasBeenPlayed: 0

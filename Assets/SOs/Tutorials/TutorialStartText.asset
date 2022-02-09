@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f4f09e9d01472f9ecc0058ccf213c2, type: 3}
   m_Name: TutorialStartText
   m_EditorClassIdentifier: 
-  tutorialText: On this fine day your duty is to serve as many of your alien brethren
-    as possible. Travelers from all over the galaxy converge on this fine establishment
-    to purchase some of the most sought after meals in the universe. +When a patron
-    arrives, help them find an vacant table.
-  hasBeenPlayed: 0
+  tutorialText: Your first day, Penny. Nervous? You should be. Only the wealthiest
+    and most influencial clientele in the whole galaxy can dine here. So go put those
+    four arms of yours to good use and show me what a xarrekian waitress can do.
+  shouldMoveLights: 0
+  hasBeenPlayed: 1

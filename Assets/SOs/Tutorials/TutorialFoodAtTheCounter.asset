@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f4f09e9d01472f9ecc0058ccf213c2, type: 3}
   m_Name: TutorialFoodAtTheCounter
   m_EditorClassIdentifier: 
-  tutorialText: Although the chefs can be quite salty at times, their cooking abilities
-    are top-notch when it comes to intergalactic dining. Be sure to deliver the order
-    to the correct customer, post-haste!
-  hasBeenPlayed: 0
+  tutorialText: Your only job now is to serve the dish. Our last waitress always
+    messed up this part. I still have nightmares about her clumsiness...
+  shouldMoveLights: 0
+  hasBeenPlayed: 1

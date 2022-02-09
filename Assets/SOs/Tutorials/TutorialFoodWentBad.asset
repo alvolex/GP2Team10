@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f4f09e9d01472f9ecc0058ccf213c2, type: 3}
   m_Name: TutorialFoodWentBad
   m_EditorClassIdentifier: 
-  tutorialText: Wow, you made it, my bet was that you'd quit before you managed to
-    deliver your first order. Stay vigilant, some of these aliens will really test
-    your patience!
-  hasBeenPlayed: 0
+  tutorialText: '*sighs* You got four arms but no legs apparently. Do NOT serve that
+    dish!'
+  shouldMoveLights: 0
+  hasBeenPlayed: 1
