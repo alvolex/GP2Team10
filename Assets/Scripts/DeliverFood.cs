@@ -102,7 +102,7 @@ public class DeliverFood : MonoBehaviour
         
         if (!other.TryGetComponent(out AlienEatFood curCustomer)) return;
 
-        if (curCustomer.Of.HasOrdered)
+        if (curCustomer.Of.HasOrdered && !curCustomer.HasRecievedFood)
         {
             closeAlienList.Add(curCustomer);
             customerEatFood = curCustomer;
