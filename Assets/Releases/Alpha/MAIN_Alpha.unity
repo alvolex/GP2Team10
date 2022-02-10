@@ -1535,6 +1535,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8678823145569952518, guid: 67b33307800362441a734deba2237170, type: 3}
+--- !u!114 &283387186 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5987475948565007993, guid: 6db9ebc31ef1a2049aef9fba03e58fce, type: 3}
+  m_PrefabInstance: {fileID: 5987475948600718446}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &311032790
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4392,6 +4403,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 90183ae3ae77e1549894ea60749be583, type: 2}
+    - target: {fileID: 8658878664180773788, guid: a1d831e30cd90b549a11c586027f8caa, type: 3}
+      propertyPath: vcam
+      value: 
+      objectReference: {fileID: 283387186}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1d831e30cd90b549a11c586027f8caa, type: 3}
 --- !u!1001 &786959918
@@ -4471,6 +4486,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68c4db46efaf02045bca6ef2c7918159, type: 3}
+--- !u!1 &791734086 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5987475946569900162, guid: 6db9ebc31ef1a2049aef9fba03e58fce, type: 3}
+  m_PrefabInstance: {fileID: 5987475948600718446}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &791734090
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791734086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 0
+  m_FrequencyGain: 0
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1001 &797604578
 PrefabInstance:
   m_ObjectHideFlags: 0

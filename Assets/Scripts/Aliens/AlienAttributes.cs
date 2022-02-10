@@ -173,7 +173,7 @@ public class AlienAttributes : MonoBehaviour
         Debug.Log("Allergy spotted, killed customer");
         CustomerIsAllergic();
         
-        poofEffect.AlienGoPoo0f(transform);
+        poofEffect.AlienGoPoo0f(customer);
         //pARITCLE THING HERE
 
         promptPos.HandleMoneyPopup(transform.position, negativeRepFromKilling);

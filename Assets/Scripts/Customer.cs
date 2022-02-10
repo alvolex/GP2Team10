@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DefaultNamespace;
+using Microsoft.Win32.SafeHandles;
 using Scriptables;
 using UnityEngine;
 using UnityEngine.AI;
@@ -55,6 +56,8 @@ public class Customer : MonoBehaviour
     private bool hasChangedState = false;
 
     public bool IsSeated => isSeated;
+
+    public Vector3 ChairPos => chairPos;
     public event Action<Customer> OnFinishedEating;
     
 
