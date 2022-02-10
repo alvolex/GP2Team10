@@ -226,18 +226,26 @@ public class OrderFood : MonoBehaviour
 
         AudioManager.Instance.PlayOrderScreenOnSFX();
 
-        if (GetComponent<AlienType>().type == AlienTypes.BigMan)
+        if (TryGetComponent(out AlienType AlienType))
+        {
+            if (GetComponent<AlienType>().type == AlienTypes.HairyThing)
+            {
+                AudioManager.Instance.PlayAlienHairyThingTalkSFX();
+            }
+            else if (GetComponent<AlienType>().type == AlienTypes.SquidThing)
+            {
+                AudioManager.Instance.PlayAlienSquidThingTalkSFX();
+            }
+            else
+            {
+                AudioManager.Instance.PlayAlienBigManTalkSFX();
+            }
+        }
+        else
         {
             AudioManager.Instance.PlayAlienBigManTalkSFX();
         }
-        else if (GetComponent<AlienType>().type == AlienTypes.HairyThing)
-        {
-            AudioManager.Instance.PlayAlienHairyThingTalkSFX();
-        }
-        else if (GetComponent<AlienType>().type == AlienTypes.SquidThing)
-        {
-            AudioManager.Instance.PlayAlienSquidThingTalkSFX();
-        }
+        
 
 
         //Tutorial stuff
