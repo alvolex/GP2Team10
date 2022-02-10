@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0031037452, g: 0.002729593, b: 0.0033060266, a: 1}
+  m_IndirectSpecularColor: {r: 0.0031040972, g: 0.0027302245, b: 0.0033065365, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10323,7 +10323,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3088872603369066305, guid: 8dcf44ee930ba76408268b859eec70e3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 66.7
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 3088872603369066305, guid: 8dcf44ee930ba76408268b859eec70e3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -10413,6 +10413,10 @@ PrefabInstance:
     - target: {fileID: 3972550730463313610, guid: 9a3d6304acd430d4c810bcfff62de4de, type: 3}
       propertyPath: m_Name
       value: LoadGameButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 3972550730463313610, guid: 9a3d6304acd430d4c810bcfff62de4de, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3972550730463313611, guid: 9a3d6304acd430d4c810bcfff62de4de, type: 3}
       propertyPath: m_Pivot.x
@@ -10633,7 +10637,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5429294739504266338, guid: f1af2816432839c4c89b2c0a53fc73dc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -120
+      value: -122.2
       objectReference: {fileID: 0}
     - target: {fileID: 5429294739504266338, guid: f1af2816432839c4c89b2c0a53fc73dc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -11009,7 +11013,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7170790059090872735, guid: a7fc82af8c0dbe847a12303d1c7ed087, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -56.4
+      value: -57.8
       objectReference: {fileID: 0}
     - target: {fileID: 7170790059090872735, guid: a7fc82af8c0dbe847a12303d1c7ed087, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -11118,7 +11122,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7452057499791426518, guid: e109e538989e94847bf87d8ba06a3f2c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -8.2
+      value: -18.2
       objectReference: {fileID: 0}
     - target: {fileID: 7452057499791426518, guid: e109e538989e94847bf87d8ba06a3f2c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
