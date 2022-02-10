@@ -5,16 +5,20 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
+    [Header("Volume Control")]
+    [Range(0, 1)]public float SFXVolume;
+    [Range(0, 1)]public float MusicVolume;
     //[SerializeField] private AudioSource musicSource;
-    [SerializeField] private  AudioSource orderStartSource;
-    [SerializeField] private  AudioSource orderCompleteSource;
-    [SerializeField] private  AudioSource journalOpenSource;
-    [SerializeField] private  AudioSource journalCloseSource;
-    [SerializeField] private  AudioSource journalPageTurnSource;
-    [SerializeField] private  AudioSource journalPageTurn1Source;
-    [SerializeField] private  AudioSource getMoneySource;
-    [SerializeField] private  AudioSource reputationUpSource;
-    [SerializeField] private  AudioSource reputationDownSource;
+    [Header("Audio Sources")]
+    [SerializeField] private AudioSource orderStartSource;
+    [SerializeField] private AudioSource orderCompleteSource;
+    [SerializeField] private AudioSource journalOpenSource;
+    [SerializeField] private AudioSource journalCloseSource;
+    [SerializeField] private AudioSource journalPageTurnSource;
+    [SerializeField] private AudioSource journalPageTurn1Source;
+    [SerializeField] private AudioSource getMoneySource;
+    [SerializeField] private AudioSource reputationUpSource;
+    [SerializeField] private AudioSource reputationDownSource;
     [SerializeField] private AudioSource alienExplodeSource;
     [SerializeField] private AudioSource pickupPlateSource;
     [SerializeField] private AudioSource dayEnd5SecSource;
@@ -33,8 +37,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource plateDestroySource;
     [SerializeField] private AudioSource platePunchAwaySource;
 
-    [Header("Volume Control")]
-    [Range(0, 1)]public float SFXVolume;
+    
 
     private void Awake()
     {
@@ -56,7 +59,7 @@ public class AudioManager : MonoBehaviour
         {
             if (audioSource.gameObject.name == "Music")
             {
-                audioSource.volume = 0.03f;
+                audioSource.volume = MusicVolume;
             }
             else
             {
