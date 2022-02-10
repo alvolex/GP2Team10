@@ -67,7 +67,8 @@ public class PauseMenu : MonoBehaviour
         OnRepChangedEvent.Raise();
         
         Time.timeScale = 1;
-        SceneManager.LoadScene(mainMenu.name);
+        //SceneManager.LoadScene(mainMenu.name); //Doesnt work after making a build for some reason
+        SceneManager.LoadScene("MAIN_MENU");
     }
     
 }

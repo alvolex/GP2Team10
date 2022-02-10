@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 055a0a7656254f63b1118f394b34c881, type: 3}
   m_Name: Starter3
   m_EditorClassIdentifier: 
-  foodName: Galactic greens
+  foodName: Astro-cado
   foodType: 0
   allergies: 0200000001000000
   timeToCookFood: 12
   foodPrefab: {fileID: 0}
   foodDescription: 
+  timeBeforeFoodSpoils: 10
