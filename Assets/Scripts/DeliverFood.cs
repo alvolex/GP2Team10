@@ -41,6 +41,7 @@ public class DeliverFood : MonoBehaviour
         {
             //Delivered to the trash, amirite?
             FoodDelivered();
+            AudioManager.Instance.PlayGarbageCanSFX();
         }
 
         if (!canDeliverFood || customerEatFood == null || curOrder == null || customerEatFood.Of.MyOrder == null ||

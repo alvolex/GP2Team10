@@ -2751,6 +2751,7 @@ GameObject:
   - component: {fileID: 4565707558532729185}
   - component: {fileID: 5773074491020217117}
   - component: {fileID: -6012618269604763573}
+  - component: {fileID: 8562636996926398230}
   m_Layer: 0
   m_Name: Customer_Boomerang_Variant1
   m_TagString: Untagged
@@ -3079,6 +3080,19 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &8562636996926398230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8241836353645797395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44e776d9df050c14fa90433334e1ce1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
 --- !u!1 &8894584733091654286
 GameObject:
   m_ObjectHideFlags: 0
@@ -3558,11 +3572,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6596868672568484356, guid: 47e4140cc5023634280558997a18d461, type: 3}
   m_PrefabInstance: {fileID: 8923724285384582430}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &5274122914876121310 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3667651029361460672, guid: 47e4140cc5023634280558997a18d461, type: 3}
-  m_PrefabInstance: {fileID: 8923724285384582430}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5892906354430878005 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3031099494786745387, guid: 47e4140cc5023634280558997a18d461, type: 3}
@@ -3574,3 +3583,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &5274122914876121310 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3667651029361460672, guid: 47e4140cc5023634280558997a18d461, type: 3}
+  m_PrefabInstance: {fileID: 8923724285384582430}
+  m_PrefabAsset: {fileID: 0}

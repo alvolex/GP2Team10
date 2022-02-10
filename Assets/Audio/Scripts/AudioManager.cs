@@ -1,20 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
-    //[SerializeField] private AudioSource musicSource;
-    [SerializeField] private  AudioSource orderStartSource;
-    [SerializeField] private  AudioSource orderCompleteSource;
-    [SerializeField] private  AudioSource journalOpenSource;
-    [SerializeField] private  AudioSource journalCloseSource;
-    [SerializeField] private  AudioSource journalPageTurnSource;
-    [SerializeField] private  AudioSource journalPageTurn1Source;
-    [SerializeField] private  AudioSource getMoneySource;
-    [SerializeField] private  AudioSource reputationUpSource;
-    [SerializeField] private  AudioSource reputationDownSource;
+    [Header("Volume Control")]
+    [Range(0, 1)]public float SFXVolume;
+    [Range(0, 1)]public float MusicVolume;
+    
+    [Header("Audio Sources")]
+    [SerializeField] private AudioSource orderStartSource;
+    [SerializeField] private AudioSource orderCompleteSource;
+    [SerializeField] private AudioSource journalOpenSource;
+    [SerializeField] private AudioSource journalCloseSource;
+    [SerializeField] private AudioSource journalPageTurnSource;
+    [SerializeField] private AudioSource journalPageTurn1Source;
+    [SerializeField] private AudioSource getMoneySource;
+    [SerializeField] private AudioSource reputationUpSource;
+    [SerializeField] private AudioSource reputationDownSource;
     [SerializeField] private AudioSource alienExplodeSource;
     [SerializeField] private AudioSource pickupPlateSource;
     [SerializeField] private AudioSource dayEnd5SecSource;
@@ -30,9 +35,12 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource alienSquidThingTalkSource;
     [SerializeField] private AudioSource alienSquidThingTalk1Source;
     [SerializeField] private AudioSource garbageCanSource;
+    [SerializeField] private AudioSource plateDestroySource;
+    [SerializeField] private AudioSource platePunchAwaySource;
+    [SerializeField] private AudioSource menuTrackSource;
+    [SerializeField] private AudioSource ingameMusicSource;
 
-    [Header("Volume Control")]
-    [Range(0, 1)]public float SFXVolume;
+    
 
     private void Awake()
     {
@@ -48,13 +56,39 @@ public class AudioManager : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            if (!menuTrackSource.isPlaying)
+            {
+                PlayMenuTrack();
+            }
+            if (ingameMusicSource.isPlaying)
+            {
+                ingameMusicSource.Stop();
+            }
+        }
+        else
+        {
+            if (menuTrackSource.isPlaying)
+            {
+                menuTrackSource.Stop();
+            }
+            if (!ingameMusicSource.isPlaying)
+            {
+                PlayIngameMusicTrack();
+            }
+        }
+    }
+
     private void OnValidate()
     {
         foreach(AudioSource audioSource in GetComponentsInChildren<AudioSource>())
         {
-            if (audioSource.gameObject.name == "Music")
+            if (audioSource.gameObject.name == "Music" || audioSource.gameObject.name == "MenuTrack")
             {
-                audioSource.volume = 0.03f;
+                audioSource.volume = MusicVolume;
             }
             else
             {
@@ -145,7 +179,6 @@ public class AudioManager : MonoBehaviour
         {
             PlaySound(alienBigManTalk2Source, alienBigManTalk2Source.clip);
         }
-        Debug.Log(r);
     }
 
 
@@ -168,7 +201,6 @@ public class AudioManager : MonoBehaviour
         {
             PlaySound(alienHairyThingTalk3Source, alienHairyThingTalk3Source.clip);
         }
-        Debug.Log(r);
     }
 
     public void PlayAlienSquidThingTalkSFX()
@@ -182,11 +214,27 @@ public class AudioManager : MonoBehaviour
         {
             PlaySound(alienSquidThingTalk1Source, alienSquidThingTalk1Source.clip);
         }
-        Debug.Log(r);
     }
     public void PlayGarbageCanSFX()
     {
         PlaySound(garbageCanSource, garbageCanSource.clip);
+    }
+    public void PlayPlateDestroySFX()
+    {
+        PlaySound(plateDestroySource, plateDestroySource.clip);
+    }
+    public void PlayPlatePunchAwaySFX()
+    {
+        PlaySound(platePunchAwaySource, platePunchAwaySource.clip);
+    }
+
+    public void PlayMenuTrack()
+    {
+        PlaySound(menuTrackSource, menuTrackSource.clip);
+    }
+    public void PlayIngameMusicTrack()
+    {
+        PlaySound(ingameMusicSource, ingameMusicSource.clip);
     }
 
     public void PlaySound(AudioSource source, AudioClip clip)
