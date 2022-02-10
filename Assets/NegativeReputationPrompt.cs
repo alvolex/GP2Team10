@@ -33,12 +33,12 @@ public class NegativeReputationPrompt : MonoBehaviour
         StartCoroutine(SlowlySlideUpInstantiate(test));
     }
 
-    public void HandleMoneyPopup(Vector3 pos, int negativeRep)
+    public void HandleMoneyPopup(Customer alienPos, int negativeRep)
     {
         reputationText.text = $"-{negativeRep}";
         
         reputationPopupUI.SetActive(true);
-        reputationPopupUI.transform.position = pos;
+        reputationPopupUI.transform.position = new Vector3(alienPos.ChairPos.x,alienPos.ChairPos.y+1.5f,alienPos.ChairPos.z);
         StartCoroutine(SlowlySlideUp(reputationPopupUI));
     }
     

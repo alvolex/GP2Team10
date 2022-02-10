@@ -371,6 +371,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5276355640284334114}
     m_Modifications:
+    - target: {fileID: 2170486027156093784, guid: d5f5fa487a8987a4fb11b61f20c1bd25, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2206929269228364029, guid: d5f5fa487a8987a4fb11b61f20c1bd25, type: 3}
       propertyPath: m_Name
       value: CustomerOverHeadUI
@@ -458,6 +462,14 @@ PrefabInstance:
     - target: {fileID: 5103402572131053947, guid: d5f5fa487a8987a4fb11b61f20c1bd25, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7925774814967965729, guid: d5f5fa487a8987a4fb11b61f20c1bd25, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7925774814967965729, guid: d5f5fa487a8987a4fb11b61f20c1bd25, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -2.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5f5fa487a8987a4fb11b61f20c1bd25, type: 3}

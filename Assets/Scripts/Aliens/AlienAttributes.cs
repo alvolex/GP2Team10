@@ -174,11 +174,11 @@ public class AlienAttributes : MonoBehaviour
         CustomerIsAllergic();
         
         poofEffect.AlienGoPoo0f(customer);
-        //pARITCLE THING HERE
+        
 
-        promptPos.HandleMoneyPopup(transform.position, negativeRepFromKilling);
+        promptPos.HandleMoneyPopup(customer, negativeRepFromKilling);
         Debug.Log(promptPos);
-        //POSITION HERE
+        
 
         Destroy(gameObject);
         AudioManager.Instance.PlayAlienExplodeSFX();
