@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2981187903834637392}
   - component: {fileID: 2981187903834637393}
   m_Layer: 0
-  m_Name: Puddle
+  m_Name: BloodPuddle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 2981187903834637394}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.0948495, y: 0.98, z: 5.264697}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.49725047, y: 0.49725047, z: 0.49725047}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1f8cd9a1b71fc534490d12e70117aa11, type: 2}
+  - {fileID: 2100000, guid: b1ad07700f7320f40a0f0879ca7985fc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
