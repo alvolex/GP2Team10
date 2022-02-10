@@ -834,6 +834,8 @@ MonoBehaviour:
   timeOffsetBeforeLeaving: 15
   tutorialEvent: {fileID: 11400000, guid: 0a5258619e3ddc44e9211bbaf30d158a, type: 2}
   hasBeenSeatedText: {fileID: 11400000, guid: acaf578968bf68c43ba5b64c3b7a5f6b, type: 2}
+  moveTowardsTableOffset: 0.4
+  sitdownYOffset: 0
   meshRenderer: {fileID: 2369290766455089259}
   attributes: {fileID: 0}
   hasEaten: 0
@@ -856,9 +858,9 @@ MonoBehaviour:
   todaysMeals: {fileID: 11400000, guid: 0142063cd1617a7498cbe34d6338a123, type: 2}
   foodOrderingRadius: 2.2
   spriteRenderer: {fileID: 3384035066629609491}
-  starterSprite: {fileID: 21300000, guid: 512c569b32d85cc4a94188b9318407a2, type: 3}
-  maincourseSprite: {fileID: 21300000, guid: 72cce87efcba67f4b8286cdd678e6381, type: 3}
-  dessertSprite: {fileID: 21300000, guid: 4579cecf20b293849b11185bd7fe328c, type: 3}
+  starterSprite: {fileID: 21300000, guid: 00588c14256b86d4c91b02314ca51e47, type: 3}
+  maincourseSprite: {fileID: 21300000, guid: 6c5587bf7314c084fb4efcca271a7a14, type: 3}
+  dessertSprite: {fileID: 21300000, guid: 3c2232bfeea862d418fd40412a5404af, type: 3}
   allergySpriteRenderer:
   - {fileID: 6801334127890046976}
   - {fileID: 5980670816386359789}

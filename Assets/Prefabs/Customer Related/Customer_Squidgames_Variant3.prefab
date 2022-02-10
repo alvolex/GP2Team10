@@ -592,9 +592,9 @@ MonoBehaviour:
   todaysMeals: {fileID: 11400000, guid: 0142063cd1617a7498cbe34d6338a123, type: 2}
   foodOrderingRadius: 2.2
   spriteRenderer: {fileID: 3949693659837606270}
-  starterSprite: {fileID: 21300000, guid: 512c569b32d85cc4a94188b9318407a2, type: 3}
-  maincourseSprite: {fileID: 21300000, guid: 72cce87efcba67f4b8286cdd678e6381, type: 3}
-  dessertSprite: {fileID: 21300000, guid: 4579cecf20b293849b11185bd7fe328c, type: 3}
+  starterSprite: {fileID: 21300000, guid: 00588c14256b86d4c91b02314ca51e47, type: 3}
+  maincourseSprite: {fileID: 21300000, guid: 6c5587bf7314c084fb4efcca271a7a14, type: 3}
+  dessertSprite: {fileID: 21300000, guid: 3c2232bfeea862d418fd40412a5404af, type: 3}
   allergySpriteRenderer:
   - {fileID: 5063613717383958893}
   - {fileID: 5393408996194832512}
