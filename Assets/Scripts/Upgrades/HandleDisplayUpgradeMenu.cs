@@ -40,7 +40,7 @@ public class HandleDisplayUpgradeMenu : MonoBehaviour
 
     void ToggleUI()
     {
-        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("MAIN_Tutorial"))
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("MAIN_Tutorial")) //Todo not great that this is set by name
         {
             tutorialFinishedUI.SetActive(!upgradeUI.activeSelf);
             Time.timeScale = 0;
