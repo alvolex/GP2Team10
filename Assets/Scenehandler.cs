@@ -14,6 +14,7 @@ public class Scenehandler : MonoBehaviour
     
     public void StartGame()
     {
+        Debug.Log("pressed start");
         SceneManager.LoadScene("MAIN_Tutorial");
     }
     
