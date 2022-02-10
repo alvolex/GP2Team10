@@ -75,6 +75,7 @@ public class AlienAttributes : MonoBehaviour
 
     
     private NegativeReputationPrompt promptPos;
+    private ParticlePoof poofEffect;
     private Customer customer;
 
     enum customerState
@@ -96,6 +97,7 @@ public class AlienAttributes : MonoBehaviour
         customer = GetComponent<Customer>();
         StartCoroutine(CustomerWaitTimer(maxWaitingToBeSeatedTime, customerState.WaitingToBeSeated));
         promptPos = FindObjectOfType<NegativeReputationPrompt>();
+        poofEffect = FindObjectOfType<ParticlePoof>();
     }
     private void OnDestroy()
     {
@@ -170,6 +172,9 @@ public class AlienAttributes : MonoBehaviour
     {
         Debug.Log("Allergy spotted, killed customer");
         CustomerIsAllergic();
+        
+        poofEffect.AlienGoPoo0f(transform);
+        //pARITCLE THING HERE
 
         promptPos.HandleMoneyPopup(transform.position, negativeRepFromKilling);
         Debug.Log(promptPos);
