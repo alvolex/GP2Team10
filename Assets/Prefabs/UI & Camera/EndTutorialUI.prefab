@@ -25,17 +25,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 983009277}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -82.1}
+  m_LocalScale: {x: 0.11691584, y: 0.11691584, z: 0.11691584}
   m_Children: []
-  m_Father: {fileID: 516322436851251617}
-  m_RootOrder: 4
+  m_Father: {fileID: 4368784213258728476}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 531.28, y: 176.2}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &983009280
 CanvasRenderer:
@@ -65,7 +65,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: GOOD JOB FAM U DID IT, NOW GO AND FEED ALL THE CUSTOMERS IN THE GALAXY
+  m_text: You are hired! Now get a good night's sleep and prepare for the real challenge
+    in the morning.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 739b18974be82154dad67b99e470fb51, type: 2}
   m_sharedMaterial: {fileID: -4400922819208308142, guid: 739b18974be82154dad67b99e470fb51, type: 2}
@@ -149,7 +150,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &516322436851251617
 RectTransform:
   m_ObjectHideFlags: 0
@@ -165,7 +166,6 @@ RectTransform:
   - {fileID: 8716022655414745936}
   - {fileID: 8009055891322592316}
   - {fileID: 348518654450551664}
-  - {fileID: 983009278}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -628,7 +628,8 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 520.0682}
   m_LocalScale: {x: 8.553162, y: 8.553162, z: 8.553162}
-  m_Children: []
+  m_Children:
+  - {fileID: 983009278}
   m_Father: {fileID: 516322436851251617}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f4f09e9d01472f9ecc0058ccf213c2, type: 3}
   m_Name: TutorialFoodWentBad
   m_EditorClassIdentifier: 
-  tutorialText: '*sighs* You got four arms but no legs apparently. Do NOT serve that
-    dish!'
+  tutorialText: ... you got four arms but those legs don't move fast enough. We only
+    serve freshly cooked meals, not cold ones. Just throw that one in the trash.
   shouldMoveLights: 0
-  hasBeenPlayed: 1
+  hasBeenPlayed: 0

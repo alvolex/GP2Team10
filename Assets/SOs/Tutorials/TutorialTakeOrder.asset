@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f4f09e9d01472f9ecc0058ccf213c2, type: 3}
   m_Name: TutorialTakeOrder
   m_EditorClassIdentifier: 
-  tutorialText: '"Pay attention now, Penny. Different patrons are allergic to different
+  tutorialText: Pay attention now, Penny. Different patrons are allergic to different
     ingredients. Being the finest eatery in the galaxy means our guests expect excellent
     service, so make sure to serve them their requested cuisine (Use 1,2,3 on your
-    keyboard to choose a dish)."'
+    keyboard to choose a dish).
   shouldMoveLights: 0
   hasBeenPlayed: 0

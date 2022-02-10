@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: TutorialAlienRecievedFood
   m_EditorClassIdentifier: 
   tutorialText: Not bad. But then again, you xarrekians have four arms so I expect
-    nothing less. As of right now, you are not fired. Just keep this up and for the
-    love of god, smile!
+    nothing less. Keep this up and for the love of god, smile!
   shouldMoveLights: 0
   hasBeenPlayed: 0

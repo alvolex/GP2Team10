@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f4f09e9d01472f9ecc0058ccf213c2, type: 3}
   m_Name: TutorialKilledCustomerWithBadFood
   m_EditorClassIdentifier: 
-  tutorialText: 'Crikey, you''ve done it now. That poor sod got blown up into a million
-    little pieces.. '
+  tutorialText: 'No no no! what did yo-- Uh-oh, chest pains again. Thank god that
+    wasn''t anyone of real importance. Don''t let that happen again! We lose reputation
+    and will be forced to close down if you keep blowing people up!
+
+'
   shouldMoveLights: 0
-  hasBeenPlayed: 1
+  hasBeenPlayed: 0

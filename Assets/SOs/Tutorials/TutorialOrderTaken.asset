@@ -13,7 +13,14 @@ MonoBehaviour:
   m_Name: TutorialOrderTaken
   m_EditorClassIdentifier: 
   tutorialText: I trust that you got that right. We can not afford a lawsuit and
+<<<<<<< Updated upstream
     I am not in the mood for another heart attack. Now hurry over to the kitchen
     counter and hand the order to the chefs. Chop chop!
   shouldMoveLights: 1
   hasBeenPlayed: 1
+=======
+    I'm in no mood for another heart attack. Now hurry over to the kitchen counter
+    and hand the order to the chefs. Chop chop!
+  shouldMoveLights: 0
+  hasBeenPlayed: 0
+>>>>>>> Stashed changes

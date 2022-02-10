@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f4f09e9d01472f9ecc0058ccf213c2, type: 3}
   m_Name: TutorialFoodThrownInTheTrash
   m_EditorClassIdentifier: 
-  tutorialText: FOOD WENT INTO THE TRASH LMAO
+  tutorialText: Do you want this job or not? Focus, Penny. Go get it right this time!
   shouldMoveLights: 0
   hasBeenPlayed: 0

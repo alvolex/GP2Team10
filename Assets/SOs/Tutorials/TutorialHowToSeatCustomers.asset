@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorialText: When our guests arrive, I expect you to greet them at the entrance
     (Spacebar) and escort them to a suitable spot (Spacebar at a highlighted table).
-    I'll trust your judgement of that for now."
+    I'll trust your judgement of that for now.
   shouldMoveLights: 0
   hasBeenPlayed: 1
