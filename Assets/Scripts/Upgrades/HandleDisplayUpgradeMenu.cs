@@ -3,10 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Scriptables;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HandleDisplayUpgradeMenu : MonoBehaviour
 {
     [SerializeField] private GameObject upgradeUI;
+    [SerializeField] private GameObject tutorialFinishedUI;
+    
     
     [Header("Events")]
     [SerializeField] private ScriptableSimpleEvent dayEnd;
@@ -37,6 +40,13 @@ public class HandleDisplayUpgradeMenu : MonoBehaviour
 
     void ToggleUI()
     {
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("MAIN_Tutorial"))
+        {
+            tutorialFinishedUI.SetActive(!upgradeUI.activeSelf);
+            Time.timeScale = 0;
+            return;
+        }
+        
         upgradeUI.SetActive(!upgradeUI.activeSelf);
         Time.timeScale = 0;
     }
