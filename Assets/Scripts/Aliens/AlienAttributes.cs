@@ -72,6 +72,7 @@ public class AlienAttributes : MonoBehaviour
     [Header("Tutorial")]
     [SerializeField] private ScriptableTutorialEvent tutorialEvent;
     [SerializeField] private ScriptableTutorialText killedCustomerByGivingBadFoodText;
+    [SerializeField] private ScriptableTutorialText orderDeliverdToCustomerText;
 
     
     private NegativeReputationPrompt promptPos;
@@ -149,7 +150,6 @@ public class AlienAttributes : MonoBehaviour
     {
         if (foodToCheck.HasSpoiled)
         {
-            tutorialEvent.InvokeEvent(killedCustomerByGivingBadFoodText);
             KillCustomer();
             return;
         }
@@ -165,6 +165,8 @@ public class AlienAttributes : MonoBehaviour
                 }
             }
         }
+        
+        tutorialEvent.InvokeEvent(orderDeliverdToCustomerText); //Alien can eat the food
         FoodIsEdible(foodToCheck.SelectedFoodItem);
     }
 
@@ -185,6 +187,8 @@ public class AlienAttributes : MonoBehaviour
         reputationReference.ApplyChange(-negativeRepFromKilling);
         onReputationChanged.Raise(reputationReference.GetValue());
         customerHasDied?.Invoke(gameObject.GetComponent<Customer>());
+        
+        tutorialEvent.InvokeEvent(killedCustomerByGivingBadFoodText);
     }
 
 

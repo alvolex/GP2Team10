@@ -10,9 +10,9 @@ public class ParticlePoof : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera vcam;
     [SerializeField] private float timeToShakeCam = 0.3f;
 
-    
-    
-    
+    [SerializeField] private GameObject bloodPuddle;
+
+
     private void Start()
     {
         poofer = GetComponent<ParticleSystem>();
@@ -24,6 +24,9 @@ public class ParticlePoof : MonoBehaviour
         
         
         poofer.transform.position = new Vector3(alienPos.ChairPos.x,alienPos.ChairPos.y+1.5f,alienPos.ChairPos.z);
+        GameObject bloodPool = Instantiate(bloodPuddle);
+        bloodPool.transform.position = new Vector3(alienPos.ChairPos.x,1,alienPos.ChairPos.z);
+        Destroy(bloodPool, 7f);
         
         
         poofer.Play();

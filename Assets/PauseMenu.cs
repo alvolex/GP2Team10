@@ -34,9 +34,16 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            if (userInterface.activeSelf == true)
+            {
+                ResumeGame();
+            }
+            else
+            {
+                Time.timeScale = 0;
+                userInterface.SetActive(true);
+            }
             
-            Time.timeScale = 0;
-            userInterface.SetActive(true);
         }
     }
 

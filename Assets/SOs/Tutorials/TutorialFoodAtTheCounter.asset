@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorialText: Your only job now is to serve the dish. Our last waitress always
     messed up this part. I still have nightmares about her clumsiness...
-  shouldMoveLights: 0
-  hasBeenPlayed: 1
+  shouldMoveLights: 1
+  hasBeenPlayed: 0

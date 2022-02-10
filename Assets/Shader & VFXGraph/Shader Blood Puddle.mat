@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_Puddle
+  m_Name: Shader Blood Puddle
   m_Shader: {fileID: -6465566751694194690, guid: a879ad7fb00ea3549b347189ddacda94, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -40,18 +40,18 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_494c52cdf178447494d1260a458f90ff: 0.025
+    - Vector1_494c52cdf178447494d1260a458f90ff: 0.015
     - Vector1_4fa006b8f1e34c23b9d1066c5de83890: 0.6
-    - Vector1_516df89dbac04947bd4ad96bb1c447f4: 0.5
-    - Vector1_676ddc5f264a4673aba603c98024c5e5: 1
-    - Vector1_7b6bce9027084dcf986948eff0c7ef98: 0.1
-    - Vector1_817362d43d8a4619bf1784579c8beee1: 0.25
-    - Vector1_906474d819f74a4d9daa2ebe7d80fbf2: 4.09
-    - Vector1_9aaac228d2c540daba29a33d9e217351: 7.14
+    - Vector1_516df89dbac04947bd4ad96bb1c447f4: 1
+    - Vector1_676ddc5f264a4673aba603c98024c5e5: 0
+    - Vector1_7b6bce9027084dcf986948eff0c7ef98: 0.01
+    - Vector1_817362d43d8a4619bf1784579c8beee1: 16.9
+    - Vector1_906474d819f74a4d9daa2ebe7d80fbf2: 0.3
+    - Vector1_9aaac228d2c540daba29a33d9e217351: 4.72
     - Vector1_a99f1ccd6a324804a63f8f08edfebdb7: 0.2
-    - Vector1_bf3c945686fe48218d863ae7e705d6ce: -7.52
-    - Vector1_f69400adb5f34c2f998b74d2fcfb6537: 5.78
+    - Vector1_bf3c945686fe48218d863ae7e705d6ce: -5.57
+    - Vector1_f69400adb5f34c2f998b74d2fcfb6537: 0
     m_Colors:
-    - Color_0133466f838441b185440799cef39d79: {r: 0.17369369, g: 0.7169812, b: 0.07710925, a: 1}
-    - Color_8937ea9ee2ea47fea0cfba2d976f14be: {r: 0.084227204, g: 1, b: 0, a: 1}
+    - Color_0133466f838441b185440799cef39d79: {r: 1, g: 0.078098, b: 0, a: 1}
+    - Color_8937ea9ee2ea47fea0cfba2d976f14be: {r: 0.6132076, g: 0.21718845, b: 0.18164827, a: 1}
   m_BuildTextureStacks: []
