@@ -3172,234 +3172,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'THIS IS ROLLING CREDITS EXAMPLE
-
-    
-
-    EZ CLAP
-
-    
-
-    THIS
-    IS ROLLING CREDITS EXAMPLE
-
-    
-
-    EZ CLAP
-
-    
-
-    THIS IS ROLLING
-    CREDITS EXAMPLE
-
-    
-
-    EZ CLAP
-
-    
-
-    THIS IS ROLLING CREDITS EXAMPLE
-
-    
-
-    EZ
-    CLAP
-
-    
-
-    THIS IS ROLLING CREDITS EXAMPLE
-
-    
-
-    EZ CLAP
-
-    
-
-    THIS
-    IS ROLLING CREDITS EXAMPLE
-
-    
-
-    EZ CLAP
-
-    
-
-    THIS IS ROLLING
-    CREDITS EXAMPLE
-
-    
-
-    EZ CLAP
-
-    
-
-    THIS IS ROLLING CREDITS EXAMPLE
-
-    
-
-    EZ
-    CLAP
-
-    
-
-    THIS IS ROLLING CREDITS EXAMPLE
-
-    
-
-    EZ CLAP
-
-    
-
-    THIS
-    IS ROLLING CREDITS EXAMPLE
-
-    
-
-    EZ CLAP
-
-    
-
-    THIS IS ROLLING
-    CREDITS EXAMPLE
-
-    
-
-    EZ CLAP
-
-    
-
-    THIS IS ROLLING CREDITS EXAMPLE
-
-    
-
-    EZ
-    CLAP
-
-    
-
-    THIS IS ROLLING CREDITS EXAMPLE
-
-    
-
-    EZ CLAP
-
-    
-
-    THIS
-    IS ROLLING CREDITS EXAMPLE
-
-    
-
-    EZ CLAP
-
-    
-
-    THIS IS ROLLING
-    CREDITS EXAMPLE
-
-    
-
-    EZ CLAP
-
-    
-
-    THIS IS ROLLING CREDITS EXAMPLE
-
-    
-
-    EZ
-    CLAP
-
-    
-
-    THIS IS ROLLING CREDITS EXAMPLE
-
-    
-
-    EZ CLAP
-
-    
-
-    THIS
-    IS ROLLING CREDITS EXAMPLE
-
-    
-
-    EZ CLAP
-
-    
-
-    THIS IS ROLLING
-    CREDITS EXAMPLE
-
-    
-
-    EZ CLAP
-
-    
-
-    THIS IS ROLLING CREDITS EXAMPLE
-
-    
-
-    EZ
-    CLAP
-
-    
-
-    THIS IS ROLLING CREDITS EXAMPLE
-
-    
-
-    EZ CLAP
-
-    
-
-    THIS
-    IS ROLLING CREDITS EXAMPLE
-
-    
-
-    EZ CLAP
-
-    
-
-    THIS IS ROLLING
-    CREDITS EXAMPLE
-
-    
-
-    EZ CLAP
-
-    
-
-    THIS IS ROLLING CREDITS EXAMPLE
-
-    
-
-    EZ
-    CLAP
-
-    
-
-    THIS IS ROLLING CREDITS EXAMPLE
-
-    
-
-    EZ CLAP
-
-    
-
-    THIS
-    IS ROLLING CREDITS EXAMPLE
-
-    
-
-    EZ CLAP
-
-    
-
-'
+  m_text: "Designers\n\r\nMattias Aminpay\r\nSushant Bhonde\r\nSorush Aini\r\n\r\nArtists\n\nSandra
+    P\xE4rnaste\r\nHugo Lindgren\r\n\r\nProgramming\n\nAlexander Volkers \r\nTomas
+    Savela \r\nSimon Haglund\r\nSebastian Wester\r\n\r\nQA\n\nHanna-Marie Harr \r\nViggo
+    Spele\r\n\r\nProject Management\n\nPontus S\xF6derlind\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 739b18974be82154dad67b99e470fb51, type: 2}
   m_sharedMaterial: {fileID: -4400922819208308142, guid: 739b18974be82154dad67b99e470fb51, type: 2}
@@ -3426,15 +3202,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 10
-  m_fontSizeBase: 10
+  m_fontSize: 7
+  m_fontSizeBase: 7
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -3442,7 +3218,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
