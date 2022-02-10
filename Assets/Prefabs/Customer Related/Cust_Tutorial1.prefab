@@ -310,6 +310,7 @@ MonoBehaviour:
   customerStateChange: {fileID: 11400000, guid: 6efcacfcb09cf36479ea6996e13ad590, type: 2}
   tutorialEvent: {fileID: 11400000, guid: 0a5258619e3ddc44e9211bbaf30d158a, type: 2}
   killedCustomerByGivingBadFoodText: {fileID: 11400000, guid: 4af716217dfd39d40a0fe45e968b30ce, type: 2}
+  orderDeliverdToCustomerText: {fileID: 11400000, guid: 16e9112df8c3b2a42b15fea3ad827aef, type: 2}
 --- !u!114 &6429437496325983086
 MonoBehaviour:
   m_ObjectHideFlags: 0

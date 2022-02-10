@@ -311,6 +311,7 @@ MonoBehaviour:
   currentAction: {fileID: 11400000, guid: add060246eb07f24e9273627e0cd9bce, type: 2}
   tutorialEvent: {fileID: 11400000, guid: 0a5258619e3ddc44e9211bbaf30d158a, type: 2}
   orderDeliveredText: {fileID: 11400000, guid: 16e9112df8c3b2a42b15fea3ad827aef, type: 2}
+  orderThrownInTrash: {fileID: 11400000, guid: f4088908f00249e4f855a4fdc7b169e1, type: 2}
   closeAlienList: []
 --- !u!114 &1960739444156903254
 MonoBehaviour:

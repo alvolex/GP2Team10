@@ -17,6 +17,7 @@ public class DeliverFood : MonoBehaviour
     [Header("Tutorial")]
     [SerializeField] private ScriptableTutorialEvent tutorialEvent;
     [SerializeField] private ScriptableTutorialText orderDeliveredText;
+    [SerializeField] private ScriptableTutorialText orderThrownInTrash;
 
     [SerializeField] private List<AlienEatFood> closeAlienList = new List<AlienEatFood>();
 
@@ -37,9 +38,10 @@ public class DeliverFood : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (canDestroyFood && Input.GetKeyDown(KeyCode.Space))
+        if (canDestroyFood && Input.GetKeyDown(KeyCode.Space) && curOrder != null)
         {
             //Delivered to the trash, amirite?
+            tutorialEvent.InvokeEvent(orderThrownInTrash);
             FoodDelivered();
             AudioManager.Instance.PlayGarbageCanSFX();
         }
@@ -76,8 +78,6 @@ public class DeliverFood : MonoBehaviour
     private void FoodDelivered()
     {
         //Tutorial food is delivered
-        tutorialEvent.InvokeEvent(orderDeliveredText);
-
 
         curOrder = null;
         plate.SetActive(false);
